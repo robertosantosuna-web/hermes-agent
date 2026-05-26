@@ -1,0 +1,157 @@
+INTEGRAÇÃO EVOLUTION API + WHATSAPP + LUCAS
+
+Objetivo
+Receber eventos do WhatsApp pela Evolution API, enviar para o Hermes/Lucas via webhook, interpretar o conteúdo com regras simples ou inteligência do agente, salvar o que for importante e, quando fizer sentido, responder de volta no WhatsApp ou notificar no Telegram.
+
+Fluxo geral
+1. Cliente manda mensagem no WhatsApp.
+2. Evolution API captura o evento.
+3. Evolution API faz POST para o webhook do Hermes.
+4. Hermes recebe o JSON.
+5. Lucas lê o conteúdo e identifica o que interessa.
+6. O sistema decide se vai apenas registrar, responder, ou avisar no Telegram.
+7. Se houver resposta, o Hermes chama a Evolution API para enviar a mensagem no WhatsApp.
+
+Passo a passo da integração
+
+1) Configurar a Evolution API
+- Criar ou usar a instância do WhatsApp.
+- Garantir que a Evolution API esteja conectada e recebendo mensagens.
+- Confirmar quais eventos serão enviados: mensagem de texto, áudio, imagem, grupo, privado, status de entrega, leitura, etc.
+
+2) Criar o webhook no Hermes
+- Criar uma rota específica para WhatsApp, por exemplo:
+  /webhooks/evolution-whatsapp
+- Essa rota será o ponto de entrada dos eventos enviados pela Evolution API.
+- O webhook deve aceitar o JSON bruto da Evolution API.
+
+3) Definir o formato esperado do payload
+- O ideal é a Evolution API enviar campos como:
+  - nome do contato
+  - número
+  - mensagem
+  - tipo da mensagem
+  - data/hora
+  - nome da instância
+  - se é grupo ou privado
+  - id da mensagem
+  - link do mídia, quando existir
+
+4) Normalizar os dados recebidos
+- O Hermes deve transformar o JSON bruto em uma estrutura limpa.
+- Exemplo de campos úteis:
+  - contato
+  - telefone
+  - texto
+  - tipo
+  - horario
+  - instancia
+  - chat
+  - anexos
+  - mensagem original
+
+5) Aplicar as regras de processamento
+- Ignorar eventos que não sejam mensagem útil, como status ou leitura, se você quiser.
+- Separar mensagens de texto, áudio e imagem.
+- Identificar o assunto principal.
+- Ver se a mensagem merece resposta imediata ou só registro.
+- Se for algo importante, mandar também para o Telegram.
+
+6) Processar texto
+- Se a mensagem for texto, Lucas lê e entende o contexto.
+- Pode responder de forma curta, objetiva e natural.
+- Pode também salvar resumo, intenção e estágio do atendimento.
+
+7) Processar áudio
+- Se a mensagem for áudio:
+  - baixar o arquivo
+  - transcrever com STT
+  - passar a transcrição para o Lucas
+  - montar a resposta
+  - opcionalmente devolver áudio no WhatsApp
+
+8) Processar imagem
+- Se a mensagem for imagem:
+  - baixar a imagem
+  - analisar o conteúdo visual
+  - decidir se a imagem tem relação com o atendimento
+  - responder com base no contexto
+
+9) Salvar informações úteis
+- Guardar dados de atendimento, histórico e contexto.
+- Pode ser em:
+  - JSON
+  - SQLite
+  - planilha
+  - banco de dados
+- O importante é manter o histórico do cliente e do atendimento.
+
+10) Responder no WhatsApp
+- Se a regra mandar responder, o Hermes chama a Evolution API.
+- A Evolution API envia a mensagem de volta para o contato.
+- A resposta pode ser texto ou áudio.
+
+11) Notificar no Telegram
+- Quando a mensagem for importante, o Hermes pode mandar um resumo para o Telegram.
+- Exemplo:
+  - nome do cliente
+  - número
+  - resumo da mensagem
+  - tipo de mídia
+  - status do atendimento
+
+12) Manter o contexto da conversa
+- O sistema pode guardar o último assunto do cliente.
+- Assim, a próxima mensagem continua a conversa sem perder o fio.
+- Isso evita respostas soltas e melhora o atendimento.
+
+Arquitetura sugerida
+WhatsApp
+→ Evolution API
+→ Webhook do Hermes
+→ Lucas interpreta o conteúdo
+→ Decide ação
+→ Salva dados / envia Telegram / responde WhatsApp
+
+Exemplo de regra simples
+- Se for mensagem de cliente novo: salvar e responder saudação.
+- Se for dúvida: responder a dúvida.
+- Se for áudio: transcrever e responder.
+- Se for imagem: analisar e responder.
+- Se for algo crítico: avisar no Telegram também.
+
+Exemplo de payload esperado
+{
+  "nome": "João",
+  "numero": "5511999999999",
+  "mensagem": "quero atendimento",
+  "tipo": "texto",
+  "horario": "2026-05-06T15:30:00",
+  "instancia": "meu-whatsapp",
+  "grupo": false
+}
+
+Exemplo de resposta possível do Lucas
+- Se for só registro:
+  "Cliente João enviou: quero atendimento"
+- Se for resposta automática:
+  "Olá, João. Como posso ajudar?"
+- Se for aviso interno:
+  "Novo contato no WhatsApp: João, número 5511999999999, mensagem: quero atendimento"
+
+Boas práticas
+- Separar eventos úteis de eventos de status.
+- Validar o payload antes de processar.
+- Salvar o mínimo necessário para manter contexto.
+- Não misturar atendimento com eventos irrelevantes.
+- Deixar claro quando a resposta é automática.
+- Proteger o webhook com URL difícil de adivinhar ou outra forma de segurança.
+
+Resumo final
+A ideia é usar a Evolution API só como ponte do WhatsApp.
+O Hermes/Lucas fica responsável por entender o conteúdo, aplicar regras, manter contexto e decidir a saída:
+- salvar
+- responder
+- transcrever
+- analisar imagem
+- ou notificar no Telegram.
