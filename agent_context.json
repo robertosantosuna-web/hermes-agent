@@ -1,0 +1,238 @@
+{
+  "updated": "2026-05-26T01:04:49.817432+00:00",
+  "active_tasks": [
+    {
+      "id": "pipeline-choch-fvg",
+      "description": "Pipeline CHoCH+FVG: cerebro gera sinais, agente valida no TradingView, executa no MT5 IC Markets demo",
+      "status": "in_progress",
+      "phase": "backtest+config",
+      "steps_completed": [
+        "IC Markets demo ativa (MT5 display:0)",
+        "V4 backtest confirmado (5059 padrões, 5 pares)",
+        "Filtros: gap≥5, horas[6,7,15,16], CRT, S/R Levels",
+        "USDJPY #1 (73.3% WR), GBPUSD #2 (65.5% WR)",
+        "Bot forex_bot_real.py atualizado com weekly_bias",
+        "Viés semanal 26-30 May: USDJPY BUY, GBPUSD BUY, EURUSD NEUTRAL (Iran deal)",
+        "Backtest 24/05: 10 trades CRT, 90% WR, +56.8p",
+        "Knowledge Bridge absorvido: +6 descobertas macro/forex"
+      ],
+      "steps_pending": [
+        "Mercado abre domingo 19h BRT - preparar para London session segunda",
+        "Verificar se MT5 IC Markets conectado antes do open",
+        "Ativar cron jobs de trading (pausados desde 22/05)"
+      ]
+    },
+    {
+      "id": "whatsapp-setup",
+      "description": "WhatsApp Web Edge CDP:9224 configurado. Verificar se QR code escaneado.",
+      "status": "in_progress",
+      "phase": "verification",
+      "steps_completed": [
+        "Edge systemd ativo porta 9224"
+      ],
+      "steps_pending": [
+        "Confirmar se já escaneou QR code",
+        "Listar chats não lidos"
+      ]
+    },
+    {
+      "id": "mental-pillar",
+      "description": "Pilar Mental ativado: 3 tiny habits + check-ins diários (07:00, 21:00)",
+      "status": "in_progress",
+      "phase": "foundation",
+      "steps_completed": [
+        "Base de conhecimento compilada (9 frameworks, 5 autores)",
+        "Config mental criada (~/.hermes/mental/config.json)",
+        "Scripts: mental_morning.py, mental_evening.py",
+        "Cron jobs: b0001247db35 (07:00), 0d89cce682e1 (21:00)",
+        "Primeiro check-in noturno rodado (domingo review)"
+      ],
+      "steps_pending": [
+        "Primeiro check-in matinal segunda 07:00",
+        "Semana 1: só observar, zero pressão"
+      ]
+    },
+    {
+      "id": "pillar-unificado",
+      "description": "Pilar Mental+Comportamental+Social modelado. 3 eixos, dashboard unificado, cron jobs atualizados.",
+      "status": "active",
+      "phase": "modeling_complete",
+      "steps_completed": [
+        "Config unificada: unified_pillar_config.json",
+        "Scripts: behavioral_check.py, social_check.py, unified_dashboard.py",
+        "Cron jobs atualizados: 07:00 manhã (mental+behavioral+social), 21:00 noite",
+        "Dashboard unificado com score integrado 0-10",
+        "NN-Engine: 5 neurônios + 5 sinapses",
+        "Knowledge Bridge: 3 descobertas",
+        "Health-pillar skill atualizada para modelo 3 eixos",
+        "Social-pillar skill ativa com 6 diagnósticos",
+        "Self-correction integrado ao behavioral tracker"
+      ],
+      "steps_pending": [
+        "Primeiro ciclo completo segunda 07:00",
+        "Roberto revisar General Orders (ajustar se necessário)",
+        "Criar cron para behavioral_check standalone (durante o dia)"
+      ]
+    },
+    {
+      "id": "calendar-monitor",
+      "description": "Brain Calendar Monitor: agenda e compromissos via Google Calendar + WhatsApp + Telegram",
+      "status": "active",
+      "phase": "production",
+      "steps_completed": [
+        "Script brain_calendar_monitor.py funcional",
+        "Google Calendar integrado via CDP :9222 (sem OAuth)",
+        "Parser de eventos/tarefas em português",
+        "10 tarefas semanais detectadas: Check-in Biológico diário + Calistenia 3x/semana",
+        "Knowledge Bridge: alertas de compromissos ativos",
+        "NN-Brain: 1 neurônio + 1 sinapse",
+        "Cron jobs: 56b2f5d980cb (06:00), e4352927a5f6 (16:00)"
+      ],
+      "steps_pending": [
+        "Primeiro ciclo automático 06:00 segunda-feira"
+      ]
+    },
+    {
+      "id": "smc-fractal-integration",
+      "description": "Integrar metodologia SMC Fractal (Dinei) ao bot forex — detector de swings, MSS, FVG, OB, liquidez",
+      "status": "active",
+      "phase": "mapped+tested",
+      "steps_completed": [
+        "Chat export Dinei absorvido (1500+ msgs)",
+        "ICT Concepts LuxAlgo Pine Script salvo (1143 linhas)",
+        "smc_fractal_detector.py criado",
+        "Testado em dados reais EURUSD M15 (379 candles)",
+        "Mapeado no agent_context, cortex_sync, brain_context"
+      ],
+      "steps_pending": [
+        "Integrar detector ao forex_bot_real.py",
+        "Criar cron job para scan SMC",
+        "Backtest com metodologia fractal"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "timestamp": "2026-05-24T23:01:32.039533+00:00",
+      "context": "Backtest 24/05 confirma: CRT filtro essencial. RAW 27T 59.3%WR vs CRT 10T 90%WR. 30.7pp boost.",
+      "outcome": "Manter CRT_ENABLED=True. Filtro reduz trades mas triplica assertividade."
+    },
+    {
+      "timestamp": "2026-05-24T23:01:32.039537+00:00",
+      "context": "Viés semanal definido: Iran nuclear deal close → risk-on. USDJPY BUY bias. Crude oil $94.73 (2-week low).",
+      "outcome": "Arquivo weekly_bias.json criado com viés para 26-30 May. Bot lê automaticamente."
+    },
+    {
+      "timestamp": "2026-05-23T23:11:52.884330+00:00",
+      "context": "OANDA demo registration blocked by anti-bot. IC Markets oferece spreads mais baixos (0.0 pips raw).",
+      "outcome": "Migrar para IC Markets demo."
+    }
+  ],
+  "knowledge_updates": [
+    {
+      "from": "brain",
+      "timestamp": "2026-05-25T19:01:25.931920+00:00",
+      "summary": "[GBPUSD] 125 FVGs detectados em 5 dias M15 — 61 bullish, 64 bearish — gap médio: 3.9 pips, máximo: 52.7 pips"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-25T19:01:25.968117+00:00",
+      "summary": "[USDJPY] 53 FVGs detectados em 5 dias M15 — 28 bullish, 25 bearish — gap médio: 3.0 pips, máximo: 25.8 pips"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-25T19:01:26.004611+00:00",
+      "summary": "[AUDUSD] 179 FVGs detectados em 5 dias M15 — 87 bullish, 92 bearish — gap médio: 3.0 pips, máximo: 32.7 pips"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-25T19:01:26.040938+00:00",
+      "summary": "[CHART] 3462 padrões gráficos detectados em 7 pares"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-25T21:03:21.200550+00:00",
+      "summary": "[EURUSD] 109 FVGs detectados em 5 dias M15 — 46 bullish, 63 bearish — gap médio: 3.8 pips, máximo: 43.3 pips"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-25T21:03:21.238459+00:00",
+      "summary": "[GBPUSD] 128 FVGs detectados em 5 dias M15 — 62 bullish, 66 bearish — gap médio: 3.9 pips, máximo: 52.7 pips"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-25T21:03:21.277755+00:00",
+      "summary": "[USDJPY] 54 FVGs detectados em 5 dias M15 — 28 bullish, 26 bearish — gap médio: 2.9 pips, máximo: 25.8 pips"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-25T21:03:21.314353+00:00",
+      "summary": "[AUDUSD] 181 FVGs detectados em 5 dias M15 — 88 bullish, 93 bearish — gap médio: 3.0 pips, máximo: 32.7 pips"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-25T21:03:21.350706+00:00",
+      "summary": "[CHART] 3464 padrões gráficos detectados em 7 pares"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-25T21:34:22.137130+00:00",
+      "summary": "BACKTEST V5 (25/05): London Close 30d EURJPY+USDJPY → 17t/41.2%WR/+4.1p. EURJPY 6t/50%WR/+7.6p, USDJPY 11t/36%WR/-3.5p. Sem S/R automático, WR cai em períodos mais longos. Necessário implementar S/R ("
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-25T23:01:28.000326+00:00",
+      "summary": "[EURUSD] 85 FVGs detectados em 5 dias M15 — 38 bullish, 47 bearish — gap médio: 4.3 pips, máximo: 43.3 pips"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-25T23:01:28.037802+00:00",
+      "summary": "[GBPUSD] 101 FVGs detectados em 5 dias M15 — 54 bullish, 47 bearish — gap médio: 4.3 pips, máximo: 52.7 pips"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-25T23:01:28.073750+00:00",
+      "summary": "[USDJPY] 37 FVGs detectados em 5 dias M15 — 19 bullish, 18 bearish — gap médio: 3.3 pips, máximo: 25.8 pips"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-25T23:01:28.110159+00:00",
+      "summary": "[AUDUSD] 142 FVGs detectados em 5 dias M15 — 74 bullish, 68 bearish — gap médio: 3.0 pips, máximo: 32.7 pips"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-25T23:01:28.146357+00:00",
+      "summary": "[CHART] 3409 padrões gráficos detectados em 7 pares"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-26T01:01:38.438935+00:00",
+      "summary": "[EURUSD] 86 FVGs detectados em 5 dias M15 — 39 bullish, 47 bearish — gap médio: 4.3 pips, máximo: 43.3 pips"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-26T01:01:38.481358+00:00",
+      "summary": "[GBPUSD] 105 FVGs detectados em 5 dias M15 — 55 bullish, 50 bearish — gap médio: 4.2 pips, máximo: 52.7 pips"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-26T01:01:38.526377+00:00",
+      "summary": "[USDJPY] 38 FVGs detectados em 5 dias M15 — 20 bullish, 18 bearish — gap médio: 3.2 pips, máximo: 25.8 pips"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-26T01:01:38.566361+00:00",
+      "summary": "[AUDUSD] 144 FVGs detectados em 5 dias M15 — 74 bullish, 70 bearish — gap médio: 3.0 pips, máximo: 32.7 pips"
+    },
+    {
+      "from": "brain",
+      "timestamp": "2026-05-26T01:01:38.604384+00:00",
+      "summary": "[CHART] 3407 padrões gráficos detectados em 7 pares"
+    },
+    {
+      "from": "agent",
+      "timestamp": "2026-05-26T01:04:49.817452+00:00",
+      "summary": "SMC FRACTAL (Dinei): Metodologia completa absorvida e mapeada. Script smc_fractal_detector.py criado. Detecta pivôs 5+1, MSS, FVGs, Order Blocks, Liquidez. Fonte: chat export 04-11/05/2026 + ICT Concepts LuxAlgo Pine Script."
+    }
+  ]
+}

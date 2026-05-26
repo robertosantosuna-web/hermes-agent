@@ -45,8 +45,16 @@
       "context": null,
       "sent_at": "2026-05-26T00:31:10.804931+00:00",
       "status": "answered",
-      "response": "correções aplicadas",
-      "answered_at": "2026-05-26T00:35:02.300159+00:00"
+      "response": "ESTADO ATUAL DO APP\n- MindCoach Pro está marcado como v5 no HTML (`data-version=\"v5\"`), tema dark, PWA com manifest e service worker.\n- UI principal: dashboard em cards, dock inferior fixo com Auth, Painel, Chat e Compromissos.\n- Features ativas no HTML: carregamento de `/data.json`, renderização de Forex/Pilares/Cérebro/Sistema/Alertas, chat via `/chat_api/chat`, autorizações via `/chat_api/auth`, calendário via `/api/calendar`, notificações browser/service worker, reset manual de cache por 3 toques no indicador de versão, live reload local em `ws://127.0.0.1:9879`.\n- `data.json` contém snapshot operacional: forex bias semanal, backtest, brain updates, pilares, agenda, alertas e status técnico. O app online parece ser uma casca SPA alimentada por esse JSON e por APIs auxiliares.\n- `sw.js` usa network-first para GET, cache dinâmico, skipWaiting/clients.claim, purge de caches antigos, push notification e notificationclick.\n- `manifest.json` está simples e funcional para PWA standalone, com ícones 192/512 e tema dark.\n\nPROBLEMAS VISÍVEIS\n1. Inconsistência forte de versões: HTML diz v5, badge mostra v45, reset altera para v27, service worker comenta v4, usa `SW_VERSION = 8`, registro chama `/sw.js?v=16`, `core/main.js?v=37`, `data.json` diz `version: 4-deploy`. Isso dificulta diagnóstico e pode causar cache/reload confuso.\n2. Potencial loop/reload agressivo: SW chama skipWaiting + clients.claim + postMessage reload, e o HTML também recarrega em controllerchange/updatefound/message. Em deploys ou múltiplas abas isso pode gerar reload inesperado.\n3. Cache do SW é amplo demais: o fetch handler cacheia todo GET 200, incluindo APIs como `/chat_api/chat`, `/chat_api/auth`, `/api/calendar` e possivelmente `data.json`. Isso pode servir dados sensíveis ou obsoletos offline e poluir cache com respostas dinâmicas.\n4. Chat pode duplicar mensagens: `pollChatResponse()` busca `since=0` sempre e adiciona todas as respostas de assistant/hermes novamente a cada envio. Não há controle de last id/timestamp nem dedupe.\n5. Comentário vs implementação do chat divergem: comentário diz que chat real é via WebSocket/main.js, mas o HTML inline envia REST e faz polling. Isso indica dívida de arquitetura ou duas versões convivendo.\n6. `loadNeuralData()` inline praticamente nunca roda porque `core/main.js` sempre existe no DOM; o HTML tem fallback, mas a presença do script bloqueia o carregamento inline mesmo se o script falhar em runtime.\n7. `togglePanel()` tem condição frágil: também depende de `!document.querySelector(script[src*=main.js])`, então o fallback inline não recarrega no app real. Só dispara evento esperando que main.js trate.\n8. Segurança/XSS parcial: mensagens de chat e calendário usam escapeHtml, mas dashboard injeta valores de `data.json` diretamente em HTML em vários pontos (`pilares`, `tech_status`, alertas, macro fed). Se o JSON vier contaminado, pode injetar HTML/script.\n9. Autorização injeta `r.id` direto dentro de onclick string. Se ids não forem estritamente seguros, há risco de quebra de atributo/JS injection.\n10. Timer de auth pode acumular: ao abrir Auth várias vezes, `authPollTimer = setInterval(...)` é criado sem limpar um timer anterior antes. Normalmente o close limpa, mas estados intermediários podem deixar polling duplicado.\n11. UX mobile: `body{overflow:hidden}` e painéis com dock deslocado `translateY(-60dvh)` podem criar estados estranhos em telas pequenas/teclado virtual. Chat foca input ao abrir e pode brigar com altura dinâmica.\n12. Notificação: `notificationPermission` começa como default e não é sincronizado com `Notification.permission` ao carregar, então usuários que já concederam permissão podem não receber `notifyTask()` até chamar request novamente.\n13. Manifest minimalista: falta `scope`, `id`, `orientation`, screenshots/shortcuts e propósito atualizado. A descrição ainda fala “Bolha viva”, mas a UI atual é dock/painel.\n14. `data.json` tem dados duplicados em alertas e sinais inconsistentes: versão 4-deploy em app v5, alertas Martin/email repetidos, `sinais_pendentes: 1` mas `forex.signals: []`, `mt5: offline (domingo)` embora build seja 2026-05-25.\n15. Dados sensíveis/operacionais aparecem no JSON público: saldo/equity, emails não lidos, detalhes de oportunidades, status de bots, browser automation, bridge local. Para app público, isso merece revisão de exposição.\n\nSUGESTÕES PRIORIZADAS\nP0 — Corrigir cache/reload e exposição de dados:\n- Unificar versão em uma fonte única: APP_VERSION/SW_VERSION/asset version/data version.\n- Fazer SW cachear apenas assets estáticos conhecidos: `/`, `/index.html`, `/core/*.js`, CSS, ícones, manifest. Excluir `/api/`, `/chat_api/`, `/data.json` ou tratá-los network-only/no-store.\n- Reduzir mecanismo de reload para um caminho só, com reload apenas quando há novo SW controlando e sem loops.\n- Revisar o que `data.json` expõe publicamente; separar snapshot público de dados pessoais/sensíveis.\n\nP1 — Estabilizar features principais:\n- Implementar dedupe/last cursor no chat (`since=lastTimestampOrId`) e estado de envio/erro.\n- Unificar chat: escolher WebSocket via `core/main.js` ou REST polling inline, não os dois.\n- Corrigir fallback de dashboard para funcionar se `main.js` falhar.\n- Escapar todos os campos vindos de `data.json` e remover onclick inline em auth, usando event listeners/data attributes.\n\nP2 — Melhorar UX e confiabilidade:\n- Sincronizar `notificationPermission = Notification.permission` no boot.\n- Limpar intervalos antes de criar novos (`authPollTimer`).\n- Ajustar painéis para teclado mobile e safe area, evitando dock-up fixo de 60dvh.\n- Remover live reload do build de produção ou guardá-lo por hostname/local dev.\n\nP3 — PWA/polimento:\n- Atualizar manifest com descrição real, scope/id, shortcuts e metadados.\n- Normalizar os dados do `data.json`: dedupe de alertas, datas coerentes, nomes de campos consistentes.\n- Separar CSS/JS inline em módulos quando a versão estabilizar, para manutenção e CSP.\n\nO QUE IMPLEMENTAR PRIMEIRO\n1. Primeiro eu atacaria o service worker: excluir APIs/dados dinâmicos do cache, unificar versão e simplificar reload. Isso reduz bugs fantasmas e risco de dados velhos/sensíveis.\n2. Em seguida corrigiria chat/auth: dedupe no chat, uma arquitetura única REST ou WS, escape total e remoção de onclick com ids injetados.\n3. Depois revisaria `data.json`: separar público/privado e limpar duplicidades/inconsistências.\n4. Por fim faria o polimento de UX/PWA: manifest, notificações, teclado mobile e remoção do live reload em produção.",
+      "answered_at": "2026-05-26T00:39:24.631772+00:00"
+    },
+    {
+      "id": "ctx-0006",
+      "direction": "RIGHT→OTHER",
+      "type": "notification",
+      "content": "P0 código concluído: 5 correções aplicadas; deploy bloqueado por DNS/rede no sandbox (oauth2.googleapis.com não resolve)",
+      "sent_at": "2026-05-26T00:45:48.727711+00:00",
+      "status": "unread"
     }
   ],
   "pending_tasks": [],
@@ -62,11 +70,27 @@
     "auth_rule": {
       "value": "Apenas Roberto autoriza mudanças estruturais (config.yaml, skills, cron jobs, modelos, governança). Lobos implementam e sugerem, mas não alteram estrutura sem autorização.",
       "updated_at": "2026-05-26T00:29:30.288041+00:00"
+    },
+    "sprint": {
+      "value": "P0-MindCoach-v6",
+      "updated_at": "2026-05-26T00:42:13.349195+00:00"
+    },
+    "hermes_status": {
+      "value": "Dados limpos, manifest atualizado. Aguardando Codex deploy.",
+      "updated_at": "2026-05-26T00:42:13.400306+00:00"
+    },
+    "smc_fractal": {
+      "value": "Mapeado: smc_fractal_detector.py, ICT Concepts LuxAlgo, pivôs 5+1, MSS, FVG, OB, Liquidez",
+      "updated_at": "2026-05-26T01:04:49.864818+00:00"
+    },
+    "smc_source": {
+      "value": "Dinei chat export 04-11/05/2026 + LuxAlgo Pine Script",
+      "updated_at": "2026-05-26T01:04:49.902827+00:00"
     }
   },
   "stats": {
     "left_queries": 2,
-    "right_answers": 2,
+    "right_answers": 3,
     "delegations": 0
   }
 }

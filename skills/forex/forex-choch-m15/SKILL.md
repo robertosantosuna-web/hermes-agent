@@ -5,6 +5,13 @@ description: "V5 FVG ICT M15 + Macro Validation + Weekly Bias. 5059 padrões, ga
 
 # Forex CHoCH+FVG @ M15 — V5 (25/05/2026)
 
+## SMC Fractal — Metodologia Dinei (absorvido 26/05/2026)
+
+Análise institucional baseada em Smart Money Concepts com leitura fractal de timeframes.
+Fractal de timeframe maior vira range 2 TFs abaixo. Pivôs validados com 5+1 candles.
+Pipeline: Semanal→Diário/H4→H1/M15→M5/M1. MSS = liquidez + retorno.
+Ver: **[references/smc-fractal-dinei.md](references/smc-fractal-dinei.md)**.
+
 ## V5 — Macro Validation + Weekly Bias (25/05/2026)
 
 O bot agora integra validação macro de 3 camadas (`macro_validation_score`) e viés semanal.
@@ -18,6 +25,10 @@ O bot agora integra validação macro de 3 camadas (`macro_validation_score`) e 
 - Backtest V4-V5 completo: **[references/backtest-v4-v5-2026-05-25.md](references/backtest-v4-v5-2026-05-25.md)**
 
 ⚠️ S/R filter ainda é manual (validação visual do agente). Automação pendente (swing highs/lows).
+   **NOVO (26/05):** SMC Fractal do Dinei absorvido — pivôs validados com 5+1 (ta.pivothigh/low),
+   MSS não exige rompimento de topo, OB = extremo do trecho anterior. Ver:
+   **[references/smc-fractal-dinei.md](references/smc-fractal-dinei.md)**.
+   ICT Concepts LuxAlgo Pine Script disponível em `forex/ict_concepts_luxalgo.pine` (1143 linhas).
 
 ### Bot V5 (`forex_bot_real.py`)
 - **Viés semanal**: carregado de `forex/weekly_bias.json` (atualizado via Knowledge Bridge)
@@ -143,6 +154,61 @@ Detecta footprints institucionais usando APENAS price action. Guia: **[reference
 **Upthrust:** Falso breakout acima da resistência → SELL.
 
 Integração M15: FVG com volume BAIXO = skip. FVG com volume ALTO = entrar.
+
+
+## SMC Fractal — Metodologia Dinei (absorvido 26/05/2026)
+
+Metodologia completa de Smart Money Concepts absorvida do chat export Dinei + Lucas (04-11/05/2026).
+
+### Princípio Fractal
+
+O fractal de um timeframe maior vira o range do timeframe 2 tempos abaixo.
+1 tempo abaixo mostra apenas o CHOCH inicial, não o range completo.
+
+```
+Mensal → Semanal (CHOCH) → Diário (fractal=range) → H4 → H1 → M15/M5
+```
+
+### Pivôs (5+1)
+
+Validados com `ta.pivothigh(high, 5, 1)` / `ta.pivotlow(low, 5, 1)`:
+- 5 candles atrás: o pivô tomou liquidez de 5 candles anteriores
+- 1 candle à frente: confirma que não foi violado imediatamente
+
+### MSS (Market Structure Shift)
+
+NÃO exige rompimento de topo/fundo oposto. Basta:
+1. Preço faz perna de alta/baixa
+2. Toma liquidez do extremo anterior
+3. Retorna → já é considerado mudança de estrutura (LuxAlgo)
+
+### Order Blocks
+
+Extremo do trecho ANTERIOR ao rompimento (não é "última vela contrária"):
+- OB bullish: menor low do trecho antes do rompimento de alta
+- OB bearish: maior high do trecho antes do rompimento de baixa
+
+### Scripts
+
+- `scripts/smc_fractal_detector.py` — Detector completo: swings, MSS, FVGs, OB, liquidez
+- `forex/smc_fractal_dinei.md` — Metodologia completa documentada
+- `forex/ict_concepts_luxalgo.pine` — Indicador Pine Script v5 (1143 linhas)
+
+### Fontes
+
+- **TradingEconomics Calendar**: https://tradingeconomics.com/calendar (sem Cloudflare)
+- **ICT Concepts LuxAlgo**: indicador Pine Script com MSS, BOS, FVG, OB, Liquidez, Killzones
+- **Investing.com**: ❌ Bloqueado por Cloudflare — NÃO usar
+
+### Uso
+
+```bash
+python3 scripts/smc_fractal_detector.py                          # EURUSD M15
+python3 scripts/smc_fractal_detector.py --pair GBPUSD --tf 1h   # GBPUSD H1
+python3 scripts/smc_fractal_detector.py --json                   # JSON para bot
+```
+
+Ver referência completa: [references/smc-fractal-dinei.md](references/smc-fractal-dinei.md)
 
 ## Bugs Corrigidos (20/05/2026)
 
@@ -494,6 +560,19 @@ TradingView.com protege dados internos do chart via minificação pesada. TODAS 
 **A única informação confiável via CDP é o preço no `<title>` da página.**
 
 ⚠️ **tv_data.py v1 (obsoleto):** Versão original acumulava cotações pontuais como "OHLC" (todos campos = bid). Resultado: candles sintéticos idênticos, zero utilidade pra análise. Substituído pelo v2 híbrido.
+
+### ⚠️ Pitfall: CDP NÃO extrai OHLC do chart (25/05/2026)
+
+TradingView.com protege dados internos do chart via minificação pesada...
+
+[...existing content kept...]
+
+### ⚠️ Pitfall: Investing.com bloqueado por Cloudflare (26/05/2026)
+
+Investing.com Economic Calendar (`https://br.investing.com/economic-calendar`) é bloqueado
+por Cloudflare — acesso anônimo e CDP retornam bloqueio. **Alternativa confirmada:**
+TradingEconomics Calendar (`https://tradingeconomics.com/calendar`) — HTTP 200, sem
+Cloudflare, ~2MB de dados. Filtrável por país e impacto. Ideal para USD, EUR, GBP news.
 
 ### ⚠️ Pitfall: Bot sem sinais = normal na sessão asiática (25/05/2026)
 
