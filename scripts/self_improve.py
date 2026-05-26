@@ -66,7 +66,8 @@ def analyze_token_efficiency():
     tokens_file = Path(BASE) / "monitor" / "token_usage.json"
     
     # Estimar pelos logs de sessão
-    sessions = list(Path(BASE) / "logs" / "sessions")
+    sessions_dir = Path(BASE) / "logs" / "sessions"
+    sessions = list(sessions_dir.iterdir()) if sessions_dir.exists() else []
     
     today = datetime.now().strftime("%Y-%m-%d")
     today_sessions = [s for s in sessions if today in s.name]
