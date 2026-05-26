@@ -1,0 +1,15 @@
+{
+  "date": "2026-05-19",
+  "stats": {
+    "trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "wr": 0.0,
+    "pnl_pips": 0,
+    "open_positions": 0,
+    "pairs_traded": [],
+    "last_updated": "2026-05-19T20:47:45.585088"
+  },
+  "closed_trades": [],
+  "open_positions": []
+}

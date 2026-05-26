@@ -1,0 +1,177 @@
+{
+  "strategy": "V4_UNIFIED",
+  "pair": "USDJPY",
+  "timeframe": "M15",
+  "timestamp": "2026-05-23T19:21:52.388165",
+  "filters_tested": [
+    "gap>=5",
+    "time_of_day",
+    "preceding_candle",
+    "3_candle_timeout"
+  ],
+  "setups_found": [
+    {
+      "candle": 2,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 4,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 9,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 12,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 15,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 18,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 22,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 26,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 28,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 32,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 35,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 38,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 43,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 46,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 49,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 52,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 55,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 58,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 60,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 62,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 67,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 70,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 73,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 76,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    },
+    {
+      "candle": 79,
+      "price": 159.176,
+      "direction": "bull",
+      "title": "USDJPY 159.176 \u25b2 +0.16%"
+    }
+  ],
+  "decisions": [],
+  "summary": {
+    "candles_scanned": 80,
+    "setups_found": 25,
+    "screenshots": 5,
+    "v4_filters_applied": true
+  },
+  "comparison": {
+    "algo_total_fvg": 498,
+    "algo_fvg_wr": 59.88,
+    "algo_overall_wr": 50.35,
+    "replay_visual_confirmation": "patterns visible in screenshots"
+  }
+}

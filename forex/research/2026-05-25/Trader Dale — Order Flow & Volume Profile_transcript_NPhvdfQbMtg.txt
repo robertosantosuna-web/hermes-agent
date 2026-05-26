@@ -1,0 +1,140 @@
+Orderflow, a beginner's guide to market
+dynamics. Orderflow is the real-time
+visualization of market orders as they
+execute. It shows you exactly where
+buyers and sellers are active in the
+market. First, order flow provides
+real-time market data. You see actual
+buying and selling happening right now,
+not just price movements. Second, it
+reveals volume at each price level. You
+can see exactly how many contracts are
+traded at specific prices. And third,
+order flow identifies market imbalances.
+It helps you recognize when buyers or
+sellers are dominating the market.
+Remember, order flow is the footprint of
+market participants.
+Let's understand the battle between
+buyers and sellers. On one side, we have
+buyers represented by green or upward
+movements. They show aggressive buying
+pressure pushing prices higher. On the
+other side, sellers shown in red or
+downward movements. They represent
+aggressive selling pressure pushing
+prices lower. The market delta tells you
+who's winning. A positive delta means
+buyers are in control. A negative delta
+means sellers are dominating. The key
+insight order flow helps you see who is
+winning the battle at each price level.
+Now let's read the order flow chart.
+Each row represents a price level. On
+the left you see the price. In the
+middle, the order flow bar shows buy
+volume on the right side in green and
+sell volume on the left side in red. The
+numbers tell the story. Larger buy
+volumes indicate strong buying interest
+at that price. Larger sell volumes show
+selling pressure. The delta column shows
+the difference. A positive delta means
+more buying than selling. A negative
+delta means more selling than buying.
+When you see a strong positive delta
+like plus 177, that's a signal of heavy
+buying activity. Key points to remember,
+larger volumes show key levels. Positive
+delta equals buying pressure. And watch
+for imbalances at support and resistance
+zones. Each price level tells a story of
+supply and demand. Understanding delta
+is crucial. The formula is simple.
+Buyers minus sellers equals delta. Let's
+see it in action. If buyers trade 850
+contracts and sellers trade 620
+contracts, the delta is plus 230.
+This means buyers are more aggressive.
+Delta comes in three forms. A positive
+delta like + 230 shows strong buying. A
+neutral delta around +15 indicates
+market equilibrium and a negative delta
+like - 185 reveals strong selling.
+Positive delta means more aggressive
+buying. Near zero delta shows market
+equilibrium and negative delta indicates
+more aggressive selling.
+Volume profile analysis reveals where
+the most trading activity occurred. High
+volume nodes or HVN are price levels
+with lots of trading activity. These
+often act as support or resistance
+because many traders have interest at
+these prices.
+The point of control or PC is the price
+level with the highest volume. This is
+often the fairest price where most
+traders agreed. Low volume nodes or LVN
+are areas with little trading. Price
+often moves quickly through these zones
+because there's less interest. The value
+area contains 70% of the trading volume,
+typically between key price levels. Pro
+tip, look for trades at low volume node
+areas. Price often accelerates through
+these zones.
+Let's start to look at a real trading
+scenario. As the chart develops, we can
+see the market is in a clear downtrend.
+Notice the series of red bars. Sellers
+are firmly in control here. We can
+confirm this by looking at the large
+negative delta at the bottom of these
+bars. See the minus 282?
+That's aggressive selling pushing the
+price down. But watch what happens right
+here at the low. This is the crucial
+moment. Despite all that heavy selling
+pressure, the price is failing to push
+significantly lower. The sellers are
+running out of steam and it looks like
+buyers are starting to absorb their
+orders. And there it is. Watch this next
+candle. The momentum completely flips.
+We get our first candle with a strong
+positive delta of + 104. That is our
+confirmation signal. The sellers are
+exhausted and buyers have now stepped in
+with force taking control of the market.
+From this point you can see the market
+starts to rally giving us a clear high
+probability entry to go long. This is
+how you use the footprint to see the
+story behind the price.
+Here are the key takeaways. Order flow
+equals real market activity. It shows
+actual buying and selling happening
+right now. Delta reveals market balance.
+Positive delta means buyers are winning.
+Negative delta means sellers are
+winning. Volume profile shows key
+levels. The point of control and high
+volume nodes act as support and
+resistance.
+Combine order flow with price action.
+Order flow confirms traditional
+technical analysis.
+And practice makes perfect. Start with
+sim trading to build pattern
+recognition. Ready to see what the
+market is really doing?
+Thanks for watching. Ready to apply
+these concepts? Get our free orderflow
+pack for Ninja Trader 8 exclusively from
+hammer.com.
+Click the link in the description to
+download it now and start analyzing the
+market like a pro.
+Remember, this is educational content,
+not financial advice.

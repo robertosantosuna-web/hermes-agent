@@ -1,0 +1,189 @@
+{
+  "analysis_metadata": {
+    "date": "2026-05-23",
+    "timeframe": "M15",
+    "source_files": [
+      "/home/roberto/.hermes/forex/simulations/hermes_eurusd_analysis.json",
+      "/home/roberto/.hermes/forex/simulations/brain_gbpusd_analysis.json"
+    ],
+    "pattern_type": "FVG (BULLISH_FVG + BEARISH_FVG)",
+    "total_fvg_with_outcome": 1306,
+    "total_wins": 667,
+    "total_losses": 639,
+    "baseline_win_rate_pct": 51.1,
+    "total_fvg_with_no_decision": 1523,
+    "no_decision_rate_pct": 14.2
+  },
+
+  "findings": [
+    {
+      "factor": "gap_size_pips",
+      "rank": 1,
+      "importance": "PRIMARY FILTER",
+      "description": "Gap size is the single strongest predictor of trade outcome for FVG patterns.",
+      "details": {
+        "gap_0": {"wins": 68, "losses": 123, "wr_pct": 35.6},
+        "gap_1": {"wins": 182, "losses": 253, "wr_pct": 41.8},
+        "gap_2": {"wins": 128, "losses": 120, "wr_pct": 51.6},
+        "gap_3": {"wins": 41, "losses": 30, "wr_pct": 57.7},
+        "gap_4": {"wins": 92, "losses": 37, "wr_pct": 71.3},
+        "gap_5": {"wins": 64, "losses": 29, "wr_pct": 68.8}
+      },
+      "threshold_cumulative": {
+        "gap_gte_3": {"wins": 289, "losses": 143, "total": 432, "wr_pct": 66.9, "retained_pct": 33.1},
+        "gap_gte_4": {"wins": 248, "losses": 113, "total": 361, "wr_pct": 68.7, "retained_pct": 27.6},
+        "gap_gte_5": {"wins": 156, "losses": 76, "total": 232, "wr_pct": 67.2, "retained_pct": 17.8},
+        "gap_gte_6": {"wins": 92, "losses": 47, "total": 139, "wr_pct": 66.2, "retained_pct": 10.6}
+      }
+    },
+    {
+      "factor": "hour_of_day",
+      "rank": 2,
+      "importance": "SECONDARY FILTER",
+      "description": "Time of day dramatically affects WR. Evening hours are toxic.",
+      "best_hours": [
+        {"hour": 7, "wins": 45, "losses": 16, "wr_pct": 73.8},
+        {"hour": 6, "wins": 55, "losses": 20, "wr_pct": 73.3},
+        {"hour": 16, "wins": 39, "losses": 16, "wr_pct": 70.9},
+        {"hour": 15, "wins": 34, "losses": 16, "wr_pct": 68.0},
+        {"hour": 9, "wins": 36, "losses": 20, "wr_pct": 64.3}
+      ],
+      "worst_hours": [
+        {"hour": 20, "wins": 3, "losses": 24, "wr_pct": 11.1},
+        {"hour": 21, "wins": 3, "losses": 9, "wr_pct": 25.0},
+        {"hour": 2, "wins": 14, "losses": 38, "wr_pct": 26.9},
+        {"hour": 3, "wins": 19, "losses": 36, "wr_pct": 34.5}
+      ],
+      "session_breakdown": {
+        "Asian_0_6": {"wins": 195, "losses": 214, "wr_pct": 47.7},
+        "London_AM_7_9": {"wins": 111, "losses": 69, "wr_pct": 61.7},
+        "London_PM_10_12": {"wins": 105, "losses": 102, "wr_pct": 50.7},
+        "NY_AM_12_14": {"wins": 113, "losses": 87, "wr_pct": 56.5},
+        "NY_PM_15_17": {"wins": 100, "losses": 56, "wr_pct": 64.1},
+        "Evening_18_23": {"wins": 82, "losses": 139, "wr_pct": 37.1}
+      }
+    },
+    {
+      "factor": "direction",
+      "rank": 3,
+      "importance": "MODERATE",
+      "description": "BEARISH_FVG outperforms BULLISH_FVG without filters but converges with gap filter.",
+      "details": {
+        "BULLISH_FVG_unfiltered": {"wins": 300, "losses": 334, "wr_pct": 47.3},
+        "BEARISH_FVG_unfiltered": {"wins": 367, "losses": 305, "wr_pct": 54.6},
+        "BULLISH_FVG_gap_gte_5": {"wins": 86, "losses": 40, "wr_pct": 68.3},
+        "BEARISH_FVG_gap_gte_5": {"wins": 70, "losses": 36, "wr_pct": 66.0}
+      }
+    },
+    {
+      "factor": "sl_distance",
+      "rank": null,
+      "importance": "NOT USEFUL",
+      "description": "97% of FVG trades use SL=5 pips. Almost no variation. Cannot use as filter."
+    },
+    {
+      "factor": "pattern_strength",
+      "rank": null,
+      "importance": "NOT AVAILABLE",
+      "description": "All FVG patterns have strength='N/A'. This field is only computed for BOS/CHOCH patterns."
+    },
+    {
+      "factor": "consecutive_streaks",
+      "rank": 4,
+      "importance": "RISK MANAGEMENT",
+      "description": "Gap>=5 filter dramatically reduces loss streak severity.",
+      "unfiltered": {
+        "max_win_streak": 17,
+        "max_loss_streak": 20,
+        "mean_win_streak": 3.5,
+        "mean_loss_streak": 3.3,
+        "streaks_gte_5": {"win": 53, "loss": 42},
+        "streaks_gte_10": {"win": 8, "loss": 9}
+      },
+      "filtered_gap_gte_5": {
+        "max_win_streak": 13,
+        "max_loss_streak": 7,
+        "mean_win_streak": 3.3,
+        "mean_loss_streak": 1.6,
+        "streaks_gte_5": {"win": 10, "loss": 1},
+        "streaks_gte_10": {"win": 2, "loss": 0},
+        "loss_streak_len_1_pct": 62.5
+      }
+    },
+    {
+      "factor": "candle_index_ordinal",
+      "rank": 5,
+      "importance": "MINOR",
+      "description": "Slight edge for earlier candles but largely subsumed by time-of-day. Not independently actionable."
+    }
+  ],
+
+  "recommended_filters": [
+    {
+      "tier": "conservative",
+      "label": "gap_size_pips >= 5 AND hour NOT in [18,19,20,21,22,23]",
+      "wins": 144,
+      "losses": 66,
+      "total": 210,
+      "wr_pct": 68.6,
+      "delta_over_baseline_pct": 17.5,
+      "retention_pct": 16.1
+    },
+    {
+      "tier": "balanced",
+      "label": "gap_size_pips >= 4 AND hour NOT in [18,19,20,21,22,23]",
+      "wins": 224,
+      "losses": 100,
+      "total": 324,
+      "wr_pct": 69.1,
+      "delta_over_baseline_pct": 18.1,
+      "retention_pct": 24.8
+    },
+    {
+      "tier": "aggressive",
+      "label": "gap_size_pips >= 3 AND hour NOT in [18,19,20,21,22,23]",
+      "wins": 259,
+      "losses": 126,
+      "total": 385,
+      "wr_pct": 67.3,
+      "delta_over_baseline_pct": 16.2,
+      "retention_pct": 29.5
+    },
+    {
+      "tier": "simple",
+      "label": "gap_size_pips >= 4 (no time filter)",
+      "wins": 248,
+      "losses": 113,
+      "total": 361,
+      "wr_pct": 68.7,
+      "delta_over_baseline_pct": 17.6,
+      "retention_pct": 27.6
+    }
+  ],
+
+  "key_insights": [
+    "Gap=0 patterns have 35.6% WR - they are toxic and should ALWAYS be filtered out",
+    "Gap=1 patterns have 41.8% WR - also below baseline, should be filtered",
+    "The gap>=5 threshold alone eliminates 82.2% of trades but raises WR from 51.1% to 67.2%",
+    "Evening hours (18-23) are a kill zone: 37.1% WR on 221 trades",
+    "Hour 20 alone: 11.1% WR (3W, 24L) - literally never trade this hour",
+    "London open (hours 6-7) is the best: 73.5% WR combined (100W, 36L)",
+    "NY PM (hours 15-16) is second best: 69.5% WR combined (73W, 32L)",
+    "With gap>=5 filter, max loss streak drops from 20 to 7 (65% reduction)",
+    "With gap>=5 filter, 62.5% of loss streaks are length 1 (single loss)",
+    "NO_DECISION rate increases from 14.2% to 24.9% with gap>=5 filter",
+    "BEARISH_FVG is significantly better than BULLISH_FVG without filters (54.6% vs 47.3%)",
+    "SL distance and strength are NOT useful filters for FVG patterns"
+  ],
+
+  "numeric_thresholds_summary": {
+    "gap_size_pips_min": 5,
+    "gap_size_ideal_range": [4, 9],
+    "avoid_hours": [18, 19, 20, 21, 22, 23],
+    "avoid_hours_extended": [2, 3, 5, 10, 19, 20, 21, 22, 23],
+    "best_hours": [6, 7, 15, 16],
+    "prefer_direction": "BEARISH_FVG (if unfiltered)",
+    "max_position_sizing_loss_streak": 7,
+    "unfiltered_max_loss_streak": 20
+  }
+}

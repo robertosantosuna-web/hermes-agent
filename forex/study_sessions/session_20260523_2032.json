@@ -1,0 +1,56 @@
+{
+  "started": "2026-05-23T23:32:53.196212+00:00",
+  "phases": {
+    "research_collector": {
+      "status": "completed",
+      "output": "\ud83d\udcda Forex Research Collector \u2014 2026-05-23\n\u25b6 YouTube transcripts...\n  0 transcripts\n\u25b6 RSS feeds...\n"
+    },
+    "parameter_backtest": {
+      "status": "completed",
+      "output": "============================================================\nROTINA DI\u00c1RIA FOREX \u2014 ESTUDO DE PAR\u00c2METROS\nData: 2026-05-23 20:32\n============================================================\n\n\ud83d\udce5 FASE 1: Coletando dados...\n  EURUSD: 8427 candles\n    Melhor: RR=2.0 ATRf=0.08 WR=24.2% PnL=-342.6pips Score=0\n  GBPUSD: 8428 candles\n    Melhor: RR=3.5 ATRf=0.12 WR=17.8% PnL=272.3pips Score=48.5\n  USDJPY: 8391 candles\n    Melhor: RR=2.0 ATRf=0.08 WR=25.0% PnL=-2046.2pips Score=0\n  EURJPY: 8427 candles\n    Melhor: RR=2.0 ATRf=0.08 WR=26.1% PnL=-2468.5pips Score=0\n  AUDUSD: 8428 candles\n    Melhor: RR=2.0 ATRf=0.08 WR=35.9% PnL=745.2pips Score=267.3\n\n\ud83d\udcca FASE 3: Melhores par\u00e2metros globais...\n\n\ud83c\udfc6 PAR\u00c2METROS \u00d3TIMOS:\n  RR_2.0: WR=35.9% PnL=745.2pips pair=AUDUSD\n  RR_2.5: WR=29.5% PnL=769.7pips pair=AUDUSD\n  RR_3.0: WR=25.1% PnL=799.8pips pair=AUDUSD\n  RR_3.5: WR=21.4% PnL=884.0pips pair=AUDUSD\n\n\u2705 Estudo conclu\u00eddo. Log: /home/roberto/.hermes/forex/study_log.jsonl\n\u2705 Par\u00e2metros: /home/roberto/.hermes/forex"
+    },
+    "pattern_detection": {
+      "EURUSD": {
+        "total_fvgs": 113,
+        "bullish": 49,
+        "bearish": 64,
+        "avg_gap_pips": 3.3,
+        "max_gap_pips": 21.5,
+        "candles_analyzed": 474
+      },
+      "GBPUSD": {
+        "total_fvgs": 136,
+        "bullish": 67,
+        "bearish": 69,
+        "avg_gap_pips": 3.5,
+        "max_gap_pips": 23.5,
+        "candles_analyzed": 475
+      },
+      "USDJPY": {
+        "total_fvgs": 57,
+        "bullish": 31,
+        "bearish": 26,
+        "avg_gap_pips": 2.3,
+        "max_gap_pips": 12.1,
+        "candles_analyzed": 472
+      },
+      "AUDUSD": {
+        "total_fvgs": 186,
+        "bullish": 85,
+        "bearish": 101,
+        "avg_gap_pips": 2.9,
+        "max_gap_pips": 22.4,
+        "candles_analyzed": 475
+      }
+    }
+  },
+  "discoveries": [
+    "[EURUSD] 113 FVGs detectados em 5 dias M15 \u2014 49 bullish, 64 bearish \u2014 gap m\u00e9dio: 3.3 pips, m\u00e1ximo: 21.5 pips",
+    "[GBPUSD] 136 FVGs detectados em 5 dias M15 \u2014 67 bullish, 69 bearish \u2014 gap m\u00e9dio: 3.5 pips, m\u00e1ximo: 23.5 pips",
+    "[USDJPY] 57 FVGs detectados em 5 dias M15 \u2014 31 bullish, 26 bearish \u2014 gap m\u00e9dio: 2.3 pips, m\u00e1ximo: 12.1 pips",
+    "[AUDUSD] 186 FVGs detectados em 5 dias M15 \u2014 85 bullish, 101 bearish \u2014 gap m\u00e9dio: 2.9 pips, m\u00e1ximo: 22.4 pips",
+    "TOP FVG pairs: AUDUSD(186), GBPUSD(136), EURUSD(113) \u2014 priorizar estes na estrat\u00e9gia CHoCH+FVG",
+    "Sess\u00e3o de estudo #20260523-2033 conclu\u00edda. Material coletado, backtest executado, 4 pares analisados."
+  ],
+  "duration_seconds": 0
+}

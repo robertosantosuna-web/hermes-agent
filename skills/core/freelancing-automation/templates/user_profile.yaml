@@ -1,0 +1,32 @@
+# Perfil para cadastro em plataformas — COMPLETO
+# Atualizado: 18/05/2026
+# Usar este arquivo como referência ao preencher formulários de cadastro
+
+nome: "Roberto Rodrigues dos Santos"
+cpf: "148.376.467-27"
+rg: "MGI8511761 SSP MG"
+data_nascimento: "16/10/1993"
+local_nascimento: "Belo Horizonte, MG"
+nacionalidade: "Brasileiro"
+email: "robertosantos.una@gmail.com"
+telefone: "+5531982125758"
+cnh_numero: "06003728369"
+cnh_validade: "01/07/2032"
+cnh_categoria: "A B"
+filiacao:
+  pai: "Edilson Carlos Rodrigues"
+  mae: "Elaine Cristina Pereira dos Santos"
+endereco:
+  rua: "Rua 41"
+  numero: "164"
+  complemento: "3e4 seção"
+  bairro: "Suely"
+  cidade: "Vespasiano"
+  estado: "MG"
+  cep: "33203-581"
+documentos:
+  cnh: "PDF digital — CNH-e assinada digitalmente"
+  comprovante: "Fatura Vivo 04/2026 (endereço desatualizado: Rua Na Lima 368)"
+  identidade: "MGI8511761 SSP MG"
+pagamento:
+  paypal: "robertosantos.una@gmail.com"

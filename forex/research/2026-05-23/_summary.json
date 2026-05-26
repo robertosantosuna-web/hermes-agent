@@ -1,0 +1,44 @@
+{
+  "date": "2026-05-23",
+  "total_collected": 5,
+  "by_type": {
+    "rss": 5
+  },
+  "items": [
+    {
+      "source": "ForexLive",
+      "type": "rss",
+      "title": "investingLive Americas FX news wrap 22 May: Markets eye Iran talks, Fed signals now",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-23/ForexLive_investingLive Americas FX news wrap 22 May Markets eye Iran talks Fed signals.txt",
+      "chars": 7935
+    },
+    {
+      "source": "ForexLive",
+      "type": "rss",
+      "title": "Stocks remain higher but off highs as hope fades ahead of the weekend for peace",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-23/ForexLive_Stocks remain higher but off highs as hope fades ahead of the weekend for peace.txt",
+      "chars": 1214
+    },
+    {
+      "source": "ForexLive",
+      "type": "rss",
+      "title": "USDCHF trades new lows for the week but also near key 100 day MA support",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-23/ForexLive_USDCHF trades new lows for the week but also near key 100 day MA support.txt",
+      "chars": 2171
+    },
+    {
+      "source": "ForexLive",
+      "type": "rss",
+      "title": "Sky News Arabia: Negotiations in Tehran have reached an agreement on nuclear issue",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-23/ForexLive_Sky News Arabia Negotiations in Tehran have reached an agreement on nuclear iss.txt",
+      "chars": 1573
+    },
+    {
+      "source": "ForexLive",
+      "type": "rss",
+      "title": "Bakers Hughes total rig count 758 in the current week, Up 5 for the week",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-23/ForexLive_Bakers Hughes total rig count 758 in the current week Up 5 for the week.txt",
+      "chars": 2501
+    }
+  ]
+}

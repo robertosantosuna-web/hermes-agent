@@ -1,0 +1,93 @@
+{
+  "generated_at": "2026-05-25T03:17:04.718903+00:00",
+  "methodology": "FVG pattern detection, RR 3:1, SL=max(gap,5 pips), 20-candle lookahead",
+  "ranking": [
+    {
+      "rank": 1,
+      "pair": "USDJPY",
+      "combined_wr": 61.22,
+      "evaluable": 343,
+      "wins": 210,
+      "losses": 133
+    },
+    {
+      "rank": 2,
+      "pair": "GBPUSD",
+      "combined_wr": 53.09,
+      "evaluable": 761,
+      "wins": 404,
+      "losses": 357
+    },
+    {
+      "rank": 3,
+      "pair": "EURUSD",
+      "combined_wr": 48.26,
+      "evaluable": 545,
+      "wins": 263,
+      "losses": 282
+    },
+    {
+      "rank": 4,
+      "pair": "AUDUSD",
+      "combined_wr": 44.91,
+      "evaluable": 766,
+      "wins": 344,
+      "losses": 422
+    },
+    {
+      "rank": 5,
+      "pair": "NZDUSD",
+      "combined_wr": 43.03,
+      "evaluable": 746,
+      "wins": 321,
+      "losses": 425
+    }
+  ],
+  "all_pairs_summary": {
+    "EURUSD": {
+      "total_patterns_detected": 707,
+      "total_evaluated": 707,
+      "wins": 263,
+      "losses": 304,
+      "no_decision": 140,
+      "win_rate_pct": 46.38,
+      "profit_factor": 2.5954
+    },
+    "GBPUSD": {
+      "total_patterns_detected": 987,
+      "total_evaluated": 987,
+      "wins": 410,
+      "losses": 417,
+      "no_decision": 160,
+      "win_rate_pct": 49.58,
+      "profit_factor": 2.9496
+    },
+    "AUDUSD": {
+      "total_patterns_detected": 1093,
+      "total_evaluated": 1093,
+      "wins": 347,
+      "losses": 468,
+      "no_decision": 278,
+      "win_rate_pct": 42.58,
+      "profit_factor": 2.2244
+    },
+    "NZDUSD": {
+      "total_patterns_detected": 1105,
+      "total_evaluated": 1105,
+      "wins": 323,
+      "losses": 482,
+      "no_decision": 300,
+      "win_rate_pct": 40.12,
+      "profit_factor": 2.0104
+    },
+    "USDJPY": {
+      "total_patterns_detected": 482,
+      "total_evaluated": 482,
+      "wins": 211,
+      "losses": 205,
+      "no_decision": 66,
+      "win_rate_pct": 50.72,
+      "profit_factor": 3.0878
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "date": "2026-05-24",
+  "total_collected": 17,
+  "by_type": {
+    "rss": 5,
+    "web": 12
+  },
+  "items": [
+    {
+      "source": "ForexLive",
+      "type": "rss",
+      "title": "investingLive Americas FX news wrap 22 May: Markets eye Iran talks, Fed signals now",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/ForexLive_investingLive Americas FX news wrap 22 May Markets eye Iran talks Fed signals.txt",
+      "chars": 7935
+    },
+    {
+      "source": "ForexLive",
+      "type": "rss",
+      "title": "Stocks remain higher but off highs as hope fades ahead of the weekend for peace",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/ForexLive_Stocks remain higher but off highs as hope fades ahead of the weekend for peace.txt",
+      "chars": 1214
+    },
+    {
+      "source": "ForexLive",
+      "type": "rss",
+      "title": "USDCHF trades new lows for the week but also near key 100 day MA support",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/ForexLive_USDCHF trades new lows for the week but also near key 100 day MA support.txt",
+      "chars": 2171
+    },
+    {
+      "source": "ForexLive",
+      "type": "rss",
+      "title": "Sky News Arabia: Negotiations in Tehran have reached an agreement on nuclear issue",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/ForexLive_Sky News Arabia Negotiations in Tehran have reached an agreement on nuclear iss.txt",
+      "chars": 1573
+    },
+    {
+      "source": "ForexLive",
+      "type": "rss",
+      "title": "Bakers Hughes total rig count 758 in the current week, Up 5 for the week",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/ForexLive_Bakers Hughes total rig count 758 in the current week Up 5 for the week.txt",
+      "chars": 2501
+    },
+    {
+      "source": "ICT Breaker Blocks Guide",
+      "type": "web",
+      "category": "ict_advanced",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/ICT Breaker Blocks Guide_ict_advanced.txt",
+      "chars": 17836
+    },
+    {
+      "source": "ICT Mitigation Blocks Guide",
+      "type": "web",
+      "category": "ict_advanced",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/ICT Mitigation Blocks Guide_ict_advanced.txt",
+      "chars": 16739
+    },
+    {
+      "source": "ICT Turtle Soup Pattern",
+      "type": "web",
+      "category": "ict_advanced",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/ICT Turtle Soup Pattern_ict_advanced.txt",
+      "chars": 18196
+    },
+    {
+      "source": "ATAS Order Flow \u2014 Delta Guide",
+      "type": "web",
+      "category": "order_flow",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/ATAS Order Flow \u2014 Delta Guide_order_flow.txt",
+      "chars": 12922
+    },
+    {
+      "source": "Bookmap CVD Divergence Strategy",
+      "type": "web",
+      "category": "order_flow",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/Bookmap CVD Divergence Strategy_order_flow.txt",
+      "chars": 30736
+    },
+    {
+      "source": "Trader Dale \u2014 Absorption & Delta",
+      "type": "web",
+      "category": "order_flow",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/Trader Dale \u2014 Absorption & Delta_order_flow.txt",
+      "chars": 11794
+    },
+    {
+      "source": "ForexBee \u2014 Cumulative Delta Divergence",
+      "type": "web",
+      "category": "order_flow",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/ForexBee \u2014 Cumulative Delta Divergence_order_flow.txt",
+      "chars": 23433
+    },
+    {
+      "source": "Wyckoff Analytics \u2014 Method Overview",
+      "type": "web",
+      "category": "wyckoff",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/Wyckoff Analytics \u2014 Method Overview_wyckoff.txt",
+      "chars": 48696
+    },
+    {
+      "source": "Wyckoff Spring Pattern",
+      "type": "web",
+      "category": "wyckoff",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/Wyckoff Spring Pattern_wyckoff.txt",
+      "chars": 3288
+    },
+    {
+      "source": "Follow the Smart Money (Pure Price Action)",
+      "type": "web",
+      "category": "institutional_footprints",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/Follow the Smart Money (Pure Price Action)_institutional_footprints.txt",
+      "chars": 8659
+    },
+    {
+      "source": "5 Price Action Rules",
+      "type": "web",
+      "category": "price_action",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/5 Price Action Rules_price_action.txt",
+      "chars": 7399
+    },
+    {
+      "source": "Candlestick Battle Mental Model",
+      "type": "web",
+      "category": "mental_models",
+      "path": "/home/roberto/.hermes/forex/research/2026-05-24/Candlestick Battle Mental Model_mental_models.txt",
+      "chars": 12415
+    }
+  ]
+}

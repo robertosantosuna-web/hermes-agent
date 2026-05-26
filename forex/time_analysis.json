@@ -1,0 +1,2228 @@
+{
+  "total": 247,
+  "trades": [
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 11,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -70.52898406982422,
+      "hour": 21,
+      "day": "Sun",
+      "day_num": 6
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 9,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 10.846853256225586,
+      "hour": 11,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 15.113353729248047,
+      "hour": 14,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 16.061067581176758,
+      "hour": 5,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 10.145902633666992,
+      "hour": 5,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 8.736848831176758,
+      "hour": 7,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -3.5703182220458984,
+      "hour": 0,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -2.707242965698242,
+      "hour": 23,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -3.598928451538086,
+      "hour": 1,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 3,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.7806243896484375,
+      "hour": 6,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 10.571479797363281,
+      "hour": 7,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 7,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.644725799560547,
+      "hour": 22,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 12.295246124267578,
+      "hour": 22,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 10.04934310913086,
+      "hour": 13,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -4.972219467163086,
+      "hour": 3,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 19.4549560546875,
+      "hour": 7,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 27.655363082885742,
+      "hour": 7,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 22,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -8.324384689331055,
+      "hour": 6,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.616115570068359,
+      "hour": 15,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 3,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 9,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -4.805326461791992,
+      "hour": 6,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -5.103349685668945,
+      "hour": 12,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 14.716386795043945,
+      "hour": 13,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 12.627840042114258,
+      "hour": 5,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 7.145404815673828,
+      "hour": 5,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.051063537597656,
+      "hour": 23,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.043910980224609,
+      "hour": 23,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -5.855560302734375,
+      "hour": 1,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 17.491579055786133,
+      "hour": 7,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -6.722211837768555,
+      "hour": 9,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 0,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 8.722543716430664,
+      "hour": 0,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -3.814697265625,
+      "hour": 0,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -7.799863815307617,
+      "hour": 2,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 8.704662322998047,
+      "hour": 4,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 8.214712142944336,
+      "hour": 8,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 55.468082427978516,
+      "hour": 12,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 2,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 20.513534545898438,
+      "hour": 4,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 8.879899978637695,
+      "hour": 7,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -11.88039779663086,
+      "hour": 10,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -9.107589721679688,
+      "hour": 12,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 8,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -2.0,
+      "hour": 23,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 47.36781120300293,
+      "hour": 21,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 38.13028335571289,
+      "hour": 2,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 21.5756893157959,
+      "hour": 2,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 11.086463928222656,
+      "hour": 6,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -11.107921600341797,
+      "hour": 6,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -8.907318115234375,
+      "hour": 8,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 8.357763290405273,
+      "hour": 9,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -8.522272109985352,
+      "hour": 5,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 7.781982421875,
+      "hour": 7,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -3.5202503204345703,
+      "hour": 8,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 6,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 13,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 8.804798126220703,
+      "hour": 4,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -2.918243408203125,
+      "hour": 11,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 45.07184028625488,
+      "hour": 14,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -4.115104675292969,
+      "hour": 23,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 3,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 12.334585189819336,
+      "hour": 3,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 18.75758171081543,
+      "hour": 3,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 8.0108642578125,
+      "hour": 13,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 10.117292404174805,
+      "hour": 21,
+      "day": "Sun",
+      "day_num": 6
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.920099258422852,
+      "hour": 21,
+      "day": "Sun",
+      "day_num": 6
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -10.890960693359375,
+      "hour": 6,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -6.791353225708008,
+      "hour": 6,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 21.049976348876953,
+      "hour": 14,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -2.523660659790039,
+      "hour": 14,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.501674652099609,
+      "hour": 23,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "GBP/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -5.772113800048828,
+      "hour": 0,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 11,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -4.815459251403809,
+      "hour": 12,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -44.751763343811035,
+      "hour": 21,
+      "day": "Sun",
+      "day_num": 6
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -2.0384788513183594,
+      "hour": 5,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -4.31060791015625,
+      "hour": 10,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 8.309483528137207,
+      "hour": 22,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 15.535354614257812,
+      "hour": 5,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 11.186599731445312,
+      "hour": 6,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -2.2339820861816406,
+      "hour": 19,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 21.91901206970215,
+      "hour": 12,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 8.134245872497559,
+      "hour": 12,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 7.413625717163086,
+      "hour": 0,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 20.416975021362305,
+      "hour": 6,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 7,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -5.371570587158203,
+      "hour": 3,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 12.638568878173828,
+      "hour": 4,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 15,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 5,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -2.467036247253418,
+      "hour": 5,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 9,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 0,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -3.362298011779785,
+      "hour": 9,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 14,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 24.592280387878418,
+      "hour": 23,
+      "day": "Sun",
+      "day_num": 6
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 18.469691276550293,
+      "hour": 23,
+      "day": "Sun",
+      "day_num": 6
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.206631660461426,
+      "hour": 12,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -3.0881166458129883,
+      "hour": 5,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.154775619506836,
+      "hour": 9,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 10.846853256225586,
+      "hour": 23,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 24.495720863342285,
+      "hour": 11,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 7.629990577697754,
+      "hour": 6,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 7.7658891677856445,
+      "hour": 9,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -7.808804512023926,
+      "hour": 12,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 26.482343673706055,
+      "hour": 4,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 8,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 14,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -2.0,
+      "hour": 23,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -6.135106086730957,
+      "hour": 3,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 20.231008529663086,
+      "hour": 21,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 26.791691780090332,
+      "hour": 6,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.308555603027344,
+      "hour": 10,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 7.846355438232422,
+      "hour": 17,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.254911422729492,
+      "hour": 3,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 7,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -8.924007415771484,
+      "hour": 21,
+      "day": "Sun",
+      "day_num": 6
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -2.0,
+      "hour": 23,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -2.0,
+      "hour": 9,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -5.244612693786621,
+      "hour": 23,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 18.82195472717285,
+      "hour": 11,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -5.63204288482666,
+      "hour": 12,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 22.88818359375,
+      "hour": 6,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 9.11414623260498,
+      "hour": 11,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 15.131235122680664,
+      "hour": 12,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -7.073879241943359,
+      "hour": 22,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 9.087324142456055,
+      "hour": 22,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 7.662177085876465,
+      "hour": 12,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 13.679265975952148,
+      "hour": 6,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "AUD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -7.617473602294922,
+      "hour": 6,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 7.243752479553223,
+      "hour": 4,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 5,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 18.71645450592041,
+      "hour": 5,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 15.665888786315918,
+      "hour": 12,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -2.0,
+      "hour": 23,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 9.407401084899902,
+      "hour": 6,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 6,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 7,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 16,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -4.143714904785156,
+      "hour": 3,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 15.53356647491455,
+      "hour": 8,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 30.03537654876709,
+      "hour": 8,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -2.0,
+      "hour": 8,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -15.30766487121582,
+      "hour": 20,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 8.398890495300293,
+      "hour": 1,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -4.889369010925293,
+      "hour": 1,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 15,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -3.464818000793457,
+      "hour": 7,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -3.426074981689453,
+      "hour": 1,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 13.416409492492676,
+      "hour": 9,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -3.7926435470581055,
+      "hour": 9,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 13.477206230163574,
+      "hour": 23,
+      "day": "Sun",
+      "day_num": 6
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 16.611814498901367,
+      "hour": 23,
+      "day": "Sun",
+      "day_num": 6
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 9.351968765258789,
+      "hour": 23,
+      "day": "Sun",
+      "day_num": 6
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 7.315278053283691,
+      "hour": 6,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 9,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -2.0,
+      "hour": 23,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 18.61095428466797,
+      "hour": 0,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 20.531415939331055,
+      "hour": 11,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -4.439353942871094,
+      "hour": 11,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -2.0,
+      "hour": 4,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -2.7292966842651367,
+      "hour": 6,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 17.43614673614502,
+      "hour": 7,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -3.0982494354248047,
+      "hour": 9,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 9,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.211996078491211,
+      "hour": 14,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 4,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 1,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 13.841986656188965,
+      "hour": 6,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -2.5010108947753906,
+      "hour": 9,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 20.345449447631836,
+      "hour": 10,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 7.481575012207031,
+      "hour": 5,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 9.648799896240234,
+      "hour": 13,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 17,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 7.445812225341797,
+      "hour": 11,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -2.0,
+      "hour": 7,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -2.8139352798461914,
+      "hour": 10,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -2.46584415435791,
+      "hour": 4,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -2.0,
+      "hour": 6,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 19.689202308654785,
+      "hour": 3,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -2.7561187744140625,
+      "hour": 4,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 7,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -2.0,
+      "hour": 18,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 10.233521461486816,
+      "hour": 21,
+      "day": "Sun",
+      "day_num": 6
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 7.154345512390137,
+      "hour": 21,
+      "day": "Sun",
+      "day_num": 6
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 9.21785831451416,
+      "hour": 4,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 10.283589363098145,
+      "hour": 6,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -3.400444984436035,
+      "hour": 12,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 22,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 15.288591384887695,
+      "hour": 1,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 4,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "NZD/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -4.471540451049805,
+      "hour": 6,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 8.246898651123047,
+      "hour": 11,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -54.76951599121094,
+      "hour": 21,
+      "day": "Sun",
+      "day_num": 6
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 10,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 37.261247634887695,
+      "hour": 16,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 12.438297271728516,
+      "hour": 17,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -2.0,
+      "hour": 3,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 33.28084945678711,
+      "hour": 5,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 5,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -2.0,
+      "hour": 23,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -6.9522857666015625,
+      "hour": 6,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 11,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 16.597509384155273,
+      "hour": 7,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 20.74599266052246,
+      "hour": 7,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 8.314847946166992,
+      "hour": 11,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 8.33272933959961,
+      "hour": 4,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 12.431144714355469,
+      "hour": 15,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 15,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -8.285045623779297,
+      "hour": 3,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 8.275508880615234,
+      "hour": 9,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 10,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 8.196830749511719,
+      "hour": 5,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 9,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 8.225440979003906,
+      "hour": 12,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 20.638704299926758,
+      "hour": 5,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -8.270740509033203,
+      "hour": 6,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -6.843805313110352,
+      "hour": 11,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 16.433000564575195,
+      "hour": 12,
+      "day": "Thu",
+      "day_num": 3
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 2,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -13.877153396606445,
+      "hour": 8,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 24.966001510620117,
+      "hour": 10,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 8.322000503540039,
+      "hour": 11,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -2.0,
+      "hour": 17,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 8.14676284790039,
+      "hour": 3,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 3,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -4.068613052368164,
+      "hour": 8,
+      "day": "Fri",
+      "day_num": 4
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 12.170076370239258,
+      "hour": 21,
+      "day": "Sun",
+      "day_num": 6
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "L",
+      "pnl": -5.408525466918945,
+      "hour": 21,
+      "day": "Sun",
+      "day_num": 6
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 21,
+      "day": "Sun",
+      "day_num": 6
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 20.281076431274414,
+      "hour": 4,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 12.177228927612305,
+      "hour": 4,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -4.063844680786133,
+      "hour": 6,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -6.773471832275391,
+      "hour": 9,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -2.0,
+      "hour": 10,
+      "day": "Mon",
+      "day_num": 0
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 11,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 8.100271224975586,
+      "hour": 11,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "SELL",
+      "result": "W",
+      "pnl": 8.089542388916016,
+      "hour": 12,
+      "day": "Tue",
+      "day_num": 1
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -4.037618637084961,
+      "hour": 4,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "W",
+      "pnl": 6.0,
+      "hour": 8,
+      "day": "Wed",
+      "day_num": 2
+    },
+    {
+      "pair": "EUR/USD",
+      "type": "BUY",
+      "result": "L",
+      "pnl": -21.54827117919922,
+      "hour": 12,
+      "day": "Wed",
+      "day_num": 2
+    }
+  ]
+}

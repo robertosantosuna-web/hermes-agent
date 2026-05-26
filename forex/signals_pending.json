@@ -1,0 +1,12 @@
+{
+  "pending": [],
+  "validated": [],
+  "rejected": [
+    {
+      "pair": "ALL",
+      "reason": "Domingo mercado fechado - sinais de 06:00 UTC descartados",
+      "timestamp": "2026-05-25T22:00:00"
+    }
+  ],
+  "executed": []
+}

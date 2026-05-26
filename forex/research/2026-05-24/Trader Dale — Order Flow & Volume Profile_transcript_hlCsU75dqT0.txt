@@ -1,0 +1,325 @@
+As we go through this, you'll decide
+which footprint you like a little bit
+better. It's just a different
+perspective or a different angle in how
+to look at the buying and selling
+pressure that's occurring in the market.
+So, there's really no right footprint to
+use, but we're going to start off with
+the volume footprint. And this is this
+one is going to be very straightforward.
+It's the most straightforward out of the
+three. And this is going to show the
+total volume traded at each price level
+inside of a candle. So just looking at
+this volume footprint right off of the
+bat, you can see that we get the same
+exact information like we would on a
+regular candlestick, right? We have the
+body of the candle like we normally
+would. We have the top of the wick and
+we have the bottom of the wick. Now we
+have to ask ourselves what is volume,
+right? Like over here buying and selling
+is going to equate to all of the volume
+in the market. So all of the aggressive
+buy orders added or summed up with all
+of the aggressive sell orders is going
+to equal the volume. So we had 29 volume
+here at this price point, 179 volume
+here at this price point. We had 278
+aggressive and aggressive buyers and
+aggressive sellers at this price point.
+And then you can see down here we had a
+really high volume area. We had 1.2,000
+volume and that's a little higher than
+the rest of the surrounding volume
+points. So this might be more of a
+significant level that you might want to
+pay attention to for your trading if
+this is happening in your area of
+interest. Right? This is going to be a
+building block into the bid ask and into
+the delta footprint as we move forward
+here. Uh, pause the video if I'm going
+too fast, but volume footprint is very
+straightforward into the bid ask
+footprint. This is the one that I like
+to use the most. I use it about 80 to
+90% of the time. Disregard all of the
+noise, right? Like these highlighted
+levels. This just gives us a visual of
+the volume at each price. But you can
+see on a bid ask spread, we have a left
+column and we have a right column. The
+left column is going to be known as our
+bids. These are going to be all of our
+aggressive sell orders at each price
+level. Now, the right side, the right
+column is going to be known as our ask,
+otherwise known as the offer. You'll
+hear uh you'll hear it referred to it as
+a offer all the time. And this is going
+to be our aggressive buy orders in the
+market. Left column, aggressive sell
+orders, right column, aggressive buy
+orders in the market. Okay, so over here
+we have 684 aggressive sell orders and
+over here we have 887
+aggressive buy orders down to the second
+bullet point. This is just going to
+allow us to see where the aggression is
+stepping into the market. So over here,
+for example, we can see we have a lot
+more aggressive buy orders hitting the
+market. But just remember, right, we
+read these diagonal and over here you
+can see we have 178 aggressive buy
+orders to 56 sell orders, right? We have
+about a 3 to1 imbalance. We have about
+three times the amount of aggressive buy
+orders than sell orders at this price
+point. So, always read them diagonally.
+And then again over here, you can see a
+lot of volume hitting the offer. We have
+an imbalance over here. Uh we have low
+volume on the bid, right? Higher volume
+on the offer. Again, we're having
+tripledigit um volume on the offer and
+we're having double digit volume on the
+bid. Just letting us know there's a lot
+of aggressive buy orders here that are
+interested. Not only do we have a lot of
+aggressive buy orders interested, but we
+have a lack of aggressive sellers even
+interested at those price points, too.
+And that's going to even be meaningful
+information to me. Stacked imbalances
+should be used to validate your existing
+idea, not to chase every sign of
+momentum. I know when you look at this
+right off the bat, it's like, yo, I
+could just scalp every stacked
+imbalanced move on the offer or every
+stacked imbalanced move on the bid.
+Remember, these should only be used to
+validate your trade uh idea, not to
+chase every sign of momentum. And what I
+mean by that is, let's say we have a
+breakout level right here. And let's say
+you're looking to buy the breakout for
+whatever reason, whatever your strategy
+is, but let's say at this price point,
+you were looking to buy the breakout. If
+you see stacked imbalances start to
+build or start to form on the offer,
+that's going to give you more confidence
+and conviction that your trade thesis is
+going to be playing out, right? You
+might not hesitate as much pulling the
+trigger. you're you're recognizing that
+other market participants are supporting
+this idea or the market's intent is
+supporting your existing trade thesis.
+Right? Again, with footprint charts or
+any type of order flow, our job is
+really to try and gauge the market's
+intent, right? What is the market trying
+to do and how good of a job is the
+market doing that? So, we can see over
+here we got stacked imbalances on the
+offer. The market is trying to push up
+right now. In hindsight, how good of a
+job is the market doing that? Well, it's
+doing a pretty good job. Not only did we
+push up, but even more aggressive buyers
+stepped into the market letting us know
+this is a very strong move that is
+supported by a lot of aggressive
+positive delta, right? A lot of
+aggressive positive buyers stepping into
+the market. So, main point here is use
+it to validate your existing idea, not
+to trace every sign of momentum. One
+more point before we move on from the
+bid ask footprint. We always also want
+to use logic as we're given more
+information in the mo in the market or
+we always want to
+um we always want to acknowledge
+the new information as time passes.
+Okay? Because I know at this price point
+things look great. Now let's say we get
+stacked imbalances on the offer and the
+market starts to consolidate up here and
+then let's say we end up failing and
+start trading beneath this breakout
+level. That's new information to us,
+right? We know a ton of aggressive
+buyers started to step into the market
+at this price point. So if we were to
+get something like this, what does that
+now tell us? It lets us know we
+potentially have a lot of trapped buyers
+at this price point. Now that's new
+information that we did not have before
+we got this breakdown. So now these
+stacked imbalances in this offer, we're
+going to perceive that differently and
+we're going to use that information
+differently in terms of how we're
+planning our execution in the market and
+how we're planning about going about the
+market. Right? So, um, that's how we can
+apply some logic to our trades there.
+Let's go ahead and go to the delta
+footprint like we talked about before.
+Same exact information like you're going
+to get on a regular candlestick. We have
+the body of the candle, top of the wick,
+bottom of the bottom of the wick, but
+now we have the delta at each price
+point. Before we get into the delta, we
+got to break down what even is delta.
+Delta is going to be the difference
+between aggressive buyers and sellers at
+each price point. So, here we have a
+positive 29, positive 49, positive 10.
+We have 29 more aggressive buy orders
+than aggressive sell orders at this
+price point. So, it doesn't mean that we
+didn't have aggre any aggressive sellers
+here, right? It just lets us know we had
+29 more. And then down here, we had a
+negative 32 aggressive sellers. So, we
+had a negative 32 delta. It doesn't mean
+there wasn't any aggressive buyers
+transacted at that level. It just lets
+us know there were -32 more aggressive
+sell orders than buy orders. And then
+when we move down here, we can see we
+have some strong delta. We have a -227
+delta. This one stands out from the rest
+of the surrounding delta. So, this is
+going to be more significant information
+to us, right? Let's say we were trading
+a breakdown or we were trading a
+breakout to the downside. Like we talked
+about before, our job when we're reading
+footprints is to try our best to gauge
+the market intent. Question we always
+want to ask ourselves is what is the
+market trying to do and how good of a
+job is the market doing that? That's
+going to be the golden question whenever
+trading order flow. If the market is
+pushing down here, we're getting a lot
+of aggressive sell orders stepping into
+the market. How good of a job is the
+market pushing down? Is the market
+stalling here? Are we going to be
+reversing on these orders or are we
+getting followthrough? Because if we're
+getting follow through, that's really
+going to let us know the market is
+really weak uh and the market's intent
+is playing out, right? So, this is going
+to help us gauge the aggression of the
+buyers and sellers at each price level.
+And it can also highlight hidden
+pressure or absorption occurring at
+different price levels or delta
+divergence. Right? This is where delta
+really is going to become most useful
+for us with price points like this. Now,
+you might ask, what is absorption?
+Absorption is going to occur whenever
+there is aggressive sell orders in the
+market, but all of the passive buy
+orders are absorbing those aggressive
+sell orders. And whenever we get that in
+the market, the market will typically
+stall or reverse. And it goes back to
+the golden question, what is the market
+trying to do? And how good of a job is
+the market doing whatever it's trying to
+do? If we get a lot of aggressive sell
+orders stepping into the market here,
+but maybe price starts to go up, that is
+an indication that we potentially have
+absorption going on in the market
+because how is it possible that we can
+have more aggressive sell orders in the
+market than aggressive buy orders, but
+price is going up? Make that make sense.
+How is that possible? The only
+conclusion for that is the fact that
+aggressive passive orders are absorbing
+all of the aggressive volume to the
+downside and that's how the market would
+start to rise to the upside. So, we'll
+get into absorption in another time. I
+use the bid footprint because I can get
+the volume information from the bid
+footprint and I can get the information
+from delta just by looking at the bid
+footprint. And this is how I do that.
+Let's look at this last price point on
+all of these candles. All of these
+candles are the same exact candle. It's
+just on a different setting. So if we go
+to volume, we have 309 volume transacted
+at this last price level. Over here on
+the bid ask, it's going to let us know
+how much of that volume was transacted
+on the bid and how much of that volume
+was transacted on the ask. We know that
+195 of that volume of the 309 was
+aggressive sellers. And we know that 114
+of that 309 was executed on the offer.
+The sum of the bid and the ask is going
+to give us the volume. So if I have the
+bid ask footprint up, I know I can just
+do some quick addition. If I add the bid
+and the ask together, that's going to be
+what the volume is for that price point.
+So it makes more sense to me for me to
+have the bid ask footprint on and not
+the volume because I can get the volume
+information by looking at the bid ask
+footprint. If we look at delta, if we
+look at this last price point, we have
+81 delta. If we take the bid and the ask
+and we subtract them from each other,
+that's going to give us a delta at that
+price point. So, if we have 195 and we
+subtract 114 from the offer, that's
+going to give us a 81. That's going to
+let us know we had 81 more aggressive
+sellers, right? More aggressive sellers
+hitting the bid than hitting the offer,
+which left us with 81. So, again, I'm
+just making my case. This is the reason
+as to why I like to use the bid ask
+footprint because I can derive the
+volume information and the delta
+information by doing some really quick
+math in my head. And then I also get to
+use or have the luxury of using the bid
+ask and being able to see these uh
+imbalances on the bid or the offer while
+using the bid ask footprint. Again,
+sometimes I'll flicker through between
+the volume and the delta footprint just
+to get a quick snapshot of what it's
+looking like, but usually I'll just have
+it sitting on the bid ask footprint. If
+you're new to orderflow and you want to
+learn more, we're going to be going
+through um all the basics of orderflow.
+We're going to have an A through Z
+library on the foundations of orderflow
+footprint charts on this YouTube
+channel. So, make sure you hit the
+subscribe button if you want to learn
+everything from the ground up.

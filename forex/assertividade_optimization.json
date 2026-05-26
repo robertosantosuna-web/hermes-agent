@@ -1,0 +1,82 @@
+{
+  "CRT=0.6_SR=ON": {
+    "trades": 12,
+    "wins": 7,
+    "losses": 5,
+    "pnl": 32.0,
+    "wr": 58.3,
+    "trades_per_day": 0.4
+  },
+  "CRT=0.6_SR=OFF": {
+    "trades": 20,
+    "wins": 9,
+    "losses": 11,
+    "pnl": 32.0,
+    "wr": 45.0,
+    "trades_per_day": 0.7
+  },
+  "CRT=0.7_SR=ON": {
+    "trades": 10,
+    "wins": 6,
+    "losses": 4,
+    "pnl": 28.0,
+    "wr": 60.0,
+    "trades_per_day": 0.3
+  },
+  "CRT=0.7_SR=OFF": {
+    "trades": 15,
+    "wins": 8,
+    "losses": 7,
+    "pnl": 34.0,
+    "wr": 53.3,
+    "trades_per_day": 0.5
+  },
+  "CRT=0.75_SR=ON": {
+    "trades": 9,
+    "wins": 6,
+    "losses": 3,
+    "pnl": 30.0,
+    "wr": 66.7,
+    "trades_per_day": 0.3
+  },
+  "CRT=0.75_SR=OFF": {
+    "trades": 13,
+    "wins": 7,
+    "losses": 6,
+    "pnl": 30.0,
+    "wr": 53.8,
+    "trades_per_day": 0.4
+  },
+  "CRT=0.8_SR=ON": {
+    "trades": 9,
+    "wins": 6,
+    "losses": 3,
+    "pnl": 30.0,
+    "wr": 66.7,
+    "trades_per_day": 0.3
+  },
+  "CRT=0.8_SR=OFF": {
+    "trades": 12,
+    "wins": 7,
+    "losses": 5,
+    "pnl": 32.0,
+    "wr": 58.3,
+    "trades_per_day": 0.4
+  },
+  "CRT=0.85_SR=ON": {
+    "trades": 8,
+    "wins": 6,
+    "losses": 2,
+    "pnl": 32.0,
+    "wr": 75.0,
+    "trades_per_day": 0.3
+  },
+  "CRT=0.85_SR=OFF": {
+    "trades": 11,
+    "wins": 7,
+    "losses": 4,
+    "pnl": 34.0,
+    "wr": 63.6,
+    "trades_per_day": 0.4
+  }
+}

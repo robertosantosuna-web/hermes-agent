@@ -1,0 +1,104 @@
+//@version=5
+// CHoCH + FVG Strategy @ M15 — RR 3:1
+// Pares: GBP/USD, AUD/USD, EUR/USD, NZD/USD
+// Baseado em backtest validado (30d, 65.8% WR, +2.20R)
+
+strategy("CHoCH+FVG M15 v2", 
+     overlay=true, 
+     initial_capital=1000,
+     default_qty_type=strategy.percent_of_equity,
+     default_qty_value=1,
+     commission_type=strategy.commission.percent,
+     commission_value=0.0,
+     pyramiding=0)
+
+// ── PARÂMETROS ──
+rr_ratio = input.float(3.0, "Risk:Reward", minval=1.5, maxval=5.0, step=0.5)
+fvg_min_pct = input.float(0.02, "FVG Min %", minval=0.01, maxval=0.5, step=0.01) / 100
+atr_period = input.int(14, "ATR Period", minval=7, maxval=21)
+swing_lookback = input.int(3, "Swing Lookback", minval=2, maxval=5)
+session_filter = input.bool(true, "Apenas Golden Hours (07/10/14/16 BRT)")
+day_filter = input.bool(true, "Apenas Ter-Qui")
+
+// ── ATR ──
+atr_val = ta.atr(atr_period)
+atr_pct = atr_val / close
+
+// ── SWING HIGHS/LOWS ──
+swing_high = high > ta.highest(high[1], swing_lookback) and high > ta.highest(high[swing_lookback+1], swing_lookback)
+swing_low = low < ta.lowest(low[1], swing_lookback) and low < ta.lowest(low[swing_lookback+1], swing_lookback)
+
+var float last_swing_high = na
+var float prev_swing_high = na
+var float last_swing_low = na
+var float prev_swing_low = na
+
+if swing_high
+    prev_swing_high := last_swing_high
+    last_swing_high := high
+if swing_low
+    prev_swing_low := last_swing_low
+    last_swing_low := low
+
+// ── CHoCH (Change of Character) ──
+choch_bull = close > prev_swing_high and not na(prev_swing_high)
+choch_bear = close < prev_swing_low and not na(prev_swing_low)
+
+// ── FVG (Fair Value Gap) ──
+fvg_bull = low > high[1]  // gap pra cima
+fvg_bear = high < low[1]  // gap pra baixo
+
+fvg_top_bull = fvg_bull ? low : na
+fvg_bot_bull = fvg_bull ? high[1] : na
+fvg_top_bear = fvg_bear ? low[1] : na
+fvg_bot_bear = fvg_bear ? high : na
+
+// ── FVG Width ──
+fvg_width_bull = fvg_bull ? (fvg_top_bull - fvg_bot_bull) / close : na
+fvg_width_bear = fvg_bear ? (fvg_top_bear - fvg_bot_bear) / close : na
+
+fvg_valid_bull = fvg_bull and fvg_width_bull >= fvg_min_pct
+fvg_valid_bear = fvg_bear and fvg_width_bear >= fvg_min_pct
+
+// ── SESSION / DAY FILTER ──
+hour_brt = (hour + 21) % 24  // GMT+0 → BRT-3 aproximado
+golden_hour = hour_brt == 7 or hour_brt == 10 or hour_brt == 14 or hour_brt == 16
+day_ok = dayofweek >= 2 and dayofweek <= 4  // Ter(2), Qua(3), Qui(4)
+
+trade_window = (not session_filter or golden_hour) and (not day_filter or day_ok)
+
+// ── ENTRY SIGNALS ──
+long_signal = choch_bull and fvg_valid_bull and trade_window and atr_pct > 0.001
+short_signal = choch_bear and fvg_valid_bear and trade_window and atr_pct > 0.001
+
+// ── SL / TP ──
+var float long_sl = na
+var float long_tp = na
+var float short_sl = na
+var float short_tp = na
+
+if long_signal
+    long_sl := fvg_bot_bull
+    long_tp := close + (close - long_sl) * rr_ratio
+if short_signal
+    short_sl := fvg_top_bear
+    short_tp := close - (short_sl - close) * rr_ratio
+
+// ── STRATEGY EXECUTION ──
+if long_signal
+    strategy.entry("LONG", strategy.long)
+    strategy.exit("LONG XL", "LONG", stop=long_sl, limit=long_tp)
+
+if short_signal
+    strategy.entry("SHORT", strategy.short)
+    strategy.exit("SHORT XS", "SHORT", stop=short_sl, limit=short_tp)
+
+// ── VISUAL: Plot Swings e FVGs ──
+plotshape(swing_high, "SH", shape.triangledown, location.abovebar, color.red, size=size.small)
+plotshape(swing_low, "SL", shape.triangleup, location.belowbar, color.green, size=size.small)
+plotshape(choch_bull, "CHoCH▲", shape.labelup, location.belowbar, color.green, text="CHoCH", size=size.tiny)
+plotshape(choch_bear, "CHoCH▼", shape.labeldown, location.abovebar, color.red, text="CHoCH", size=size.tiny)
+
+// FVG boxes (simple — TradingView doesn't support boxes in strategy easily)
+bgcolor(fvg_valid_bull ? color.new(color.green, 90) : na)
+bgcolor(fvg_valid_bear ? color.new(color.red, 90) : na)

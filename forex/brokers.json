@@ -1,0 +1,32 @@
+{
+  "oanda": {
+    "account_id": "1715539800",
+    "server": "OANDA_Global-Demo-1",
+    "password_mt5": "wc0ZO6#p",
+    "password_portal": "wc0ZO6#p2026",
+    "email": "robertosantos.una@gmail.com",
+    "status": "demo_ativo",
+    "portal": "pendente_captcha"
+  },
+  "oanda_real": {
+    "account_id": "PENDENTE",
+    "server": "OANDA_Global-Live",
+    "password_mt5": "PENDENTE",
+    "password_portal": "PENDENTE",
+    "email": "robertosantos.una@gmail.com",
+    "status": "pendente_criar",
+    "deposit": 100,
+    "notas": "Criar em oanda.com → depositar $100 → conectar MT5 ao servidor Live"
+  },
+  "exness": {
+    "email": "robertosantos.una@gmail.com",
+    "password": "Wc0ZO6#p2026!@",
+    "country": "Brazil",
+    "status": "formulario_preenchido",
+    "url": "https://my.exness.com/accounts/sign-up"
+  },
+  "xm": {
+    "status": "pendente",
+    "url": "https://www.xm.com/pt/open-account"
+  }
+}

@@ -1,0 +1,30 @@
+[Unit]
+Description=WhatsApp Web via Microsoft Edge (CDP:9224)
+After=graphical-session.target
+Wants=graphical-session.target
+
+[Service]
+Type=simple
+User=%u
+Environment=DISPLAY=:0
+Environment=WAYLAND_DISPLAY=wayland-0
+Environment=XDG_SESSION_TYPE=wayland
+Environment=GDK_BACKEND=wayland
+ExecStart=/opt/microsoft/msedge/msedge \
+    --remote-debugging-port=9224 \
+    --remote-allow-origins=* \
+    --user-data-dir=%h/.config/microsoft-edge-whatsapp \
+    --no-first-run \
+    --no-default-browser-check \
+    --disable-features=TranslateUI \
+    --disable-sync \
+    --window-size=1280,720 \
+    --window-position=0,0 \
+    --app=https://web.whatsapp.com
+ExecStop=/bin/bash -c 'pkill -f "msedge.*9224" 2>/dev/null || true'
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=10
+
+[Install]
+WantedBy=graphical-session.target

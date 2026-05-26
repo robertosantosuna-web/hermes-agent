@@ -1,0 +1,143 @@
+{
+  "started": "2026-05-25T21:02:24.148892+00:00",
+  "phases": {
+    "research_collector": {
+      "status": "completed",
+      "output": "\ud83d\udcda Forex Research Collector \u2014 2026-05-25\n\u25b6 YouTube transcripts...\n  0 transcripts\n\u25b6 RSS feeds...\n"
+    },
+    "parameter_backtest": {
+      "status": "completed",
+      "output": "============================================================\nROTINA DI\u00c1RIA FOREX \u2014 ESTUDO DE PAR\u00c2METROS\nData: 2026-05-25 18:02\n============================================================\n\n\ud83d\udce5 FASE 1: Coletando dados...\n  EURUSD: 8405 candles\n    Melhor: RR=2.0 ATRf=0.08 WR=24.2% PnL=-329.2pips Score=0\n  GBPUSD: 8405 candles\n    Melhor: RR=3.5 ATRf=0.12 WR=17.8% PnL=200.2pips Score=35.7\n  USDJPY: 8368 candles\n    Melhor: RR=2.0 ATRf=0.08 WR=24.8% PnL=-2016.0pips Score=0\n  EURJPY: 8405 candles\n    Melhor: RR=2.0 ATRf=0.08 WR=25.8% PnL=-2492.4pips Score=0\n  AUDUSD: 8405 candles\n    Melhor: RR=2.0 ATRf=0.08 WR=35.4% PnL=599.7pips Score=212.1\n\n\ud83d\udcca FASE 3: Melhores par\u00e2metros globais...\n\n\ud83c\udfc6 PAR\u00c2METROS \u00d3TIMOS:\n  RR_2.0: WR=35.4% PnL=599.7pips pair=AUDUSD\n  RR_2.5: WR=29.1% PnL=620.5pips pair=AUDUSD\n  RR_3.0: WR=24.6% PnL=647.2pips pair=AUDUSD\n  RR_3.5: WR=20.9% PnL=702.5pips pair=AUDUSD\n\n\u2705 Estudo conclu\u00eddo. Log: /home/roberto/.hermes/forex/study_log.jsonl\n\u2705 Par\u00e2metros: /home/roberto/.hermes/forex"
+    },
+    "ict_patterns": {
+      "EURUSD": {
+        "total_fvgs": 109,
+        "bullish": 46,
+        "bearish": 63,
+        "avg_gap_pips": 3.8,
+        "max_gap_pips": 43.3,
+        "candles_analyzed": 468
+      },
+      "GBPUSD": {
+        "total_fvgs": 128,
+        "bullish": 62,
+        "bearish": 66,
+        "avg_gap_pips": 3.9,
+        "max_gap_pips": 52.7,
+        "candles_analyzed": 468
+      },
+      "USDJPY": {
+        "total_fvgs": 54,
+        "bullish": 28,
+        "bearish": 26,
+        "avg_gap_pips": 2.9,
+        "max_gap_pips": 25.8,
+        "candles_analyzed": 465
+      },
+      "AUDUSD": {
+        "total_fvgs": 181,
+        "bullish": 88,
+        "bearish": 93,
+        "avg_gap_pips": 3.0,
+        "max_gap_pips": 32.7,
+        "candles_analyzed": 468
+      }
+    },
+    "chart_patterns": {
+      "EURUSD": {
+        "total_patterns": 399,
+        "pattern_types": {
+          "HEAD_AND_SHOULDERS": 189,
+          "INVERSE_HEAD_AND_SHOULDERS": 205,
+          "RISING_WEDGE": 1,
+          "ASCENDING_CHANNEL": 1,
+          "DOUBLE_TOP": 2,
+          "ASCENDING_TRIANGLE": 1
+        }
+      },
+      "GBPUSD": {
+        "total_patterns": 484,
+        "pattern_types": {
+          "DOUBLE_BOTTOM": 1,
+          "HEAD_AND_SHOULDERS": 234,
+          "INVERSE_HEAD_AND_SHOULDERS": 242,
+          "RISING_WEDGE": 3,
+          "ASCENDING_CHANNEL": 2,
+          "DOUBLE_TOP": 2
+        }
+      },
+      "USDJPY": {
+        "total_patterns": 573,
+        "pattern_types": {
+          "DOUBLE_TOP": 4,
+          "DOUBLE_BOTTOM": 1,
+          "HEAD_AND_SHOULDERS": 240,
+          "INVERSE_HEAD_AND_SHOULDERS": 269,
+          "BEAR_FLAG": 27,
+          "BULL_FLAG": 29,
+          "FALLING_WEDGE": 2,
+          "RISING_WEDGE": 1
+        }
+      },
+      "AUDUSD": {
+        "total_patterns": 468,
+        "pattern_types": {
+          "DOUBLE_BOTTOM": 2,
+          "HEAD_AND_SHOULDERS": 232,
+          "INVERSE_HEAD_AND_SHOULDERS": 227,
+          "DOUBLE_TOP": 4,
+          "RISING_WEDGE": 1,
+          "SYMMETRICAL_TRIANGLE": 1,
+          "FALLING_WEDGE": 1
+        }
+      },
+      "NZDUSD": {
+        "total_patterns": 452,
+        "pattern_types": {
+          "DOUBLE_TOP": 2,
+          "HEAD_AND_SHOULDERS": 222,
+          "INVERSE_HEAD_AND_SHOULDERS": 225,
+          "RISING_WEDGE": 1,
+          "SYMMETRICAL_TRIANGLE": 1,
+          "FALLING_WEDGE": 1
+        }
+      },
+      "EURJPY": {
+        "total_patterns": 533,
+        "pattern_types": {
+          "HEAD_AND_SHOULDERS": 233,
+          "INVERSE_HEAD_AND_SHOULDERS": 250,
+          "BEAR_FLAG": 41,
+          "ASCENDING_CHANNEL": 1,
+          "BULL_FLAG": 6,
+          "RISING_WEDGE": 1,
+          "FALLING_WEDGE": 1
+        }
+      },
+      "GBPJPY": {
+        "total_patterns": 555,
+        "pattern_types": {
+          "HEAD_AND_SHOULDERS": 245,
+          "INVERSE_HEAD_AND_SHOULDERS": 240,
+          "BEAR_FLAG": 48,
+          "BULL_FLAG": 20,
+          "RISING_WEDGE": 2
+        }
+      }
+    }
+  },
+  "discoveries": [
+    "[EURUSD] 109 FVGs detectados em 5 dias M15 \u2014 46 bullish, 63 bearish \u2014 gap m\u00e9dio: 3.8 pips, m\u00e1ximo: 43.3 pips",
+    "[GBPUSD] 128 FVGs detectados em 5 dias M15 \u2014 62 bullish, 66 bearish \u2014 gap m\u00e9dio: 3.9 pips, m\u00e1ximo: 52.7 pips",
+    "[USDJPY] 54 FVGs detectados em 5 dias M15 \u2014 28 bullish, 26 bearish \u2014 gap m\u00e9dio: 2.9 pips, m\u00e1ximo: 25.8 pips",
+    "[AUDUSD] 181 FVGs detectados em 5 dias M15 \u2014 88 bullish, 93 bearish \u2014 gap m\u00e9dio: 3.0 pips, m\u00e1ximo: 32.7 pips",
+    "[CHART] 3464 padr\u00f5es gr\u00e1ficos detectados em 7 pares",
+    "[CHART] Padr\u00f5es mais frequentes: INVERSE_HEAD_AND_SHOULDERS(1658), HEAD_AND_SHOULDERS(1595), BEAR_FLAG(116), BULL_FLAG(55), DOUBLE_TOP(14)",
+    "TOP FVG pairs: AUDUSD(181), GBPUSD(128), EURUSD(109) \u2014 priorizar estes na estrat\u00e9gia CHoCH+FVG",
+    "Sess\u00e3o de estudo #20260525-1803 conclu\u00edda. Material coletado, backtest executado, 4 pares analisados."
+  ],
+  "duration_seconds": 0,
+  "pipeline_map_checks": [
+    "**\ud83d\udea8 CR\u00cdTICO:** O study_log.jsonl mostra a MESMA estrat\u00e9gia ATR desde 19/05/2026. O c\u00e9rebro est\u00e1 preso em loop.  "
+  ]
+}

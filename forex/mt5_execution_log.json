@@ -1,0 +1,11 @@
+[
+  {
+    "timestamp": "2026-05-25T05:14:48.198801+00:00",
+    "order_type": "SELL",
+    "symbol": "EURUSD",
+    "volume": 0.01,
+    "sl": 1.17,
+    "tp": 1.158,
+    "status": "executed"
+  }
+]

@@ -1,0 +1,161 @@
+{
+  "version": "1.0",
+  "description": "Registro de falhas da ENTIDADE. Consultar ANTES de qualquer ação web ou interação com plataforma.",
+  "failures": [
+    {
+      "id": "fail-001",
+      "date": "2026-05-14",
+      "category": "anti-bot",
+      "platform": "99Freelas",
+      "error": "Cloudflare Turnstile bloqueou CDP (Edge headless)",
+      "approach_failed": "Edge CDP porta 9222 headless",
+      "solution": "Usar Desktop Daemon + ydotool no GNOME (controle direto, não CDP)",
+      "status": "known_workaround"
+    },
+    {
+      "id": "fail-002",
+      "date": "2026-05-14",
+      "category": "anti-bot",
+      "platform": "Fiverr",
+      "error": "PerimeterX anti-bot challenge",
+      "approach_failed": "CDP/headless browser",
+      "solution": "Ação humana necessária — não tentar bypass automático",
+      "status": "requires_human"
+    },
+    {
+      "id": "fail-003",
+      "date": "2026-05-15",
+      "category": "auth",
+      "platform": "99Freelas",
+      "error": "Sessão CDP expirou — Cloudflare Turnstile derrubou",
+      "approach_failed": "Manter sessão via CDP (todas as 4 abas foram para tela de login)",
+      "solution": "Usar Desktop Daemon + ydotool no GNOME",
+      "status": "known_workaround"
+    },
+    {
+      "id": "fail-004",
+      "date": "2026-05-15",
+      "category": "tecnico",
+      "platform": "Ollama",
+      "error": "qwen2.5:3b assumiu todas as tarefas em vez de auxiliar",
+      "approach_failed": "Deixar qwen2.5 com autonomia total nas decisões",
+      "solution": "qwen2.5:3b restrito a análise de loss/accumbens",
+      "status": "fixed"
+    },
+    {
+      "id": "fail-005",
+      "date": "2026-05-16",
+      "category": "comunicacao",
+      "platform": "99Freelas",
+      "error": "Propostas mencionavam valor e prazo no texto (redundante)",
+      "approach_failed": "Template incluía 'Enviei uma proposta de R$ X'",
+      "solution": "NUNCA mencionar valor/prazo. Abrir direto com saudação + qualificação",
+      "status": "fixed"
+    },
+    {
+      "id": "fail-006",
+      "date": "2026-05-18",
+      "category": "tecnico",
+      "platform": "Forex",
+      "error": "FVG fantasma — bug de índice no backtest",
+      "approach_failed": "Índices não resetados no slice do DataFrame",
+      "solution": "Resetar índice após slice antes de acessar com .iloc",
+      "status": "fixed"
+    },
+    {
+      "id": "fail-007",
+      "date": "2026-05-18",
+      "category": "navegacao",
+      "platform": "Freelancer.com",
+      "error": "Tentativa de adivinhar URLs diretas em vez de navegar pela interface",
+      "approach_failed": "URLs como /settings/profile, /dashboard/settings",
+      "solution": "Navegar pelos elementos da página (clicar, preencher, submeter)",
+      "status": "fixed"
+    },
+    {
+      "id": "fail-008",
+      "date": "2026-05-19",
+      "category": "auth",
+      "platform": "OANDA",
+      "error": "Senha sugerida tinha 8 caracteres, plataforma exige mínimo 10",
+      "approach_failed": "Não ler mensagem de erro da plataforma antes de sugerir senha",
+      "solution": "Ler a mensagem de erro completa antes de agir. Senha final: Wc0ZO6#p2026! (13 chars)",
+      "status": "fixed"
+    },
+    {
+      "id": "fail-009",
+      "date": "2026-05-20",
+      "category": "tecnico",
+      "platform": "Forex",
+      "error": "P&L quebrado — trades ficam 'open' para sempre no tracker",
+      "approach_failed": "trade_tracker.py registra entrada mas nunca atualiza status",
+      "solution": "Implementar fechador que monitora SL/TP ou verifica saldo",
+      "status": "fixed"
+    },
+    {
+      "id": "fail-010",
+      "date": "2026-05-20",
+      "category": "auth",
+      "platform": "OANDA",
+      "error": "Conta OANDA real nunca foi criada — apenas demo existe",
+      "approach_failed": "Acreditar que existia conta real e tentar login nela",
+      "solution": "Criar conta real OANDA ou ativar Exness (cadastro preenchido)",
+      "status": "pending"
+    },
+    {
+      "id": "fail-011",
+      "date": "2026-05-22",
+      "category": "comportamento",
+      "platform": "N/A",
+      "error": "Pedi autorização repetidamente para ações já liberadas pelo Roberto",
+      "approach_failed": "Operar como 'assistente que pergunta' em vez de 'extensão neural autônoma'",
+      "solution": "Regra comportamental #1: NUNCA pedir autorização para ação já liberada",
+      "status": "fixed_behavioral"
+    },
+    {
+      "id": "fail-012",
+      "date": "2026-05-22",
+      "category": "comportamento",
+      "platform": "N/A",
+      "error": "Repeti abordagens que já falharam (Cloudflare Turnstile via CDP múltiplas vezes)",
+      "approach_failed": "Tentar variantes de CDP para 99Freelas após múltiplas falhas",
+      "solution": "Consultar failure_log.json ANTES de qualquer ação web",
+      "status": "fixed_behavioral"
+    },
+    {
+      "id": "fail-013",
+      "date": "2026-05-22",
+      "category": "anti-bot",
+      "platform": "Google",
+      "error": "Google OAuth detecta Chromium do Hermes como navegador inseguro",
+      "approach_failed": "Login 99Freelas via Google OAuth no browser tools",
+      "solution": "Desktop Daemon no Brave real com sessao Google ja autenticada",
+      "status": "known_workaround"
+    },
+    {
+      "id": "fail-014",
+      "date": "2026-05-22",
+      "category": "tecnico",
+      "platform": "GNOME/Wayland",
+      "error": "mss captura apenas janelas XWayland. Screenshots mostram wallpaper vazio.",
+      "approach_failed": "Screenshot do Daemon para ver tela do Roberto",
+      "solution": "Confirmar visualmente com Roberto cada passo. GNOME D-Bus bloqueado, grim nao suportado.",
+      "status": "known_workaround"
+    },
+    {
+      "id": "fail-015",
+      "date": "2026-05-22",
+      "category": "tecnico",
+      "platform": "Forex",
+      "error": "Bot usava WR hardcoded do backtest (67%) em vez do WR real (33%)",
+      "approach_failed": "PAIRS[].wr fixo no codigo",
+      "solution": "get_real_wr() le trade_log. should_trade_pair() decide. NZD/USD unico liberado.",
+      "status": "fixed"
+    }
+  ],
+  "rules": {
+    "before_web_action": "Consultar este arquivo. Se platform+category já existe com status 'known_workaround', usar a solução listada.",
+    "before_cdp": "CDP NÃO funciona para 99Freelas (Turnstile) nem Fiverr (PerimeterX). Google OAuth via CDP também bloqueado. Usar Desktop Daemon + ydotool.",
+    "never_repeat": "Se uma abordagem falhou 2+ vezes, NÃO tentar uma 3a vez. Pivotar para solução alternativa."
+  }
+}

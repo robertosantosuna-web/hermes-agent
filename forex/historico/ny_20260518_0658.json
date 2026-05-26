@@ -1,0 +1,54 @@
+{
+  "pico": "ny",
+  "pico_nome": "\ud83c\uddfa\ud83c\uddf8\u2b50 NY Overlap",
+  "horario": "2026-05-18T06:58:00.883647",
+  "ordens": [
+    {
+      "par": "EUR/USD",
+      "direcao": "VENDA",
+      "preco_entrada": 1.16365,
+      "stop": 1.17304,
+      "target": 1.13549,
+      "preco_saida": 1.16365,
+      "swing_pips": 0.0,
+      "pnl_pct": 0.0,
+      "timestamp": "2026-05-18T06:58:00.883647",
+      "pico": "ny",
+      "day_trade": true,
+      "fechamento_previsto": "18/05/2026 23:59 BRT"
+    },
+    {
+      "par": "GBP/USD",
+      "direcao": "VENDA",
+      "preco_entrada": 1.33632,
+      "stop": 1.35043,
+      "target": 1.294,
+      "preco_saida": 1.33632,
+      "swing_pips": 0.0,
+      "pnl_pct": 0.0,
+      "timestamp": "2026-05-18T06:58:00.883647",
+      "pico": "ny",
+      "day_trade": true,
+      "fechamento_previsto": "18/05/2026 23:59 BRT"
+    },
+    {
+      "par": "USD/JPY",
+      "direcao": "COMPRA",
+      "preco_entrada": 158.921,
+      "stop": 157.33077,
+      "target": 163.69169,
+      "preco_saida": 158.921,
+      "swing_pips": 0.0,
+      "pnl_pct": 0.0,
+      "timestamp": "2026-05-18T06:58:00.883647",
+      "pico": "ny",
+      "day_trade": true,
+      "fechamento_previsto": "18/05/2026 23:59 BRT"
+    }
+  ],
+  "total_ordens": 3,
+  "fonte": "TradingView",
+  "wins": 0,
+  "losses": 3,
+  "pnl_total": 0.0
+}

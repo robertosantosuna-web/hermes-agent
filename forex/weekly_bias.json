@@ -1,0 +1,19 @@
+{
+  "week_start": "2026-05-25",
+  "week_end": "2026-05-29",
+  "pairs": {
+    "USD/JPY": "BUY",
+    "GBP/USD": "BUY",
+    "EUR/USD": "NEUTRAL",
+    "AUD/USD": "NEUTRAL"
+  },
+  "macro": {
+    "iran_deal": "Broad understanding reached in Tehran. Risk-on. Supports carry trades (BUY USDJPY).",
+    "fed": "Kevin Warsh = new Fed Chair. Waller hawkish - no policy change near term.",
+    "consumer_sentiment": "UMich 44.8 vs 48.2 expected → BEARISH USD signal.",
+    "cad": "Canada retail sales +0.9% vs +0.6% expected. CAD strength possible."
+  },
+  "summary": "Iran deal risk-on + Fed hawkish + weak consumer sentiment. USDJPY primary (73.3% WR in backtest). Mon holiday - no trading. Tue-Fri: London/NY killzones only.",
+  "no_trade_monday": true,
+  "updated": "2026-05-25T16:38:00+00:00"
+}

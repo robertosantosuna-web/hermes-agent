@@ -1,0 +1,1246 @@
+a full trading plan that works in any
+Market any time frame and any time this
+is what I'll show you in this full
+course you'll understand that all ICT
+concepts are based on three main
+Concepts and I'll show you how to create
+your own trading plan based on those
+three concepts some of the things that
+I'll go over and explain in this video
+include liquidity Market structure PD
+arrays top- down analysis time frame
+alignment High reward to risk entry
+confirmation trade management and finish
+of the video with examples make sure to
+like and share this video with your
+friends let's get into it the first
+thing that we're going to cover is the
+most important ICT Concepts we know that
+ICT Concepts there are a lot of them
+there are ones that are less important
+there are one that are very important to
+me there are a lot of I Concepts that I
+learned I spent a lot of time learning
+and you know I put the time and efforts
+but then at the end I'm not using them
+that much maybe not at all right so I
+don't want you to all also do the same
+and spend a lot of time to learn
+something that even though it looks good
+it looks like oh it's going to be
+beneficial but at the end you're not
+going to find any use of it the most
+important ICT concepts are four and
+that's only my opinion but you're going
+to see that a lot of people are actually
+agreeing with this so the first thing
+and the most important concepts of all
+time not only in ic Concepts but in
+trading as a whole okay which is
+liquidity because without liquidity
+nothing moves without liquidity we're
+not going to have manipulation without
+liquidity we're not going to have
+expansion so the market moves by taking
+liquidity and even you know taking a
+look at PD arrays which is the second
+most important uh ICT concept but even
+PD arrays when looking at the lower time
+frame it's going to be a liquidity at
+the end okay but ICT put it in a way
+that you don't see it on uh the same
+time frame so PD arrays again are
+nothing but liquidity on the lower time
+frame so a fair value for example if you
+you switch to a lower time frame and
+I've talked about this before it's
+nothing but what a liquidity Market
+structure shift you got to understand
+Market structure so you need to
+understand breakout structure you need
+to understand a market structure shift
+you need to understand what a change in
+state delivery is so you need to have an
+idea about you know the market structure
+and there is a full video a full course
+that I've done um maybe two videos
+before this about the market structure
+it's a full course about strong highs
+strong lows and also the market
+structure shift and the break seure so
+you also need to understand this in
+order to uh continue the video and also
+time so you got to understand what time
+mostly the manipulation is you can
+actually uh use the quar theory in this
+as a Confluence you need to understand
+what kill zones are you need to
+understand the weekly profiles the daily
+profiles all of those things I explained
+um briefly in my videos but if you want
+to have an idea about all of those
+Concepts in one video it's going to be
+this one so this is an ultimate
+beginner's guide to ICT or SMC Concepts
+it's a full course 30 minute a video for
+beginner especially so if you have no
+idea about those Concepts then you need
+to watch this video first then come back
+and continue watching this video now you
+started learning IC Concepts and you
+know all of the basics but something
+that is stopping you from being a
+successful Trader what is it it's
+hopping from a strategy to another from
+a setup to another thinking that there
+was something better than the other and
+thinking that after failing one trade in
+your setup a setup that you promise
+yourself to stick with it and trade
+based on it then you see one two three
+losing trades and you switch to another
+strategy that's one of the mistakes that
+I've been doing and probably this is a
+mistake that you you're doing now right
+and it's stopping you from being a
+profitable Trader you know you go on
+YouTube and you see that people are
+coming with different and new strategies
+every day and you think that okay I need
+to you know take my strategy to another
+level or learn something new but in
+reality you will notice that there are
+three concepts that are behind all ICT
+strategies now go to Twitter and you
+will see that people are calling this as
+their setup people are calling this as a
+new setup that has a higher win rate but
+in reality what does it depend on three
+concepts and let me prove this to you
+okay so this is the proof liquidity
+market secture and PD arrays and that's
+why I said those Concepts are really
+important to understand so three
+concepts behind all strategies when're
+looking at let's say some people say oh
+we have the Holy Grail and we are
+trading Turtle sou and there are people
+who are selling courses for thousand of
+dollars and it's all basic but in
+reality what is turtle soup right we're
+looking at those three concepts here
+three main Concepts in ICT and again
+those are the three most uh important
+Concepts in I so liquidity when we're
+looking at liquidity when trading tto
+soup what specific liquidity level we're
+taking a look at any actually any
+liquidity level and for the market SE
+shift in order to enter based on the
+turtle soup what do we need to enter so
+some people just enter based on lock the
+actual entry is actually a changer State
+delivery so we're going to wait for a
+changer State delivery after taking that
+specific liquidity level and then we
+enter without the need of any PD array
+so none no PD array needed that's a
+total sub entry now let's say that there
+are some people who are coming with
+external to internal so let's say for
+example uh taking previous day high or
+previous day low then returning to the
+internal structure right so taking um or
+you know let's say prices coming lower
+taking the previous day low going to
+internal here how do we deal with this
+what is this based on so when talking
+about liquidity previous day low then
+for the market structure what are we
+looking exactly that's going to give us
+an indication that the market is
+switching the direction or that's an
+indication that okay we are actually
+flipping now it's a market section shift
+so we're looking for a market section
+shift in order to have an indication
+that okay we might be going internal now
+and what PD array we're using you could
+use fair value Gap so that's what the
+external to internal setup is now 2022
+mentorship model that's one of the most
+famous and popular uh setups right what
+is it based on any liquidity level
+Market Su shift we need it and then a
+fair value G that's simply what a 2022
+mentorship model is now I'm not saying
+oh look at those three things only
+that's why we need to perform top
+analysis and that's what this video is
+about it's about a whole strategy that
+is based on top down analysis based on
+liquidity based on Market secture based
+on PD arays now my model that I
+published about I don't know two months
+ago and it's the first video that I
+posted on this channel that's what I was
+trading I don't know two years ago right
+so my motel which is the agent sweep
+we're looking at an agent sweep on the
+London session what is this based on
+liquidity we're looking for the agent
+higher low so you see how all of those
+different setups they have the same
+logic it's a liquidity level it's a
+market seure and it's a be rate to enter
+so liquidity level that's the first
+thing to look for or we could look for a
+PD array right here so U not just a
+liquidity level but a fair value Gap a
+filling of a fair value Gap because
+that's a liquidity level at the end on
+the lower time frame we look also for
+the market secture so my agent sweep we
+look for Asian higher low taken we look
+for a change in state delivery and we
+don't use any P rate to entera after so
+you could actually do the same wait for
+a m section shift and then enter of a
+fair value Gap that's another setup that
+you know I could based on this table
+right here and based on more data that I
+am able to actually uh get from this
+table I could make I don't know hundreds
+of videos and they're going to do
+nothing but confuse you that's why I'm
+showing you this and just telling you
+that they're all the same based on those
+three main Concepts right here liquidity
+Market structure and PDR rates now note
+that this is a trading plan and not a
+strategy a strategy when I'm coming to
+you and telling you okay I have a
+strategy for you it means that okay look
+for this inter this and then take profit
+here right but a trading plan will tell
+you what the framework to look at so
+determining the bias determining the
+trade to take determining the take
+profit the trade management as also
+Break Even stop- loss invalidation all
+of those things based on the trading
+plan you can actually create a strategy
+but what people do is they give you a
+strategy that works in specific time
+specific context and then leave
+everything else for you and you're going
+to be struggling that's why I'm giving
+you this trading plan which is more
+important than just a specific strategy
+it's a four step plan to follow in all
+strategies so any ICT strategy that you
+see is going to depend on this trading
+plan that I'm going to show you or those
+Force tips so this video could be also
+about how to make a trading plan after
+understanding all that I Concepts that's
+how you make your plans top down
+analysis and why is it important why in
+this setup and why in a lot of the
+strategy that you're seeing when there
+is no top analysis it doesn't really
+work and even in my Asian sweep what I
+do is we always look at the higher time
+frame and we look for the context or the
+framework that we are at right so we're
+not simply looking for any sweep of a
+high or low of the agent session and
+then entering no we need to still
+perform some top down analysis so why is
+it important consider this price action
+right here what do we see price is
+expanding ranging expanding coming lower
+there was some range here expanding from
+here ranging expanding and then ranging
+here expanding and then ranging if you
+are not performing topown analysis
+what's going to happen is that you might
+be trading those ranges and then saying
+oh my God this is a bad day and then
+this happened it stopped you out and
+then press goes here and you're not
+entering this you were entering on this
+range why so let's say you lost two
+times here and the market only wants you
+to give up not trade and then the real
+trade is going to happen and the same
+thing here so let's say you enter here
+and you're like okay why is this Market
+ranging why when I'm always out of the
+market you know I'm not trading it's
+expanding but then when I'm in that
+market it's ranging what's the what's
+the matter here it's not about you it's
+about your technicals it's not about the
+psychology SO trading in this because
+you're not actually performing the top
+down analysis and why if you want to
+catch this High here not catch the high
+but catch the you know the trade after
+it for example or trade this low was
+created here price going up you could
+enter from here from here in the lower
+time frame how do we do that we're going
+to be looking at the higher time frame
+so if I'm looking at only at the 1
+minute and I only see this price ranging
+that's because price did not reach a
+15minute or an hourly or a 4H hour po
+so the expansion is going to happen when
+when we reach a higher time frame POI
+and again higher time frame is relative
+so higher time frame is not only like
+hourly chart because hourly chart if I'm
+talking about you know 4H hour chart
+it's not higher time frame then higher
+time frame is going to be for example
+weekly or daily if I'm looking at this
+um chart right here as let's say a 1
+hour chart then I want to see weekly or
+daily pois or daily point of Interest
+right at this level that's where the
+expansion is going to happen on your low
+time frame that's where the expansion is
+going to happen those ranging are going
+to be happening when when I'm just
+looking at the hourly or the 4H hour
+chart right just by itself we're going
+to see that it's ranging because it did
+not reach any higher time frame POI so
+that's why top down analysis is very
+important because otherwise if you don't
+use it you're going to be trapped in a
+consolidation and ranging market price
+will only expand when it's reaching
+higher time frame poi so by
+understanding the top down analysis now
+we understand the secret to high re
+water is so a lot of people ask and a
+lot of people see people getting high
+reward risk trades what's the catch here
+it's nothing but what performing topown
+analysis and what's the you know catch
+inside or in details it's catching a
+small move in the higher time frame with
+an entry in the lower time frame so
+let's say I'm looking at a 4H hour time
+frame and I'm only catching let's say
+one expansion Candle on the on the 4our
+time frame but then I'm entering on the
+1 minute time frame imagine if I was
+able to actually spot that precise entry
+and accurate one I could get 10 RR right
+or 20 RR if that candle is a big
+expansion or I'm catching let's say an
+internal to external move on the 4 Hour
+and I'm entering on the 5 minutes or the
+1 minute it's going to be harder for
+sure so it takes more experience it's
+not easy to get high reward to bis
+however this is the way practice this
+entering on the lower time frame and
+catching a higher time frame move that's
+how you get those higher reward to risk
+with time frame alignment we cannot
+perform a top analysis so we need to
+have a clear time frame alignment this
+way we can actually you know perform the
+top analysis perfectly and we need three
+time frames two or three now there are
+two approaches or two options that you
+have either take three time frames or
+two time frames and you're going to know
+the difference in the next slides but
+those are the time frames and those are
+flexible time frames so don't feel that
+you need to actually follow those
+exactly the same you could actually play
+with it and Skip one time frame or
+another or you know look for a closer
+time frame to the 1 hour for example um
+for example 30 minute you could do this
+and change this so feel free to do your
+adjustment but those are the time frames
+that I suggest right so let's imagine
+that I'm taking my higher time frame as
+the monthly I would skip one time frame
+go to the daily as my intermediate time
+frame and then I'll Skip One and go for
+my lower time frame which is going to be
+the hourly so you see one suggestion
+here is starting from the monthly going
+to the Daily going to the hourly now
+another one and this is the one that I
+also use which is the weekly right as my
+high time frame then I'll go to 4 hour
+so I'll skip the daily I'll go to 4 hour
+and then I'll skip the hourly I'll go to
+15 minutes that's one time frame
+alignment suggestion that I you know I'm
+giving it to you feel free to do some
+adjustment but this is the one that I
+actually this is the one that I use so 4
+hour I'll skip 1 hour and I'll go to 15
+minutes I'll skip the 5 minute and I'll
+go to 1 minute so that's another time
+frame alignment that I suggest this is
+for more as a scalping because your
+entry is going to be on the 1 minute
+this is like you know on the middle if
+you wanted to enter based on some swing
+trades you could follow this monthly to
+1 hour and then daily in between or you
+could skip the third time frame and
+that's what I'm going to explain later
+so you could actually only depend on
+monthly and daily weekly 4 Hour 4 hour
+15 minutes those are also some valid
+time frames so we're going to understand
+later when to use you know the higher
+time frame and when we can actually stop
+with the intermediate time frame and
+skip the lower time frame or stick with
+the lower time frame we're going to
+explain this in the next Slide the first
+step in our four steps protocol the
+first step is looking at the framework
+which is going to be on the higher time
+frame so whatever is happening in the
+low time frame it needs to be aligning
+with a higher time frame I need to have
+a clear framework on what is happening
+on that time frame what does framework
+mean it means that do we have a move of
+external to internal or internal to
+internal I need to understand that
+because the understanding of this is
+going to tell me where price is going to
+so if I'm having an external to internal
+move what does that mean it means that
+we're actually taking a high going lower
+to a fair value Gap and we might either
+disrespect that fair value gap or expand
+from that fair value Gap going higher
+now what does an internal to external
+mean so the opposite here internal to
+external it means that we are most
+likely reacting off a fair value Gap and
+we're aiming for the high as our Target
+so we're having something like this so
+price is coming to a fair value Gap
+taking that high again so that's the
+context or that's the framework that
+we're looking at it's an is it an
+internal to external or external to
+internal and this just by looking at
+this question is going to answer a lot
+of the the questions below so another
+question is what PD we're reacting of
+what PD we're targeting and then what is
+the invalidation so what's something
+that could happen that I'll forget about
+this trade idea so on the high time
+frame if I see something like this and
+we have fair value Gap here but instead
+of this fair value Gap holding this fair
+value Gap was actually closed below so
+that's one reason of inv validation so
+if we see a closure or displacement
+above or below a fair value gap or a
+closure with the displacement above or
+below um an old higher low then that's
+also an invalidation so the main thing
+is understanding the internal to
+external knowing that internal are fair
+value gaps and external are highs and
+lows that's going to actually give you a
+clear framework and this is one of the
+most important Concepts that you need to
+understand in ic Concepts and the whole
+Market you know moves in this way
+because we understand that press only
+moves from internal to external or the
+opposite external to internal
+and we know that price does two things
+only two things in the market and you
+see that this cycle repeats over and
+over and what are those price coming
+into a fair value Gap rebalancing fair
+value gaps and taking highs and lows as
+a liquidity level so that's the first
+step that we need to do and don't worry
+we're going to go over some examples at
+the end and I'll show you a step by step
+how to actually look at those uh
+framework so let's say we're having this
+higher time frame POI so let's say a
+fair value Gap and we're breaking above
+this with a so this is a breaker
+structure here we're breaking above with
+the displacement we're coming lower and
+I don't want to trade the external to
+internal so just say for any reason I
+did not have or I did not see a set up
+here and now we're having this high as
+an external and we're having what a move
+of internal to external but regardless
+of all this a higher time frame POI so
+let's say this is your higher time frame
+POI as price come into that higher time
+frame POI you have a high probability
+that your bias would be the same so
+let's say it's a bullish POI on the
+higher time frame it means we are having
+a bullish bias inside of here most of
+the time I would say 70% of the time as
+we are inside of a bullish fair value
+gap on the monthly time frame on the
+lower time frame we are bullish a
+bearish POI and that's you know we keep
+it a simple here very simple so how to
+establish a bias look for a pii on the
+higher time frame and trade base on that
+if it's a bullish Fair Valley Gap then
+we are bullish if it's a bearish valy
+gap then we are bearish in the lower
+time frame so same thing here you see
+bullish POI bullish buyas bearish POI
+bearish buyas targeting what in this
+case this high right here which is the
+external because we're moving off
+internal to external now into the
+intermediate time frame so we're not
+going to be entering immediately as
+price comes to that higher time frame I
+want to see some confirmation or some
+indication that okay the buy is is right
+there is indication that there is
+something that the price action is doing
+that is giving as a hint that okay price
+is willing to move in that direction the
+same as the high time frame POI so as
+prices come in inside that POI in Kill
+zones what I want to see is this price
+taking a liquidity level and breaking
+that high in between what is that that's
+a market SE shift and you could also
+look for some confluences on this side
+so for example I want to see an smt and
+those in my opinion are confluences that
+are enough to spot a reversal Okay so
+smt which is a crack in correlated pairs
+so let's say EU and gu so your dollar
+and pound dollar if one is taking a low
+and the other one is not taking that low
+the same low then that's an smt so I'll
+be looking for smts as well as a market
+s shift in there and then a creation of
+a fa valap because that's your zone of
+Entry otherwise you have no place to
+enter or at least this is the easiest
+way to enter so as soon as we see this
+in our intermediate time frame then we
+could actually switch to the lower time
+frame and look for an entry from there
+two options at this point or at this
+stage you either can take an entry based
+on the intermediate time frame and
+therefore you can skip the third step so
+basically this is an entry with no
+confirmation so you're seeing or you
+know you're using two time frames higher
+and lower and in between you're waiting
+just for that POI to create a fair value
+Gap here and then in enter from it
+immediately and that's a valid one but
+then there is another type where you can
+actually by the way this one the no
+confirmation entry is going to give you
+less reward to risk but a lot of the
+time you're not going to miss trades but
+then there is the entry on the lower
+time frame with a confirmation and if
+you want to learn this then you can go
+to the third step and we're going to go
+from there but if you are taking no
+confirmation trade only based on the
+intermediate time frame then you don't
+need to watch the third step so for our
+third step it's the entry confirmation
+and that's going to be the lower time
+frame ones so as we're having that
+intermediate time frame POI so let's say
+it's a bearish one and this is a POI
+that reacted from the high time frame
+and you want to catch a big high water
+risk trade then in that intermediate
+time frame POI you look for a lower time
+frame confirmation and there are a lot
+of types of lower time frame
+confirmation one that is a risky one but
+then you could you know definitely based
+on this which is the Chang toate
+delivery so let's imagine that price is
+printing bullish candles bullish candles
+bullish candles and then the last
+bullish candle is violated with a
+closure it creates an order block here
+and that's why this is a valid entry
+here so change State delivery is
+violating the last bullish candle and
+that's a bearish change of state
+delivery or if we're going lower
+actually and we have last bullish candle
+here and it's disrespected by a bullish
+candle then that's a bullish changes
+delivery so we could enter on this or we
+could look for the popular Market SE
+shift and fair value Gap so I'll wait
+for Market s shift to happen here with
+the fair value Gap and I'll enter from
+that fair value Gap that's simply the
+2022 mentorship model right or another
+entry and this one here you could have
+taken on the intermediate time frame
+right so you could have taken this or
+you could have taken this also so all of
+those um different confirmations we
+could have done those not on the low
+time frame if you wanted to skipe you
+could have taken this here on the
+intermediate time frame first fair value
+Gap so as soon as we create a fair value
+Gap reacting from that POI we could have
+actually taken that lower time Val now
+there are some other entry confirmation
+there is the let's say the market SE
+shift with an inducement you see taking
+that inducement the first one that's a
+continuity Purge you could have also
+look at the candle continuity Theory and
+that's the one that I came up with so
+the moment that we create what a swing
+High inside of that POI we could look
+for the candle continuity Theory and
+make sure to watch my video about it so
+just look up mam trading candle
+continuity Theory and you will see how
+you can actually have a full trading
+plan just based on one candle so those
+are the entry confirmation that's third
+step we only have the fourth step which
+is going to be the trade management and
+it's going to teach us how to actually
+enter the trade what do we need to have
+in that trade so for the trade
+management as soon as you enter that
+trade the first thing to do is identify
+your stop- loss where do we have the
+stop loss it's at the invalidation point
+so the point or the zone or the you know
+whatever you call it a level that if
+it's dis perspective then I don't want
+to be in the trade no more and the trade
+is not valid no more that's the level so
+let's say in a fair value Gap entry if
+price closed with the displacement below
+that fair value Gap I don't want to be
+in the trade no more because it looks
+like we're having an inverse fair value
+G now and there is a big potential that
+we could be going lower from now so
+that's your invalidation point a lot of
+the time in a 2022 mentorship mod for
+example the invalidation would be the
+swing low or the swing high now it's
+different with every setup so make sure
+to think about it see what point or what
+is going to happen in order for me to
+have this IDE as an invalid right then
+we have the partial and break even so
+those are two things at the same time
+taking some partials on the trade and go
+on break even uh at the point that we
+have a potential reversal or retracement
+so let's say we're having some you know
+significant highs and lows in a bullish
+example when those Highs are taken and
+there is a big potential that we could
+have a retracement or reversal from
+there but there is another high that is
+above them that could also be taken then
+I could go break even at that point and
+take some partials in case that price
+decided to go higher I'm still in the
+trade in case price decided to just go
+lower and forget about the high that is
+above then I'm out in break even without
+no loss right and I've taken the
+partials already and your take profit is
+going to be the completion of a market
+Maker's models so either buy model or
+sell model and that's the external to
+internal or internal to external and
+it's the high probability of reversal so
+if I see a high or a low that is a very
+high probability for price to react from
+or reverse from so for example a
+previous monthly High previous daily
+high or you know low the same thing so
+those high probability liquidity pools
+and very significant ones I would have
+my take profit there why because price
+code just revers from there immediately
+so just to give a quick summary before
+going in in the examples we have four
+steps to follow here the first one is
+looking at the framework identifying the
+framework and what is happening on the
+high time frame and then we wait for a
+POI to be created on the intermediate
+time frame and remember not any F value
+Gap and remember that not any POI is
+valid until we have some confluences so
+including Market SE shift smts and
+liquidity swe inside of that POI then we
+look for an into confirmation on the low
+time frame and I've went over several
+ones then we go into the trade
+management and then finally we let the
+trade play out hopefully goes to the
+take profit now we're going to go over
+some examples to ensure that the
+understanding is fully there without
+examples without the live chart we're
+not going to see nothing nothing until
+we go to the chart and see some examples
+that played out previously on the
+previous days previous weeks whatever
+but we're going to make sure that we
+look at examples that are valid that
+some of the examples I've taken myself
+and put this together on the best way
+starting with the first time frame
+alignment so we're going to be trading
+based on the 4 Hour 15 minute and 1
+minute and I'm going to take some trades
+only based on the you know 4 hour and
+then the 15 minutes and sometime I'm
+going to go down to the one minute just
+to explain everything in details right
+so what we see here is that um on the 4
+Hour and this is a trade that we took in
+the Discord together so what do we see
+is press going up come going into a fair
+Valley Gap and then started going lower
+now we broke below this low with a fair
+value Gap so this fair value Gap is a
+high probability one marking that fair
+value Gap from here to here there's also
+another fair value Gap above here so
+this is a potential fair value G here so
+we're going to be marking both of those
+right and most fair value gaps are high
+probability one in order to push this
+price lower again so if the low is
+created here price comes here most
+likely it's going to take the low
+because we are in an downtrend and
+prices come to internal if we see a
+confirmation here then most likely it's
+taking the external to so playing the
+price action we can see that price is
+approaching that now one thing here to
+do when you have big fair value gaps
+what you could do is look for
+overlapping so for example when're
+looking at at this Fair valy Gap here we
+can see that we have a big Fair valy Gap
+right and overlapping is this low that
+is inside of the fair value Gap so now
+we are actually expecting the fair valy
+Gap to almost be fully filled and you
+see price came here now you could do
+this all the time so you see Fair Valley
+Gap here or you know two consecutive or
+three actually Fair Valley gaps where do
+we expect price to go to this
+overlapping here and that's where price
+almost goes to and started going higher
+so the overlapping and you see here
+that's the same so fair value Gap
+overlapping that's where price comes and
+again goes here because there's another
+overlapping here so you see another
+overlapping here that's where price
+comes so one reaction from here another
+reaction from here so overlapping can
+actually minimize the fair value Gap and
+give you high probability one and you
+could also look at the mem trading fair
+value Gap Theory because it's going to
+also tell you where the real fair value
+Gap is but that's not something that I'm
+going to cover today I have a full video
+on that today's video is only about the
+you know the trading plan on the time
+frame alignment so we can see that we
+have actually overlapping here and we
+also have this invers for Value Gap here
+so that's most likely where price is
+going to react from that's how I see it
+so that's where I'm going to be looking
+for Market actually shift going back now
+to 15 minutes because that's where I
+want to see my POI I want to see POI
+created here right or Market actually
+shift with a POI so let's see prices
+actually going higher right going uh not
+going to the fair value Gap there you go
+so now now go into that fair valy Gap
+this is Agent session we don't trade
+here and actually what we see is that
+this is your midnight open at this level
+so we are above the midnight open so
+we're most likely looking for sells but
+then price goes to that invest Valley
+Gap and started going lower with no Mark
+suction shift and now going to the
+overlapping and you see a lot of the
+time press doesn't come to the
+overlapping but then goes back again
+let's say for this trade right here you
+entered based on this change of state
+delivery with the stop grow somewhere in
+here right and then you target this low
+and then extend it more to the 4our
+structure but we're going to take a look
+at that later now I'm waiting for the
+market suction shift to happen right but
+let's say you entered uh based on this
+reason actually it stopped you out here
+so you got stopped out that's the first
+time and that's why I'll only take you
+know changer State delivery at defined
+and refined areas right so I'm going to
+be looking at changes delivery now
+because price hits that
+overlapping but we're going to take a
+look at all different scenarios okay
+actually we got our changes to deliver
+here so the real trade would be from
+here and stop loss above the this candle
+high right and then we're going to
+Target the same Target this one the one
+below here that's already 3.5 to1 and we
+can actually extend it to the 4our and
+we can see 4 Hour yes right here we can
+extend it to uh those lows below as well
+as this low here and that's a 4 to one
+so a good one already and we left some
+room for price to breathe above so on
+the 15 minutes that's what we have now
+we could also take the entry based on
+the first fair value Gap so you see we
+got actually no fair value Gap here as
+we're coming lower no fair value Gap
+almost created a fair value Gap here but
+nothing now we're going lower actually
+there's a fair value Gap here so it
+could have taken a trade at this fair
+value Gap here if it wants to be filled
+but also looking at this Market section
+shift here so when we close below there
+you go that's a market shift and it
+looks like this per Valle Gap is not
+going to get filled so the first setup
+that you could have taken is from this
+changes state delivery only relying on
+two time frames so 4 hour and then 15
+minutes you could have taken a trade
+based on the 15 minutes by itself but
+we're going to also discuss how to take
+a trade based on the one minute time
+frame so as we're coming lower we see
+that there's no fair value Gap here
+unless price decided to come to this
+fair value Gap right that's the only one
+that I see after this Market section
+shift right here so that's your Market
+section shift the main one and now we
+have this fa valy Gap here so as we see
+price is doing nothing this is the agent
+session so we start yeah we started
+looking for trades here on the London
+and the New York price taking the Asian
+high started going
+lower and then a little bit deeper into
+oh actually there was a very small not a
+actually not a fair value Gap here but
+price came back to this order right here
+right and liftt this fair value Gap open
+and we can see that we created a fair
+value Gap here so if price fill that
+fair valy gap on the New York session
+because because the Lend the session
+ended already so if price comes to that
+fair value gap on the um New York
+session then we can take a trade from
+there on the one minute time frame so
+going to one minute time frame we can
+see that we have this fair value Gap
+here playing the price Action 7 A.M is
+so you see price came to that fa valy
+Gap but not on the Lend uh the New York
+session actually I'm going to wait for
+New York session to start there you go
+it's starting here so what we see inside
+of that uh fair value Gap is that price
+before the New York session starts it
+took the high here and then changes
+state delivery so there's already a
+change of state delivery and filling
+that fair value Gap here so I could
+actually enter trade from here already
+because there's already the changes say
+delivery and then fair value Gap being
+failed stop loss you know just above the
+fair value Gap somewhere in here and
+what I could have targeted here is the
+first of all going to 15 minutes they're
+going of Destruction on the 15 minutes
+could have targeted the Asian low right
+but that's not much that's a 2.58 now we
+can go to the 4 Hour which is our higher
+time frame and look at what is happening
+in the 4 Hour we actually we have taken
+a trade here right based on the 4 Hour
+we could have targeted the 4 Hour low
+almost equal lows here that's a 6 to1
+and then the other low right here that's
+a 9 to1 so that's a trade on the 1
+minute but based on the 50 minute and
+4our structure and playing the trade
+here I actually go into 50 minutes just
+to make it faster so there you go price
+that going lower and you have what also
+another fair value Gap created here
+after price filling this 4our fair value
+Gap so another structure that is new we
+could have taken a trade from here based
+on the one minute time frame it's going
+lower right but this was not on the
+nework session so um mostly not taking a
+trade here price goes lower agent
+session high of the agent s is taken
+here so another change State delivery
+entry could be valid here you see
+there's one here change State delivery
+taken all the way to that Target and
+then you see price is continuing lower
+but that's what we are going to be
+taking so you see that's not a valid
+entry because it's not in Kill Zone this
+one is valid it's taking the high with
+the direction of our 4-Hour structure
+and as we're coming lower
+any High taken is a valid entry as long
+as you know uh it's in premium or
+discount in this case in premium and
+it's a valid high that is taken so you
+see this one if we go uh back to one
+minute time frame as we're taking that
+high of the agent what happened after
+immediately so you see taking the high
+that's your last bullish candle closing
+below here and even if you wouldn't want
+to enter Bas on this enter on this
+displacement one you could have but this
+is you know um a closure below stop loss
+above the high and then what we could
+have done is targetting the same Target
+on the 4 Hour that's a huge one and
+that's again the secret to high reward
+to risk so back to 4 hour and take a
+look at what happened here that's a huge
+trade based on the 4our structure so
+something like this that's a 14 almost
+14 to1 so that's what we do and remember
+the 15 minute just by itself it was
+something like this 15 minute trade here
+right and then targeting the same Target
+there you go that's a to one so all of
+those trades just based on one POI on
+the high time frame we could look at it
+in different ways on the lower time
+frame and now we're going to go over
+weekly and 4our setup this is a setup
+that you can actually start using and
+it's very simple but you got to be
+careful when picking your fair Val gab
+so I want you first of all to follow all
+of the videos that I explain about the
+high probility Fair Val gaps I also want
+you to apply my theory and um perform
+the internal analysis inside of the fair
+value Gap to know which part of the fair
+value Gap should I take and which one is
+the real uh mvg okay so that's something
+that we could do all what we're doing
+here is picking two time frames one high
+probability fair value gaps on weekly
+and first Fair Valley Gap with a market
+struction shift on the uh 4H hour time
+frame so let's say I'm going to be
+picking for Valley Gap so let's say this
+one here because prior to this for Value
+Gap there was a liquidity sweep and then
+a BPR here so a balance price range also
+uh and then a market actually Shi so
+this is a valid fair value Gap we also
+have this fair value Gap right here
+because it also took liquidity and then
+a market actually shift in the lower
+time frame uh and this one you can see
+it aligns also with what this High
+inside and Order block so order block
+here and a high inside and also we have
+this one right here per Valley Gap that
+has a liquidity inside so taking a look
+at those three fair value gaps I could
+take a lot more but I don't want to
+explain what our high probability for
+Valle gaps and go over this again and
+again because I already explained this
+concept A lot of times so let's focus on
+this for Val gap for now and see how we
+can actually get a setup of this so I'm
+going to use the replay mode and go here
+and then we can go to this one and this
+one and show you an easy model just
+going over two time frames okay so a
+very easy model you can also look for
+confluences like smt and other
+confluences the one you prefer but the
+main thing is focusing on two time
+frames weekly and 4 Hour and taking an
+entry from the first Fair Valley Gap
+after the mar section shift I do prefer
+to see a maret section shift but we can
+actually have this as an optional thing
+so the first fair value Gap that we see
+is this one right here and we can
+actually that it has this overlapping
+here so that's an overlapping of AO
+inside of the fair Valley Gap this is 4H
+hour time frame it's a weekly Fair valy
+Gap wait for price to go there so price
+is hitting there actually it touches
+that overlapping and you see a big
+expansion price coming into that fair
+valy Gap very aggressively all I want to
+see now so we can see that we had this
+liquidity sweep also so there was a
+liquidity sweep inside you could look
+for an smt here if for example this is
+your um CAD right if I see a pound CAD
+doing the opposite creating a failure
+swing here then that's an smt but for
+now this is a liquidity sweep here all I
+want to see is fair value Gap to be
+created and you see no fair value Gap as
+of now another liquidity sweep so you
+see the lack of a fair value Gap is
+telling me something it's telling me
+that price is not ready yet to go lower
+so another liquidity sweep and there you
+go we have this fair value Gap so now
+feel free to either enter from 50% of
+the fair value Gap or the beginning of
+fair value Gap you know um it depends on
+your understanding your fair value
+sometime price will retrace into 50%
+sometime not so do some back testing see
+how it goes we're going to be entering
+from the beginning of the fair value Gap
+so let's say here and what I'll be
+targeting is 4H hour structure so I can
+Target all the way there that's a 61 I
+can Target some other lows here major
+lows so for example this one 3 to one
+and I could go to weekly right I would
+switch to weekly and look at my
+structure here so I could look at this
+low to be taken right here so I could
+actually extend if you go back to 4 Hour
+extend this to my weekly level you could
+do this so this is a weekly level I
+could look for price to come here but
+I'll make sure that price doesn't
+reverse from those internal fair value
+gaps right so playing the price action
+here what I want to see is that okay
+price was going lower so as soon as you
+hit 50% of this trade and as you can see
+from here to here that's 6 to1 actually
+we already hit 3 to one so you're
+already taking 50% partials as well as
+go on break even if price goes back to
+your entry again which almost does right
+and yeah it goes to your entry so you're
+out you could re-enter that's your
+choice and then you know um eventually
+goes to your take profit but most likely
+it would be stepped at a break even here
+laying the price action more we could
+see another creation of fair value Gap
+right so we could actually look for also
+that fair value Gap to be filled so
+playing the price action here you can
+see price go up come in lower uh close
+to that fair value Gap right and all I
+want to see what is you see we are
+creating liquidity here also and if I
+see that liquidity spped into that fair
+value Gap that's a high probability one
+back to forth hour time frame and we can
+see that price is starting to go lower
+and there you go so price is now going
+to that level still not in the fair
+value Gap when lower still not in the
+fair value
+Gap right now it's into the fair value
+Gap and we can see that we have this
+High not taken low and all of this is
+inside of what this range so we took
+this low your Market SE shift the main
+one is here there is this internal one
+which is this one but I'm not going to
+take this one you could have taken the
+trade from this low and it's already out
+of Kill Zone so this is already out of
+Kill Zone I'm not trusting this Fair
+Valley Gap here could have taken this
+one with a stop loss below the low but I
+don't know I'm I'm not feeling this one
+I mean if you perform the internal
+analysis here you'll see that we have
+this liquidity level here and this uh
+then that we have the order block so I
+would wait for price to actually go
+deeper into that per valy Gap and if you
+don't understand this make sure to watch
+my video so just look up m trading per
+Valley Gap Theory and you're going to
+see that video so I'm going to skip this
+one right and there is no clear Market
+section shift in this case you see we
+took the low now if price actually
+closes Above This High that's a market
+section shift and price decided to go
+lower lower okay lower into that
+liquidity level and then closing Above
+This high so that's a market section
+shift for me now and it's a displacement
+creating a fair value G so what we could
+do here
+is from this fair value Gap enter from
+here um let's do maybe 50% right stop
+loss below the low which is this one and
+now what we could do is on the 4our
+structure we can see that we have this
+high and then this High those are some
+level of
+liquidity we could have targeted also
+this high but this is only 3 to one I'm
+going to go to this High switch to
+weekly time frame and we can see that
+this is actually a week weekly high in a
+fair value Gap so potentially price
+could actually go there now playing the
+price action here but we can see
+happening is price a little bit near the
+price action consolidating there
+expansion going higher to that Target
+now again what we could do is this for
+Value Gap this is the part that was
+unfilled and you guys know my theory on
+liquidity and fair valy gaps and highs
+and lows inside back to 4 hour to see
+what is happening here what we can see
+happening is that we actually reached
+that level let me actually remove this
+here we actually reached that level
+coming lower but we have another
+overlapping PDR right here so we need to
+evaluate what also another overlapping
+here but you know what we see here
+inside is this liquidity level actually
+taken by this and then we have a clear
+Market seure shift closing below this
+low so because price did not return to
+this overlapping what I could do is
+enter half% so let's say I'm risking 1%
+in all trades I would risk half% on this
+and if price decided to go there I'm
+going to enter but just because there
+was this is a very clear changes to
+delivery very clear Market section shift
+and a fair value Gap from a level that
+is good then I'm going to enter from
+here so could have entered here stop L
+here above right and then what we could
+Target is actually we can see a lot of
+liquidity levels we have this one we
+have those equal lows inside the fair
+value Gap and eventually you got this
+low on the weekly time frame this is
+where we entered from but what I see is
+that this is a low that is very valid
+and I can actually make my stop loss a
+little bit smaller so what we see here
+is that okay price literally filled that
+per value Gap Right and started going
+lower a little bit deeper into that
+level right so not stopped out
+yet we go lower and there you go it hit
+the take
+profit and also started going lower and
+you see after taking that level it
+started to shoot up almost to the entry
+and started going lower so that was a
+level that is good to take profits from
+and where did the price react from you
+see what do we have those consecutive
+fair value gaps right but where did
+price react from see this overlapping
+High inside of that fair value Gap I
+believe that's where price reacted from
+so you see so that's why we need to keep
+attention to those the same as we're
+taking sniper Ines want to take sniper
+take profit
+I really hope this video is helpful uh
+you know I could go over more examples
+but it's not going to do nothing except
+making this video longer I really want
+you to learn by yourself go to the Chart
+apply this it's very simple weekly to 4H
+hour fair value Gap you need to have
+those refined areas to enter from make
+sure to share this video with your
+friends I really believe that I put a
+lot of effort into this so I would like
+more people to learn from it like and
+comment is appreciated also this is Mam
+and and I'll see you in next video

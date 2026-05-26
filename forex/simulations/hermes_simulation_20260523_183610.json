@@ -1,0 +1,118 @@
+{
+  "agent": "hermes",
+  "pair": "EURUSD",
+  "timeframe": "M15",
+  "timestamp": "2026-05-23T18:35:40.297640",
+  "method": "visual_bar_replay",
+  "signals_found": [],
+  "misses": [],
+  "uncertain": [
+    {
+      "candle": 2,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 4,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 9,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 11,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 14,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 17,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 20,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 21,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 24,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 27,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 33,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 36,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 40,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 42,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 45,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 48,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 50,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 53,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 55,
+      "direction": "bear",
+      "pct": -0.13
+    },
+    {
+      "candle": 59,
+      "direction": "bear",
+      "pct": -0.13
+    }
+  ],
+  "summary": {
+    "total_scanned": 60,
+    "signals": 0,
+    "misses": 0,
+    "uncertain": 20,
+    "hit_rate": 0.0
+  }
+}

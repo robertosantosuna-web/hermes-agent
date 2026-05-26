@@ -1,0 +1,56 @@
+# Estratégia 3:1 RR — London Close CRT
+# Backtest: 15 dias, 5 pares, 56 trades, +54.5 pips líquidos
+
+name: "London Close CRT 3:1"
+timeframe: "M5"
+session: "12:00-14:00 BRT (London Close)"
+risk_reward: "3:1"
+win_rate: "28.6%"
+profit_factor: "2.1"
+best_type: "SHORT (44.4% WR)"
+
+pares:
+  - EURUSD: { win_rate: "36.4%", pnl: "+20.7 pips" }
+  - EURJPY: { win_rate: "33.3%", pnl: "+53.2 pips" }
+  - USDJPY: { win_rate: "27.3%", pnl: "+1.2 pips" }
+  - AUDUSD: { win_rate: "33.3%", pnl: "+9.4 pips", nota: "poucos trades" }
+  - GBPUSD: { win_rate: "15.4%", pnl: "-30.0 pips", status: "EVITAR" }
+
+setup:
+  entrada:
+    - "Sweep do high/low do candle anterior"
+    - "Fechamento retorna para dentro do range do candle anterior"
+    - "Candle de entrada com corpo > 15% do ATR"
+    - "Range do candle anterior > 35% do ATR"
+    - "Preço acima da EMA20 (LONG) ou abaixo (SHORT)"
+  
+  stop_loss:
+    - "Extremidade do sweep + 8% do ATR"
+    - "Mínimo: 2.5 pips de risco"
+  
+  take_profit:
+    - "3x a distância do SL"
+  
+  gestao:
+    - "Risco: 1% do capital por trade"
+    - "Máximo 1 trade por par por sessão"
+    - "Não operar após 2 losses consecutivos no dia"
+    - "Sexta-feira: fechar todas as posições até 13:00 BRT"
+
+filtros_negativos:
+  - "GBPUSD: EVITAR (15.4% WR)"
+  - "Doji/spinning top (corpo < 15% ATR)"
+  - "Sweep mínimo (< 10% ATR)"
+  - "Fora do horário 12:00-14:00 BRT"
+
+projecao:
+  trades_dia: 3.7
+  trades_mes: 75
+  pips_mes: "+73"
+  win_rate: "28.6%"
+  expectativa: "Positiva (+1.0 pip/trade)"
+
+backtest_data:
+  periodo: "2026-04-28 a 2026-05-19"
+  pares: ["EURUSD", "GBPUSD", "USDJPY", "EURJPY", "AUDUSD"]
+  fonte: "Yahoo Finance M5"

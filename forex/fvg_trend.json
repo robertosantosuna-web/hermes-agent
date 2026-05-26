@@ -1,0 +1,11 @@
+{
+  "updated": "2026-05-25T01:01:00Z",
+  "source": "brain_knowledge_bridge",
+  "pairs": {
+    "EURUSD": {"fvg_count": 93, "bullish": 37, "bearish": 56, "gap_avg_pips": 4.2, "gap_max_pips": 43.3, "prev_gap_avg": 3.3, "trend": "rising", "volatility": "increasing"},
+    "GBPUSD": {"fvg_count": 104, "bullish": 48, "bearish": 56, "gap_avg_pips": 4.4, "gap_max_pips": 52.7, "prev_gap_avg": 3.5, "trend": "rising", "volatility": "increasing"},
+    "USDJPY": {"fvg_count": 49, "bullish": 26, "bearish": 23, "gap_avg_pips": 3.1, "gap_max_pips": 25.8, "prev_gap_avg": 2.3, "trend": "rising", "volatility": "increasing"},
+    "AUDUSD": {"fvg_count": 156, "bullish": 71, "bearish": 85, "gap_avg_pips": 3.3, "gap_max_pips": 32.7, "prev_gap_avg": 2.9, "trend": "rising", "volatility": "increasing"}
+  },
+  "summary": "All pairs show rising gap médios vs prior week. Volatility increasing. More setups expected around London/NY killzones."
+}

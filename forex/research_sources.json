@@ -1,0 +1,225 @@
+{
+  "youtube_channels": [
+    {
+      "name": "ICT Concepts",
+      "channel_id": "UCG5_OTqBh6HdR5VPS0zR3_Q",
+      "description": "Inner Circle Trader — institutional trading concepts (CHoCH, FVG, OB, BOS, SMT, CRT)",
+      "priority": "high",
+      "video_ids": [
+        "tZViCrc7Nfc",
+        "6u7kpCEVROc",
+        "XC6AL1mEZIQ",
+        "UqW5hxFx62Y"
+      ],
+      "topics": [
+        "CHoCH — Change of Character detection",
+        "FVG — Fair Value Gap identification",
+        "OB — Order Block entry criteria",
+        "SMT — Smart Money Technique divergence",
+        "CRT — Candle Range Theory for M15",
+        "Liquidity sweeps — EQH/EQL detection",
+        "Killzones — London/NY open timing",
+        "Breaker Blocks — Failed OB reversal strategy",
+        "Turtle Soup — False breakout fade patterns",
+        "Mitigation Blocks — Continuation after liquidity grab"
+      ]
+    },
+    {
+      "name": "Trader Dale — Order Flow & Volume Profile",
+      "channel_id": "UCTraderDale",
+      "description": "Order flow analysis, volume profile, absorption, delta divergence for forex",
+      "priority": "high",
+      "video_ids": [
+        "io0rSfBnBlg",
+        "3APFZa1AQNw",
+        "NPhvdfQbMtg",
+        "W_fKcT82RPo",
+        "hlCsU75dqT0"
+      ],
+      "topics": [
+        "Order flow footprint charts",
+        "Volume delta divergence",
+        "Absorption detection",
+        "Cumulative Delta strategies",
+        "POC migration patterns"
+      ]
+    },
+    {
+      "name": "Wyckoff Analytics",
+      "channel_id": "UCWyckoffAnalytics",
+      "description": "Official Wyckoff method — effort vs result, springs, upthrusts, accumulation/distribution",
+      "priority": "high",
+      "video_ids": [],
+      "topics": [
+        "Wyckoff accumulation/distribution schematics",
+        "Spring and upthrust patterns",
+        "Effort vs result divergence",
+        "Signs of strength/weakness",
+        "Volume spread analysis"
+      ]
+    }
+  ],
+  "rss_feeds": [
+    {
+      "name": "ForexFactory News",
+      "url": "https://www.forexfactory.com/news_rss",
+      "priority": "high",
+      "category": "news"
+    },
+    {
+      "name": "ForexLive",
+      "url": "https://www.forexlive.com/feed",
+      "priority": "high",
+      "category": "news"
+    },
+    {
+      "name": "DailyFX",
+      "url": "https://www.dailyfx.com/feeds/all",
+      "priority": "medium",
+      "category": "analysis"
+    }
+  ],
+  "web_sources": [
+    {
+      "name": "ICT Breaker Blocks Guide",
+      "url": "https://innercircletrader.net/tutorials/ict-breaker-block-trading/",
+      "priority": "high",
+      "category": "ict_advanced",
+      "method": "scrape_article"
+    },
+    {
+      "name": "ICT Mitigation Blocks Guide",
+      "url": "https://innercircletrader.net/tutorials/ict-mitigation-block-explained/",
+      "priority": "high",
+      "category": "ict_advanced",
+      "method": "scrape_article"
+    },
+    {
+      "name": "ICT Turtle Soup Pattern",
+      "url": "https://innercircletrader.net/tutorials/ict-turtle-soup-pattern/",
+      "priority": "high",
+      "category": "ict_advanced",
+      "method": "scrape_article"
+    },
+    {
+      "name": "ATAS Order Flow — Delta Guide",
+      "url": "https://atas.net/blog/what-is-delta/",
+      "priority": "high",
+      "category": "order_flow",
+      "method": "scrape_article"
+    },
+    {
+      "name": "Bookmap CVD Divergence Strategy",
+      "url": "https://bookmap.com/blog/how-cumulative-volume-delta-transform-your-trading-strategy",
+      "priority": "high",
+      "category": "order_flow",
+      "method": "scrape_article"
+    },
+    {
+      "name": "Trader Dale — Absorption & Delta",
+      "url": "https://www.trader-dale.com/order-flow-analysis-how-to-use-absorption-delta-to-confirm-trade-entry-13th-may-25/",
+      "priority": "high",
+      "category": "order_flow",
+      "method": "scrape_article"
+    },
+    {
+      "name": "ForexBee — Cumulative Delta Divergence",
+      "url": "https://forexbee.co/cumulative-delta-divergence/",
+      "priority": "high",
+      "category": "order_flow",
+      "method": "scrape_article"
+    },
+    {
+      "name": "Wyckoff Analytics — Method Overview",
+      "url": "https://www.wyckoffanalytics.com/wyckoff-method/",
+      "priority": "high",
+      "category": "wyckoff",
+      "method": "scrape_article"
+    },
+    {
+      "name": "Wyckoff Spring Pattern",
+      "url": "https://www.newtraderu.com/2022/03/09/wyckoff-spring/",
+      "priority": "high",
+      "category": "wyckoff",
+      "method": "scrape_article"
+    },
+    {
+      "name": "Wyckoff Accumulation/Distribution",
+      "url": "https://www.newtraderu.com/2020/08/18/richard-wyckoff-theory-of-accumulation-and-distribution/",
+      "priority": "medium",
+      "category": "wyckoff",
+      "method": "scrape_article"
+    },
+    {
+      "name": "Follow the Smart Money (Pure Price Action)",
+      "url": "https://www.newtraderu.com/2021/05/17/follow-the-smart-money/",
+      "priority": "high",
+      "category": "institutional_footprints",
+      "method": "scrape_article"
+    },
+    {
+      "name": "5 Price Action Rules",
+      "url": "https://www.newtraderu.com/2022/08/29/5-price-action-rules-every-trader-needs-to-know/",
+      "priority": "medium",
+      "category": "price_action",
+      "method": "scrape_article"
+    },
+    {
+      "name": "Candlestick Battle Mental Model",
+      "url": "https://www.newtraderu.com/2022/08/03/candlestick-charts-the-ultimate-beginners-guide-to-reading-a-candlestick-chart/",
+      "priority": "medium",
+      "category": "mental_models",
+      "method": "scrape_article"
+    }
+  ],
+  "data_sources": [
+    {
+      "name": "Barchart COT",
+      "url": "https://www.barchart.com/futures/commitment-of-traders",
+      "priority": "high",
+      "category": "cot",
+      "description": "Commitment of Traders reports — institutional vs retail positioning. Key for sentiment analysis.",
+      "access": "free"
+    },
+    {
+      "name": "COT Base",
+      "url": "https://cotbase.com/",
+      "priority": "high",
+      "category": "cot",
+      "description": "Clean COT visualizations for currency futures. Commercial vs speculator positioning.",
+      "access": "free"
+    },
+    {
+      "name": "Myfxbook Community Outlook",
+      "url": "https://www.myfxbook.com/community/outlook",
+      "priority": "high",
+      "category": "sentiment",
+      "description": "Aggregated retail long/short ratios. Contrarian indicator — extreme retail positioning = potential reversal.",
+      "access": "free"
+    },
+    {
+      "name": "Dukascopy SWFX Sentiment",
+      "url": "https://www.dukascopy.com/swiss/english/marketwatch/sentiment/",
+      "priority": "medium",
+      "category": "sentiment",
+      "description": "Live retail sentiment index from Swiss FX Marketplace.",
+      "access": "free"
+    },
+    {
+      "name": "FXSSI Sentiment",
+      "url": "https://fxssi.com/",
+      "priority": "medium",
+      "category": "sentiment",
+      "description": "Real-time SSI (Speculative Sentiment Index), profit/loss ratios, heat maps.",
+      "access": "free"
+    },
+    {
+      "name": "MacroMicro COT Index",
+      "url": "https://en.macromicro.me/",
+      "priority": "medium",
+      "category": "cot",
+      "description": "COT index positioning charts with spot price overlay and historical percentile rankings.",
+      "access": "free"
+    }
+  ]
+}

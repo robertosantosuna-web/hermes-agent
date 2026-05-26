@@ -1,0 +1,46 @@
+{
+  "pico": "ny",
+  "pico_nome": "\ud83c\uddfa\ud83c\uddf8\u2b50 NY Open + Overlap Londres-NY",
+  "horario": "2026-05-18T06:18:31.422133",
+  "analise_previa": "2026-05-18T06:18:24.581601",
+  "bias_anterior": "\ud83d\udd34 VENDA (3/3 pares)",
+  "ordens": [
+    {
+      "par": "EUR/USD",
+      "direcao": "VENDA",
+      "preco_entrada": 1.16428,
+      "stop": 1.17451,
+      "target": 1.14382,
+      "preco_saida": 1.16123,
+      "swing_pips": 30.5,
+      "pnl_pct": 0.262,
+      "timestamp": "2026-05-18T06:18:31.422133"
+    },
+    {
+      "par": "GBP/USD",
+      "direcao": "VENDA",
+      "preco_entrada": 1.33726,
+      "stop": 1.35271,
+      "target": 1.30636,
+      "preco_saida": 1.31794,
+      "swing_pips": 193.2,
+      "pnl_pct": 1.4445,
+      "timestamp": "2026-05-18T06:18:31.422133"
+    },
+    {
+      "par": "USD/JPY",
+      "direcao": "COMPRA",
+      "preco_entrada": 158.858,
+      "stop": 156.46871,
+      "target": 163.63658,
+      "preco_saida": 159.06434,
+      "swing_pips": 20.6,
+      "pnl_pct": 0.1299,
+      "timestamp": "2026-05-18T06:18:31.422133"
+    }
+  ],
+  "total_ordens": 3,
+  "wins": 3,
+  "losses": 0,
+  "pnl_total": 1.8364
+}

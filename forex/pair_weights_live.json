@@ -1,0 +1,30 @@
+{
+  "updated": "2026-05-25T21:00:28.283490",
+  "total_trades": 12,
+  "pairs": {
+    "AUD/USD": {
+      "wr": 25.0,
+      "trades": 4,
+      "pnl": -10.5,
+      "recommendation": "PAUSE"
+    },
+    "NZD/USD": {
+      "wr": 100.0,
+      "trades": 2,
+      "pnl": 17.8,
+      "recommendation": "ACTIVE"
+    },
+    "GBP/USD": {
+      "wr": 25.0,
+      "trades": 4,
+      "pnl": -25.4,
+      "recommendation": "PAUSE"
+    },
+    "EUR/USD": {
+      "wr": 0.0,
+      "trades": 2,
+      "pnl": -21.6,
+      "recommendation": "PAUSE"
+    }
+  }
+}

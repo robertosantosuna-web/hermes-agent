@@ -1,0 +1,83 @@
+{
+  "pico": "ny",
+  "pico_nome": "\ud83c\uddfa\ud83c\uddf8\u2b50 NY Overlap",
+  "horario_analise": "2026-05-18T09:55:53.148255",
+  "horario_pico_brt": "10:00",
+  "bloqueado": false,
+  "bias_geral": "\ud83d\udd34 VENDA (2/3 pares)",
+  "pares_analisados": [
+    "EUR/USD",
+    "GBP/USD",
+    "USD/JPY"
+  ],
+  "analises": {
+    "EUR/USD": {
+      "preco": 1.16494,
+      "change_pct": 0.21075450111399352,
+      "rsi": 44.27911571628073,
+      "atr": 0.006347924844148252,
+      "sma20": 1.1710765000000012,
+      "sma50": 1.1646765999999993,
+      "macd": -5.618098544468708e-05,
+      "macd_signal": 0.0013278067534215393,
+      "bb_upper": 1.1788650589801801,
+      "bb_lower": 1.1632879410198222,
+      "recommend": -0.26666666666666666,
+      "direction": "VENDA",
+      "strength": "MODERADO",
+      "score": -2.53,
+      "signals_detail": [
+        "Rec=NEUTRO(-0.27)",
+        "RSI=44 bearish",
+        "MACD<Signal (-0.00138)",
+        "Pre\u00e7o<SMA20"
+      ]
+    },
+    "GBP/USD": {
+      "preco": 1.33921,
+      "change_pct": 0.5503498813706984,
+      "rsi": 43.3177769399647,
+      "atr": 0.009550220590440056,
+      "sma20": 1.3515579999999958,
+      "sma50": 1.3425570000000036,
+      "macd": -0.00047155246679841945,
+      "macd_signal": 0.002376506593438718,
+      "bb_upper": 1.3664986406841373,
+      "bb_lower": 1.3366173593158543,
+      "recommend": -0.35454545454545455,
+      "direction": "VENDA",
+      "strength": "MODERADO",
+      "score": -2.71,
+      "signals_detail": [
+        "Rec=VENDA(-0.35)",
+        "RSI=43 bearish",
+        "MACD<Signal (-0.00285)",
+        "Pre\u00e7o<SMA20"
+      ]
+    },
+    "USD/JPY": {
+      "preco": 158.73,
+      "change_pct": 0.007560579140362439,
+      "rsi": 53.88186242916843,
+      "atr": 1.068101698316194,
+      "sma20": 158.20614999999947,
+      "sma50": 158.74607999999992,
+      "macd": -0.1563314486073466,
+      "macd_signal": -0.28596063724335474,
+      "bb_upper": 160.6325776025753,
+      "bb_lower": 155.77972239742363,
+      "recommend": 0.28787878787878785,
+      "direction": "COMPRA",
+      "strength": "MODERADO",
+      "score": 2.08,
+      "signals_detail": [
+        "Rec=NEUTRO(0.29)",
+        "RSI=54 neutro",
+        "MACD>Signal (+0.12963)",
+        "Pre\u00e7o>SMA20"
+      ]
+    }
+  },
+  "estrategia": "News spike + fade do fakeout",
+  "fonte": "TradingView"
+}

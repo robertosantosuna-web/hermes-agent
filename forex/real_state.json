@@ -1,0 +1,45 @@
+{
+  "active_trades": [],
+  "last_balance": null,
+  "updated": "2026-05-22T11:15:38.350569",
+  "history": [
+    {
+      "tid": "T20260522_101540",
+      "pair": "EUR/USD",
+      "direction": "BUY",
+      "entry": 1.16077,
+      "pnl": -2.7,
+      "result": "LOSS",
+      "exit": 1.160496711730957,
+      "date": "2026-05-22",
+      "opened": "2026-05-22T10:15:21.565575",
+      "volume": 0.01
+    },
+    {
+      "tid": "T20260522_101549",
+      "pair": "AUD/USD",
+      "direction": "BUY",
+      "entry": 0.71347,
+      "pnl": -7.6,
+      "result": "LOSS",
+      "exit": 0.7127075791358948,
+      "date": "2026-05-22",
+      "opened": "2026-05-22T10:15:21.565575",
+      "volume": 0.01
+    },
+    {
+      "tid": "T20260522_101530",
+      "pair": "GBP/USD",
+      "direction": "BUY",
+      "entry": 1.34363,
+      "sl": 1.34264,
+      "tp": 1.34661,
+      "date": "2026-05-22",
+      "opened": "2026-05-22T10:15:21.565575",
+      "volume": 0.01,
+      "pnl": -14.7,
+      "result": "LOSS",
+      "exit": 1.3421558141708374
+    }
+  ]
+}

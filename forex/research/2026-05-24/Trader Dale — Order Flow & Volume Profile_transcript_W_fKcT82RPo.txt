@@ -1,0 +1,328 @@
+What if you could see inside every
+single candlestick? Not just the open,
+high, low, and close, but exactly who's
+winning the battle between buyers and
+sellers at every level. That's what
+volume footprint charts give you. And by
+the end of this video, you will know how
+to read it like a pro.
+All right, guys. So, now it's finally
+time to take a look at the volume
+footprint. And this right here is one of
+the most important tools we will cover
+in this course. So, make sure to really
+pay attention. Now, the volume footprint
+is basically like having an X-ray on the
+candlesticks. Uh before watching this
+course, you might have only been
+trading, you know, looking at
+candlesticks. But what the volume
+footprint allows us is to see what
+actually goes on inside the candlesticks
+themselves. And [clears throat] this
+might looks you know super complicated
+in the beginning but I will try to break
+this down in super simple terms step by
+step. So first of all the first thing we
+need to learn is that we have a buy side
+which is the green side and we have a
+sell side which is the red side. And
+what these sides basically tell us is
+how much buying volume on the green side
+and how much selling volume on the red
+side happened at all of these specific
+points uh inside the candle. So all of
+these specific uh price points inside
+the candle. So if we just look at a
+random price level, let's for example
+take a look at the one at the top. You
+can see that it says zero on the buy
+side. I hope you can see it says zero
+right here. But on the sell side, it
+says 32. That means that we saw 32 of
+sell volume up here on the candle while
+we saw zero buy volume. And now you
+might think, you know, you might be
+confused and think that, you know, for
+every uh every time someone sells,
+someone has to buy, right? And yes, you
+are completely true. But what this
+volume uh what what the numbers here
+tell us is not the sort of total volume.
+What this tell us is the market orders
+because remember market orders is when
+you take liquidity from the book. So in
+this particular case we saw sellers you
+know taking liquidity from the buy side.
+This is what pushes the price down while
+we saw no buyers taking liquidity from
+the sell side. It's very important that
+you notice that the buy volume is buy
+market orders and the sell volume is
+sell market orders. The volume footprint
+tells us all about who is who is
+controlling the price, who is pushing
+the price up or down. And you do that
+with market orders, not limit orders.
+Remember, limit orders are placed in the
+book. But now when you know this, you
+now know that volume footprint is all
+about who is pushing the price up or
+down. Is it buyers or sellers? And now
+there are a few important concepts you
+need to learn. The first one is called
+delta. And we already talked about
+delta. That is basically the difference
+between the buy side and sell side. So
+for example, if we take a look at the
+delta here at the lowest part, you see
+right here, we have 14 on the sell side
+and we have eight on the buy side. So
+this right here is actually a negative
+six in delta or in other words, we have
+six sell volume in delta. But what you
+can see down here, you can see that we
+actually have a total delta. And that is
+if we add up the deltas of all of these
+blocks, we get the total amount of delta
+during the whole candle. And in this
+case, you can see that we had 1.4,000
+bullish delta, which means that the
+buyers were actually in control over
+this candle. The next concept you need
+to learn about is the point of control
+or PC. And remember this was the level
+where the most volume got traded. And in
+trading view you can see super clearly
+where the point of control is because
+the point of control will be marked with
+this black uh with this black bar right
+here. So in this case the point of
+control was right here. And the point of
+control is very important because we can
+use it for example for support and
+resistance levels and it can give many
+other hints as well. Now the next
+concept we need to learn about is the
+value area. And remember here the value
+area is where around 70% of the volume
+got traded. And in when you look at
+volume footprints you will see two
+markers. You can see it says value area
+high right here or for short VA ah and
+it says value area low here or for short
+V.
+and it is between these two lines. So
+this area right here which is the value
+area or for short VA as once again I can
+repeat it that this was the area where
+around 70% of volume got traded and it's
+very common that the value area is often
+you know relatively small compared to
+the candle. You can see for example in
+this case 70% of all volume within this
+candle actually got traded on the upper
+side and that can give give a signal
+that this candle is maybe more bullish
+than if 70% got traded down here. Okay.
+So now it's time to take a look at
+imbalances.
+This right here is very important and
+this is when one side, so either the
+buying side or the selling side traded
+at least three times as much as the
+others side. So for example, the
+imbalances you can see by this little
+dot you have right there. You can see
+you have a little dot right there. You
+have a little dot right there. You have
+a little dot on all of these three right
+here as well. Uh but one thing you can
+notice is that if you compare, you see
+it says 304 here and here it says 118.
+And you might think, you know, 118 18 *
+3 is actually more than 304. So how is
+this an imbalance? Well, the trick here
+is that you actually need to compare it
+diagonally. So you need to compare it
+like this. You can see 3004 is more than
+three times as large as 87. And that is
+because the buy side will always be one
+step above the cell side. This is a bit
+hard to understand, but you will start
+to see a pattern. You can see here we
+have an imbalance because 141 is more
+than three times larger than 21. Once
+again, here we have another imbalance
+because 45 is of course more than three
+times as large as zero. Once again here
+we have a diagonal imbalance because you
+know uh 45 is more than three times as
+large as uh 14. And the reason we don't
+have an imbalance in the next one in the
+next one we don't have an imbalance
+because 104 is even larger than 88. You
+always need to compare the imbalances
+diagonally uh upwards when you do it
+from uh the buy imbalances. But the sell
+imbalances is the opposite. And here you
+can notice the same with the cell
+imbalances. Right here we have a cell
+imbalance and right here we have a cell
+imbalance. Why? Because 87 is more than
+three times as large as zero and 543 is
+more than three times as large compared
+to
+157.
+So I hope this makes sense. And you
+might wonder you know how can we use
+this buy and sell imbalances? Well, I
+will very soon show you a concept that
+is known as absorption and init in
+initiation. Uh, a little bit hard for me
+to pronounce, but these concepts can be
+super helpful in in understanding the
+strength of each candle separately. But
+before that, I want to take a look at
+how we can use volume footprint as
+support and resistance and in our
+trading strategy.
+All right. So now let's jump back into
+trading view. Right here I am currently
+looking at uh the daily time frame of
+Bitcoin. But you can use volume
+footprint charts in you know crypto. You
+can also use it for stocks. You can also
+use it for forex but it's a little bit
+the data in forex is a little bit more
+unclear. So volume footprint might work
+a little bit better in stocks and crypto
+but it does work in forex as well. Uh
+and here as you can see I'm looking on
+Bitcoin right now and just like as a
+side note we saw a big big sell off in
+crypto yesterday but one very you know
+uh cool thing you will notice is that
+Bitcoin actually bounced where we saw
+something significant happening on the
+volume footprint and I will show you
+guys that very soon. But first let's of
+course take a look at how do we open up
+the volume footprint in Trading View.
+Well, to do this, you want to go up here
+to where it says candles. And then you
+want to go down right here to where it
+says volume footprint. And right now,
+I'm not 100% sure if volume footprint is
+available for free in Trading View. Uh
+if you have a free account, please check
+and let me know down in the comments.
+But if it's not uh available, don't
+worry because I do have a special link
+to Trading View. You can use that link
+to try out Trading View Premium
+completely for free for 30 days. And if
+you want to, if you like it enough, uh
+I'm pretty sure you will, or at least I
+do. Uh but then you will get a $15 bonus
+if you want to continue on your trading
+plan.
+But to open the volume footprint, you
+simply click right here. And just like
+that, the uh candlesticks are
+transformed into a volume footprint. And
+now you already know how to read these
+footprints. Or here, your footprints
+might actually look a little bit
+different to mine. And that is because I
+do have another setting right now. So
+what you want to do if your candlesticks
+looks like this is that you go to the
+settings tab. And right now you can see
+that I have type delta. I think the
+standard type is to show both the buy
+and sell side. So let's choose buy and
+sell right there. Uh and then press
+okay. So your chart should look like
+this. You should see uh you know both
+the buy side and the sell side just as I
+showed you recently. And when you zoom
+in here you can clearly see you know how
+aggressive was the sellers, how
+aggressive was the buyers. You also have
+the delta uh explained right there. So
+was the sellers in control during the
+candle or for example like right here
+was the buyers in control. But now for
+this trading strategy, I want to show
+you one way you can use volume footprint
+to find support and resistance. And this
+is a very simple trading strategy, super
+super easy. And what you want to look
+out for here is that you want to look
+out for clusters of point of control.
+This is super easy to spot. For example,
+right here on the chart, you can see
+that we have multiple black bars
+happening at the same time. And remember
+that the black bars are the levels
+within the candles where the most volume
+got traded. And these levels where we
+have lots and lots of volume traded can
+often act act as magnets in the future.
+So what we can actually do here is that
+we can draw a support area. What I
+usually like to use is go to geometric
+shapes and use my rectangle. And then
+you can see we can draw this support
+area out right here. And you can see if
+we drag the support area out, you can
+actually see that this was exactly where
+Bitcoin bounced before we saw this
+beautiful move to the upside. And if we
+even look at the candle that happened
+just yesterday, you can see that we did
+see a beautiful bounce at this area.
+After you have done your analysis on the
+volume footprint, it can often be
+helpful to go back to the candlestick
+charts and see how the price react. And
+you can see that in this case, the price
+beautifully bounced right here. We saw a
+massive move towards the upside and the
+price also bounced at this key support
+just yesterday. And if you're looking
+for a super simple trading strategy from
+this support level, it could have looked
+something like this. You use your long
+position. So, you're looking to make
+money from the price going up and then
+you see the price coming down to the
+support and you might enter at the first
+strong uh reaction from the support
+level. Setting your stop loss just below
+the low right here. And with a
+risk-to-reward ratio, your trade would
+have looked something like this. And you
+would have locked in some very nice
+profit. But now you might ask yourself,
+you know, is this, you know, analysis,
+it seems super easy. It is is it enough
+to only have sort of one bullish sign
+which in this case is support and then
+take your trade? Well, not really
+because in order to make the trades more
+likely to succeed, we preferably want to
+combine it with other technical signals
+as well. And this leads us to the next
+thing we're going to talk about in this
+video, which which is absorption and
+init initiation. All
+right, so now let's switch the
+attention. All right, so this video was
+actually just a very short clip from our
+full order flow trading course right
+here on YouTube. To watch the full
+course, simply click or tap on the
+screen right here. I hope I will see you
+all over there very very

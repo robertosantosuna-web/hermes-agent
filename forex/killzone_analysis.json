@@ -1,0 +1,224 @@
+{
+  "timestamp": "2026-05-19 12:04:54.667929",
+  "killzone": "London Close",
+  "brt_time": "2026-05-19 12:04:54.667942",
+  "pairs_analyzed": [
+    "EURUSD",
+    "EURJPY",
+    "USDJPY"
+  ],
+  "valid_setups": false,
+  "results": {
+    "EURUSD": {
+      "pair": "EURUSD",
+      "current_price": 1.162520408630371,
+      "score": 0,
+      "trade_direction": null,
+      "entry": null,
+      "sl": null,
+      "tp": null,
+      "rr": null,
+      "structure": {
+        "type": "CONSOLIDATION",
+        "bullish": false,
+        "bearish": false,
+        "recent_swing_highs": [
+          {
+            "index": 140,
+            "price": 1.1629259586334229,
+            "time": "2026-05-19 10:00:00+00:00"
+          },
+          {
+            "index": 141,
+            "price": 1.1629259586334229,
+            "time": "2026-05-19 10:15:00+00:00"
+          }
+        ],
+        "recent_swing_lows": [
+          {
+            "index": 137,
+            "price": 1.1618449687957764,
+            "time": "2026-05-19 09:15:00+00:00"
+          },
+          {
+            "index": 138,
+            "price": 1.1618449687957764,
+            "time": "2026-05-19 09:30:00+00:00"
+          }
+        ]
+      },
+      "choch": false,
+      "choch_direction": null,
+      "sweeps": [],
+      "order_blocks": [],
+      "fvgs": [
+        {
+          "type": "BEARISH_FVG",
+          "gap_top": 1.1619800329208374,
+          "gap_bottom": 1.16225004196167,
+          "time": "2026-05-19 10:45:00+00:00",
+          "direction": "SHORT"
+        },
+        {
+          "type": "BULLISH_FVG",
+          "gap_top": 1.16225004196167,
+          "gap_bottom": 1.1619800329208374,
+          "time": "2026-05-19 10:55:00+00:00",
+          "direction": "LONG"
+        },
+        {
+          "type": "BULLISH_FVG",
+          "gap_top": 1.1623852252960205,
+          "gap_bottom": 1.16225004196167,
+          "time": "2026-05-19 11:00:00+00:00",
+          "direction": "LONG"
+        }
+      ],
+      "atr": 0.0003184676170349121,
+      "signals": [
+        "SEM CHoCH confirmado"
+      ]
+    },
+    "EURJPY": {
+      "pair": "EURJPY",
+      "current_price": 184.91900634765625,
+      "score": 0,
+      "trade_direction": null,
+      "entry": null,
+      "sl": null,
+      "tp": null,
+      "rr": null,
+      "structure": {
+        "type": "CONSOLIDATION",
+        "bullish": false,
+        "bearish": false,
+        "recent_swing_highs": [
+          {
+            "index": 107,
+            "price": 185.16700744628906,
+            "time": "2026-05-19 01:45:00+00:00"
+          },
+          {
+            "index": 125,
+            "price": 185.1840057373047,
+            "time": "2026-05-19 06:15:00+00:00"
+          }
+        ],
+        "recent_swing_lows": [
+          {
+            "index": 121,
+            "price": 184.95399475097656,
+            "time": "2026-05-19 05:15:00+00:00"
+          },
+          {
+            "index": 137,
+            "price": 184.80999755859375,
+            "time": "2026-05-19 09:15:00+00:00"
+          }
+        ]
+      },
+      "choch": false,
+      "choch_direction": null,
+      "sweeps": [],
+      "order_blocks": [],
+      "fvgs": [
+        {
+          "type": "BEARISH_FVG",
+          "gap_top": 184.87600708007812,
+          "gap_bottom": 184.87899780273438,
+          "time": "2026-05-19 09:20:00+00:00",
+          "direction": "SHORT"
+        },
+        {
+          "type": "BULLISH_FVG",
+          "gap_top": 184.87100219726562,
+          "gap_bottom": 184.86399841308594,
+          "time": "2026-05-19 10:10:00+00:00",
+          "direction": "LONG"
+        },
+        {
+          "type": "BULLISH_FVG",
+          "gap_top": 184.91099548339844,
+          "gap_bottom": 184.8800048828125,
+          "time": "2026-05-19 10:15:00+00:00",
+          "direction": "LONG"
+        }
+      ],
+      "atr": 0.049999782017299106,
+      "signals": [
+        "SEM CHoCH confirmado"
+      ]
+    },
+    "USDJPY": {
+      "pair": "USDJPY",
+      "current_price": 159.10800170898438,
+      "score": 0,
+      "trade_direction": null,
+      "entry": null,
+      "sl": null,
+      "tp": null,
+      "rr": null,
+      "structure": {
+        "type": "BULLISH",
+        "bullish": true,
+        "bearish": false,
+        "recent_swing_highs": [
+          {
+            "index": 128,
+            "price": 159.14300537109375,
+            "time": "2026-05-19 07:00:00+00:00"
+          },
+          {
+            "index": 137,
+            "price": 159.1719970703125,
+            "time": "2026-05-19 09:15:00+00:00"
+          }
+        ],
+        "recent_swing_lows": [
+          {
+            "index": 132,
+            "price": 158.9949951171875,
+            "time": "2026-05-19 08:00:00+00:00"
+          },
+          {
+            "index": 141,
+            "price": 159.04800415039062,
+            "time": "2026-05-19 10:15:00+00:00"
+          }
+        ]
+      },
+      "choch": false,
+      "choch_direction": null,
+      "sweeps": [],
+      "order_blocks": [],
+      "fvgs": [
+        {
+          "type": "BEARISH_FVG",
+          "gap_top": 159.13099670410156,
+          "gap_bottom": 159.1479949951172,
+          "time": "2026-05-19 09:25:00+00:00",
+          "direction": "SHORT"
+        },
+        {
+          "type": "BULLISH_FVG",
+          "gap_top": 159.08399963378906,
+          "gap_bottom": 159.08200073242188,
+          "time": "2026-05-19 10:35:00+00:00",
+          "direction": "LONG"
+        },
+        {
+          "type": "BULLISH_FVG",
+          "gap_top": 159.11099243164062,
+          "gap_bottom": 159.0989990234375,
+          "time": "2026-05-19 10:40:00+00:00",
+          "direction": "LONG"
+        }
+      ],
+      "atr": 0.04199763706752232,
+      "signals": [
+        "Estrutura BULLISH M15",
+        "SEM CHoCH confirmado"
+      ]
+    }
+  }
+}

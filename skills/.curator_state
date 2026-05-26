@@ -1,0 +1,9 @@
+{
+  "last_report_path": "/home/roberto/.hermes/logs/curator/20260524-231036",
+  "last_run_at": "2026-05-24T23:10:36.389536+00:00",
+  "last_run_duration_seconds": 283.07047,
+  "last_run_summary": "auto: no changes; llm: ---\n\n## Consolidation pass complete\n\n**7 agent-created skills → 2 class-level umbrellas. 5 archives.**\n\n### Clusters processed\n\n**Brain cluster (4 → 1):** `bi-neural-brain`, `brain-architecture`, `cortex-system`, and `local-brain` all descr…\narchived 5 skill(s):\n  • bi-neural-brain → brain-architecture\n  • cortex-system → brain-architecture\n  • local-brain → brain-architecture\n  • mt5-vnc-display-setup → desktop-control\n  • vision-engine → desktop-control\nfull report: hermes curator status\nkeep an umbrella stable: hermes curator pin brain-architecture",
+  "last_run_summary_shown_at": "2026-05-17T22:47:36.296966+00:00",
+  "paused": false,
+  "run_count": 1
+}

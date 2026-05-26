@@ -1,0 +1,96 @@
+# Perfil para cadastro em plataformas — COMPLETO
+nome: "Roberto Rodrigues dos Santos"
+cpf: "148.376.467-27"
+rg: "MGI8511761 SSP MG"
+data_nascimento: "16/10/1993"
+local_nascimento: "Belo Horizonte, MG"
+nacionalidade: "Brasileiro"
+email: "robertosantos.una@gmail.com"
+telefone: "+5531982125758"
+cnh_numero: "06003728369"
+cnh_validade: "01/07/2032"
+cnh_categoria: "A B"
+filiacao:
+  pai: "Edilson Carlos Rodrigues"
+  mae: "Elaine Cristina Pereira dos Santos"
+endereco:
+  rua: "Rua 41"
+  numero: "164"
+  complemento: "3e4 seção"
+  bairro: "Suely"
+  cidade: "Vespasiano"
+  estado: "MG"
+  cep: "33203-581"
+documentos:
+  cnh: "PDF digital — CNH-e assinada digitalmente"
+  comprovante: "Fatura Vivo 04/2026 (endereço desatualizado)"
+  identidade: "MGI8511761 SSP MG"
+pagamento:
+  paypal: "robertosantos.una@gmail.com"
+
+# Plataformas cadastradas
+plataformas:
+  neevo:
+    email: "robertosantos.una@gmail.com"
+    senha: "Ne3v0!iHUJgWTng4zb"
+    status: "ativo"
+    etapa: "skills_badges"
+    idioma: "Portuguese - Brazil - Native"
+    url: "https://neevo.definedcrowd.com/en-us/dashboard/skills-badges"
+    data_cadastro: "2026-05-19"
+    pendente: "validar_paypal_para_fazer_testes_escrita_e_listening"
+  toloka:
+    email: "robertosantos.una@gmail.com"
+    status: "ativo"
+    etapa: "explore"
+    nome: "Roberto Santos"
+    url: "https://we.toloka.ai/explore"
+    data_cadastro: "2026-05-19"
+    nota: "Registro completou pelo celular — perfil precisa ser completado"
+  timebucks:
+    email: "robertosantos.una@gmail.com"
+    user_id: "228886019"
+    status: "ativo"
+    saldo: "$0.00"
+    url: "https://timebucks.com/publishers/index.php?pg=earn"
+    data_cadastro: "2026-05-19"
+    pendente: "completar_perfil"
+  clickworker:
+    email: "robertosantos.una@gmail.com"
+    senha: "Cw0rk!OYELp6Abgo"
+    username: "robertor_mpbvqz2r"
+    status: "form_preenchido_bloqueio_bootstrap"
+    etapa: "form_step2"
+    url: "https://workplace.clickworker.com/en/users/new/"
+    data_cadastro: "2026-05-19"
+    nota: "Bootstrap-select bloqueia JS value setter — precisa interacao manual com os dropdowns"
+  oneforma:
+    email: "robertosantos.una@gmail.com"
+    senha: "OneF0rm!KCyWyah3"
+    status: "form_parcialmente_preenchido"
+    url: "https://my.oneforma.com/center/signup"
+    data_cadastro: "2026-05-19"
+  sproutgigs:
+    email: "robertosantos.una@gmail.com"
+    senha: "Spr0ut!Dh27tTiW"
+    nickname: "robertor03"
+    status: "form_preenchido_bloqueio_bootstrap_select_country"
+    url: "https://sproutgigs.com/signup.php"
+    data_cadastro: "2026-05-19"
+
+# Update Toloka - it completed!
+  oanda:
+    conta: "demo"
+    plataforma: "MT5"
+    login: "1715539800"
+    senha: "wc0ZO6#p"
+    servidor: "OANDA_Global-Demo-1"
+    data_criacao: "2026-05-20"
+    status: "pendente_download_mt5"
+
+  toloka_update:
+    status: "ativo"
+    etapa: "explore"
+    nome: "Roberto Santos"
+    url: "https://we.toloka.ai/explore"
+    nota: "Registro completou via Google OAuth + SMS — perfil precisa ser completado"

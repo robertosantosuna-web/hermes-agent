@@ -1,0 +1,57 @@
+{
+  "open_positions": [],
+  "closed_trades": [
+    {
+      "pair": "AUD/USD",
+      "direction": "LONG",
+      "entry": 0.71179,
+      "sl": 0.71159,
+      "tp": 0.7124,
+      "sl_pips": 2.0,
+      "tp_pips": 6.1,
+      "entry_price": 0.71205,
+      "opened_at": "2026-05-20T07:15:58.751822",
+      "atr_pips": 3.5,
+      "fvg_pips": 2.0,
+      "score": 0.75,
+      "golden": true,
+      "closed_at": "2026-05-20T07:45:19.005255",
+      "close_price": 0.7126567959785461,
+      "result": "WIN",
+      "pnl_pips": 6.1,
+      "duration_min": 29.3
+    },
+    {
+      "pair": "AUD/USD",
+      "direction": "LONG",
+      "entry": 0.71332,
+      "sl": 0.71322,
+      "tp": 0.71362,
+      "sl_pips": 1.0,
+      "tp_pips": 3.1,
+      "entry_price": 0.71261,
+      "opened_at": "2026-05-20T10:00:42.928408",
+      "atr_pips": 3.9,
+      "fvg_pips": 1.0,
+      "score": 0.21,
+      "golden": false,
+      "closed_at": "2026-05-20T10:15:16.132854",
+      "close_price": 0.7125552296638489,
+      "result": "LOSS",
+      "pnl_pips": -1.0,
+      "duration_min": 14.6
+    }
+  ],
+  "daily_stats": {
+    "2026-05-25": {
+      "trades": 0,
+      "wins": 0,
+      "losses": 0,
+      "wr": 0.0,
+      "pnl_pips": 0,
+      "open_positions": 0,
+      "pairs_traded": [],
+      "last_updated": "2026-05-25T01:53:54.047091"
+    }
+  }
+}
