@@ -57,6 +57,13 @@ def run_backtest():
             l = df_m1['Low'].values
             c = df_m1['Close'].values
             o = df_m1['Open'].values
+            v_all = df_m1['Volume'].values if 'Volume' in df_m1.columns else None
+            
+            # Níveis diários para S/R longo prazo
+            daily_levels = {
+                'resistance': max(db_high[-10:]) if len(db_high) >= 10 else max(db_high),
+                'support': min(db_low[-10:]) if len(db_low) >= 10 else min(db_low)
+            }
             
             # Simular BTC change (simplificado: usar últimos dados)
             try:
@@ -86,7 +93,9 @@ def run_backtest():
                 decision, conf, signal, v_info = agent.analyze(
                     pair, h_win, l_win, c_win, o_win, bias, pip,
                     btc_4h if pair != 'BTCUSD' else None,
-                    MIN_CONFIDENCE
+                    MIN_CONFIDENCE,
+                    v_all[:i] if v_all is not None else None,
+                    daily_levels
                 )
                 
                 if decision == 'NEUTRAL' or not signal:
