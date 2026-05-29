@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-CRYPTO MULTI-AGENT v4 — Data-driven filters
-Base: v2 (477 trades, 45.7% WR) + filtros que COMPROVADAMENTE discriminam:
-  - BAIXA_VOL regime: 51% WR (vs NORMAL 42%)
-  - BNBUSD: 56% WR, SOLUSD: 38% WR
-  - First-touch FVG
-  - Confiança mínima 55%
+CRYPTO MULTI-AGENT v5 — Pattern Detector Integrado
+Novo: Market Structure, Order Block, Breaker Block, Liquidity Sweep
 """
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent))
+from pattern_detector import PatternIntegrator
 import numpy as np
 from datetime import datetime, timezone
 
@@ -92,82 +92,24 @@ class TendenciaAgent:
 
 
 class PadraoAgent:
-    """FVG com first-touch only e idade máxima 20 velas."""
+    """Padrões ICT integrados: FVG, OB, Breaker, Liquidity Sweep + Market Structure."""
     
-    def find_fvg(self, highs, lows, closes, direction, pip_pct=0.02):
-        n = len(highs)
-        if n < 10: return None, 0
-        
-        best, best_score = None, 0
-        
-        for i in range(n-2, max(6, n-200), -1):
-            if direction == 'BUY':
-                if lows[i] <= highs[i-2]: continue
-                gap_pct = (lows[i] - highs[i-2]) / closes[i] * 100
-                if gap_pct < pip_pct: continue
-                
-                # First touch: não pode ter sido tocado
-                if any(lows[j] <= highs[i-2] for j in range(i+1, n)): continue
-                
-                # Idade máxima: 20 velas (20 min)
-                if n - i > 20: continue
-                
-                score = 50
-                
-                # Premium/Discount
-                window_h = max(highs[max(0,i-50):i+1])
-                window_l = min(lows[max(0,i-50):i+1])
-                eq = (window_h + window_l) / 2
-                if closes[i] < eq: score += 25
-                
-                # Gap size
-                score += min(gap_pct / pip_pct * 5, 20)
-                
-                # Volume do candle
-                body = abs(closes[i] - closes[max(0,i-1)])
-                avg_body = np.mean([abs(closes[j]-closes[j-1]) for j in range(max(0,i-20), i)])
-                if body > avg_body * 1.4: score += 15
-                
-                if score > best_score:
-                    best_score = score
-                    best = {'type': 'FVG', 'entry': closes[i], 'direction': 'BUY',
-                            'idx': i, 'gap_pct': round(gap_pct, 3), 'quality': score}
-            
-            else:  # SELL
-                if highs[i] >= lows[i-2]: continue
-                gap_pct = (lows[i-2] - highs[i]) / closes[i] * 100
-                if gap_pct < pip_pct: continue
-                
-                if any(highs[j] >= lows[i-2] for j in range(i+1, n)): continue
-                if n - i > 20: continue
-                
-                score = 50
-                
-                window_h = max(highs[max(0,i-50):i+1])
-                window_l = min(lows[max(0,i-50):i+1])
-                eq = (window_h + window_l) / 2
-                if closes[i] > eq: score += 25
-                
-                score += min(gap_pct / pip_pct * 5, 20)
-                
-                body = abs(closes[i] - closes[max(0,i-1)])
-                avg_body = np.mean([abs(closes[j]-closes[j-1]) for j in range(max(0,i-20), i)])
-                if body > avg_body * 1.4: score += 15
-                
-                if score > best_score:
-                    best_score = score
-                    best = {'type': 'FVG', 'entry': closes[i], 'direction': 'SELL',
-                            'idx': i, 'gap_pct': round(gap_pct, 3), 'quality': score}
-        
-        return best, best_score
+    def __init__(self):
+        self.integrator = PatternIntegrator()
     
     def analyze(self, highs, lows, closes, opens, direction, pip_size):
-        if len(closes) < 10: return 'NEUTRAL', 0, {}
+        if len(closes) < 30: return 'NEUTRAL', 0, {}
         
-        fvg, fvg_score = self.find_fvg(highs, lows, closes, direction)
+        best, score = self.integrator.find_best_pattern(highs, lows, closes, opens, direction)
         
-        if fvg and fvg_score >= 55:
-            return direction, fvg_score, fvg
+        if best and score >= 60:
+            # Bônus por alinhamento com estrutura
+            ctx = self.integrator.get_market_context(highs, lows, closes)
+            best['market_structure'] = ctx['structure']
+            best['choch'] = ctx.get('choch')
+            best['liquidity_above'] = ctx.get('liquidity_above', [])
+            best['liquidity_below'] = ctx.get('liquidity_below', [])
+            return direction, score, best
         
         return 'NEUTRAL', 0, {}
 
@@ -243,10 +185,21 @@ class CryptoConfluencia:
         if t_vote == 'NEUTRAL':
             return 'NEUTRAL', 0, None, v_info
         
-        # Gate 3: Padrão (first-touch FVG com quality mínimo 80)
+        # Gate 3: Padrão (OB, Breaker, FVG, Liq Sweep — quality mínimo 60)
         p_vote, p_conf, p_sig = self.padrao.analyze(highs, lows, closes, opens, t_vote, pip_size)
-        if not p_sig or p_sig.get('quality', 0) < 80:
+        if not p_sig or p_sig.get('quality', 0) < 60:
             return 'NEUTRAL', 0, None, v_info
+        
+        # Bônus por Market Structure alinhada
+        ms_structure = p_sig.get('market_structure', '')
+        if ms_structure == 'BULLISH' and t_vote == 'BUY':
+            p_conf += 25
+        elif ms_structure == 'BEARISH' and t_vote == 'SELL':
+            p_conf += 25
+        elif ms_structure == 'CHoCH':
+            choch = p_sig.get('choch', {})
+            if isinstance(choch, dict) and choch.get('type') == t_vote:
+                p_conf += 35  # CHoCH alinhado = bônus máximo
         
         # Sessão e Fluxo
         s_vote, s_conf, s_msg = self.sessao.analyze()
