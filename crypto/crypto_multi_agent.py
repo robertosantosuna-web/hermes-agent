@@ -40,47 +40,67 @@ class VolatilidadeAgent:
 
 
 class TendenciaAgent:
-    """Tendência multi-TF com alinhamento M15+M5 obrigatório. M1 opcional."""
+    """Tendência multi-TF completo: H1→M30→M15→M5→M1."""
+    
+    def _aggregate(self, closes, period):
+        if len(closes) < period: return None
+        n = len(closes) // period
+        if n < 2: return None
+        return np.array([closes[i*period:(i+1)*period][-1] for i in range(n)])
     
     def analyze_tf(self, closes, period, label):
         if len(closes) < period * 2: return 'NEUTRAL', 0, []
-        
         half = period // 2
         ema_fast = sum(closes[-half:]) / half
         ema_slow = sum(closes[-period:]) / period
-        
         if closes[-1] > ema_fast > ema_slow:
-            direction, score = 'BUY', 35 if label == 'M15' else 25
-            return direction, score, [f'{label}↑']
+            return 'BUY', 35, [f'{label}↑']
         elif closes[-1] < ema_fast < ema_slow:
-            direction, score = 'SELL', 35 if label == 'M15' else 25
-            return direction, score, [f'{label}↓']
+            return 'SELL', 35, [f'{label}↓']
         return 'NEUTRAL', 0, []
     
     def analyze(self, highs, lows, closes):
-        if len(closes) < 100: return 'NEUTRAL', 0, ''
+        if len(closes) < 200: return 'NEUTRAL', 0, ''
         
+        # H1 (60 velas M1)
+        h1_c = self._aggregate(closes, 60)
+        h1_dir = 'NEUTRAL'
+        if h1_c is not None and len(h1_c) >= 10:
+            h1_dir, _, _ = self.analyze_tf(h1_c, 24, 'H1')
+        
+        # M30 (30 velas M1)
+        m30_c = self._aggregate(closes, 30)
+        m30_dir = 'NEUTRAL'
+        if m30_c is not None and len(m30_c) >= 6:
+            m30_dir, _, _ = self.analyze_tf(m30_c, 12, 'M30')
+        
+        # M15 (principal)
         m15_dir, m15_score, m15_sig = self.analyze_tf(closes, 50, 'M15')
         if m15_dir == 'NEUTRAL': return 'NEUTRAL', 0, 'M15 neutro'
         
-        m5_dir, m5_score, m5_sig = self.analyze_tf(closes[-80:] if len(closes)>=80 else closes, 20, 'M5')
+        # Gate: H1 não pode divergir
+        if h1_dir != 'NEUTRAL' and h1_dir != m15_dir:
+            return 'NEUTRAL', 0, f'H1({h1_dir}) ≠ M15({m15_dir})'
+        
+        # M5 confirmação
+        m5_dir, m5_score, m5_sig = self.analyze_tf(closes[-80:], 20, 'M5')
         if m5_dir != m15_dir:
-            return 'NEUTRAL', 0, f'M5 diverge'
+            return 'NEUTRAL', 0, 'M5 diverge'
         
         total_score = m15_score + m5_score
         signals = m15_sig + m5_sig
         
-        # M1 timing (bônus, não obrigatório)
-        m1_dir, m1_score, m1_sig = self.analyze_tf(closes[-40:] if len(closes)>=40 else closes, 10, 'M1')
-        if m1_dir == m15_dir:
-            total_score += 15
-            signals.append('⏱M1')
+        if h1_dir == m15_dir: total_score += 20; signals.append('✅H1')
+        if m30_dir == m15_dir: total_score += 15; signals.append('✅M30')
         
-        # S/R favorável
-        window = closes[-100:]
-        hh, ll = max(window), min(window)
+        # M1 timing
+        m1_dir, m1_score, _ = self.analyze_tf(closes[-40:], 10, 'M1')
+        if m1_dir == m15_dir: total_score += 10; signals.append('⏱M1')
+        
+        # S/R
+        w = closes[-100:]
+        hh, ll = max(w), min(w)
         pos = (closes[-1] - ll) / (hh - ll) if hh > ll else 0.5
-        
         if m15_dir == 'BUY' and pos < 0.50:
             total_score += 15; signals.append('Discount')
         elif m15_dir == 'SELL' and pos > 0.50:
@@ -88,7 +108,7 @@ class TendenciaAgent:
         
         if total_score >= 55:
             return m15_dir, total_score, '|'.join(signals)
-        return 'NEUTRAL', total_score, f'Score={total_score}'
+        return 'NEUTRAL', total_score, f'S={total_score}'
 
 
 class PadraoAgent:

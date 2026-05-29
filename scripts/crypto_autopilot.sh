@@ -1,13 +1,12 @@
 #!/bin/bash
-# Crypto AutoPilot 24/7 — Scanner + Executor
-# Fluxo: crypto_bot.py → signals.json → binance_executor.py → Binance
+# Crypto AutoPilot 24/7 v2 — Hyperliquid feed + Scanner + Executor
 
 cd /home/roberto/.hermes/crypto
 
-# Scanner: gera sinais e salva em signals.json
+# Scanner com feed Hyperliquid + Yahoo fallback
 /usr/bin/python3 crypto_bot.py 2>&1
 
-# Executor: se houver sinais, envia ordens para Binance
+# Executor: envia ordens para Binance se houver sinais
 if [ -f signals.json ]; then
     /usr/bin/python3 binance_executor.py 2>&1
 fi

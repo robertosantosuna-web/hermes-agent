@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-CRYPTO BOT v4 — Data-Driven Multi-Agent + Anti-Correlação USD
-Regras: max 2 trades simultâneos, 1 por grupo de correlação
+CRYPTO BOT v8 — Feed Híbrido Hyperliquid (tempo real) + Yahoo Finance (fallback)
+Multi-TF completo: M30 + H1 + M15 + M5 + M1
 """
-import sys, json, os
+import sys, json, os, time
 from pathlib import Path
 from datetime import datetime, timezone
 import numpy as np
@@ -12,37 +12,69 @@ import yfinance as yf
 sys.path.insert(0, str(Path.home() / '.hermes' / 'crypto'))
 from crypto_multi_agent import CryptoConfluencia
 from pair_selector import CryptoPairSelector
+from hyperliquid_feed import HyperliquidFeed
 
 # ═══ CONFIG ═══
 RR = 3.0
 RISK_PCT = 0.5
 MIN_CONFIDENCE = 55
-DATA_PERIOD = '5d'
 
 TRADES_FILE = Path.home() / '.hermes' / 'crypto' / 'open_trades.json'
 SIGNALS_FILE = Path.home() / '.hermes' / 'crypto' / 'signals.json'
+
+# Feed global (iniciado uma vez)
+_feed = None
+
+def get_feed():
+    global _feed
+    if _feed is None:
+        _feed = HyperliquidFeed(symbols=['BTC', 'ETH', 'DOGE', 'SOL'])
+        _feed.start()
+        print("[Feed] Hyperliquid iniciado, aguardando dados...")
+        # Aguardar primeiros candles
+        waited = 0
+        while waited < 10:
+            time.sleep(1)
+            waited += 1
+            if _feed.has_data('ETHUSD', 3):
+                break
+    return _feed
+
+def get_candles_hybrid(pair, sym, feed):
+    """Híbrido: tenta Hyperliquid, fallback para Yahoo Finance."""
+    # Tentar Hyperliquid
+    h, l, c, o, v = feed.get_candles(pair, 200)
+    
+    if c is not None and len(c) >= 100:
+        return h, l, c, o, v, 'hyperliquid'
+    
+    # Fallback Yahoo Finance
+    try:
+        df = yf.Ticker(sym).history(period='5d', interval='1m')
+        if len(df) >= 100:
+            return (df['High'].values, df['Low'].values, df['Close'].values,
+                    df['Open'].values, 
+                    df['Volume'].values if 'Volume' in df.columns else None,
+                    'yfinance')
+    except:
+        pass
+    
+    return None, None, None, None, None, None
 
 def load_open_trades():
     if TRADES_FILE.exists():
         try:
             with open(TRADES_FILE) as f:
                 return json.load(f)
-        except:
-            pass
+        except: pass
     return []
-
-def save_open_trades(trades):
-    TRADES_FILE.parent.mkdir(parents=True, exist_ok=True)
-    with open(TRADES_FILE, 'w') as f:
-        json.dump(trades, f, indent=2, default=str)
 
 def get_btc_change():
     try:
         df = yf.Ticker('BTC-USD').history(period='1d', interval='1h')
         if len(df) < 4: return None
         return (df['Close'].values[-1] / df['Close'].values[-5] - 1) * 100
-    except:
-        return None
+    except: return None
 
 def get_daily_bias(highs, lows, closes):
     if len(highs) < 3: return 'NEUTRAL'
@@ -68,38 +100,44 @@ def calculate_sl_tp(entry, atr_pct, direction, sl_recommend=None):
 
 
 # ═══ MAIN ═══
-print(f"═══ CRYPTO BOT v4 — {datetime.now(timezone.utc).strftime('%d/%m %H:%M')} UTC ═══")
+print(f"═══ CRYPTO BOT v8 (Hyperliquid + Multi-TF) — {datetime.now(timezone.utc).strftime('%d/%m %H:%M')} UTC ═══")
 print()
 
 try:
-    # Carregar trades abertos
+    # Iniciar feed
+    feed = get_feed()
+    source = 'hyperliquid' if feed.has_data('BTCUSD', 5) else 'yfinance'
+    print(f"[Feed] Fonte: {source}")
+    
     open_trades = load_open_trades()
-    print(f"[0] Trades abertos: {len(open_trades)}/1 (máx 1 — 85% correlação USD)")
+    print(f"[0] Trades abertos: {len(open_trades)}/1")
     for t in open_trades:
-        print(f"    {t['pair']:8s} {t['direction']:4s} @{t['entry']:.4f} SL={t['sl_pct']:.2f}%")
+        print(f"    {t['pair']:8s} {t['direction']:4s} @{t['entry']:.4f}")
     print()
     
-    # 1. Selecionar pares (respeita anti-correlação)
+    # Selecionar pares
     print("[1/3] Selecionando pares (anti-corr USD)...")
     selector = CryptoPairSelector(max_pairs=3)
     selected = selector.select_best_pairs()
     
     if not selected:
-        print("  ⚠️ Nenhum par disponível (limite de trades ou baixo volume)")
+        print("  ⚠️ Nenhum par disponível")
         print("═══ FIM ═══")
         sys.exit(0)
     
     selector.print_summary()
     print()
     
-    # 2. BTC referência
+    # BTC referência
     print("[2/3] Obtendo dados BTC...")
     btc_change = get_btc_change()
-    print(f"       BTC 4h: {btc_change:+.2f}%" if btc_change else "       BTC: sem dados")
+    btc_price = feed.get_price('BTCUSD')
+    print(f"       BTC: ${btc_price:,.2f}" if btc_price else "       BTC: sem dados")
+    print(f"       4h change: {btc_change:+.2f}%" if btc_change else "")
     print()
     
-    # 3. Analisar pares
-    print("[3/3] Analisando pares...")
+    # Analisar pares
+    print("[3/3] Analisando pares (M1 Hyperliquid + Yahoo Fallback)...")
     agent = CryptoConfluencia()
     signals_found = []
     
@@ -108,14 +146,19 @@ try:
         sym = pair_info['sym']
         pip = pair_info['pip']
         
-        # ⚡ Anti-correlação USD: verificar se pode abrir
         can_open, reason = selector.can_open_trade(pair, pair_info['direction'])
         if not can_open:
             print(f"  {pair:8s} 🚫 {reason}")
             continue
         
         try:
-            # Daily bias
+            # Dados híbridos
+            h, l, c, o, v, src = get_candles_hybrid(pair, sym, feed)
+            if c is None or len(c) < 100:
+                print(f"  {pair:8s} dados insuficientes ({len(c) if c is not None else 0} candles)")
+                continue
+            
+            # Daily bias (yfinance diário)
             df_d = yf.Ticker(sym).history(period='30d', interval='1d')
             cm = {c.lower(): c for c in df_d.columns}
             dh = df_d[cm.get('high','High')].values
@@ -124,95 +167,73 @@ try:
             bias = get_daily_bias(dh, dl, dc)
             
             if bias == 'NEUTRAL':
-                print(f"  {pair:8s} BIAS NEUTRAL — pulado")
+                print(f"  {pair:8s} BIAS NEUTRAL [{src}]")
                 continue
             
-            # Dados M1
-            df_m1 = yf.Ticker(sym).history(period=DATA_PERIOD, interval='1m')
-            if df_m1 is None or len(df_m1) < 100:
-                print(f"  {pair:8s} sem dados M1 suficientes")
-                continue
-            
-            h = df_m1['High'].values
-            l = df_m1['Low'].values
-            c = df_m1['Close'].values
-            o = df_m1['Open'].values
-            v = df_m1['Volume'].values if 'Volume' in df_m1.columns else None
-            
-            # Níveis diários (S/R longo prazo)
+            # Níveis diários
             daily_levels = {
                 'resistance': max(dh[-10:]) if len(dh) >= 10 else max(dh),
                 'support': min(dl[-10:]) if len(dl) >= 10 else min(dl)
             }
             
-            # Análise completa (retorna info de volatilidade também)
+            # Análise multi-agente + multi-TF completo
             decision, conf, signal, v_info = agent.analyze(
                 pair, h, l, c, o, bias, pip,
                 btc_change if pair != 'BTCUSD' else None,
                 MIN_CONFIDENCE, v, daily_levels
             )
             
-            atr_pct = v_info.get('atr_pct', 0.5)
-            sl_rec = v_info.get('sl_recommend', None)
+            atr_pct = (v_info or {}).get('atr_pct', 0.5)
+            sl_rec = (v_info or {}).get('sl_recommend', None)
             
             if decision != 'NEUTRAL' and signal:
                 entry = signal['entry']
                 sl, tp, sl_pct = calculate_sl_tp(entry, atr_pct, decision, sl_rec)
                 
-                pattern_type = signal.get('type', '?')
-                quality = signal.get('quality', 0)
-                group = pair_info.get('group', '?')
+                print(f"  ✅ {pair:8s} {decision:4s} @{entry:.4f} | "
+                      f"{signal.get('type','?')} Q={signal.get('quality',0)} | "
+                      f"SL={sl_pct:.2f}% TP={sl_pct*RR:.2f}% | "
+                      f"Conf={conf:.0f}% [{src}]")
                 
-                print(f"  ✅ {pair:8s} {decision:4s} @{entry:.4f} | {pattern_type} Q={quality} | "
-                      f"SL={sl_pct:.2f}% | TP={sl_pct*RR:.2f}% | Conf={conf:.0f}% | "
-                      f"[{group}]")
-                
-                trade = {
+                signals_found.append({
                     'pair': pair, 'sym': sym, 'direction': decision,
                     'entry': float(entry), 'sl': float(sl), 'tp': float(tp),
                     'sl_pct': sl_pct, 'conf': conf,
-                    'pattern': pattern_type, 'quality': quality,
-                    'atr_pct': atr_pct, 'regime': v_info.get('regime'),
-                    'group': group,
+                    'pattern': signal.get('type', '?'),
+                    'quality': signal.get('quality', 0),
+                    'atr_pct': atr_pct, 'regime': (v_info or {}).get('regime'),
+                    'group': pair_info.get('group', '?'),
                     'time': datetime.now(timezone.utc).isoformat(),
-                    'status': 'open'
-                }
+                    'source': src
+                })
                 
-                signals_found.append(trade)
-                
-                # ⚡ Adicionar aos trades abertos
-                open_trades.append(trade)
-                save_open_trades(open_trades)
-                
+                open_trades.append(signals_found[-1])
+                TRADES_FILE.parent.mkdir(parents=True, exist_ok=True)
+                with open(TRADES_FILE, 'w') as f:
+                    json.dump(open_trades, f, indent=2, default=str)
             else:
-                print(f"  {pair:8s} {decision:7s} conf={conf:.0f}% — {v_info.get('regime','?')}")
+                print(f"  {pair:8s} {decision:7s} conf={conf:.0f}% [{src}]")
         
         except Exception as e:
-            print(f"  {pair:8s} ❌ ERRO: {e}")
+            print(f"  {pair:8s} ❌ {e}")
     
     print()
     
-    # 4. Resumo
     if signals_found:
-        print(f"═══ {len(signals_found)} NOVO(s) SINAL(is) ═══")
+        print(f"═══ {len(signals_found)} SINAL(is) ═══")
         for sig in signals_found:
             print(f"  {sig['pair']} {sig['direction']} @{sig['entry']:.4f} "
                   f"SL={sig['sl_pct']:.2f}% TP={sig['sl_pct']*RR:.2f}% "
-                  f"Conf={sig['conf']:.0f}% [{sig.get('group','?')}]")
-        
+                  f"[{sig.get('source','?')}]")
         with open(SIGNALS_FILE, 'w') as f:
             json.dump(signals_found, f, indent=2, default=str)
-        print(f"\n  Sinais salvos: {SIGNALS_FILE}")
-        print(f"  Trades abertos: {len(open_trades)}/1")
+        print(f"\n  Sinais: {SIGNALS_FILE}")
     else:
-        print("═══ NENHUM SINAL NOVO ═══")
-        print(f"  Trades abertos: {len(open_trades)}/1")
+        print(f"═══ NENHUM SINAL ═══")
     
-    print(f"\nBTC 4h: {btc_change:+.2f}%" if btc_change else "\nBTC: sem dados")
-    print("═══ FIM ═══")
+    print(f"\n═══ FIM ═══")
 
 except Exception as e:
-    print(f"\n❌ ERRO FATAL: {e}")
+    print(f"\n❌ {e}")
     import traceback
     traceback.print_exc()
-    sys.exit(1)
