@@ -626,7 +626,7 @@ Agente unificado em `~/.hermes/brain/freelancer_agent.py` — pipeline completo:
 
 ### ⚠️ Pitfalls do Classificador de Email (CORRIGIDOS 29/05/2026)
 
-**13 bugs encontrados e corrigidos no agente (6 iniciais + 7 na revisão de 29/05). Ver `references/agent-email-pitfalls.md` para detalhes completos.**
+**13 bugs encontrados e corrigidos no agente (6 iniciais + 7 na revisão de 29/05) + 1 bug de arquitetura (healthcheck). Ver `references/agent-email-pitfalls.md` para detalhes completos.**
 
 | # | Bug | Sintoma | Correção |
 |---|-----|---------|----------|
@@ -643,8 +643,11 @@ Agente unificado em `~/.hermes/brain/freelancer_agent.py` — pipeline completo:
 | 11 | Cabeçalhos de categoria vazando | "Planilhas e Relatórios \|" como título | `normalized = line.rstrip('\|').strip()` |
 | 12 | Keyword stemming | "cadastrar" ≠ keyword "cadastro" | Adicionar variantes: `cadastrar`, `digitar` |
 | 13 | Digest tratado como projeto individual | Proposta genérica para digest inteiro | Separar digests de projetos; NÃO gerar propostas automáticas |
+| 14 | Healthcheck bloqueia pipeline quando só CDP cai | Agente aborta sem escanear email | Só hard-fail se AMBOS IMAP e CDP falharem |
 
 **Regra de ouro para classificação de email:** Sempre verificar os remetentes REAIS (inspecionar header `From:`), não presumir. Testar `classify_opportunity()` com dados reais antes de deploy. Checks platform-specific DEVEM vir antes de checks genéricos (`'login'`, `'acesso'`).
+
+**⚠️ Healthcheck — degradação, não bloqueio:** O healthcheck do agente verifica IMAP e CDP. Se AMBOS falharem → aborta. Se apenas UM falhar → avisa e continua com a fonte disponível. CDP cai com frequência (processo morre, browser fecha), mas IMAP é estável — não faz sentido perder varredura de email por falta de CDP. Ver bug #14 em `references/agent-email-pitfalls.md`.
 
 **Sub-agente Freelancer.com:** `~/.hermes/brain/subagent_freelancer.py`
 - RSS feed monitoring (`freelancer.com/rss.xml`)

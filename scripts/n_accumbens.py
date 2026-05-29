@@ -105,7 +105,41 @@ def main():
     trades = [t for t in data.get('trades', []) if t.get('result')]
     
     if len(trades) < 5:
-        return  # Not enough data for learning
+        # ── SEED FROM BACKTEST ──
+        # Use backtest WR to bootstrap live weights when no real trades yet
+        backtest_wr = {
+            'USDJPY': 66.1, 'GBPJPY': 67.6, 'USDCAD': 90.0,
+            'EURJPY': 64.9, 'GBPUSD': 62.2, 'EURUSD': 73.8,
+            'XAUUSD': 67.1,
+        }
+        weights = {}
+        for pair, wr in backtest_wr.items():
+            weights[pair] = {
+                'wr': wr, 'trades': 0, 'wins': 0, 'losses': 0,
+                'pnl': 0.0, 'avg_rr': None,
+                'recommendation': 'PRIORITY' if wr >= 65 else ('ACTIVE' if wr >= 55 else 'WATCH'),
+                'source': 'backtest_seed',
+            }
+        weight_data = {
+            'updated': __import__('datetime').datetime.now(__import__('datetime').timezone.utc).isoformat(),
+            'total_trades': 0,
+            'pairs': weights,
+            'seeded_from_backtest': True,
+        }
+        WEIGHTS_FILE.parent.mkdir(parents=True, exist_ok=True)
+        WEIGHTS_FILE.write_text(__import__('json').dumps(weight_data, ensure_ascii=False, indent=2))
+        
+        # Also save state
+        ACCUMBENS_OUT.mkdir(parents=True, exist_ok=True)
+        STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+        STATE_FILE.write_text(__import__('json').dumps({
+            'last_run': __import__('datetime').datetime.now(__import__('datetime').timezone.utc).isoformat(),
+            'trades_processed': 0,
+            'pairs_tracked': len(weights),
+            'seeded': True,
+        }, ensure_ascii=False, indent=2))
+        print(f"🧠 N. Accumbens: Seeded {len(weights)} pairs from backtest WR")
+        return
     
     new_weights = compute_weights(trades)
     old_weights = load_json(WEIGHTS_FILE)

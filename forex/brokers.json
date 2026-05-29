@@ -20,10 +20,15 @@
   },
   "exness": {
     "email": "robertosantos.una@gmail.com",
-    "password": "Wc0ZO6#p2026!@",
-    "country": "Brazil",
-    "status": "formulario_preenchido",
-    "url": "https://my.exness.com/accounts/sign-up"
+    "password_portal": "Wc0ZO6#p2026!@",
+    "account_id": "198420982",
+    "server": "Exness-MT5Trial11",
+    "password_mt5": "Wc0ZO6#p",
+    "type": "demo",
+    "balance": 10000.00,
+    "leverage": "1:200",
+    "status": "ativo",
+    "url": "https://my.exness.com/pa/trading/accounts"
   },
   "xm": {
     "status": "pendente",

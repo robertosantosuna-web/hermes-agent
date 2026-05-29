@@ -76,6 +76,11 @@ def close_all(timeout: float = 10) -> dict:
     _write_cmd({"action": "close_all"})
     return _read_resp(timeout)
 
+def close_symbol(symbol: str, timeout: float = 10) -> dict:
+    """Fecha todas as posições de um símbolo específico."""
+    _write_cmd({"action": "close_symbol", "symbol": symbol})
+    return _read_resp(timeout)
+
 
 def get_status(timeout: float = 5) -> dict:
     """Obtém status da conta (saldo, equity, posições)."""

@@ -1,462 +1,462 @@
 {
   "structure_breaks": {
-    "total_collected": 1830,
+    "total_collected": 3586,
     "examples": [
       {
-        "idx": 4335,
-        "type": "BULLISH_BOS",
-        "price": 0.58928,
-        "ts": 1777986300,
-        "strength": 0.15951669834375032,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 4347,
-        "type": "BULLISH_BOS",
-        "price": 0.58931,
-        "ts": 1777989900,
-        "strength": 0.15950857782831648,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 4362,
-        "type": "BULLISH_BOS",
-        "price": 0.59018,
-        "ts": 1777994400,
-        "strength": 0.15927344200075433,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 4365,
-        "type": "BULLISH_BOS",
-        "price": 0.59067,
-        "ts": 1777995300,
-        "strength": 0.2353259857450018,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 4458,
-        "type": "BULLISH_BOS",
-        "price": 0.59144,
-        "ts": 1778023200,
-        "strength": 0.41255241444609725,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 4488,
-        "type": "BULLISH_BOS",
-        "price": 0.59308,
-        "ts": 1778032200,
-        "strength": 0.6761313819383673,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 4577,
-        "type": "BULLISH_BOS",
-        "price": 0.59691,
-        "ts": 1778058900,
-        "strength": 0.5578730461878767,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 4742,
+        "idx": 4166,
         "type": "BULLISH_BOS",
         "price": 0.59595,
         "ts": 1778108400,
         "strength": 0.011745951841599883,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 4821,
+        "idx": 4245,
         "type": "BULLISH_BOS",
         "price": 0.59655,
         "ts": 1778132100,
         "strength": 0.030173497611276336,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 4883,
+        "idx": 4307,
         "type": "BULLISH_BOS",
         "price": 0.59844,
         "ts": 1778150700,
         "strength": 0.05347236147316138,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5108,
+        "idx": 4532,
         "type": "BULLISH_BOS",
         "price": 0.5951,
         "ts": 1778218200,
         "strength": 0.07729793312048663,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5119,
+        "idx": 4543,
         "type": "BULLISH_BOS",
         "price": 0.5957,
         "ts": 1778221500,
         "strength": 0.2081584690280374,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5147,
+        "idx": 4571,
         "type": "BULLISH_BOS",
         "price": 0.59662,
         "ts": 1778229900,
         "strength": 0.2547685293821992,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5169,
+        "idx": 4593,
         "type": "BULLISH_BOS",
         "price": 0.59701,
         "ts": 1778236500,
         "strength": 0.006700055275444126,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5240,
+        "idx": 4664,
         "type": "BULLISH_BOS",
         "price": 0.59637,
         "ts": 1778257800,
         "strength": 0.0469507185136655,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5278,
+        "idx": 4702,
         "type": "BULLISH_BOS",
         "price": 0.59666,
         "ts": 1778269200,
         "strength": 0.07206784433344458,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5325,
+        "idx": 4749,
         "type": "BULLISH_BOS",
         "price": 0.59581,
         "ts": 1778460900,
         "strength": 0.14266292945738027,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5475,
+        "idx": 4899,
         "type": "BULLISH_BOS",
         "price": 0.59598,
         "ts": 1778505900,
         "strength": 0.13591060102687633,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5487,
+        "idx": 4911,
         "type": "BULLISH_BOS",
         "price": 0.59669,
         "ts": 1778509500,
         "strength": 0.19608171747473632,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5578,
+        "idx": 5002,
         "type": "BULLISH_BOS",
         "price": 0.59687,
         "ts": 1778536800,
         "strength": 0.07036708160905657,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5582,
+        "idx": 5006,
         "type": "BULLISH_BOS",
         "price": 0.59705,
         "ts": 1778538000,
         "strength": 0.11891801356670101,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5636,
+        "idx": 5060,
         "type": "BULLISH_BOS",
         "price": 0.59637,
         "ts": 1778554200,
         "strength": 0.09557824840284898,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5766,
+        "idx": 5190,
         "type": "BULLISH_BOS",
         "price": 0.59552,
         "ts": 1778593200,
         "strength": 0.030225685115540867,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 6064,
+        "idx": 5488,
         "type": "BULLISH_BOS",
         "price": 0.59344,
         "ts": 1778682600,
         "strength": 0.08930978700456987,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 6087,
+        "idx": 5511,
         "type": "BULLISH_BOS",
         "price": 0.59439,
         "ts": 1778689500,
         "strength": 0.17160450209458789,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 6143,
+        "idx": 5567,
         "type": "BULLISH_BOS",
         "price": 0.594,
         "ts": 1778706300,
         "strength": 0.04713804713803821,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 6251,
+        "idx": 5675,
         "type": "BULLISH_BOS",
         "price": 0.59404,
         "ts": 1778738700,
         "strength": 0.07238569793280611,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 6272,
+        "idx": 5696,
         "type": "BULLISH_BOS",
         "price": 0.59407,
         "ts": 1778745000,
         "strength": 0.10099819886544244,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 6774,
+        "idx": 6198,
         "type": "BULLISH_BOS",
         "price": 0.58367,
         "ts": 1779073800,
         "strength": 0.017132968972191305,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 6777,
+        "idx": 6201,
         "type": "BULLISH_BOS",
         "price": 0.58384,
         "ts": 1779074700,
         "strength": 0.12332145793368969,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 6842,
+        "idx": 6266,
         "type": "BULLISH_BOS",
         "price": 0.58644,
         "ts": 1779094200,
         "strength": 0.1227747084100578,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 6939,
+        "idx": 6363,
         "type": "BULLISH_BOS",
         "price": 0.58744,
         "ts": 1779123300,
         "strength": 0.11745880430341284,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 6943,
+        "idx": 6367,
         "type": "BULLISH_BOS",
         "price": 0.58758,
         "ts": 1779124500,
         "strength": 0.10551754654684535,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 6981,
+        "idx": 6405,
         "type": "BULLISH_BOS",
         "price": 0.58806,
         "ts": 1779135900,
         "strength": 0.10543141856274273,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 7173,
+        "idx": 6597,
         "type": "BULLISH_BOS",
         "price": 0.58503,
         "ts": 1779193500,
         "strength": 0.046151479411329924,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 7398,
+        "idx": 6822,
         "type": "BULLISH_BOS",
         "price": 0.58411,
         "ts": 1779261000,
         "strength": 0.16264059851740365,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 7456,
+        "idx": 6880,
         "type": "BULLISH_BOS",
         "price": 0.58503,
         "ts": 1779278400,
         "strength": 0.15725689280892122,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 7545,
+        "idx": 6969,
         "type": "BULLISH_BOS",
         "price": 0.58779,
         "ts": 1779305100,
         "strength": 0.06464893924701798,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 7654,
+        "idx": 7078,
         "type": "BULLISH_BOS",
         "price": 0.58661,
         "ts": 1779337800,
         "strength": 0.011932970798318218,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 7699,
+        "idx": 7123,
         "type": "BULLISH_BOS",
         "price": 0.58741,
         "ts": 1779351300,
         "strength": 0.16513167974668908,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 7798,
+        "idx": 7222,
         "type": "BULLISH_BOS",
         "price": 0.5862,
         "ts": 1779381000,
         "strength": 0.0,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 8034,
+        "idx": 7458,
         "type": "BULLISH_BOS",
         "price": 0.58606,
         "ts": 1779451800,
         "strength": 0.05289560795823507,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 8095,
+        "idx": 7519,
         "type": "BULLISH_BOS",
         "price": 0.58627,
         "ts": 1779470100,
         "strength": 0.09893052689032596,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 110,
-        "type": "BEARISH_BOS",
-        "price": 0.58869,
-        "ts": 1776154200,
-        "strength": 0.2361174811870428,
+        "idx": 7734,
+        "type": "BULLISH_BOS",
+        "price": 0.58803,
+        "ts": 1779712800,
+        "strength": 0.1581551961634776,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 206,
-        "type": "BEARISH_BOS",
-        "price": 0.59056,
-        "ts": 1776183000,
-        "strength": 0.06603901381739391,
+        "idx": 7764,
+        "type": "BULLISH_BOS",
+        "price": 0.58779,
+        "ts": 1779721800,
+        "strength": 0.005103863624759606,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 453,
-        "type": "BEARISH_BOS",
-        "price": 0.58959,
-        "ts": 1776257100,
-        "strength": 0.0067843755830202315,
+        "idx": 7828,
+        "type": "BULLISH_BOS",
+        "price": 0.58761,
+        "ts": 1779741000,
+        "strength": 0.023825326321885092,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 546,
-        "type": "BEARISH_BOS",
-        "price": 0.59137,
-        "ts": 1776285000,
-        "strength": 0.028746808258789502,
+        "idx": 8004,
+        "type": "BULLISH_BOS",
+        "price": 0.585,
+        "ts": 1779793800,
+        "strength": 0.0410256410256441,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 554,
-        "type": "BEARISH_BOS",
-        "price": 0.59088,
-        "ts": 1776287400,
-        "strength": 0.12354454373138513,
+        "idx": 8224,
+        "type": "BULLISH_BOS",
+        "price": 0.58817,
+        "ts": 1779859800,
+        "strength": 0.04250471802369595,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 647,
+        "idx": 8264,
+        "type": "BULLISH_BOS",
+        "price": 0.58803,
+        "ts": 1779871800,
+        "strength": 0.023808309099861903,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 8277,
+        "type": "BULLISH_BOS",
+        "price": 0.58875,
+        "ts": 1779875700,
+        "strength": 0.19872611464968226,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 71,
         "type": "BEARISH_BOS",
         "price": 0.59158,
         "ts": 1776315300,
         "strength": 0.16058690287028068,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 692,
+        "idx": 116,
         "type": "BEARISH_BOS",
         "price": 0.58955,
         "ts": 1776328800,
         "strength": 0.26121618183359946,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 512,
+        "type": "BEARISH_BOS",
+        "price": 0.59001,
+        "ts": 1776447600,
+        "strength": 0.11186251080490058,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 542,
+        "type": "BEARISH_BOS",
+        "price": 0.58882,
+        "ts": 1776456600,
+        "strength": 0.21228898474915478,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 552,
+        "type": "BEARISH_BOS",
+        "price": 0.58841,
+        "ts": 1776459600,
+        "strength": 0.27191923998573203,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 644,
+        "type": "BEARISH_BOS",
+        "price": 0.58679,
+        "ts": 1776665400,
+        "strength": 0.1874605906712776,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 8028,
+        "type": "BEARISH_BOS",
+        "price": 0.58408,
+        "ts": 1779801000,
+        "strength": 0.08218052321598496,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       }
     ],
-    "last_updated": "2026-05-25T11:00:24.270069+00:00"
+    "last_updated": "2026-05-27T11:00:17.969163+00:00"
   },
   "choch": {
-    "total_collected": 17,
+    "total_collected": 18,
     "examples": [
       {
         "idx": 7777,
@@ -2577,1021 +2577,1031 @@
         "quality": "high",
         "pair": "all_pairs",
         "collected_at": "2026-05-23T20:07:47.414289+00:00"
+      },
+      {
+        "idx": 8240,
+        "type": "BEARISH_CHOCH",
+        "price": 0.58806,
+        "swept_level": 0.58744,
+        "ts": 1779864600,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       }
     ],
-    "last_updated": "2026-05-25T11:00:24.270069+00:00"
+    "last_updated": "2026-05-27T11:00:17.969163+00:00"
   },
   "fvg": {
-    "total_collected": 112,
+    "total_collected": 230,
     "examples": [
       {
-        "idx": 44,
-        "type": "BULLISH_FVG",
-        "gap_top": 1.17633,
-        "gap_bottom": 1.17619,
-        "gap_size_pct": 0.0119,
-        "ts": 1776134400,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 54,
-        "type": "BULLISH_FVG",
-        "gap_top": 1.17647,
-        "gap_bottom": 1.17633,
-        "gap_size_pct": 0.0119,
-        "ts": 1776137400,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 55,
-        "type": "BULLISH_FVG",
-        "gap_top": 1.17661,
-        "gap_bottom": 1.17647,
-        "gap_size_pct": 0.0119,
-        "ts": 1776137700,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 56,
-        "type": "BULLISH_FVG",
-        "gap_top": 1.17675,
-        "gap_bottom": 1.17661,
-        "gap_size_pct": 0.0119,
-        "ts": 1776138000,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 58,
-        "type": "BULLISH_FVG",
-        "gap_top": 1.17716,
-        "gap_bottom": 1.17689,
-        "gap_size_pct": 0.0229,
-        "ts": 1776138600,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 60,
-        "type": "BEARISH_FVG",
-        "gap_top": 1.17716,
-        "gap_bottom": 1.17702,
-        "gap_size_pct": 0.0119,
-        "ts": 1776139200,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 64,
-        "type": "BULLISH_FVG",
-        "gap_top": 1.17716,
-        "gap_bottom": 1.17702,
-        "gap_size_pct": 0.0119,
-        "ts": 1776140400,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 67,
-        "type": "BEARISH_FVG",
-        "gap_top": 1.17716,
-        "gap_bottom": 1.17702,
-        "gap_size_pct": 0.0119,
-        "ts": 1776141300,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 69,
-        "type": "BULLISH_FVG",
-        "gap_top": 1.17716,
-        "gap_bottom": 1.17702,
-        "gap_size_pct": 0.0119,
-        "ts": 1776141900,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 74,
-        "type": "BEARISH_FVG",
-        "gap_top": 1.1773,
-        "gap_bottom": 1.17689,
-        "gap_size_pct": 0.0348,
-        "ts": 1776143400,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 76,
-        "type": "BEARISH_FVG",
-        "gap_top": 1.17675,
-        "gap_bottom": 1.17661,
-        "gap_size_pct": 0.0119,
-        "ts": 1776144000,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 77,
-        "type": "BEARISH_FVG",
-        "gap_top": 1.17675,
-        "gap_bottom": 1.17647,
-        "gap_size_pct": 0.0238,
-        "ts": 1776144300,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 6,
-        "type": "BEARISH_FVG",
-        "gap_top": 1.35141,
-        "gap_bottom": 1.3514,
-        "gap_size_pct": 0.0007,
-        "ts": 1776123000,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 19,
-        "type": "BEARISH_FVG",
-        "gap_top": 1.35132,
-        "gap_bottom": 1.35126,
-        "gap_size_pct": 0.0044,
-        "ts": 1776126900,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
         "idx": 21,
-        "type": "BEARISH_FVG",
-        "gap_top": 1.35122,
-        "gap_bottom": 1.35121,
-        "gap_size_pct": 0.0007,
-        "ts": 1776127500,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 23,
         "type": "BULLISH_FVG",
-        "gap_top": 1.35122,
-        "gap_bottom": 1.35121,
-        "gap_size_pct": 0.0007,
-        "ts": 1776128100,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 40,
-        "type": "BEARISH_FVG",
-        "gap_top": 1.35064,
-        "gap_bottom": 1.3506,
-        "gap_size_pct": 0.003,
-        "ts": 1776133200,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 43,
-        "type": "BULLISH_FVG",
-        "gap_top": 1.35068,
-        "gap_bottom": 1.35048,
-        "gap_size_pct": 0.0148,
-        "ts": 1776134100,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 47,
-        "type": "BULLISH_FVG",
-        "gap_top": 1.35075,
-        "gap_bottom": 1.3507,
-        "gap_size_pct": 0.0037,
-        "ts": 1776135300,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 49,
-        "type": "BEARISH_FVG",
-        "gap_top": 1.35075,
-        "gap_bottom": 1.35074,
-        "gap_size_pct": 0.0007,
-        "ts": 1776135900,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 51,
-        "type": "BULLISH_FVG",
-        "gap_top": 1.35076,
-        "gap_bottom": 1.35074,
-        "gap_size_pct": 0.0015,
-        "ts": 1776136500,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 52,
-        "type": "BULLISH_FVG",
-        "gap_top": 1.35088,
-        "gap_bottom": 1.35084,
-        "gap_size_pct": 0.003,
-        "ts": 1776136800,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 53,
-        "type": "BULLISH_FVG",
-        "gap_top": 1.35094,
-        "gap_bottom": 1.3509,
-        "gap_size_pct": 0.003,
-        "ts": 1776137100,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 3,
-        "type": "BEARISH_FVG",
-        "gap_top": 159.287,
-        "gap_bottom": 159.26801,
+        "gap_top": 1.18092,
+        "gap_bottom": 1.18078,
         "gap_size_pct": 0.0119,
-        "ts": 1776122100,
+        "ts": 1776300300,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 29,
-        "type": "BEARISH_FVG",
-        "gap_top": 159.16,
-        "gap_bottom": 159.13901,
-        "gap_size_pct": 0.0132,
-        "ts": 1776129900,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 33,
-        "type": "BULLISH_FVG",
-        "gap_top": 159.159,
-        "gap_bottom": 159.146,
-        "gap_size_pct": 0.0082,
-        "ts": 1776131100,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 63,
-        "type": "BEARISH_FVG",
-        "gap_top": 159.08701,
-        "gap_bottom": 159.08299,
-        "gap_size_pct": 0.0025,
-        "ts": 1776140100,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 68,
-        "type": "BEARISH_FVG",
-        "gap_top": 159.069,
-        "gap_bottom": 159.067,
-        "gap_size_pct": 0.0013,
-        "ts": 1776141600,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 72,
-        "type": "BEARISH_FVG",
-        "gap_top": 159.013,
-        "gap_bottom": 159.00301,
-        "gap_size_pct": 0.0063,
-        "ts": 1776142800,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 78,
-        "type": "BULLISH_FVG",
-        "gap_top": 159.118,
-        "gap_bottom": 159.11,
-        "gap_size_pct": 0.005,
-        "ts": 1776144600,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 86,
-        "type": "BULLISH_FVG",
-        "gap_top": 159.201,
-        "gap_bottom": 159.157,
-        "gap_size_pct": 0.0276,
-        "ts": 1776147000,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 87,
-        "type": "BULLISH_FVG",
-        "gap_top": 159.23599,
-        "gap_bottom": 159.215,
-        "gap_size_pct": 0.0132,
-        "ts": 1776147300,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 96,
-        "type": "BEARISH_FVG",
-        "gap_top": 159.145,
-        "gap_bottom": 159.02901,
-        "gap_size_pct": 0.0729,
-        "ts": 1776150000,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 102,
-        "type": "BEARISH_FVG",
-        "gap_top": 159.04201,
-        "gap_bottom": 159.017,
-        "gap_size_pct": 0.0157,
-        "ts": 1776151800,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 2,
-        "type": "BEARISH_FVG",
-        "gap_top": 0.71018,
-        "gap_bottom": 0.71012,
-        "gap_size_pct": 0.0084,
-        "ts": 1776121800,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 5,
-        "type": "BEARISH_FVG",
-        "gap_top": 0.71018,
-        "gap_bottom": 0.71013,
-        "gap_size_pct": 0.007,
-        "ts": 1776122700,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 9,
-        "type": "BEARISH_FVG",
-        "gap_top": 0.70993,
-        "gap_bottom": 0.70986,
-        "gap_size_pct": 0.0099,
-        "ts": 1776123900,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 13,
-        "type": "BEARISH_FVG",
-        "gap_top": 0.70944,
-        "gap_bottom": 0.70938,
-        "gap_size_pct": 0.0085,
-        "ts": 1776125100,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 17,
-        "type": "BEARISH_FVG",
-        "gap_top": 0.70948,
-        "gap_bottom": 0.70934,
-        "gap_size_pct": 0.0197,
-        "ts": 1776126300,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 18,
-        "type": "BEARISH_FVG",
-        "gap_top": 0.70931,
-        "gap_bottom": 0.70904,
-        "gap_size_pct": 0.0381,
-        "ts": 1776126600,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 20,
-        "type": "BEARISH_FVG",
-        "gap_top": 0.70903,
-        "gap_bottom": 0.70883,
-        "gap_size_pct": 0.0282,
-        "ts": 1776127200,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 24,
-        "type": "BULLISH_FVG",
-        "gap_top": 0.70903,
-        "gap_bottom": 0.70887,
-        "gap_size_pct": 0.0226,
-        "ts": 1776128400,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 26,
-        "type": "BEARISH_FVG",
-        "gap_top": 0.70903,
-        "gap_bottom": 0.70894,
-        "gap_size_pct": 0.0127,
-        "ts": 1776129000,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 28,
-        "type": "BEARISH_FVG",
-        "gap_top": 0.70892,
-        "gap_bottom": 0.70882,
-        "gap_size_pct": 0.0141,
-        "ts": 1776129600,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
         "idx": 30,
         "type": "BEARISH_FVG",
-        "gap_top": 0.70878,
-        "gap_bottom": 0.70845,
-        "gap_size_pct": 0.0466,
-        "ts": 1776130200,
+        "gap_top": 1.18078,
+        "gap_bottom": 1.1805,
+        "gap_size_pct": 0.0237,
+        "ts": 1776303000,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 10,
-        "type": "BEARISH_FVG",
-        "gap_top": 0.58744,
-        "gap_bottom": 0.5873,
-        "gap_size_pct": 0.0238,
-        "ts": 1776124200,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 16,
-        "type": "BEARISH_FVG",
-        "gap_top": 0.5871,
-        "gap_bottom": 0.58706,
-        "gap_size_pct": 0.0068,
-        "ts": 1776126000,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 22,
-        "type": "BULLISH_FVG",
-        "gap_top": 0.58668,
-        "gap_bottom": 0.58658,
-        "gap_size_pct": 0.017,
-        "ts": 1776127800,
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
         "idx": 31,
         "type": "BEARISH_FVG",
-        "gap_top": 0.58641,
-        "gap_bottom": 0.58637,
-        "gap_size_pct": 0.0068,
-        "ts": 1776130500,
+        "gap_top": 1.18064,
+        "gap_bottom": 1.1805,
+        "gap_size_pct": 0.0119,
+        "ts": 1776303300,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 42,
+        "type": "BULLISH_FVG",
+        "gap_top": 1.18092,
+        "gap_bottom": 1.18078,
+        "gap_size_pct": 0.0119,
+        "ts": 1776306600,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 43,
+        "type": "BULLISH_FVG",
+        "gap_top": 1.1812,
+        "gap_bottom": 1.18106,
+        "gap_size_pct": 0.0119,
+        "ts": 1776306900,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 44,
+        "type": "BULLISH_FVG",
+        "gap_top": 1.18161,
+        "gap_bottom": 1.1812,
+        "gap_size_pct": 0.0347,
+        "ts": 1776307200,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 48,
+        "type": "BULLISH_FVG",
+        "gap_top": 1.18245,
+        "gap_bottom": 1.18203,
+        "gap_size_pct": 0.0355,
+        "ts": 1776308400,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 50,
+        "type": "BEARISH_FVG",
+        "gap_top": 1.18245,
+        "gap_bottom": 1.18231,
+        "gap_size_pct": 0.0118,
+        "ts": 1776309000,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 51,
+        "type": "BEARISH_FVG",
+        "gap_top": 1.18217,
+        "gap_bottom": 1.18203,
+        "gap_size_pct": 0.0118,
+        "ts": 1776309300,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 53,
+        "type": "BEARISH_FVG",
+        "gap_top": 1.18203,
+        "gap_bottom": 1.18189,
+        "gap_size_pct": 0.0118,
+        "ts": 1776309900,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 54,
+        "type": "BEARISH_FVG",
+        "gap_top": 1.18189,
+        "gap_bottom": 1.18175,
+        "gap_size_pct": 0.0118,
+        "ts": 1776310200,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 55,
+        "type": "BEARISH_FVG",
+        "gap_top": 1.18189,
+        "gap_bottom": 1.18175,
+        "gap_size_pct": 0.0118,
+        "ts": 1776310500,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 59,
+        "type": "BEARISH_FVG",
+        "gap_top": 1.18175,
+        "gap_bottom": 1.18161,
+        "gap_size_pct": 0.0118,
+        "ts": 1776311700,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 60,
+        "type": "BEARISH_FVG",
+        "gap_top": 1.18161,
+        "gap_bottom": 1.18147,
+        "gap_size_pct": 0.0118,
+        "ts": 1776312000,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 68,
+        "type": "BEARISH_FVG",
+        "gap_top": 1.18147,
+        "gap_bottom": 1.18133,
+        "gap_size_pct": 0.0118,
+        "ts": 1776314400,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 69,
+        "type": "BEARISH_FVG",
+        "gap_top": 1.18133,
+        "gap_bottom": 1.1812,
+        "gap_size_pct": 0.011,
+        "ts": 1776314700,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 6,
+        "type": "BULLISH_FVG",
+        "gap_top": 1.35706,
+        "gap_bottom": 1.35699,
+        "gap_size_pct": 0.0052,
+        "ts": 1776295800,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 17,
+        "type": "BULLISH_FVG",
+        "gap_top": 1.35717,
+        "gap_bottom": 1.35716,
+        "gap_size_pct": 0.0007,
+        "ts": 1776299100,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 19,
+        "type": "BEARISH_FVG",
+        "gap_top": 1.35717,
+        "gap_bottom": 1.35707,
+        "gap_size_pct": 0.0074,
+        "ts": 1776299700,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 22,
+        "type": "BULLISH_FVG",
+        "gap_top": 1.35715,
+        "gap_bottom": 1.35714,
+        "gap_size_pct": 0.0007,
+        "ts": 1776300600,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 29,
+        "type": "BEARISH_FVG",
+        "gap_top": 1.35708,
+        "gap_bottom": 1.35707,
+        "gap_size_pct": 0.0007,
+        "ts": 1776302700,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
         "idx": 32,
-        "type": "BEARISH_FVG",
-        "gap_top": 0.5863,
-        "gap_bottom": 0.5862,
-        "gap_size_pct": 0.0171,
-        "ts": 1776130800,
+        "type": "BULLISH_FVG",
+        "gap_top": 1.3567,
+        "gap_bottom": 1.35668,
+        "gap_size_pct": 0.0015,
+        "ts": 1776303600,
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 33,
+        "type": "BULLISH_FVG",
+        "gap_top": 1.35688,
+        "gap_bottom": 1.35681,
+        "gap_size_pct": 0.0052,
+        "ts": 1776303900,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 39,
+        "type": "BULLISH_FVG",
+        "gap_top": 1.35704,
+        "gap_bottom": 1.357,
+        "gap_size_pct": 0.0029,
+        "ts": 1776305700,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 47,
+        "type": "BULLISH_FVG",
+        "gap_top": 1.35861,
+        "gap_bottom": 1.35845,
+        "gap_size_pct": 0.0118,
+        "ts": 1776308100,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 5,
+        "type": "BULLISH_FVG",
+        "gap_top": 158.83299,
+        "gap_bottom": 158.83,
+        "gap_size_pct": 0.0019,
+        "ts": 1776295500,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 40,
+        "type": "BULLISH_FVG",
+        "gap_top": 158.78799,
+        "gap_bottom": 158.778,
+        "gap_size_pct": 0.0063,
+        "ts": 1776306000,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 76,
+        "type": "BULLISH_FVG",
+        "gap_top": 158.729,
+        "gap_bottom": 158.72501,
+        "gap_size_pct": 0.0025,
+        "ts": 1776316800,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 77,
+        "type": "BULLISH_FVG",
+        "gap_top": 158.755,
+        "gap_bottom": 158.737,
+        "gap_size_pct": 0.0113,
+        "ts": 1776317100,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 80,
+        "type": "BULLISH_FVG",
+        "gap_top": 158.82001,
+        "gap_bottom": 158.799,
+        "gap_size_pct": 0.0132,
+        "ts": 1776318000,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 92,
+        "type": "BEARISH_FVG",
+        "gap_top": 158.88901,
+        "gap_bottom": 158.838,
+        "gap_size_pct": 0.0321,
+        "ts": 1776321600,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 93,
+        "type": "BEARISH_FVG",
+        "gap_top": 158.812,
+        "gap_bottom": 158.808,
+        "gap_size_pct": 0.0025,
+        "ts": 1776321900,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 108,
+        "type": "BULLISH_FVG",
+        "gap_top": 158.892,
+        "gap_bottom": 158.88699,
+        "gap_size_pct": 0.0032,
+        "ts": 1776326400,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 112,
+        "type": "BULLISH_FVG",
+        "gap_top": 159.006,
+        "gap_bottom": 158.976,
+        "gap_size_pct": 0.0189,
+        "ts": 1776327600,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 116,
+        "type": "BEARISH_FVG",
+        "gap_top": 159.01401,
+        "gap_bottom": 158.98801,
+        "gap_size_pct": 0.0164,
+        "ts": 1776328800,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 126,
+        "type": "BEARISH_FVG",
+        "gap_top": 159.00301,
+        "gap_bottom": 158.998,
+        "gap_size_pct": 0.0032,
+        "ts": 1776331800,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 129,
+        "type": "BULLISH_FVG",
+        "gap_top": 159.033,
+        "gap_bottom": 159.017,
+        "gap_size_pct": 0.0101,
+        "ts": 1776332700,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 2,
+        "type": "BEARISH_FVG",
+        "gap_top": 0.71734,
+        "gap_bottom": 0.71726,
+        "gap_size_pct": 0.0112,
+        "ts": 1776294600,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 4,
+        "type": "BEARISH_FVG",
+        "gap_top": 0.7172,
+        "gap_bottom": 0.71713,
+        "gap_size_pct": 0.0098,
+        "ts": 1776295200,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 9,
+        "type": "BULLISH_FVG",
+        "gap_top": 0.71747,
+        "gap_bottom": 0.71743,
+        "gap_size_pct": 0.0056,
+        "ts": 1776296700,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 10,
+        "type": "BULLISH_FVG",
+        "gap_top": 0.71758,
+        "gap_bottom": 0.71752,
+        "gap_size_pct": 0.0084,
+        "ts": 1776297000,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 14,
+        "type": "BULLISH_FVG",
+        "gap_top": 0.71745,
+        "gap_bottom": 0.71709,
+        "gap_size_pct": 0.0502,
+        "ts": 1776298200,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 16,
+        "type": "BEARISH_FVG",
+        "gap_top": 0.71745,
+        "gap_bottom": 0.71741,
+        "gap_size_pct": 0.0056,
+        "ts": 1776298800,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 18,
+        "type": "BEARISH_FVG",
+        "gap_top": 0.7174,
+        "gap_bottom": 0.71718,
+        "gap_size_pct": 0.0307,
+        "ts": 1776299400,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 24,
+        "type": "BEARISH_FVG",
+        "gap_top": 0.7176,
+        "gap_bottom": 0.71757,
+        "gap_size_pct": 0.0042,
+        "ts": 1776301200,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 25,
+        "type": "BEARISH_FVG",
+        "gap_top": 0.71757,
+        "gap_bottom": 0.71754,
+        "gap_size_pct": 0.0042,
+        "ts": 1776301500,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 26,
+        "type": "BEARISH_FVG",
+        "gap_top": 0.71754,
+        "gap_bottom": 0.7173,
+        "gap_size_pct": 0.0334,
+        "ts": 1776301800,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 27,
+        "type": "BEARISH_FVG",
+        "gap_top": 0.71748,
+        "gap_bottom": 0.71729,
+        "gap_size_pct": 0.0265,
+        "ts": 1776302100,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 34,
+        "type": "BULLISH_FVG",
+        "gap_top": 0.59112,
+        "gap_bottom": 0.59109,
+        "gap_size_pct": 0.0051,
+        "ts": 1776304200,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 41,
+        "type": "BULLISH_FVG",
+        "gap_top": 0.59126,
+        "gap_bottom": 0.59123,
+        "gap_size_pct": 0.0051,
+        "ts": 1776306300,
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       }
     ],
-    "last_updated": "2026-05-25T11:00:24.270069+00:00"
+    "last_updated": "2026-05-27T11:00:17.969163+00:00"
   },
   "order_blocks": {
-    "total_collected": 4023,
+    "total_collected": 7856,
     "examples": [
       {
-        "idx": 4703,
-        "type": "BEARISH_OB",
-        "ob_high": 0.59598,
-        "ob_low": 0.59595,
-        "ts": 1778096700,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 4725,
-        "type": "BULLISH_OB",
-        "ob_high": 0.59527,
-        "ob_low": 0.59524,
-        "ts": 1778103300,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 4773,
-        "type": "BULLISH_OB",
-        "ob_high": 0.59591,
-        "ob_low": 0.59588,
-        "ts": 1778117700,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 4819,
-        "type": "BULLISH_OB",
-        "ob_high": 0.59634,
-        "ob_low": 0.5963,
-        "ts": 1778131500,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 4855,
-        "type": "BULLISH_OB",
-        "ob_high": 0.59766,
-        "ob_low": 0.59755,
-        "ts": 1778142300,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 4876,
-        "type": "BULLISH_OB",
-        "ob_high": 0.59809,
-        "ob_low": 0.59798,
-        "ts": 1778148600,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 4919,
-        "type": "BEARISH_OB",
-        "ob_high": 0.59784,
-        "ob_low": 0.5978,
-        "ts": 1778161500,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 4921,
-        "type": "BEARISH_OB",
-        "ob_high": 0.59787,
-        "ob_low": 0.5978,
-        "ts": 1778162100,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 4933,
-        "type": "BEARISH_OB",
-        "ob_high": 0.59805,
-        "ob_low": 0.59798,
-        "ts": 1778165700,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 5017,
-        "type": "BEARISH_OB",
-        "ob_high": 0.59428,
-        "ob_low": 0.59418,
-        "ts": 1778190900,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 5025,
-        "type": "BEARISH_OB",
-        "ob_high": 0.59407,
-        "ob_low": 0.59404,
-        "ts": 1778193300,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 5052,
-        "type": "BULLISH_OB",
-        "ob_high": 0.59397,
-        "ob_low": 0.59379,
-        "ts": 1778201400,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 5099,
-        "type": "BULLISH_OB",
-        "ob_high": 0.59432,
-        "ob_low": 0.59428,
-        "ts": 1778215500,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 5127,
-        "type": "BEARISH_OB",
-        "ob_high": 0.59545,
-        "ob_low": 0.59542,
-        "ts": 1778223900,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 5170,
-        "type": "BEARISH_OB",
-        "ob_high": 0.59701,
-        "ob_low": 0.59694,
-        "ts": 1778236800,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 5220,
-        "type": "BEARISH_OB",
-        "ob_high": 0.5962,
-        "ob_low": 0.59602,
-        "ts": 1778251800,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 5230,
-        "type": "BEARISH_OB",
-        "ob_high": 0.59623,
-        "ob_low": 0.59613,
-        "ts": 1778254800,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 5268,
-        "type": "BEARISH_OB",
-        "ob_high": 0.59641,
-        "ob_low": 0.59637,
-        "ts": 1778266200,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 5331,
-        "type": "BEARISH_OB",
-        "ob_high": 0.59566,
-        "ob_low": 0.59556,
-        "ts": 1778462700,
-        "quality": "medium",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 5333,
-        "type": "BEARISH_OB",
-        "ob_high": 0.59563,
-        "ob_low": 0.59552,
-        "ts": 1778463300,
-        "quality": "high",
-        "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
-      },
-      {
-        "idx": 5376,
+        "idx": 4800,
         "type": "BULLISH_OB",
         "ob_high": 0.59439,
         "ob_low": 0.59432,
         "ts": 1778476200,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5381,
+        "idx": 4805,
         "type": "BEARISH_OB",
         "ob_high": 0.59449,
         "ob_low": 0.59446,
         "ts": 1778477700,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5455,
+        "idx": 4879,
         "type": "BEARISH_OB",
         "ob_high": 0.59534,
         "ob_low": 0.59531,
         "ts": 1778499900,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5475,
+        "idx": 4899,
         "type": "BULLISH_OB",
         "ob_high": 0.59581,
         "ob_low": 0.59577,
         "ts": 1778505900,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5484,
+        "idx": 4908,
         "type": "BULLISH_OB",
         "ob_high": 0.59595,
         "ob_low": 0.59581,
         "ts": 1778508600,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5544,
+        "idx": 4968,
         "type": "BEARISH_OB",
         "ob_high": 0.59645,
         "ob_low": 0.59641,
         "ts": 1778526600,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5567,
+        "idx": 4991,
         "type": "BULLISH_OB",
         "ob_high": 0.59602,
         "ob_low": 0.59588,
         "ts": 1778533500,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5578,
+        "idx": 5002,
         "type": "BULLISH_OB",
         "ob_high": 0.59662,
         "ob_low": 0.59652,
         "ts": 1778536800,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5605,
+        "idx": 5029,
         "type": "BEARISH_OB",
         "ob_high": 0.59655,
         "ob_low": 0.59652,
         "ts": 1778544900,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5675,
+        "idx": 5099,
         "type": "BEARISH_OB",
         "ob_high": 0.59573,
         "ob_low": 0.59566,
         "ts": 1778565900,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5681,
+        "idx": 5105,
         "type": "BEARISH_OB",
         "ob_high": 0.59499,
         "ob_low": 0.59492,
         "ts": 1778567700,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5689,
+        "idx": 5113,
         "type": "BULLISH_OB",
         "ob_high": 0.59449,
         "ob_low": 0.59446,
         "ts": 1778570100,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5691,
+        "idx": 5115,
         "type": "BULLISH_OB",
         "ob_high": 0.59464,
         "ob_low": 0.59449,
         "ts": 1778570700,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5695,
+        "idx": 5119,
         "type": "BEARISH_OB",
         "ob_high": 0.59499,
         "ob_low": 0.59495,
         "ts": 1778571900,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5703,
+        "idx": 5127,
         "type": "BEARISH_OB",
         "ob_high": 0.59499,
         "ob_low": 0.59481,
         "ts": 1778574300,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5708,
+        "idx": 5132,
         "type": "BEARISH_OB",
         "ob_high": 0.59485,
         "ob_low": 0.59471,
         "ts": 1778575800,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5767,
+        "idx": 5191,
         "type": "BEARISH_OB",
         "ob_high": 0.59552,
         "ob_low": 0.59531,
         "ts": 1778593500,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5775,
+        "idx": 5199,
         "type": "BEARISH_OB",
         "ob_high": 0.59485,
         "ob_low": 0.59478,
         "ts": 1778595900,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5805,
+        "idx": 5229,
         "type": "BULLISH_OB",
         "ob_high": 0.59386,
         "ob_low": 0.59382,
         "ts": 1778604900,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5809,
+        "idx": 5233,
         "type": "BULLISH_OB",
         "ob_high": 0.59432,
         "ob_low": 0.59428,
         "ts": 1778606100,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5821,
+        "idx": 5245,
         "type": "BULLISH_OB",
         "ob_high": 0.59457,
         "ob_low": 0.59453,
         "ts": 1778609700,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5932,
+        "idx": 5356,
         "type": "BULLISH_OB",
         "ob_high": 0.59449,
         "ob_low": 0.59432,
         "ts": 1778643000,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5942,
+        "idx": 5366,
         "type": "BEARISH_OB",
         "ob_high": 0.59439,
         "ob_low": 0.59432,
         "ts": 1778646000,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 5992,
+        "idx": 5416,
         "type": "BEARISH_OB",
         "ob_high": 0.59358,
         "ob_low": 0.59347,
         "ts": 1778661000,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 6028,
+        "idx": 5452,
         "type": "BULLISH_OB",
         "ob_high": 0.59312,
         "ob_low": 0.59298,
         "ts": 1778671800,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 6070,
+        "idx": 5494,
         "type": "BULLISH_OB",
         "ob_high": 0.59326,
         "ob_low": 0.59316,
         "ts": 1778684400,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 6086,
+        "idx": 5510,
         "type": "BULLISH_OB",
         "ob_high": 0.594,
         "ob_low": 0.59389,
         "ts": 1778689200,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 8209,
+        "idx": 5591,
+        "type": "BEARISH_OB",
+        "ob_high": 0.59386,
+        "ob_low": 0.59379,
+        "ts": 1778713500,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 5598,
+        "type": "BEARISH_OB",
+        "ob_high": 0.59351,
+        "ob_low": 0.59347,
+        "ts": 1778715600,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 5617,
+        "type": "BULLISH_OB",
+        "ob_high": 0.59312,
+        "ob_low": 0.59298,
+        "ts": 1778721300,
+        "quality": "medium",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 5619,
+        "type": "BULLISH_OB",
+        "ob_high": 0.59312,
+        "ob_low": 0.59308,
+        "ts": 1778721900,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 5674,
+        "type": "BULLISH_OB",
+        "ob_high": 0.59375,
+        "ob_low": 0.59354,
+        "ts": 1778738400,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 5687,
+        "type": "BEARISH_OB",
+        "ob_high": 0.59407,
+        "ob_low": 0.59404,
+        "ts": 1778742300,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 5695,
+        "type": "BEARISH_OB",
+        "ob_high": 0.59404,
+        "ob_low": 0.594,
+        "ts": 1778744700,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 5716,
+        "type": "BEARISH_OB",
+        "ob_high": 0.594,
+        "ob_low": 0.59397,
+        "ts": 1778751000,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 5735,
+        "type": "BULLISH_OB",
+        "ob_high": 0.5933,
+        "ob_low": 0.59319,
+        "ts": 1778756700,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 5771,
+        "type": "BULLISH_OB",
+        "ob_high": 0.59235,
+        "ob_low": 0.59231,
+        "ts": 1778767500,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 5911,
+        "type": "BEARISH_OB",
+        "ob_high": 0.58903,
+        "ob_low": 0.589,
+        "ts": 1778809500,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 5991,
+        "type": "BEARISH_OB",
+        "ob_high": 0.58562,
+        "ob_low": 0.58551,
+        "ts": 1778833500,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 7633,
         "type": "BULLISH_OB",
         "ob_high": 0.58716,
         "ob_low": 0.58713,
         "ts": 1779682500,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 8253,
+        "idx": 7677,
         "type": "BULLISH_OB",
         "ob_high": 0.58703,
         "ob_low": 0.58699,
         "ts": 1779695700,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       },
       {
-        "idx": 8265,
+        "idx": 7689,
         "type": "BULLISH_OB",
         "ob_high": 0.5873,
         "ob_low": 0.58723,
         "ts": 1779699300,
         "quality": "high",
         "pair": "all_pairs",
-        "collected_at": "2026-05-25T11:00:24.270069+00:00"
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 8011,
+        "type": "BEARISH_OB",
+        "ob_high": 0.58449,
+        "ob_low": 0.58445,
+        "ts": 1779795900,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 8043,
+        "type": "BEARISH_OB",
+        "ob_high": 0.58469,
+        "ob_low": 0.58452,
+        "ts": 1779805500,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 8082,
+        "type": "BEARISH_OB",
+        "ob_high": 0.58363,
+        "ob_low": 0.5836,
+        "ts": 1779817200,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 8086,
+        "type": "BULLISH_OB",
+        "ob_high": 0.58343,
+        "ob_low": 0.5834,
+        "ts": 1779818400,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 8119,
+        "type": "BULLISH_OB",
+        "ob_high": 0.58381,
+        "ob_low": 0.58377,
+        "ts": 1779828300,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 8162,
+        "type": "BULLISH_OB",
+        "ob_high": 0.58466,
+        "ob_low": 0.58459,
+        "ts": 1779841200,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 8214,
+        "type": "BULLISH_OB",
+        "ob_high": 0.58754,
+        "ob_low": 0.58751,
+        "ts": 1779856800,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
+      },
+      {
+        "idx": 8243,
+        "type": "BEARISH_OB",
+        "ob_high": 0.58796,
+        "ob_low": 0.58772,
+        "ts": 1779865500,
+        "quality": "high",
+        "pair": "all_pairs",
+        "collected_at": "2026-05-27T11:00:17.969163+00:00"
       }
     ],
-    "last_updated": "2026-05-25T11:00:24.270069+00:00"
+    "last_updated": "2026-05-27T11:00:17.969163+00:00"
   },
   "liquidity_levels": {
     "total_collected": 1,
@@ -3606,6 +3616,6 @@
         "collected_at": "2026-05-23T20:07:47.414289+00:00"
       }
     ],
-    "last_updated": "2026-05-25T11:00:24.270069+00:00"
+    "last_updated": "2026-05-27T11:00:17.969163+00:00"
   }
 }

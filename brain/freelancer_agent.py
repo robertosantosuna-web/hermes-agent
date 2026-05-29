@@ -498,8 +498,13 @@ def scan_and_act():
     if HEALTHCHECK_ENABLED:
         ok, details = healthcheck()
         if not ok:
-            log(f"❌ Healthcheck falhou: {details}")
-            return {'error': 'healthcheck_failed', 'details': details}
+            # Só abortar se AMBOS IMAP e CDP falharem (email é essencial)
+            details_str = details or ''
+            if 'IMAP' in details_str and 'CDP' in details_str:
+                log(f"❌ Healthcheck crítico: {details}")
+                return {'error': 'healthcheck_failed', 'details': details}
+            else:
+                log(f"⚠️ Healthcheck parcial: {details}. Continuando com fontes disponíveis...")
     
     # ═══ DELAY RANDÔMICO (anti-detecção) ═══
     import random

@@ -262,6 +262,40 @@ Ver `references/digest-parser-implementation.md` para detalhes do parser.
 
 ---
 
+## Bug 14: Healthcheck Bloqueia Pipeline Quando Só CDP Cai
+
+**Sintoma:** Agente executa, faz healthcheck, detecta CDP Brave offline, e ABORTA — nunca chega a escanear emails. Output: "❌ Healthcheck falhou: CDP Brave offline" seguido de `return {'error': 'healthcheck_failed'}`.
+
+**Causa:** `scan_and_act()` tratava QUALQUER falha de healthcheck como hard gate:
+```python
+if HEALTHCHECK_ENABLED:
+    ok, details = healthcheck()
+    if not ok:
+        log(f"❌ Healthcheck falhou: {details}")
+        return {'error': 'healthcheck_failed', 'details': details}  # ← ABORTA TUDO
+```
+
+**Impacto:** CDP Brave cai com frequência (processo morre, usuário fecha browser), mas IMAP continua 100% funcional. Com a lógica antiga, o agente ficava cego mesmo com email funcionando perfeitamente — perdendo novos projetos, mensagens de clientes e digests.
+
+**Correção (29/05/2026):** Só abortar se AMBAS as fontes estiverem offline. Se uma fonte caiu, avisar e continuar com a outra:
+```python
+if HEALTHCHECK_ENABLED:
+    ok, details = healthcheck()
+    if not ok:
+        details_str = details or ''
+        if 'IMAP' in details_str and 'CDP' in details_str:
+            log(f"❌ Healthcheck crítico: {details}")
+            return {'error': 'healthcheck_failed', 'details': details}
+        else:
+            log(f"⚠️ Healthcheck parcial: {details}. Continuando com fontes disponíveis...")
+```
+
+**Princípio:** Healthcheck deve ser um *degradador* (reduz funcionalidade), não um *bloqueador* (derruba tudo). Email + CDP são fontes independentes — a falha de uma não deve impedir a outra de operar.
+
+**Verificação:** Após o fix, com CDP offline, o agente deve mostrar "⚠️ Healthcheck parcial: CDP Brave offline. Continuando..." e então processar emails normalmente.
+
+---
+
 ## Checklist de Validação Pós-Deploy
 
 Após qualquer alteração no agente, verificar:

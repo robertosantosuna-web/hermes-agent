@@ -1,12 +1,15 @@
 {
-  "last_scan": "2026-05-25T22:00:23.825158+00:00",
+  "last_scan": "2026-05-28T14:45:46.208608+00:00",
   "pairs_scanned": [
+    "GBPJPY",
     "USDJPY",
     "EURUSD",
-    "GBPUSD"
+    "GBPUSD",
+    "EURJPY",
+    "USDCAD"
   ],
   "signals_found": 0,
-  "total_pending": 0,
+  "total_pending": 6,
   "total_validated": 0,
   "total_executed": 0
 }

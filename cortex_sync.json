@@ -55,9 +55,30 @@
       "content": "P0 código concluído: 5 correções aplicadas; deploy bloqueado por DNS/rede no sandbox (oauth2.googleapis.com não resolve)",
       "sent_at": "2026-05-26T00:45:48.727711+00:00",
       "status": "unread"
+    },
+    {
+      "id": "ctx-0007",
+      "direction": "LEFT→RIGHT",
+      "type": "delegation",
+      "content": "Run the CRT CHoCH+FVG backtest for GBPJPY pair: python3 ~/.hermes/scripts/backtest_crt_choch.py but modify it to include GBPJPY. Save results to ~/.hermes/forex/backtest_gbpjpy_codex.json",
+      "context": null,
+      "sent_at": "2026-05-26T01:57:05.153454+00:00",
+      "status": "pending",
+      "result": null
     }
   ],
-  "pending_tasks": [],
+  "pending_tasks": [
+    {
+      "id": "ctx-0007",
+      "direction": "LEFT→RIGHT",
+      "type": "delegation",
+      "content": "Run the CRT CHoCH+FVG backtest for GBPJPY pair: python3 ~/.hermes/scripts/backtest_crt_choch.py but modify it to include GBPJPY. Save results to ~/.hermes/forex/backtest_gbpjpy_codex.json",
+      "context": null,
+      "sent_at": "2026-05-26T01:57:05.153454+00:00",
+      "status": "pending",
+      "result": null
+    }
+  ],
   "shared_state": {
     "governance_updated": {
       "value": "2026-05-26",
@@ -91,6 +112,7 @@
   "stats": {
     "left_queries": 2,
     "right_answers": 3,
-    "delegations": 0
-  }
+    "delegations": 1
+  },
+  "heartbeat_last_run": "2026-05-28T11:53:26.368900-03:00"
 }

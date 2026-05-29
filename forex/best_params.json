@@ -3,44 +3,44 @@
     "pair": "AUDUSD",
     "rr": 2.0,
     "atr_factor": 0.08,
-    "trades": 2123,
-    "wins": 748,
-    "losses": 1302,
-    "win_rate": 35.2,
-    "pnl": 536.9,
-    "score": 189.2
+    "trades": 2023,
+    "wins": 711,
+    "losses": 1235,
+    "win_rate": 35.1,
+    "pnl": 555.8,
+    "score": 195.3
   },
   "RR_2.5": {
     "pair": "AUDUSD",
     "rr": 2.5,
     "atr_factor": 0.08,
-    "trades": 2123,
-    "wins": 613,
-    "losses": 1389,
-    "win_rate": 28.9,
-    "pnl": 524.8,
-    "score": 151.5
+    "trades": 2023,
+    "wins": 590,
+    "losses": 1313,
+    "win_rate": 29.2,
+    "pnl": 610.3,
+    "score": 178.0
   },
   "RR_3.0": {
     "pair": "AUDUSD",
     "rr": 3.0,
     "atr_factor": 0.08,
-    "trades": 2123,
-    "wins": 519,
-    "losses": 1442,
-    "win_rate": 24.4,
-    "pnl": 569.7,
-    "score": 139.3
+    "trades": 2023,
+    "wins": 496,
+    "losses": 1367,
+    "win_rate": 24.5,
+    "pnl": 611.5,
+    "score": 149.9
   },
   "RR_3.5": {
     "pair": "AUDUSD",
     "rr": 3.5,
     "atr_factor": 0.08,
-    "trades": 2123,
-    "wins": 439,
-    "losses": 1483,
-    "win_rate": 20.7,
-    "pnl": 595.1,
-    "score": 123.1
+    "trades": 2023,
+    "wins": 412,
+    "losses": 1408,
+    "win_rate": 20.4,
+    "pnl": 588.6,
+    "score": 119.9
   }
 }

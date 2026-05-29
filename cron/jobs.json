@@ -20,15 +20,15 @@
       "schedule_display": "*/5 * * * *",
       "repeat": {
         "times": null,
-        "completed": 309
+        "completed": 373
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T13:10:15.397065-03:00",
-      "next_run_at": "2026-05-29T15:25:00-03:00",
-      "last_run_at": "2026-05-29T15:20:43.778517-03:00",
+      "next_run_at": "2026-05-29T20:45:00-03:00",
+      "last_run_at": "2026-05-29T20:40:57.621959-03:00",
       "last_status": "error",
       "last_error": "Script not found: /home/roberto/.hermes/scripts/brain/amygdala.py",
       "last_delivery_error": null,
@@ -58,15 +58,15 @@
       "schedule_display": "*/30 * * * *",
       "repeat": {
         "times": null,
-        "completed": 52
+        "completed": 63
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T13:10:29.330572-03:00",
-      "next_run_at": "2026-05-29T15:30:00-03:00",
-      "last_run_at": "2026-05-29T15:00:14.742043-03:00",
+      "next_run_at": "2026-05-29T21:00:00-03:00",
+      "last_run_at": "2026-05-29T20:30:06.781208-03:00",
       "last_status": "error",
       "last_error": "Script not found: /home/roberto/.hermes/scripts/brain/lobo_frontal.py",
       "last_delivery_error": null,
@@ -96,15 +96,15 @@
       "schedule_display": "*/30 * * * *",
       "repeat": {
         "times": null,
-        "completed": 52
+        "completed": 63
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T13:10:30.337850-03:00",
-      "next_run_at": "2026-05-29T15:30:00-03:00",
-      "last_run_at": "2026-05-29T15:00:14.758002-03:00",
+      "next_run_at": "2026-05-29T21:00:00-03:00",
+      "last_run_at": "2026-05-29T20:30:06.718228-03:00",
       "last_status": "error",
       "last_error": "Script not found: /home/roberto/.hermes/scripts/brain/area_broca.py",
       "last_delivery_error": null,
@@ -134,15 +134,15 @@
       "schedule_display": "*/2 * * * *",
       "repeat": {
         "times": null,
-        "completed": 756
+        "completed": 906
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T13:10:31.347015-03:00",
-      "next_run_at": "2026-05-29T15:22:00-03:00",
-      "last_run_at": "2026-05-29T15:20:43.791838-03:00",
+      "next_run_at": "2026-05-29T20:42:00-03:00",
+      "last_run_at": "2026-05-29T20:40:57.614572-03:00",
       "last_status": "error",
       "last_error": "Script not found: /home/roberto/.hermes/scripts/brain/thalamus.py",
       "last_delivery_error": null,
@@ -172,15 +172,15 @@
       "schedule_display": "*/10 * * * *",
       "repeat": {
         "times": null,
-        "completed": 156
+        "completed": 188
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T13:10:32.355745-03:00",
-      "next_run_at": "2026-05-29T15:30:00-03:00",
-      "last_run_at": "2026-05-29T15:20:43.795214-03:00",
+      "next_run_at": "2026-05-29T20:50:00-03:00",
+      "last_run_at": "2026-05-29T20:40:57.628546-03:00",
       "last_status": "error",
       "last_error": "Script not found: /home/roberto/.hermes/scripts/brain/gateway_guard.py",
       "last_delivery_error": null,
@@ -210,15 +210,15 @@
       "schedule_display": "*/15 * * * *",
       "repeat": {
         "times": null,
-        "completed": 105
+        "completed": 126
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T13:10:33.365050-03:00",
-      "next_run_at": "2026-05-29T15:30:00-03:00",
-      "last_run_at": "2026-05-29T15:15:41.801752-03:00",
+      "next_run_at": "2026-05-29T20:45:00-03:00",
+      "last_run_at": "2026-05-29T20:30:06.768286-03:00",
       "last_status": "error",
       "last_error": "Script not found: /home/roberto/.hermes/scripts/brain/meta_observer.py",
       "last_delivery_error": null,
@@ -248,15 +248,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 6
+        "completed": 8
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T13:10:34.375068-03:00",
-      "next_run_at": "2026-05-29T16:00:00-03:00",
-      "last_run_at": "2026-05-29T12:00:39.056999-03:00",
+      "next_run_at": "2026-05-30T00:00:00-03:00",
+      "last_run_at": "2026-05-29T20:00:49.812915-03:00",
       "last_status": "error",
       "last_error": "Script not found: /home/roberto/.hermes/scripts/brain/n_accumbens.py",
       "last_delivery_error": null,
@@ -286,15 +286,15 @@
       "schedule_display": "0 */6 * * *",
       "repeat": {
         "times": null,
-        "completed": 4
+        "completed": 5
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T13:10:35.384996-03:00",
-      "next_run_at": "2026-05-29T18:00:00-03:00",
-      "last_run_at": "2026-05-29T12:00:39.036848-03:00",
+      "next_run_at": "2026-05-30T00:00:00-03:00",
+      "last_run_at": "2026-05-29T18:00:08.349251-03:00",
       "last_status": "error",
       "last_error": "Script not found: /home/roberto/.hermes/scripts/brain/hippocampus.py",
       "last_delivery_error": null,
@@ -324,15 +324,15 @@
       "schedule_display": "*/5 * * * *",
       "repeat": {
         "times": null,
-        "completed": 309
+        "completed": 373
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T13:10:36.394082-03:00",
-      "next_run_at": "2026-05-29T15:25:00-03:00",
-      "last_run_at": "2026-05-29T15:20:43.788505-03:00",
+      "next_run_at": "2026-05-29T20:45:00-03:00",
+      "last_run_at": "2026-05-29T20:40:57.636301-03:00",
       "last_status": "error",
       "last_error": "Script not found: /home/roberto/.hermes/scripts/brain/ollama_keepalive.py",
       "last_delivery_error": null,
@@ -362,15 +362,15 @@
       "schedule_display": "*/5 * * * 1-5",
       "repeat": {
         "times": null,
-        "completed": 309
+        "completed": 373
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T13:10:48.499340-03:00",
-      "next_run_at": "2026-05-29T15:25:00-03:00",
-      "last_run_at": "2026-05-29T15:20:44.069090-03:00",
+      "next_run_at": "2026-05-29T20:45:00-03:00",
+      "last_run_at": "2026-05-29T20:41:02.780966-03:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -400,15 +400,15 @@
       "schedule_display": "*/15 * * * *",
       "repeat": {
         "times": null,
-        "completed": 105
+        "completed": 126
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T13:10:49.508674-03:00",
-      "next_run_at": "2026-05-29T15:30:00-03:00",
-      "last_run_at": "2026-05-29T15:15:41.891210-03:00",
+      "next_run_at": "2026-05-29T20:45:00-03:00",
+      "last_run_at": "2026-05-29T20:30:06.900023-03:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -438,16 +438,16 @@
       "schedule_display": "0 16 * * 5",
       "repeat": {
         "times": null,
-        "completed": 0
+        "completed": 1
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T13:10:50.517595-03:00",
-      "next_run_at": "2026-05-29T16:00:00-03:00",
-      "last_run_at": null,
-      "last_status": null,
+      "next_run_at": "2026-06-05T16:00:00-03:00",
+      "last_run_at": "2026-05-29T16:00:35.922319-03:00",
+      "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
@@ -476,15 +476,15 @@
       "schedule_display": "*/1 * * * *",
       "repeat": {
         "times": null,
-        "completed": 1215
+        "completed": 1489
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T17:31:13.583404-03:00",
-      "next_run_at": "2026-05-29T15:22:00-03:00",
-      "last_run_at": "2026-05-29T15:21:44.092014-03:00",
+      "next_run_at": "2026-05-29T20:41:00-03:00",
+      "last_run_at": "2026-05-29T20:40:57.642691-03:00",
       "last_status": "error",
       "last_error": "Script not found: /home/roberto/.hermes/scripts/brain/motor_local.py",
       "last_delivery_error": null,
@@ -514,15 +514,15 @@
       "schedule_display": "*/15 * * * 1-5",
       "repeat": {
         "times": null,
-        "completed": 72
+        "completed": 93
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T21:21:46.021515-03:00",
-      "next_run_at": "2026-05-29T15:30:00-03:00",
-      "last_run_at": "2026-05-29T15:15:41.812322-03:00",
+      "next_run_at": "2026-05-29T20:45:00-03:00",
+      "last_run_at": "2026-05-29T20:30:06.863361-03:00",
       "last_status": "error",
       "last_error": "Script not found: /home/roberto/.hermes/scripts/brain/cortex_visual.py",
       "last_delivery_error": null,
@@ -552,15 +552,15 @@
       "schedule_display": "*/3 * * * * 1-5",
       "repeat": {
         "times": null,
-        "completed": 308
+        "completed": 411
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T21:22:12.919273-03:00",
-      "next_run_at": "2026-05-29T15:24:01-03:00",
-      "last_run_at": "2026-05-29T15:21:44.883758-03:00",
+      "next_run_at": "2026-05-29T20:42:01-03:00",
+      "last_run_at": "2026-05-29T20:39:57.554401-03:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -590,15 +590,15 @@
       "schedule_display": "*/5 * * * *",
       "repeat": {
         "times": null,
-        "completed": 208
+        "completed": 272
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T21:39:54.956702-03:00",
-      "next_run_at": "2026-05-29T15:25:00-03:00",
-      "last_run_at": "2026-05-29T15:20:43.801167-03:00",
+      "next_run_at": "2026-05-29T20:45:00-03:00",
+      "last_run_at": "2026-05-29T20:40:57.651025-03:00",
       "last_status": "error",
       "last_error": "Script not found: /home/roberto/.hermes/scripts/observability/healthcheck.py",
       "last_delivery_error": null,
@@ -628,17 +628,17 @@
       "schedule_display": "0 20 * * *",
       "repeat": {
         "times": null,
-        "completed": 0
+        "completed": 1
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T21:39:55.983610-03:00",
-      "next_run_at": "2026-05-29T20:00:00-03:00",
-      "last_run_at": null,
-      "last_status": null,
-      "last_error": null,
+      "next_run_at": "2026-05-30T20:00:00-03:00",
+      "last_run_at": "2026-05-29T20:00:49.840135-03:00",
+      "last_status": "error",
+      "last_error": "Script not found: /home/roberto/.hermes/scripts/observability/report_daily.py",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -666,15 +666,15 @@
       "schedule_display": "*/5 * * * *",
       "repeat": {
         "times": null,
-        "completed": 208
+        "completed": 272
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T21:39:56.988778-03:00",
-      "next_run_at": "2026-05-29T15:25:00-03:00",
-      "last_run_at": "2026-05-29T15:20:43.815836-03:00",
+      "next_run_at": "2026-05-29T20:45:00-03:00",
+      "last_run_at": "2026-05-29T20:40:57.656076-03:00",
       "last_status": "error",
       "last_error": "Script not found: /home/roberto/.hermes/scripts/safety/anomaly_detector.py",
       "last_delivery_error": null,
@@ -704,15 +704,15 @@
       "schedule_display": "0 */2 * * *",
       "repeat": {
         "times": null,
-        "completed": 8
+        "completed": 11
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T22:01:21.134707-03:00",
-      "next_run_at": "2026-05-29T16:00:00-03:00",
-      "last_run_at": "2026-05-29T14:00:57.881172-03:00",
+      "next_run_at": "2026-05-29T22:00:00-03:00",
+      "last_run_at": "2026-05-29T20:00:49.855319-03:00",
       "last_status": "error",
       "last_error": "Script not found: /home/roberto/.hermes/scripts/brain/cortex_insular.py",
       "last_delivery_error": null,
@@ -744,15 +744,15 @@
       "schedule_display": "*/30 * * * * 1-5",
       "repeat": {
         "times": null,
-        "completed": 32
+        "completed": 43
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-28T23:20:27.489520-03:00",
-      "next_run_at": "2026-05-29T15:30:01-03:00",
-      "last_run_at": "2026-05-29T15:01:36.745233-03:00",
+      "next_run_at": "2026-05-29T21:00:01-03:00",
+      "last_run_at": "2026-05-29T20:31:34.666091-03:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -784,15 +784,15 @@
       "schedule_display": "*/3 * * * * 1-5",
       "repeat": {
         "times": null,
-        "completed": 98
+        "completed": 201
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-29T09:46:07.390035-03:00",
-      "next_run_at": "2026-05-29T15:24:01-03:00",
-      "last_run_at": "2026-05-29T15:21:44.924937-03:00",
+      "next_run_at": "2026-05-29T20:42:01-03:00",
+      "last_run_at": "2026-05-29T20:39:57.546896-03:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -806,7 +806,83 @@
       "enabled_toolsets": null,
       "workdir": null,
       "profile": null
+    },
+    {
+      "id": "308b78b1af86",
+      "name": "Crypto AutoPilot 24/7",
+      "prompt": "",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "scripts/crypto_autopilot.sh",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "*/3 * * * *",
+        "display": "*/3 * * * *"
+      },
+      "schedule_display": "*/3 * * * *",
+      "repeat": {
+        "times": null,
+        "completed": 91
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-05-29T15:51:45.170156-03:00",
+      "next_run_at": "2026-05-29T20:42:00-03:00",
+      "last_run_at": "2026-05-29T20:39:51.701453-03:00",
+      "last_status": "error",
+      "last_error": "Script not found: /home/roberto/.hermes/scripts/scripts/crypto_autopilot.sh",
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": null,
+      "profile": null
+    },
+    {
+      "id": "dee9919793a5",
+      "name": "An\u00e1lise Semanal Forex",
+      "prompt": "",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "crypto/weekly_analysis.py",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 18 * * 0",
+        "display": "0 18 * * 0"
+      },
+      "schedule_display": "0 18 * * 0",
+      "repeat": {
+        "times": null,
+        "completed": 0
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-05-29T18:11:28.591632-03:00",
+      "next_run_at": "2026-05-31T18:00:00-03:00",
+      "last_run_at": null,
+      "last_status": null,
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": null,
+      "profile": null
     }
   ],
-  "updated_at": "2026-05-29T15:21:44.926161-03:00"
+  "updated_at": "2026-05-29T20:41:02.781710-03:00"
 }

@@ -13,7 +13,7 @@ Uso pelos scripts do cérebro:
 import asyncio, json, sys, os, base64, urllib.request
 from pathlib import Path
 
-CDP_URL = 'http://localhost:9223'  # Brain browser headless (systemd/manual, IPv4)
+CDP_URL = 'http://localhost:9222'  # Brain browser (Brave real, :9222)
 
 # ── Core CDP Functions ────────────────────────────────────────────────────
 

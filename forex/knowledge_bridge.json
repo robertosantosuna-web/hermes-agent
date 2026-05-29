@@ -1315,6 +1315,1399 @@
       "source": "brain",
       "content": "[CHART] 3409 padrões gráficos detectados em 7 pares",
       "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0189",
+      "timestamp": "2026-05-26T00:47:41.239031+00:00",
+      "source": "agent",
+      "content": "SMC FRACTAL (Dinei): Método completo de leitura institucional. Fractal de timeframe maior vira range 2 tempos abaixo. 1 tempo abaixo mostra só CHOCH. Pipeline: Mensal→Semanal(CHOCH)→Diário(fractal=range)→H4→H1→M5/M1. Pivôs validados com 5 candles atrás + 1 à frente (ta.pivothigh/low). MSS = tomada de liquidez + reversal sem precisar romper topo. Entry no M5/M1 após CHOCH alinhado com H1.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0190",
+      "timestamp": "2026-05-26T00:47:41.279579+00:00",
+      "source": "agent",
+      "content": "TRADINGVIEW CLI (Dinei): Comandos: tv draw shape --type long_position, tv screenshot, tv annotate. Ferramenta Risk/Reward Long editável. Webhook: rota única por fonte. TradingEconomics Calendar como fonte de notícias (Investing.com bloqueado por Cloudflare). Pine Script: pivothigh(len=5), pivotlow(len=5) para estrutura.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0191",
+      "timestamp": "2026-05-26T00:47:41.319208+00:00",
+      "source": "agent",
+      "content": "FONTES ALTERNATIVAS (Dinei): TradingEconomics Calendar https://tradingeconomics.com/calendar funciona sem Cloudflare. Substitui Investing.com. Calendário econômico filtrável por país/impacto. Ideal para USD, EUR, GBP news.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0192",
+      "timestamp": "2026-05-26T00:47:41.357413+00:00",
+      "source": "agent",
+      "content": "PITFALLS EXTERNOS (Dinei): Webhook deve ser único por fonte (TradingView vs Evolution API separados). Rate limit 429 → parar, não retentar em loop. Senhas nunca em plaintext. VPS roda Ubuntu 24.04 aarch64, perfil trader. YOLO mode = cuidado.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0193",
+      "timestamp": "2026-05-26T00:47:41.395354+00:00",
+      "source": "agent",
+      "content": "ARQUITETURA MULTI-AGENTE (Dinei): Dois agentes Hermes simultâneos: default (GPT-5.4-mini) no Telegram + trader (GPT-5.5) para forex. Cron jobs: aviso semanal domingo 20h NY, notícias diárias, monitor M5 rompimento. Skills: dinei-smc-fractal, tradingview-cli, pine-script, tradingeconomics-calendar-watch.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0194",
+      "timestamp": "2026-05-26T01:01:38.435831+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 86 FVGs detectados em 5 dias M15 — 39 bullish, 47 bearish — gap médio: 4.3 pips, máximo: 43.3 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0195",
+      "timestamp": "2026-05-26T01:01:38.479592+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 105 FVGs detectados em 5 dias M15 — 55 bullish, 50 bearish — gap médio: 4.2 pips, máximo: 52.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0196",
+      "timestamp": "2026-05-26T01:01:38.524212+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 38 FVGs detectados em 5 dias M15 — 20 bullish, 18 bearish — gap médio: 3.2 pips, máximo: 25.8 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0197",
+      "timestamp": "2026-05-26T01:01:38.564738+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 144 FVGs detectados em 5 dias M15 — 74 bullish, 70 bearish — gap médio: 3.0 pips, máximo: 32.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0198",
+      "timestamp": "2026-05-26T01:01:38.602780+00:00",
+      "source": "brain",
+      "content": "[CHART] 3407 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0199",
+      "timestamp": "2026-05-26T01:04:49.941712+00:00",
+      "source": "agent",
+      "content": "SMC FRACTAL MAPEADO: Script smc_fractal_detector.py funcional. Detecta pivôs 5+1, MSS (não exige rompimento), FVGs, Order Blocks e Liquidez. Integrado ao agent_context, cortex_sync, brain_context. Fonte: metodologia Dinei + ICT Concepts LuxAlgo. Próximo passo: integrar ao forex_bot_real.py.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0200",
+      "timestamp": "2026-05-26T01:21:37.085206+00:00",
+      "source": "agent",
+      "content": "Sessão validação SMC 26/05: (1) 5 descobertas do cérebro absorvidas (knowledge bridge). (2) SMC Fractal Dinei ativo nos 5 pares - todos BEARISH no fechamento semanal. (3) Backtest CRT+CHoCH+FVG confirmado: 3T 100% WR +24.2p. (4) Killzones V3: 4T 100% WR +3.84% — todos London Close. (5) 10-trade survivor: GBPUSD melhor (London Open 49% NY Open 44%). Conclusão: CRT obrigatório, London Close melhor killzone, S/R filter essencial.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0201",
+      "timestamp": "2026-05-26T01:24:59.440504+00:00",
+      "source": "agent",
+      "content": "Bot atualizado 26/05: (1) TRADING_HOURS_UTC adicionado London Close (UTC 11) — backtest V3 mostrou 4T 100% WR exclusivamente nessa killzone. (2) Camada 3 macro scoring agora prioriza London Close (0.25) vs London/NY Open (0.20). (3) EURJPY adicionado como 4º par (V4: 57% WR +19.7p). (4) brain_signal_generator.py e forex_bot_real.py sincronizados com mesmos pares e horas.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0202",
+      "timestamp": "2026-05-26T01:29:26.195752+00:00",
+      "source": "agent",
+      "content": "Análise volatilidade real por cruzamento 26/05: (1) TOP 4 nos cruzamentos principais: 🥇GBPJPY(50.1) 🥈USDCAD(43.4) 🥉EURJPY(35.7) 4️⃣GBPUSD(32.1). (2) GBPJPY é #1 em TODOS os cruzamentos: 13.5p/c Asia+London, 13.2p/c London+NY. (3) USDCAD surpreendente #2 — 12.3p/c London Close, 11.7p/c London+NY. (4) EURUSD(24.0) e USDJPY(28.9) atrás dos pares JPY e CAD. (5) London Close consistentemente a hora de pico de volatilidade. Recomendação: adicionar GBPJPY ao bot, testar USDCAD em backtest.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0203",
+      "timestamp": "2026-05-26T01:41:07.790067+00:00",
+      "source": "agent",
+      "content": "Multi-TF volatility 26/05: GBPJPY #1 isolado (17.9p/c avg, #1 em TODOS 16 cenários). H1 captura 2.3x mais range que M15 mas setups seriam mais raros. London Close (15-16) confirmado como pico em todos os TFs. EURUSD é consistentemente o pior par (7.6p/c, metade do líder). Recomendação forte: adicionar GBPJPY, substituir EURUSD por USDCAD. M15 continua sendo TF ideal -> balanço entre frequência e range.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0204",
+      "timestamp": "2026-05-26T01:46:44.314162+00:00",
+      "source": "agent",
+      "content": "Pré-análise Semana 26-30 Mai: (1) SEGUNDA FERIADO MÚLTIPLO — US Memorial Day + UK/EU Bank Holidays = SEM TRADING. (2) TERÇA CARREGADA: US CB Consumer Confidence 11h UTC (91.9 exp vs 92.8 prev → USD bear se miss), BOJ Ueda 21h UTC, AUD CPI, RBNZ. (3) SMC Fractal: TODOS 6 pares BEARISH no fechamento semanal com MSS ativo. (4) Macro: Iran deal risk-on + Fed hawkish + UMich miss = BUY JPY crosses, SELL USDCAD. (5) GBPJPY líder absoluto de volatilidade (17.9p/c avg multi-TF). London Close killzone prioritária.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0205",
+      "timestamp": "2026-05-26T01:59:17.195535+00:00",
+      "source": "agent",
+      "content": "Codex ativado como executor pesado (26/05): (1) Codex CLI instalado, autenticado (ChatGPT), funcional. (2) Pipeline: Hermes delega backtests/scripts pesados → Codex executa (GPT-5.5 tokens, zero custo DeepSeek) → resultados JSON em ~/.hermes/forex/codex_output/. (3) Wrapper: scripts/codex_backtest.sh para chamadas padronizadas. (4) Testado: backtest_crt_choch.py + GBPJPY — Codex leu, editou, executou — 20.9k tokens OpenAI vs 0 tokens Hermes. (5) Próximo: migrar brain_signal_generator e smc_fractal_detector para execução via Codex nos crons.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0206",
+      "timestamp": "2026-05-26T02:15:33.240666+00:00",
+      "source": "agent",
+      "content": "ICT Killzone Strategy absorvida (26/05): (1) Metodologia H1→M5→M1 fractal: Asia range (20-00 UTC) → London manipulation (03-06) → ChoCh c/ deslocamento M5 → POI M1 → entrada. (2) Detector implementado: scripts/ict_killzone_detector.py — detecta Asia range + London manipulation no H1 via yfinance. (3) Hoje (segunda): GBPJPY e GBPUSD com London bearish (rompeu Asia LOW), USDCAD bullish (rompeu Asia HIGH). JPY crosses sem manipulação. (4) Integrar com SMC Fractal Dinei: pivôs 5+1 + MSS = ChoCh c/ deslocamento.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0207",
+      "timestamp": "2026-05-26T02:17:44.877736+00:00",
+      "source": "agent",
+      "content": "ICT Liquidity v2 integrado (26/05): (1) Detector multi-nível: Asia + Daily + Weekly + Monthly highs/lows. (2) Procedimento fractal H1→M5→M1 vale para QUALQUER nível de liquidez capturado. (3) Quanto mais níveis próximos = setup mais forte (confluência). (4) Resultado hoje: EURJPY SELL (Daily Low capturado), USDCAD BUY (Asia High), GBPJPY/GBPUSD CHOP (conflitante). (5) Script: ict_killzone_detector.py v2.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0208",
+      "timestamp": "2026-05-26T02:19:32.646150+00:00",
+      "source": "agent",
+      "content": "ICT v3 refinado (26/05): (1) Alvos do dia = Daily High/Low + Session High/Low (Asia, London, NY) do dia anterior. (2) Sempre que preço tocar QUALQUER desses níveis → ativar M5 → ChoCh c/ deslocamento → M1 → POI >50% → ChoCh M1 → ENTRADA. (3) Fractalidade: M1 repete exatamente o padrão do M5. (4) Exemplo EURJPY hoje: Daily Low 184.786 capturado (London rompeu), Asia Low também em 184.786 = confluência dupla.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0209",
+      "timestamp": "2026-05-26T02:29:48.618542+00:00",
+      "source": "agent",
+      "content": "ICT Simulation v1 10 dias: (1) GBPJPY 4W/3L 57.1% WR +54.6p — melhor par, confirma liderança em volatilidade. (2) EURJPY 3W/5L 37.5% WR +18.3p. (3) USDCAD 0W/4L 0% WR -43.2p — não funciona com ICT. (4) Total: 7W/12L 36.8% WR +29.7p (3:1 RR compensa WR baixa). (5) Limitação: ChoCh detection algorítmica básica (swing points), não captura deslocamento visual. Script: ict_simulation.py.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0210",
+      "timestamp": "2026-05-26T02:34:55.555978+00:00",
+      "source": "agent",
+      "content": "ICT Pattern Study 3 days: (1) GBPJPY MELHOR par — 67% dos dias tem double breakout + displacement (2+ níveis). Displacement range 0.4-0.42, muito acima da média (1.5-2x). (2) EURJPY, GBPUSD, USDJPY formam padrões em apenas 33% dos dias. (3) Setup ideal: 2+ níveis rompidos (Asia+Daily) + displacement 06-08h UTC com range >1.4x média + retracement <50% + M1 ChoCh. (4) Displacement em horário errado (04h ou 11h) = LOSS mesmo com 2 níveis. (5) GBPJPY deve ser o foco principal da estratégia ICT.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0211",
+      "timestamp": "2026-05-26T02:42:57.026517+00:00",
+      "source": "agent",
+      "content": "ICT Backtest v2 final: (1) GBPJPY é o ÚNICO par aprovado — 1 trade, 100% WR, +20.7p em 5 dias. (2) Todos os outros 5 pares falham no filtro de displacement (não formam candle >1.4x no killzone 06-08h). (3) ICT é inerentemente raro (~1 setup/semana) mas de alta qualidade. (4) Estratégia: ICT = GBPJPY exclusivo. M15 FVG+CRT = todos os 6 pares. (5) Bot permanece com M15; ICT é complemento manual/assistido.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0212",
+      "timestamp": "2026-05-26T02:52:50.937177+00:00",
+      "source": "agent",
+      "content": "Backtest final multi-estratégia 14d: (1) GBPJPY = ICT H1→M5→M1 (100% WR). (2) GBPUSD = Killzone LC 15-16h (50% WR +43p). (3) EURUSD = Killzone LC (100% WR +24p). (4) EURJPY/USDJPY/USDCAD = NENHUMA estratégia >40% WR — REMOVER do bot. (5) Bot deve operar 3 pares: GBPJPY(ICT), GBPUSD(LC), EURUSD(LC). (6) SMC Fractal H1 falhou em TODOS os pares (0-17% WR) — NÃO usar como entrada.",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0213",
+      "timestamp": "2026-05-26T03:01:35.645079+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 86 FVGs detectados em 5 dias M15 — 38 bullish, 48 bearish — gap médio: 4.3 pips, máximo: 43.3 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0214",
+      "timestamp": "2026-05-26T03:01:35.682813+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 105 FVGs detectados em 5 dias M15 — 54 bullish, 51 bearish — gap médio: 4.2 pips, máximo: 52.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0215",
+      "timestamp": "2026-05-26T03:01:35.720491+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 37 FVGs detectados em 5 dias M15 — 19 bullish, 18 bearish — gap médio: 3.2 pips, máximo: 25.8 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0216",
+      "timestamp": "2026-05-26T03:01:35.758305+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 146 FVGs detectados em 5 dias M15 — 75 bullish, 71 bearish — gap médio: 3.0 pips, máximo: 32.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0217",
+      "timestamp": "2026-05-26T03:01:35.797357+00:00",
+      "source": "brain",
+      "content": "[CHART] 3410 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0218",
+      "timestamp": "2026-05-26T05:02:08.616406+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 88 FVGs detectados em 5 dias M15 — 39 bullish, 49 bearish — gap médio: 4.2 pips, máximo: 43.3 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0219",
+      "timestamp": "2026-05-26T05:02:08.654615+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 109 FVGs detectados em 5 dias M15 — 55 bullish, 54 bearish — gap médio: 4.1 pips, máximo: 52.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0220",
+      "timestamp": "2026-05-26T05:02:08.691267+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 38 FVGs detectados em 5 dias M15 — 20 bullish, 18 bearish — gap médio: 3.3 pips, máximo: 25.8 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0221",
+      "timestamp": "2026-05-26T05:02:08.728120+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 149 FVGs detectados em 5 dias M15 — 76 bullish, 73 bearish — gap médio: 3.0 pips, máximo: 32.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0222",
+      "timestamp": "2026-05-26T05:02:08.765266+00:00",
+      "source": "brain",
+      "content": "[CHART] 3426 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0223",
+      "timestamp": "2026-05-26T07:01:40.539311+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 89 FVGs detectados em 5 dias M15 — 40 bullish, 49 bearish — gap médio: 4.2 pips, máximo: 43.3 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0224",
+      "timestamp": "2026-05-26T07:01:40.577562+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 110 FVGs detectados em 5 dias M15 — 55 bullish, 55 bearish — gap médio: 4.1 pips, máximo: 52.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0225",
+      "timestamp": "2026-05-26T07:01:40.613935+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 39 FVGs detectados em 5 dias M15 — 21 bullish, 18 bearish — gap médio: 3.1 pips, máximo: 25.8 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0226",
+      "timestamp": "2026-05-26T07:01:40.651750+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 152 FVGs detectados em 5 dias M15 — 78 bullish, 74 bearish — gap médio: 3.0 pips, máximo: 32.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0227",
+      "timestamp": "2026-05-26T07:01:40.688177+00:00",
+      "source": "brain",
+      "content": "[CHART] 3431 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0228",
+      "timestamp": "2026-05-26T09:02:27.536333+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 89 FVGs detectados em 5 dias M15 — 40 bullish, 49 bearish — gap médio: 4.2 pips, máximo: 43.3 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0229",
+      "timestamp": "2026-05-26T09:02:27.576088+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 111 FVGs detectados em 5 dias M15 — 55 bullish, 56 bearish — gap médio: 4.1 pips, máximo: 52.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0230",
+      "timestamp": "2026-05-26T09:02:27.613460+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 40 FVGs detectados em 5 dias M15 — 22 bullish, 18 bearish — gap médio: 3.1 pips, máximo: 25.8 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0231",
+      "timestamp": "2026-05-26T09:02:27.651212+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 154 FVGs detectados em 5 dias M15 — 79 bullish, 75 bearish — gap médio: 3.0 pips, máximo: 32.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0232",
+      "timestamp": "2026-05-26T09:02:27.688360+00:00",
+      "source": "brain",
+      "content": "[CHART] 3424 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0233",
+      "timestamp": "2026-05-26T11:02:18.235240+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 90 FVGs detectados em 5 dias M15 — 41 bullish, 49 bearish — gap médio: 4.2 pips, máximo: 43.3 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0234",
+      "timestamp": "2026-05-26T11:02:18.274435+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 112 FVGs detectados em 5 dias M15 — 56 bullish, 56 bearish — gap médio: 4.1 pips, máximo: 52.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0235",
+      "timestamp": "2026-05-26T11:02:18.311798+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 40 FVGs detectados em 5 dias M15 — 22 bullish, 18 bearish — gap médio: 3.1 pips, máximo: 25.8 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0236",
+      "timestamp": "2026-05-26T11:02:18.349297+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 154 FVGs detectados em 5 dias M15 — 79 bullish, 75 bearish — gap médio: 3.0 pips, máximo: 32.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0237",
+      "timestamp": "2026-05-26T11:02:18.386044+00:00",
+      "source": "brain",
+      "content": "[CHART] 3434 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0238",
+      "timestamp": "2026-05-26T12:00:56.513505+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW VÍDEOS EM DESTAQUE: 1 insights via DOM. Indicadores & estratégias",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0239",
+      "timestamp": "2026-05-26T12:01:03.442977+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW IDEIAS EM VÍDEO: 1 insights via DOM. Presenciamos o risco de aparecer um Ombro Cabeça Ombro cabuloso. Apesar de todo o otimismo desde 2018 a bolsa encontrou um ponto de resistência muito forte. Particularmente para DT esses pontos são mu",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0240",
+      "timestamp": "2026-05-26T12:01:10.875898+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW EDUCACIONAL: 1 insights via DOM. Agenda de Indicadores: Feriado: EUA, Reino Unido, Alemanha, Suíça, Coreia do Sul e Hong Kong 15:00 – BRA – Boletim Focus Brasil Acompanhe o Pré-Market de NY: AMEX:EWZ NYSE:VALE NYSE:PBR NYSE:ITUB NYSE",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0241",
+      "timestamp": "2026-05-26T12:01:16.642456+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW PINE SCRIPT v5: 1 tópicos. Funções: First indicator | Indicators",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0242",
+      "timestamp": "2026-05-26T12:01:21.867024+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW IDEIAS Forex: 1 relevantes. EUR/USD: Análise de Recuperação e Possível Continuação Altista:  ||| #063: Oportunidades de Compra em GBP/NZD:  ||| Configuração de detalhe do ouro – Bears Eye Lower Liquidity:  ||| Análise do gráfico BTC/USD em 45 minutos — Setup Long entre supo:  ||| EUR/USD: Análise de Recuperação e Possível Continuação Altista?:  ||| XAUUSD: Onda C Próxima da Zona de Venda:  ||| USDJPY Losing Strength? 158.00 ",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0243",
+      "timestamp": "2026-05-26T12:01:28.590104+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW IDEIAS Análise Técnica: 0 relevantes. Cavuca Análise Semanal IBOV 29/11 à 03/12: ",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0244",
+      "timestamp": "2026-05-26T12:01:35.534621+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW IDEIAS Indicadores: 1 relevantes. Compra em Prata: Entrada em Suporte com Alvo em 37,32”:  ||| Trade Ouro: Estratégia de Compra e Venda com Stop Inteligente:  ||| USD/CAD: Oportunidade de Venda com Alvo em 1,35278:  ||| ฿itcoin em Price Discovery – Sem Resistência, Sem Redenção.:  ||| Rejeição à Vista no Ouro? | Resistência Forte no XAU/USD:  ||| Análise Técnica do NZD – Ponto Crítico de Decisão!:  ||| ฿itcoin o Desafio dos 120 Mi",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0245",
+      "timestamp": "2026-05-26T12:01:51.823788+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW NOTÍCIAS: 2 relevantes para trading. Reuters\nSantander planeja SRT vinculada a 3,3 bilhões de euros em empréstimos corporativos globais - Bloomberg News ||| Reuters\nApollo, Phillips 66, Valero Energy ||| Reuters\nBNP Paribas intensifica parceria com a Mistral para fortalecer defesas rápidas contra IA. ||| Reuters\nO chefe da JW afirma que a indústria farmacêutica chinesa não foi afetada pelo escrutínio de Pequim sobre acordos tecnológicos sensíveis. ||| Invezz\nFTSE 250 perto de máxima trimestral; esperanças EUA-Irã elevam ações do Re",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0246",
+      "timestamp": "2026-05-26T12:01:51.877035+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW DEEP STUDY v2: 8 descobertas. Vídeos, Pine Script, ideias, mercados, notícias, calendário. Screenshots+OCR+DOM combinados. /home/roberto/.hermes/forex/research/2026-05-26/tradingview_study_v2.json",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0247",
+      "timestamp": "2026-05-26T13:01:19.009741+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 92 FVGs detectados em 5 dias M15 — 41 bullish, 51 bearish — gap médio: 4.2 pips, máximo: 43.3 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0248",
+      "timestamp": "2026-05-26T13:01:19.053435+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 115 FVGs detectados em 5 dias M15 — 56 bullish, 59 bearish — gap médio: 4.1 pips, máximo: 52.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0249",
+      "timestamp": "2026-05-26T13:01:19.096615+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 41 FVGs detectados em 5 dias M15 — 23 bullish, 18 bearish — gap médio: 3.1 pips, máximo: 25.8 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0250",
+      "timestamp": "2026-05-26T13:01:19.140672+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 157 FVGs detectados em 5 dias M15 — 81 bullish, 76 bearish — gap médio: 2.9 pips, máximo: 32.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0251",
+      "timestamp": "2026-05-26T13:01:19.186367+00:00",
+      "source": "brain",
+      "content": "[CHART] 3447 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0252",
+      "timestamp": "2026-05-26T15:01:24.705297+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 92 FVGs detectados em 5 dias M15 — 41 bullish, 51 bearish — gap médio: 4.1 pips, máximo: 43.3 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0253",
+      "timestamp": "2026-05-26T15:01:24.765620+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 116 FVGs detectados em 5 dias M15 — 56 bullish, 60 bearish — gap médio: 4.1 pips, máximo: 52.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0254",
+      "timestamp": "2026-05-26T15:01:24.807144+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 43 FVGs detectados em 5 dias M15 — 25 bullish, 18 bearish — gap médio: 3.0 pips, máximo: 25.8 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0255",
+      "timestamp": "2026-05-26T15:01:24.866257+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 158 FVGs detectados em 5 dias M15 — 82 bullish, 76 bearish — gap médio: 2.9 pips, máximo: 32.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0256",
+      "timestamp": "2026-05-26T15:01:24.913966+00:00",
+      "source": "brain",
+      "content": "[CHART] 3445 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0257",
+      "timestamp": "2026-05-26T17:01:35.070675+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 95 FVGs detectados em 5 dias M15 — 42 bullish, 53 bearish — gap médio: 4.1 pips, máximo: 43.3 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0258",
+      "timestamp": "2026-05-26T17:01:35.112938+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 119 FVGs detectados em 5 dias M15 — 57 bullish, 62 bearish — gap médio: 4.1 pips, máximo: 52.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0259",
+      "timestamp": "2026-05-26T17:01:35.161058+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 43 FVGs detectados em 5 dias M15 — 24 bullish, 19 bearish — gap médio: 3.0 pips, máximo: 25.8 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0260",
+      "timestamp": "2026-05-26T17:01:35.203132+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 163 FVGs detectados em 5 dias M15 — 83 bullish, 80 bearish — gap médio: 2.9 pips, máximo: 32.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0261",
+      "timestamp": "2026-05-26T17:01:35.245909+00:00",
+      "source": "brain",
+      "content": "[CHART] 3439 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0262",
+      "timestamp": "2026-05-26T19:02:44.788708+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 96 FVGs detectados em 5 dias M15 — 44 bullish, 52 bearish — gap médio: 4.0 pips, máximo: 43.3 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0263",
+      "timestamp": "2026-05-26T19:02:44.827943+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 122 FVGs detectados em 5 dias M15 — 59 bullish, 63 bearish — gap médio: 4.0 pips, máximo: 52.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0264",
+      "timestamp": "2026-05-26T19:02:44.865665+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 44 FVGs detectados em 5 dias M15 — 25 bullish, 19 bearish — gap médio: 3.0 pips, máximo: 25.8 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0265",
+      "timestamp": "2026-05-26T19:02:44.903140+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 168 FVGs detectados em 5 dias M15 — 87 bullish, 81 bearish — gap médio: 2.8 pips, máximo: 32.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0266",
+      "timestamp": "2026-05-26T19:02:44.939507+00:00",
+      "source": "brain",
+      "content": "[CHART] 3449 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0267",
+      "timestamp": "2026-05-26T21:01:49.159567+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 97 FVGs detectados em 5 dias M15 — 44 bullish, 53 bearish — gap médio: 4.0 pips, máximo: 43.3 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0268",
+      "timestamp": "2026-05-26T21:01:49.199434+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 125 FVGs detectados em 5 dias M15 — 61 bullish, 64 bearish — gap médio: 4.0 pips, máximo: 52.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0269",
+      "timestamp": "2026-05-26T21:01:49.237970+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 45 FVGs detectados em 5 dias M15 — 25 bullish, 20 bearish — gap médio: 2.9 pips, máximo: 25.8 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0270",
+      "timestamp": "2026-05-26T21:01:49.278301+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 170 FVGs detectados em 5 dias M15 — 89 bullish, 81 bearish — gap médio: 2.8 pips, máximo: 32.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0271",
+      "timestamp": "2026-05-26T21:01:49.317756+00:00",
+      "source": "brain",
+      "content": "[CHART] 3448 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0272",
+      "timestamp": "2026-05-26T23:01:42.110790+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 77 FVGs detectados em 5 dias M15 — 34 bullish, 43 bearish — gap médio: 4.1 pips, máximo: 43.3 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0273",
+      "timestamp": "2026-05-26T23:01:42.151447+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 103 FVGs detectados em 5 dias M15 — 50 bullish, 53 bearish — gap médio: 4.0 pips, máximo: 52.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0274",
+      "timestamp": "2026-05-26T23:01:42.191189+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 37 FVGs detectados em 5 dias M15 — 21 bullish, 16 bearish — gap médio: 3.0 pips, máximo: 25.8 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0275",
+      "timestamp": "2026-05-26T23:01:42.229178+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 133 FVGs detectados em 5 dias M15 — 67 bullish, 66 bearish — gap médio: 2.8 pips, máximo: 32.7 pips",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0276",
+      "timestamp": "2026-05-26T23:01:42.267350+00:00",
+      "source": "brain",
+      "content": "[CHART] 3404 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": true
+    },
+    {
+      "id": "disc-0277",
+      "timestamp": "2026-05-27T01:01:23.762664+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 77 FVGs detectados em 5 dias M15 — 34 bullish, 43 bearish — gap médio: 4.1 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0278",
+      "timestamp": "2026-05-27T01:01:23.922001+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 106 FVGs detectados em 5 dias M15 — 53 bullish, 53 bearish — gap médio: 3.9 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0279",
+      "timestamp": "2026-05-27T01:01:24.080557+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 37 FVGs detectados em 5 dias M15 — 22 bullish, 15 bearish — gap médio: 3.0 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0280",
+      "timestamp": "2026-05-27T01:01:24.118198+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 138 FVGs detectados em 5 dias M15 — 72 bullish, 66 bearish — gap médio: 2.8 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0281",
+      "timestamp": "2026-05-27T01:01:24.156789+00:00",
+      "source": "brain",
+      "content": "[CHART] 3399 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0282",
+      "timestamp": "2026-05-27T02:32:26.695819+00:00",
+      "source": "agent",
+      "content": "{\n  \"date\": \"2026-05-26\",\n  \"domain\": \"forex\",\n  \"insights\": [\n    {\n      \"id\": \"xauusd-integration\",\n      \"title\": \"XAU/USD integrado à estratégia V8\",\n      \"summary\": \"Backtest 59d: M30 67.1% WR (3.37 PF, 143T). M15 63.4% (235T). STOPLEVEL=0 no IC Markets. Config: GC=F Yahoo, gap≥$1.00, SL≥$12.00, pip_val=$0.01/0.01lot. Asia (0-5 UTC) 77% WR. SMC Fractal desabilitado para metais.\",\n      \"params\": {\n        \"tf\": \"30m\",\n        \"min_sl_ticks\": 1200,\n        \"min_gap_ticks\": 100,\n        \"pip_value\": 0.01,\n        \"killzone_best\": [0,1,2,3,4,5],\n        \"wr_24h\": 67.1,\n        \"wr_kz\": 77.0,\n        \"profit_factor\": 3.37\n      }\n    },\n    {\n      \"id\": \"ea-v1.1-upgrade\",\n      \"title\": \"EA Bridge v1.1: modify_position + entry/sl/tp\",\n      \"summary\": \"Novos comandos: modify_position(ticket,sl,tp) via CTrade::PositionModify. Status agora retorna entry, sl, tp por posição. Compilado: 42KB, 0 erros. Requer reinicialização do EA no MT5 após recompilação.\"\n    },\n    {\n      \"id\": \"realtime-monitor\",\n      \"title\": \"Monitor em tempo real ativo\",\n      \"summary\": \"Script forex_realtime_monitor.py: polling 3s, breakeven @1R, trailing @2R (75%), proteção perda >$2 forex/$10 metal. Watchdog cron fc2ef7b2b599 reinicia se cair. Lock file evita conflitos.\"\n    },\n    {\n      \"id\": \"autopilot-threshold-fix\",\n      \"title\": \"AutoPilot: thresholds por tipo de par\",\n      \"summary\": \"Forex: loss>$2 fecha. Metal (XAU): loss>$10 fecha. Concentração ≥4 mesmo par → fecha tudo. Grupo USD/JPY ≥4 → fecha mais concentrada.\"\n    },\n    {\n      \"id\": \"fallback-bug-fix\",\n      \"title\": \"Bug corrigido: fallback duplicava ordens\",\n      \"summary\": \"execute_trade() verificava retcode==10009 mas EA bridge retorna status=ok+ticket. Corrigido para aceitar ambos. Fallback só dispara se EA não respondeu.\"\n    },\n    {\n      \"id\": \"licoes-trades\",\n      \"title\": \"Lições dos trades de hoje\",\n      \"summary\": \"XAUUSD: SMC Fractal abriu com SL=$36 (não calibrado) → perdeu -$3.91 (AutoPilot fechou antes do SL). Correção: E2 desabilitada para metais. USDCAD: 4× concentração → fechado manualmente. Correção: AutoPilot agora fecha ≥4 automaticamente.\"\n    }\n  ],\n  \"systems_status\": {\n    \"bot\": \"ca8d82dc9fa5 */15min ✅\",\n    \"autopilot\": \"cdbae3c13baa */5min ✅\",\n    \"monitor\": \"PID 653863 */3s ✅\",\n    \"watchdog\": \"fc2ef7b2b599 */1min ✅\",\n    \"codex_monitor\": \"48425c92b336 */30min ✅\",\n    \"ea_version\": \"v1.1 (42KB)\"\n  },\n  \"equity\": 390.69,\n  \"open_positions\": 2\n}",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0283",
+      "timestamp": "2026-05-27T03:01:23.229503+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 77 FVGs detectados em 5 dias M15 — 34 bullish, 43 bearish — gap médio: 4.1 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0284",
+      "timestamp": "2026-05-27T03:01:23.269782+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 109 FVGs detectados em 5 dias M15 — 54 bullish, 55 bearish — gap médio: 3.9 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0285",
+      "timestamp": "2026-05-27T03:01:23.307847+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 37 FVGs detectados em 5 dias M15 — 21 bullish, 16 bearish — gap médio: 3.0 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0286",
+      "timestamp": "2026-05-27T03:01:23.345539+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 141 FVGs detectados em 5 dias M15 — 73 bullish, 68 bearish — gap médio: 2.9 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0287",
+      "timestamp": "2026-05-27T03:01:23.383159+00:00",
+      "source": "brain",
+      "content": "[CHART] 3415 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0288",
+      "timestamp": "2026-05-27T05:01:42.312747+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 77 FVGs detectados em 5 dias M15 — 34 bullish, 43 bearish — gap médio: 4.1 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0289",
+      "timestamp": "2026-05-27T05:01:42.354037+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 109 FVGs detectados em 5 dias M15 — 54 bullish, 55 bearish — gap médio: 3.9 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0290",
+      "timestamp": "2026-05-27T05:01:42.391689+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 37 FVGs detectados em 5 dias M15 — 21 bullish, 16 bearish — gap médio: 3.0 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0291",
+      "timestamp": "2026-05-27T05:01:42.429295+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 142 FVGs detectados em 5 dias M15 — 74 bullish, 68 bearish — gap médio: 2.9 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0292",
+      "timestamp": "2026-05-27T05:01:42.471106+00:00",
+      "source": "brain",
+      "content": "[CHART] 3417 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0293",
+      "timestamp": "2026-05-27T07:01:53.830669+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 79 FVGs detectados em 5 dias M15 — 36 bullish, 43 bearish — gap médio: 4.1 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0294",
+      "timestamp": "2026-05-27T07:01:53.869346+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 113 FVGs detectados em 5 dias M15 — 56 bullish, 57 bearish — gap médio: 3.8 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0295",
+      "timestamp": "2026-05-27T07:01:53.908354+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 39 FVGs detectados em 5 dias M15 — 23 bullish, 16 bearish — gap médio: 2.9 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0296",
+      "timestamp": "2026-05-27T07:01:53.947177+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 146 FVGs detectados em 5 dias M15 — 74 bullish, 72 bearish — gap médio: 2.9 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0297",
+      "timestamp": "2026-05-27T07:01:53.984748+00:00",
+      "source": "brain",
+      "content": "[CHART] 3418 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0298",
+      "timestamp": "2026-05-27T09:01:59.824106+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 78 FVGs detectados em 5 dias M15 — 35 bullish, 43 bearish — gap médio: 4.1 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0299",
+      "timestamp": "2026-05-27T09:01:59.866186+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 115 FVGs detectados em 5 dias M15 — 56 bullish, 59 bearish — gap médio: 3.8 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0300",
+      "timestamp": "2026-05-27T09:01:59.907716+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 39 FVGs detectados em 5 dias M15 — 23 bullish, 16 bearish — gap médio: 2.9 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0301",
+      "timestamp": "2026-05-27T09:01:59.948380+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 148 FVGs detectados em 5 dias M15 — 74 bullish, 74 bearish — gap médio: 2.8 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0302",
+      "timestamp": "2026-05-27T09:01:59.988908+00:00",
+      "source": "brain",
+      "content": "[CHART] 3423 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0303",
+      "timestamp": "2026-05-27T11:01:15.430279+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 80 FVGs detectados em 5 dias M15 — 35 bullish, 45 bearish — gap médio: 4.0 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0304",
+      "timestamp": "2026-05-27T11:01:15.469896+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 119 FVGs detectados em 5 dias M15 — 57 bullish, 62 bearish — gap médio: 3.7 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0305",
+      "timestamp": "2026-05-27T11:01:15.506352+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 40 FVGs detectados em 5 dias M15 — 23 bullish, 17 bearish — gap médio: 2.9 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0306",
+      "timestamp": "2026-05-27T11:01:15.544335+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 153 FVGs detectados em 5 dias M15 — 76 bullish, 77 bearish — gap médio: 2.8 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0307",
+      "timestamp": "2026-05-27T11:01:15.581985+00:00",
+      "source": "brain",
+      "content": "[CHART] 3429 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0308",
+      "timestamp": "2026-05-27T12:01:14.791308+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW VÍDEOS EM DESTAQUE: 1 insights via DOM. Indicadores & estratégias",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0309",
+      "timestamp": "2026-05-27T12:01:21.782718+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW IDEIAS EM VÍDEO: 1 insights via DOM. Presenciamos o risco de aparecer um Ombro Cabeça Ombro cabuloso. Apesar de todo o otimismo desde 2018 a bolsa encontrou um ponto de resistência muito forte. Particularmente para DT esses pontos são mu",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0310",
+      "timestamp": "2026-05-27T12:01:28.612639+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW EDUCACIONAL: 1 insights via DOM. As tensões entre os Estados Unidos e o Irã diminuíram durante o fim de semana. Ambos os países aproximaram-se de um memorando de entendimento, reduzindo rapidamente os riscos geopolíticos. Na abertura",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0311",
+      "timestamp": "2026-05-27T12:01:34.235001+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW PINE SCRIPT v5: 1 tópicos. Funções: First indicator | Indicators",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0312",
+      "timestamp": "2026-05-27T12:01:38.991569+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW IDEIAS Forex: 1 relevantes. EUR/USD: Análise de Recuperação e Possível Continuação Altista:  ||| #063: Oportunidades de Compra em GBP/NZD:  ||| Análise do gráfico BTC/USD em 45 minutos — Setup Long entre supo:  ||| EUR/USD: Análise de Recuperação e Possível Continuação Altista?:  ||| XAUUSD: Onda C Próxima da Zona de Venda:  ||| USDJPY Losing Strength? 158.00 Becomes the Key Pullback Zone:  ||| EURNZD H4 – Trading Plan Aroun",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0313",
+      "timestamp": "2026-05-27T12:01:46.232080+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW IDEIAS Análise Técnica: 0 relevantes. Cavuca Análise Semanal IBOV 29/11 à 03/12: ",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0314",
+      "timestamp": "2026-05-27T12:01:53.078658+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW IDEIAS Indicadores: 1 relevantes. Compra em Prata: Entrada em Suporte com Alvo em 37,32”:  ||| Trade Ouro: Estratégia de Compra e Venda com Stop Inteligente:  ||| USD/CAD: Oportunidade de Venda com Alvo em 1,35278:  ||| ฿itcoin em Price Discovery – Sem Resistência, Sem Redenção.:  ||| Rejeição à Vista no Ouro? | Resistência Forte no XAU/USD:  ||| Análise Técnica do NZD – Ponto Crítico de Decisão!:  ||| ฿itcoin o Desafio dos 120 Mi",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0315",
+      "timestamp": "2026-05-27T12:02:08.970853+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW NOTÍCIAS: 2 relevantes para trading. Reuters\nTencent integra PayPal à rede WeChat Pay, permitindo que usuários dos EUA façam compras em toda a China ||| Reuters\nBCE pede aos bancos que invistam mais para controlar o risco de segurança da IA ||| Invezz\nSpaceX vs OpenAI: Qual IPO pode gerar maiores retornos? ||| Reuters\nGrandes bancos canadenses BMO, Scotiabank e National superam estimativas de lucro ||| Reuters\nSchaeffler e Spire Global firmam parceria para hardware espacial e plataformas de satélite na Europa ||| Reuters\nNa China, ",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0316",
+      "timestamp": "2026-05-27T12:02:09.025852+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW DEEP STUDY v2: 8 descobertas. Vídeos, Pine Script, ideias, mercados, notícias, calendário. Screenshots+OCR+DOM combinados. /home/roberto/.hermes/forex/research/2026-05-27/tradingview_study_v2.json",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0317",
+      "timestamp": "2026-05-27T13:01:45.178267+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 82 FVGs detectados em 5 dias M15 — 36 bullish, 46 bearish — gap médio: 4.2 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0318",
+      "timestamp": "2026-05-27T13:01:45.219427+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 120 FVGs detectados em 5 dias M15 — 57 bullish, 63 bearish — gap médio: 3.8 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0319",
+      "timestamp": "2026-05-27T13:01:45.260583+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 42 FVGs detectados em 5 dias M15 — 24 bullish, 18 bearish — gap médio: 2.9 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0320",
+      "timestamp": "2026-05-27T13:01:45.298615+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 155 FVGs detectados em 5 dias M15 — 77 bullish, 78 bearish — gap médio: 2.8 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0321",
+      "timestamp": "2026-05-27T13:01:45.337747+00:00",
+      "source": "brain",
+      "content": "[CHART] 3424 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0322",
+      "timestamp": "2026-05-27T15:02:43.707426+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 83 FVGs detectados em 5 dias M15 — 36 bullish, 47 bearish — gap médio: 4.4 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0323",
+      "timestamp": "2026-05-27T15:02:43.755610+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 122 FVGs detectados em 5 dias M15 — 58 bullish, 64 bearish — gap médio: 3.9 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0324",
+      "timestamp": "2026-05-27T15:02:43.807329+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 43 FVGs detectados em 5 dias M15 — 25 bullish, 18 bearish — gap médio: 2.9 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0325",
+      "timestamp": "2026-05-27T15:02:43.855334+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 157 FVGs detectados em 5 dias M15 — 77 bullish, 80 bearish — gap médio: 2.8 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0326",
+      "timestamp": "2026-05-27T15:02:43.903515+00:00",
+      "source": "brain",
+      "content": "[CHART] 3428 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0327",
+      "timestamp": "2026-05-27T17:02:14.660966+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 83 FVGs detectados em 5 dias M15 — 36 bullish, 47 bearish — gap médio: 4.2 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0328",
+      "timestamp": "2026-05-27T17:02:14.703565+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 125 FVGs detectados em 5 dias M15 — 61 bullish, 64 bearish — gap médio: 3.8 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0329",
+      "timestamp": "2026-05-27T17:02:14.743468+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 42 FVGs detectados em 5 dias M15 — 24 bullish, 18 bearish — gap médio: 2.9 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0330",
+      "timestamp": "2026-05-27T17:02:14.783338+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 158 FVGs detectados em 5 dias M15 — 79 bullish, 79 bearish — gap médio: 2.8 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0331",
+      "timestamp": "2026-05-27T17:02:14.826933+00:00",
+      "source": "brain",
+      "content": "[CHART] 3435 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0332",
+      "timestamp": "2026-05-27T19:01:34.267941+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 84 FVGs detectados em 5 dias M15 — 36 bullish, 48 bearish — gap médio: 4.2 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0333",
+      "timestamp": "2026-05-27T19:01:34.312986+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 126 FVGs detectados em 5 dias M15 — 61 bullish, 65 bearish — gap médio: 3.8 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0334",
+      "timestamp": "2026-05-27T19:01:34.371256+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 43 FVGs detectados em 5 dias M15 — 25 bullish, 18 bearish — gap médio: 2.8 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0335",
+      "timestamp": "2026-05-27T19:01:34.413396+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 162 FVGs detectados em 5 dias M15 — 82 bullish, 80 bearish — gap médio: 2.8 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0336",
+      "timestamp": "2026-05-27T19:01:34.455198+00:00",
+      "source": "brain",
+      "content": "[CHART] 3451 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0337",
+      "timestamp": "2026-05-27T21:01:23.961707+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 85 FVGs detectados em 5 dias M15 — 37 bullish, 48 bearish — gap médio: 4.2 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0338",
+      "timestamp": "2026-05-27T21:01:24.001666+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 127 FVGs detectados em 5 dias M15 — 61 bullish, 66 bearish — gap médio: 3.9 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0339",
+      "timestamp": "2026-05-27T21:01:24.039712+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 44 FVGs detectados em 5 dias M15 — 25 bullish, 19 bearish — gap médio: 2.9 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0340",
+      "timestamp": "2026-05-27T21:01:24.076765+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 164 FVGs detectados em 5 dias M15 — 84 bullish, 80 bearish — gap médio: 2.7 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0341",
+      "timestamp": "2026-05-27T21:01:24.117597+00:00",
+      "source": "brain",
+      "content": "[CHART] 3459 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0342",
+      "timestamp": "2026-05-27T23:02:13.997963+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 58 FVGs detectados em 5 dias M15 — 25 bullish, 33 bearish — gap médio: 3.8 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0343",
+      "timestamp": "2026-05-27T23:02:14.068253+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 98 FVGs detectados em 5 dias M15 — 45 bullish, 53 bearish — gap médio: 3.5 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0344",
+      "timestamp": "2026-05-27T23:02:14.131455+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 30 FVGs detectados em 5 dias M15 — 16 bullish, 14 bearish — gap médio: 3.0 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0345",
+      "timestamp": "2026-05-27T23:02:14.211206+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 117 FVGs detectados em 5 dias M15 — 57 bullish, 60 bearish — gap médio: 2.4 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0346",
+      "timestamp": "2026-05-27T23:02:14.275561+00:00",
+      "source": "brain",
+      "content": "[CHART] 3412 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0347",
+      "timestamp": "2026-05-28T01:01:50.305930+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 59 FVGs detectados em 5 dias M15 — 25 bullish, 34 bearish — gap médio: 3.8 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0348",
+      "timestamp": "2026-05-28T01:01:50.471924+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 104 FVGs detectados em 5 dias M15 — 46 bullish, 58 bearish — gap médio: 3.4 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0349",
+      "timestamp": "2026-05-28T01:01:50.600437+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 30 FVGs detectados em 5 dias M15 — 17 bullish, 13 bearish — gap médio: 3.0 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0350",
+      "timestamp": "2026-05-28T01:01:50.664125+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 125 FVGs detectados em 5 dias M15 — 60 bullish, 65 bearish — gap médio: 2.3 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0351",
+      "timestamp": "2026-05-28T01:01:50.717449+00:00",
+      "source": "brain",
+      "content": "[CHART] 3429 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0352",
+      "timestamp": "2026-05-28T03:01:41.385643+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 61 FVGs detectados em 5 dias M15 — 25 bullish, 36 bearish — gap médio: 3.8 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0353",
+      "timestamp": "2026-05-28T03:01:41.428823+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 106 FVGs detectados em 5 dias M15 — 46 bullish, 60 bearish — gap médio: 3.4 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0354",
+      "timestamp": "2026-05-28T03:01:41.467618+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 31 FVGs detectados em 5 dias M15 — 18 bullish, 13 bearish — gap médio: 3.0 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0355",
+      "timestamp": "2026-05-28T03:01:41.509498+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 127 FVGs detectados em 5 dias M15 — 60 bullish, 67 bearish — gap médio: 2.3 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0356",
+      "timestamp": "2026-05-28T03:01:41.549776+00:00",
+      "source": "brain",
+      "content": "[CHART] 3434 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0357",
+      "timestamp": "2026-05-28T05:01:59.743218+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 65 FVGs detectados em 5 dias M15 — 25 bullish, 40 bearish — gap médio: 3.9 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0358",
+      "timestamp": "2026-05-28T05:01:59.784783+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 111 FVGs detectados em 5 dias M15 — 47 bullish, 64 bearish — gap médio: 3.5 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0359",
+      "timestamp": "2026-05-28T05:01:59.827862+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 35 FVGs detectados em 5 dias M15 — 20 bullish, 15 bearish — gap médio: 2.8 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0360",
+      "timestamp": "2026-05-28T05:01:59.874829+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 130 FVGs detectados em 5 dias M15 — 60 bullish, 70 bearish — gap médio: 2.4 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0361",
+      "timestamp": "2026-05-28T05:01:59.913748+00:00",
+      "source": "brain",
+      "content": "[CHART] 3435 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0362",
+      "timestamp": "2026-05-28T07:01:25.884280+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 70 FVGs detectados em 5 dias M15 — 30 bullish, 40 bearish — gap médio: 3.8 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0363",
+      "timestamp": "2026-05-28T07:01:25.949137+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 117 FVGs detectados em 5 dias M15 — 53 bullish, 64 bearish — gap médio: 3.5 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0364",
+      "timestamp": "2026-05-28T07:01:26.022775+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 36 FVGs detectados em 5 dias M15 — 20 bullish, 16 bearish — gap médio: 2.8 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0365",
+      "timestamp": "2026-05-28T07:01:26.104024+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 134 FVGs detectados em 5 dias M15 — 64 bullish, 70 bearish — gap médio: 2.4 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0366",
+      "timestamp": "2026-05-28T07:01:26.156871+00:00",
+      "source": "brain",
+      "content": "[CHART] 3428 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0367",
+      "timestamp": "2026-05-28T09:01:57.665633+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 71 FVGs detectados em 5 dias M15 — 31 bullish, 40 bearish — gap médio: 3.8 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0368",
+      "timestamp": "2026-05-28T09:01:57.707455+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 119 FVGs detectados em 5 dias M15 — 54 bullish, 65 bearish — gap médio: 3.5 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0369",
+      "timestamp": "2026-05-28T09:01:57.746382+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 36 FVGs detectados em 5 dias M15 — 20 bullish, 16 bearish — gap médio: 2.7 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0370",
+      "timestamp": "2026-05-28T09:01:57.785530+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 138 FVGs detectados em 5 dias M15 — 65 bullish, 73 bearish — gap médio: 2.4 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0371",
+      "timestamp": "2026-05-28T09:01:57.825071+00:00",
+      "source": "brain",
+      "content": "[CHART] 3444 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0372",
+      "timestamp": "2026-05-28T11:01:44.221873+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 73 FVGs detectados em 5 dias M15 — 31 bullish, 42 bearish — gap médio: 3.7 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0373",
+      "timestamp": "2026-05-28T11:01:44.265384+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 122 FVGs detectados em 5 dias M15 — 55 bullish, 67 bearish — gap médio: 3.5 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0374",
+      "timestamp": "2026-05-28T11:01:44.305842+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 36 FVGs detectados em 5 dias M15 — 20 bullish, 16 bearish — gap médio: 2.7 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0375",
+      "timestamp": "2026-05-28T11:01:44.350374+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 140 FVGs detectados em 5 dias M15 — 66 bullish, 74 bearish — gap médio: 2.4 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0376",
+      "timestamp": "2026-05-28T11:01:44.391684+00:00",
+      "source": "brain",
+      "content": "[CHART] 3446 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0377",
+      "timestamp": "2026-05-28T12:00:54.963380+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW VÍDEOS EM DESTAQUE: 1 insights via DOM. Indicadores & estratégias",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0378",
+      "timestamp": "2026-05-28T12:01:15.086112+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW PINE SCRIPT v5: 0 tópicos. Funções: N/A",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0379",
+      "timestamp": "2026-05-28T12:01:26.668221+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW IDEIAS Análise Técnica: 0 relevantes. Cavuca Análise Semanal IBOV 29/11 à 03/12: ",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0380",
+      "timestamp": "2026-05-28T12:01:33.402753+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW IDEIAS Indicadores: 1 relevantes. Compra em Prata: Entrada em Suporte com Alvo em 37,32”:  ||| Trade Ouro: Estratégia de Compra e Venda com Stop Inteligente:  ||| USD/CAD: Oportunidade de Venda com Alvo em 1,35278:  ||| ฿itcoin em Price Discovery – Sem Resistência, Sem Redenção.:  ||| Rejeição à Vista no Ouro? | Resistência Forte no XAU/USD:  ||| Análise Técnica do NZD – Ponto Crítico de Decisão!:  ||| ฿itcoin o Desafio dos 120 Mi",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0381",
+      "timestamp": "2026-05-28T12:01:49.028988+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW NOTÍCIAS: 2 relevantes para trading. Reuters\nBancos canadenses RBC, TD e CIBC superam estimativas de lucro com força doméstica ||| Reuters\nFrança se torna primeiro país da UE a reembolsar medicamentos contra obesidade, diz ministra ||| Reuters\nEmpresa de private equity EQT firma parceria com o Google Cloud para implementação de IA ||| Reuters\nDa biotecnologia à órbita: o reposicionamento da Rocket One em IA e espaço impulsiona as ações ||| Reuters\nRede de lojas de departamento Kohl's reafirma suas metas anuais ||| Reuters\nIrani apr",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0382",
+      "timestamp": "2026-05-28T12:01:49.073116+00:00",
+      "source": "brain",
+      "content": "TRADINGVIEW DEEP STUDY v2: 5 descobertas. Vídeos, Pine Script, ideias, mercados, notícias, calendário. Screenshots+OCR+DOM combinados. /home/roberto/.hermes/forex/research/2026-05-28/tradingview_study_v2.json",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0383",
+      "timestamp": "2026-05-28T13:01:42.657282+00:00",
+      "source": "brain",
+      "content": "[EURUSD] 76 FVGs detectados em 5 dias M15 — 35 bullish, 41 bearish — gap médio: 3.9 pips, máximo: 43.3 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0384",
+      "timestamp": "2026-05-28T13:01:42.721893+00:00",
+      "source": "brain",
+      "content": "[GBPUSD] 129 FVGs detectados em 5 dias M15 — 62 bullish, 67 bearish — gap médio: 3.4 pips, máximo: 52.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0385",
+      "timestamp": "2026-05-28T13:01:42.781868+00:00",
+      "source": "brain",
+      "content": "[USDJPY] 37 FVGs detectados em 5 dias M15 — 20 bullish, 17 bearish — gap médio: 2.7 pips, máximo: 25.8 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0386",
+      "timestamp": "2026-05-28T13:01:42.841467+00:00",
+      "source": "brain",
+      "content": "[AUDUSD] 146 FVGs detectados em 5 dias M15 — 72 bullish, 74 bearish — gap médio: 2.4 pips, máximo: 32.7 pips",
+      "absorbed_by_other": false
+    },
+    {
+      "id": "disc-0387",
+      "timestamp": "2026-05-28T13:01:42.928490+00:00",
+      "source": "brain",
+      "content": "[CHART] 3314 padrões gráficos detectados em 7 pares",
+      "absorbed_by_other": false
     }
   ],
   "absorbed": [
@@ -1509,6 +2902,20 @@
         "disc-0188"
       ],
       "summary": "agent absorveu 5 descobertas do brain em 2026-05-25 23:11"
+    },
+    {
+      "timestamp": "2026-05-26T01:19:55.024632+00:00",
+      "source": "agent",
+      "from": "brain",
+      "count": 5,
+      "discoveries": [
+        "disc-0194",
+        "disc-0195",
+        "disc-0196",
+        "disc-0197",
+        "disc-0198"
+      ],
+      "summary": "agent absorveu 5 descobertas do brain em 2026-05-26 01:19"
     }
   ],
   "meta": {

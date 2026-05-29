@@ -1,6 +1,130 @@
 {
-  "date": "2026-05-22",
-  "balance": 85.3,
-  "pnl_today": -14.7,
-  "updated": "2026-05-22T11:15:40.671913"
+  "date": "2026-05-28",
+  "balance": 487.8,
+  "pnl_today": 46.0,
+  "updated": "2026-05-28T00:35:57.043171",
+  "trades_today": 199,
+  "last_trade_time": "2026-05-29T11:28:00.220483",
+  "trade_log": [
+    {
+      "pair": "USDJPY",
+      "strategy": "S/R+FVG",
+      "direction": "SELL",
+      "entry": 159.35699462890625,
+      "sl": 159.50699,
+      "tp": 158.90699,
+      "time": "2026-05-29T09:45:24.222785",
+      "status": "open"
+    },
+    {
+      "pair": "EURUSD",
+      "strategy": "S/R+FVG",
+      "direction": "BUY",
+      "entry": 1.164958119392395,
+      "sl": 1.16346,
+      "tp": 1.16946,
+      "time": "2026-05-29T09:45:24.223548",
+      "status": "open"
+    },
+    {
+      "pair": "USDCAD",
+      "strategy": "S/R+FVG",
+      "direction": "SELL",
+      "entry": 1.3805999755859375,
+      "sl": 1.3821,
+      "tp": 1.3761,
+      "time": "2026-05-29T09:54:45.675356",
+      "status": "open"
+    },
+    {
+      "pair": "USDCAD",
+      "strategy": "S/R+FVG",
+      "direction": "SELL",
+      "entry": 1.3805999755859375,
+      "sl": 1.3821,
+      "tp": 1.3761,
+      "time": "2026-05-29T09:58:00.926524",
+      "status": "open"
+    },
+    {
+      "pair": "USDJPY",
+      "strategy": "S/R+FVG",
+      "direction": "SELL",
+      "entry": 159.35699462890625,
+      "sl": 159.50699,
+      "tp": 158.90699,
+      "time": "2026-05-29T10:21:23.159527",
+      "status": "open"
+    },
+    {
+      "pair": "USDJPY",
+      "strategy": "S/R+FVG",
+      "direction": "SELL",
+      "entry": 159.35699462890625,
+      "sl": 159.50699,
+      "tp": 158.90699,
+      "time": "2026-05-29T10:34:06.166970",
+      "status": "open"
+    },
+    {
+      "pair": "USDJPY",
+      "strategy": "S/R+FVG",
+      "direction": "SELL",
+      "entry": 159.35699462890625,
+      "sl": 159.50699,
+      "tp": 158.90699,
+      "time": "2026-05-29T10:51:57.892383",
+      "status": "open"
+    },
+    {
+      "pair": "USDJPY",
+      "strategy": "S/R+FVG",
+      "direction": "SELL",
+      "entry": 159.35699462890625,
+      "sl": 159.50699,
+      "tp": 158.90699,
+      "time": "2026-05-29T11:12:27.986243",
+      "status": "open"
+    },
+    {
+      "pair": "USDJPY",
+      "strategy": "S/R+FVG",
+      "direction": "SELL",
+      "entry": 159.35699462890625,
+      "sl": 159.50699,
+      "tp": 158.90699,
+      "time": "2026-05-29T11:15:35.933638",
+      "status": "open"
+    },
+    {
+      "pair": "USDCAD",
+      "strategy": "S/R+FVG",
+      "direction": "SELL",
+      "entry": 1.3805999755859375,
+      "sl": 1.3821,
+      "tp": 1.3761,
+      "time": "2026-05-29T11:15:35.934200",
+      "status": "open"
+    },
+    {
+      "pair": "USDCAD",
+      "strategy": "S/R+FVG",
+      "direction": "SELL",
+      "entry": 1.3805999755859375,
+      "sl": 1.3821,
+      "tp": 1.3761,
+      "time": "2026-05-29T11:21:46.708143",
+      "status": "open"
+    },
+    {
+      "pair": "USDCAD",
+      "strategy": "S/R+FVG",
+      "direction": "SELL",
+      "entry": 1.3805999755859375,
+      "sl": 1.3821,
+      "tp": 1.3761,
+      "time": "2026-05-29T11:28:00.220495",
+      "status": "open"
+    }
+  ]
 }

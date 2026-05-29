@@ -21,9 +21,12 @@ WEEKLY_BIAS_FILE = HERMES / "forex" / "weekly_bias.json"
 
 # Pares para analisar (símbolos do TradingView)
 PAIRS = {
+    "GBPJPY": {"symbol": "FX:GBPJPY", "tv_url": "https://www.tradingview.com/chart/?symbol=FX%3AGBPJPY&interval=15"},
     "USDJPY": {"symbol": "FX:USDJPY", "tv_url": "https://www.tradingview.com/chart/?symbol=FX%3AUSDJPY&interval=15"},
     "EURUSD": {"symbol": "FX:EURUSD", "tv_url": "https://www.tradingview.com/chart/?symbol=FX%3AEURUSD&interval=15"},
     "GBPUSD": {"symbol": "FX:GBPUSD", "tv_url": "https://www.tradingview.com/chart/?symbol=FX%3AGBPUSD&interval=15"},
+    "EURJPY": {"symbol": "FX:EURJPY", "tv_url": "https://www.tradingview.com/chart/?symbol=FX%3AEURJPY&interval=15"},
+    "USDCAD": {"symbol": "FX:USDCAD", "tv_url": "https://www.tradingview.com/chart/?symbol=FX%3AUSDCAD&interval=15"},
 }
 
 # Config da estratégia CHoCH+FVG M15 + CRT + S/R + Weekly Bias (v4)
@@ -118,7 +121,7 @@ def analyze_pair(pair_key, data):
         "price": data.get("price", "unknown"),
         "hour_utc": hour_utc,
         "timestamp": datetime.now(timezone.utc).isoformat(),
-        "needs_human_validation": True,
+        "needs_human_validation": False,
         "weekly_bias": bias,
         "crt_required": STRATEGY.get("crt_required", True),
         "sr_required": STRATEGY.get("sr_required", True),

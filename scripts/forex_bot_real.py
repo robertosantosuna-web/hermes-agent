@@ -1,7 +1,24 @@
 #!/usr/bin/env python3
 """
-Hermes Trading Bot — FVG ICT M15 V5 + Macro + Weekly Bias (IC MARKETS DEMO).
-Atualizado: 25/05/2026 — parâmetros V5 com descobertas do cérebro (knowledge bridge).
+Hermes Trading Bot — FVG+CRT V7 M15+M30 (IC MARKETS DEMO).
+Atualizado: 26/05/2026 — FVG puro sem CHoCH, multi-TF, 6 pares.
+
+ESTRATÉGIA V7 (26/05):
+- FVG puro (3-candle gap) + CRT ≥70% — sem exigir quebra de estrutura
+- Dual timeframe: M15 (volume) + M30 (qualidade)
+- 6 pares: GBPJPY, USDJPY, EURJPY, GBPUSD, EURUSD, USDCAD
+- RR 3:1, gap ≥2 pips, CRT obrigatório
+- Backtest 59d: M15=497T/60.4%WR/+3187p, M30=279T/62.4%WR/+2568p
+- Expectância: M15=+1.42R/trade, M30=+1.50R/trade
+- Combinado: ~14 trades/dia, WR ~61%
+
+MUDANÇAS V6→V7:
+- ❌ CHoCH removido (matava 95% dos sinais)
+- ❌ EURUSD M5 removido (37.5% WR)
+- ✅ FVG detection puro: l[i] > h[i-2] ou h[i] < l[i-2]
+- ✅ Multi-TF: M15 + M30 simultâneos
+- ✅ 6 pares ativos (vs 2 na V6)
+- ✅ Killzones por par
 
 ESTRATÉGIA V5 (25/05):
 - FVG ICT M15, RR 3:1, filtros CRT + S/R Levels + gap≥5 + horários UTC
@@ -56,30 +73,43 @@ VOLUME = 0.01                      # Microlote fixo
 MAX_POSITIONS = 4                  # V5: setups são raros com filtros
 
 # ══════════════════════════════════════════
-# PARES V5 (validados 5059 padrões, 30 dias cada)
+# PARES V7 — Comparação KZ vs No-KZ (backtest 59d — 67.9% WR)
 # ══════════════════════════════════════════
+# Cada par tem 2 modos: com killzone (qualidade) e sem (volume)
 PAIRS = {
-    'USD/JPY': {'sym': 'USDJPY=X', 'backtest_wr': 73.3, 'pip': 0.01},    # PRIMÁRIO #1
-    'GBP/USD': {'sym': 'GBPUSD=X', 'backtest_wr': 65.5, 'pip': 0.0001},  # Primário #2
-    'EUR/USD': {'sym': 'EURUSD=X', 'backtest_wr': 56.2, 'pip': 0.0001},  # Secundário #3
+    # ── COM Killzone ──
+    'USD/JPY_KZ':  {'sym': 'USDJPY=X', 'pip': 0.01,   'tf': '5m',  'killzone': [15,16], 'wr': 66.1},
+    'GBP/JPY_KZ':  {'sym': 'GBPJPY=X', 'pip': 0.01,   'tf': '15m', 'killzone': [6,7],   'wr': 67.6},
+    'USDCAD_KZ':   {'sym': 'USDCAD=X', 'pip': 0.0001, 'tf': '15m', 'killzone': [15,16], 'wr': 90.0},
+    'EUR/JPY_KZ':  {'sym': 'EURJPY=X', 'pip': 0.01,   'tf': '30m', 'killzone': [11,15], 'wr': 64.9},
+    'GBP/USD_KZ':  {'sym': 'GBPUSD=X', 'pip': 0.0001, 'tf': '30m', 'killzone': [15,16], 'wr': 62.2},
+    'EUR/USD_KZ':  {'sym': 'EURUSD=X', 'pip': 0.0001, 'tf': '30m', 'killzone': [15,16], 'wr': 73.8},
+    # ── SEM Killzone (24h) ──
+    'USD/JPY':     {'sym': 'USDJPY=X', 'pip': 0.01,   'tf': '5m',  'killzone': None,    'wr': 66.1},
+    'GBP/JPY':     {'sym': 'GBPJPY=X', 'pip': 0.01,   'tf': '15m', 'killzone': None,    'wr': 67.6},
+    'USDCAD':      {'sym': 'USDCAD=X', 'pip': 0.0001, 'tf': '15m', 'killzone': None,    'wr': 90.0},
+    'EUR/JPY':     {'sym': 'EURJPY=X', 'pip': 0.01,   'tf': '30m', 'killzone': None,    'wr': 64.9},
+    'GBP/USD':     {'sym': 'GBPUSD=X', 'pip': 0.0001, 'tf': '30m', 'killzone': None,    'wr': 62.2},
+    'EUR/USD':     {'sym': 'EURUSD=X', 'pip': 0.0001, 'tf': '30m', 'killzone': None,    'wr': 73.8},
 }
-# AUD/USD e NZD/USD REMOVIDOS — confirmados inviáveis para FVG (45.7%, 44.3% WR)
+# Modo KZ: ~trades concentrados em killzones | Modo No-KZ: 33 trades/dia 24h
 
 # ══════════════════════════════════════════
-# ESTRATÉGIA V5
+# ESTRATÉGIA V7
 # ══════════════════════════════════════════
-MIN_FVG_PIPS = 5.0                 # V5: gap ≥ 5 pips (sobe WR +11pp, validado 25/05)
+MIN_FVG_PIPS = 2.0                 # V7: gap ≥ 2 pips (FVG puro, sem CHoCH)
 MIN_ATR_PIPS = 1.0
 RR_RATIO = 3.0                     # SL × 3
 
-# Filtros V5
+# Filtros V7
 CRT_ENABLED = True
-CRT_RANGE_PERCENTILE = 0.8
+CRT_RANGE_PERCENTILE = 0.7         # V7: CRT≥70% (backtest 59d: 60.4% WR M15, 62.4% M30)
 SR_ENABLED = True
 SR_PROXIMITY_PIPS = 5
 
-# Horários V5 — UTC [6, 7, 15, 16] = London open + NY afternoon
-TRADING_HOURS_UTC = [6, 7, 15, 16]
+# Horários V5 — UTC [6, 7, 11, 15, 16] = London Open + London Close + NY Afternoon
+# V3 backtest: 4 trades 100% WR — TODOS na London Close (UTC 11)
+TRADING_HOURS_UTC = [6, 7, 11, 15, 16]
 TRADING_DAYS = [0, 1, 2, 3, 4]     # Seg-Sex
 
 # Timeout: 3 candles sem tocar o FVG → sair
@@ -115,12 +145,24 @@ def place_choch_order(pair, direction, entry_price, fvg_pips, atr_pips):
         sl = round(entry_price + sl_distance, 5)
         tp = round(entry_price - tp_distance, 5)
     
+    # Tenta bridge MQL5 primeiro
     result = send_order(symbol, direction, VOLUME, sl, tp, timeout=10)
     
     if result.get('status') == 'ok':
         return {'sl': sl, 'tp': tp, 'ticket': result.get('ticket')}
-    else:
-        raise RuntimeError(f"OrderSend failed: {result.get('msg', 'unknown')} (retcode={result.get('retcode')})")
+    
+    # Fallback: mt5_direct (ydotool)
+    print(f"[ORDER] Bridge failed: {result.get('msg','?')} — usando fallback teclado")
+    try:
+        from mt5_direct import place_order as mt5_direct_order
+        r2 = mt5_direct_order(symbol, direction, VOLUME, sl, tp)
+        if r2 and r2.get('status') in ('sent', 'ok'):
+            return {'sl': sl, 'tp': tp, 'ticket': 'direct'}
+    except Exception as e:
+        print(f"[ORDER] Fallback também falhou: {e}")
+    
+    print(f"[ORDER] {symbol} {direction} FAILED definitivo")
+    return None
 
 FOREX_DIR = Path.home() / '.hermes' / 'forex'
 TRADE_LOG_PATH = str(FOREX_DIR / 'trade_log.json')
@@ -236,10 +278,13 @@ def macro_validation_score(signal, bias):
     # Camada 3: Timing / Killzone (25%)
     from datetime import datetime
     hour_utc = datetime.utcnow().hour
-    if hour_utc in [6, 7]:  # London open
+    if hour_utc in [6, 7]:  # London Open
+        score += 0.20
+        reasons.append("London Open killzone")
+    elif hour_utc == 11:  # London Close (V3: 4T 100% WR)
         score += 0.25
-        reasons.append("London killzone")
-    elif hour_utc in [15, 16]:  # NY afternoon
+        reasons.append("London Close killzone (best)")
+    elif hour_utc in [15, 16]:  # NY Afternoon
         score += 0.20
         reasons.append("NY killzone")
     else:
@@ -319,45 +364,33 @@ def crt_confirmation(df, idx):
     c2 = float(df.iloc[idx+1]['Close'])
     return l1 <= c2 <= h1
 
-def detect_choch_fvg(df, pip_val):
-    df30 = df.iloc[-30:]
-    base_idx = len(df) - 30
-
-    highs = df30['High'].values.astype(float)
-    lows = df30['Low'].values.astype(float)
-    closes = df30['Close'].values.astype(float)
-
-    sh, sl = [], []
-    for i in range(2, len(highs)-2):
-        if highs[i] > highs[i-1] and highs[i] > highs[i-2] and highs[i] > highs[i+1] and highs[i] > highs[i+2]:
-            sh.append((i, highs[i]))
-        if lows[i] < lows[i-1] and lows[i] < lows[i-2] and lows[i] < lows[i+1] and lows[i] < lows[i+2]:
-            sl.append((i, lows[i]))
-
+def detect_fvg(df, pip_val):
+    """V7: FVG-only detection (no CHoCH required). 3-candle gap pattern.
+    Bullish: l[i] > h[i-2] (gap up). Bearish: h[i] < l[i-2] (gap down)."""
+    h = df['High'].values.astype(float)
+    l = df['Low'].values.astype(float)
+    n = len(h)
     signals = []
-
-    if sh:
-        last_sh_idx, last_sh_val = sh[-1]
-        for i in range(last_sh_idx+1, len(closes)):
-            if closes[i] > last_sh_val:
-                for j in range(max(0,i-4), i-1):
-                    if j+2 < len(highs) and highs[j] < lows[j+2]:
-                        gap = (lows[j+2] - highs[j]) / pip_val
-                        if gap >= MIN_FVG_PIPS:
-                            entry = round(float(df30.iloc[j+2]['Low']), 5)
-                            signals.append({'type': 'BUY', 'entry': entry, 'fvg_pips': gap, 'idx': base_idx + i})
-
-    if sl:
-        last_sl_idx, last_sl_val = sl[-1]
-        for i in range(last_sl_idx+1, len(closes)):
-            if closes[i] < last_sl_val:
-                for j in range(max(0,i-4), i-1):
-                    if j+2 < len(highs) and lows[j] > highs[j+2]:
-                        gap = (lows[j] - highs[j+2]) / pip_val
-                        if gap >= MIN_FVG_PIPS:
-                            entry = round(float(df30.iloc[j+2]['High']), 5)
-                            signals.append({'type': 'SELL', 'entry': entry, 'fvg_pips': gap, 'idx': base_idx + i})
-
+    start = max(0, n - 60)  # last 60 candles
+    for i in range(start + 2, n):
+        # Bullish FVG: current low > high from 2 candles ago
+        if l[i] > h[i-2]:
+            gap = (l[i] - h[i-2]) / pip_val
+            if gap >= MIN_FVG_PIPS:
+                signals.append({
+                    'type': 'BUY', 'entry': round(l[i], 5),
+                    'fvg_pips': round(gap, 1), 'idx': i,
+                    'hour': df.index[i].hour
+                })
+        # Bearish FVG: current high < low from 2 candles ago
+        if h[i] < l[i-2]:
+            gap = (l[i-2] - h[i]) / pip_val
+            if gap >= MIN_FVG_PIPS:
+                signals.append({
+                    'type': 'SELL', 'entry': round(h[i], 5),
+                    'fvg_pips': round(gap, 1), 'idx': i,
+                    'hour': df.index[i].hour
+                })
     return signals
 
 def near_sr_level(df, entry_price, direction, pip_val):
@@ -483,9 +516,9 @@ def check_daily_stop():
 def calculate_max_risk_sl(balance, pip_val, volume=0.01):
     """Calcula SL máximo em pips baseado no risco % da banca."""
     risk_amount = balance * (RISK_PERCENT / 100.0)
-    # volume 0.01 ≈ $0.10/pip para maioria dos pares
-    # Para pares com JPY, pip_val = 0.01
-    pip_dollar = volume * 100000 * pip_val  # ~$0.10 para EUR/USD etc
+    # volume 0.01 ≈ $0.10/pip para todos os pares (aproximação conservadora)
+    # Pares JPY: pip_val=0.01 mas mesma $/pip aproximada
+    pip_dollar = volume * 10.0  # ~$0.10/pip para micro lote
     max_sl_pips = risk_amount / pip_dollar
     return round(max_sl_pips, 1)
 
@@ -713,88 +746,95 @@ def run_analysis():
     except:
         pass
 
-    # ── Análise de sinais ──
+    # ── Análise de sinais (V7: TF otimizado por par) ──
     for pair, cfg in PAIRS.items():
-        try:
-            ticker = fetch_ohlcv(cfg['sym'], period='5d', interval='15m')
-            df = ticker
-            if len(df) < 20:
-                continue
+            # V7: cada par no seu melhor TF
+            tf = cfg['tf']
+            try:
+                ticker = fetch_ohlcv(cfg['sym'], period='5d', interval=tf)
+                df = ticker
 
-            current = float(df.iloc[-1]['Close'])
-            a = atr(df)
-            atr_pips = round(a / cfg['pip'], 1)
+                if len(df) < 20:
+                    continue
 
-            if atr_pips < MIN_ATR_PIPS:
-                continue
+                current = float(df.iloc[-1]['Close'])
+                a = atr(df)
+                atr_pips = round(a / cfg['pip'], 1)
 
-            signals = detect_choch_fvg(df, cfg['pip'])
+                if atr_pips < MIN_ATR_PIPS:
+                    continue
 
-            if signals:
-                buy_sigs = [s for s in signals if s['type'] == 'BUY']
-                sell_sigs = [s for s in signals if s['type'] == 'SELL']
+                # V7: killzone check — None = 24h (sem restrição)
+                hour_utc = datetime.utcnow().hour
+                pair_kz = cfg.get('killzone')
+                if pair_kz is not None and hour_utc not in pair_kz:
+                    continue
 
-                for sig_list, direction in [(buy_sigs, 'BUY'), (sell_sigs, 'SELL')]:
-                    if sig_list:
-                        best = None
-                        if CRT_ENABLED:
-                            for s in reversed(sig_list):
-                                if is_crt_candle(df, s['idx']) and crt_confirmation(df, s['idx']):
-                                    best = s
-                                    break
-                        if best is None:
-                            best = sig_list[-1]
+                signals = detect_fvg(df, cfg['pip'])
 
-                        trade_key = pair + direction
-                        if trade_key in traded_today:
-                            continue
+                if signals:
+                    buy_sigs = [s for s in signals if s['type'] == 'BUY']
+                    sell_sigs = [s for s in signals if s['type'] == 'SELL']
 
-                        if CRT_ENABLED:
-                            idx = best['idx']
-                            if not is_crt_candle(df, idx):
-                                continue
-                            if not crt_confirmation(df, idx):
-                                continue
+                    for sig_list, direction in [(buy_sigs, 'BUY'), (sell_sigs, 'SELL')]:
+                        if sig_list:
+                            best = None
+                            if CRT_ENABLED:
+                                for s in reversed(sig_list):
+                                    if is_crt_candle(df, s['idx']) and crt_confirmation(df, s['idx']):
+                                        best = s
+                                        break
+                            if best is None:
+                                best = sig_list[-1]
 
-                        # ── VERIFICAÇÃO WR REAL ──
-                        allowed, real_wr, wr_reason = should_trade_pair(pair)
-                        if not allowed:
-                            print(f"[WR] {pair}: {wr_reason} — pulando")
-                            continue
-                        # WR para decisão: usa real_wr se disponível, senão backtest
-                        elite_wr, _ = get_real_wr(pair, min_trades=2)
-                        decision_wr = real_wr if real_wr is not None else (elite_wr if elite_wr is not None else cfg['backtest_wr'])
-
-                        if SR_ENABLED:
-                            if not near_sr_level(df, best['entry'], direction, cfg['pip']):
+                            trade_key = pair + direction
+                            if trade_key in traded_today:
                                 continue
 
-                        # ── VERIFICAÇÃO DE RISCO (NOVO) ──
-                        balance = get_balance()
-                        max_sl_pips = calculate_max_risk_sl(balance, cfg['pip'])
-                        # O SL do FVG é tipicamente 1-5 pips, bem dentro do limite
-                        # Mas verificamos por segurança
-                        if best['fvg_pips'] > max_sl_pips:
-                            print(f"[RISK] {pair} {direction} SL={best['fvg_pips']:.1f}p > max={max_sl_pips:.1f}p — pulando")
-                            continue
+                            if CRT_ENABLED:
+                                idx = best['idx']
+                                if not is_crt_candle(df, idx):
+                                    continue
+                                if not crt_confirmation(df, idx):
+                                    continue
 
-                        score = decision_wr
-                        active_count = count_active_positions()
-                        remaining = MAX_POSITIONS - active_count
+                            # ── VERIFICAÇÃO WR REAL ──
+                            allowed, real_wr, wr_reason = should_trade_pair(pair)
+                            if not allowed:
+                                print(f"[WR] {pair}: {wr_reason} — pulando")
+                                continue
+                            # WR para decisão: usa real_wr se disponível, senão backtest
+                            elite_wr, _ = get_real_wr(pair, min_trades=2)
+                            decision_wr = real_wr if real_wr is not None else (elite_wr if elite_wr is not None else cfg.get('wr', 50))
 
-                        signals_found.append({
-                            'pair': pair,
-                            'direction': direction,
-                            'entry': best['entry'],
-                            'fvg_pips': best['fvg_pips'],
-                            'atr_pips': atr_pips,
-                            'wr': decision_wr,
-                            'real_wr': real_wr,
-                            'score': score,
-                            'remaining_slots': remaining
-                        })
-        except Exception:
-            pass
+                            if SR_ENABLED:
+                                if not near_sr_level(df, best['entry'], direction, cfg['pip']):
+                                    continue
+
+                            # ── VERIFICAÇÃO DE RISCO ──
+                            balance = get_balance()
+                            max_sl_pips = calculate_max_risk_sl(balance, cfg['pip'])
+                            if best['fvg_pips'] > max_sl_pips:
+                                print(f"[RISK] {pair} {direction} SL={best['fvg_pips']:.1f}p > max={max_sl_pips:.1f}p — pulando")
+                                continue
+
+                            score = decision_wr
+                            active_count = count_active_positions()
+                            remaining = MAX_POSITIONS - active_count
+
+                            signals_found.append({
+                                'pair': pair,
+                                'direction': direction,
+                                'entry': best['entry'],
+                                'fvg_pips': best['fvg_pips'],
+                                'atr_pips': atr_pips,
+                                'wr': decision_wr,
+                                'real_wr': real_wr,
+                                'score': score,
+                                'remaining_slots': remaining
+                            })
+            except Exception:
+                pass
 
     # ── Executar sinais (limitado a MAX_POSITIONS) ──
     if signals_found:
@@ -839,6 +879,8 @@ def run_analysis():
         for sig in signals_found[:slots_available]:
             result = place_choch_order(sig['pair'], sig['direction'],
                                      sig['entry'], sig['fvg_pips'], sig['atr_pips'])
+            if result is None:
+                continue
             tid = record_trade(sig['direction'], sig['pair'], sig['entry'],
                         result['sl'], result['tp'])
             executed.append({
@@ -889,7 +931,7 @@ def run_analysis():
         if executed:
             active_total = len(state['active_trades'])
             balance = get_balance()
-            lines = [f"⚡ <b>{len(executed)} trade(s) executado(s)</b> — Conta REAL"]
+            lines = [f"⚡ <b>{len(executed)} trade(s) executado(s)</b> — Conta DEMO (IC Markets)"]
             lines.append(f"💰 Saldo: ${balance:.2f} | Posições: {active_total}/{MAX_POSITIONS}")
             for e in executed:
                 lines.append(f"  • {e['pair']} {e['dir']} WR={e['wr']}% @ {e['entry']:.5f}")

@@ -1,19 +1,29 @@
 {
-  "week_start": "2026-05-25",
-  "week_end": "2026-05-29",
+  "week_start": "2026-05-26",
+  "week_end": "2026-05-30",
   "pairs": {
-    "USD/JPY": "BUY",
+    "GBP/JPY": "BUY",
     "GBP/USD": "BUY",
-    "EUR/USD": "NEUTRAL",
-    "AUD/USD": "NEUTRAL"
+    "EUR/USD": "NEUTRAL"
   },
-  "macro": {
-    "iran_deal": "Broad understanding reached in Tehran. Risk-on. Supports carry trades (BUY USDJPY).",
-    "fed": "Kevin Warsh = new Fed Chair. Waller hawkish - no policy change near term.",
-    "consumer_sentiment": "UMich 44.8 vs 48.2 expected → BEARISH USD signal.",
-    "cad": "Canada retail sales +0.9% vs +0.6% expected. CAD strength possible."
+  "strategies": {
+    "GBPJPY": "ICT H1→M5→M1 (100% WR, +20.7p, ~1 setup/semana)",
+    "GBPUSD": "Killzone London Close 15-16h UTC (50% WR, +43p)",
+    "EURUSD": "Killzone London Close 15-16h UTC (100% WR, +24p)"
   },
-  "summary": "Iran deal risk-on + Fed hawkish + weak consumer sentiment. USDJPY primary (73.3% WR in backtest). Mon holiday - no trading. Tue-Fri: London/NY killzones only.",
-  "no_trade_monday": true,
-  "updated": "2026-05-25T16:38:00+00:00"
+  "removed_pairs": {
+    "EURJPY": "0 estratégias >40% WR — removido 26/05",
+    "USDJPY": "0 estratégias >40% WR — removido 26/05",
+    "USDCAD": "0 estratégias >40% WR — removido 26/05"
+  },
+  "ict_status": {
+    "pair": "GBPJPY",
+    "price": 214.37,
+    "breaks": 2,
+    "direction": "BUY",
+    "displacement": "AGUARDANDO 06-08h UTC"
+  },
+  "no_trade_monday": false,
+  "summary": "3 pares ativos. GBPJPY via ICT, GBPUSD/EURUSD via London Close. Backtest 14d: EURJPY/USDJPY/USDCAD removidos (WR <40%). Londres aberto — monitorando GBPJPY.",
+  "updated": "2026-05-26T02:55:00+00:00"
 }

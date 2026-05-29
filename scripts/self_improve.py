@@ -5,7 +5,7 @@ Executa 1x/dia, ~25 minutos.
 Mapeia eficiência, corrige bugs, otimiza código local.
 """
 import os, sys, json, subprocess
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from collections import Counter
 
@@ -219,7 +219,34 @@ def main():
     with open(IMPROVEMENT_LOG, 'a') as f:
         f.write(json.dumps(log_entry) + '\n')
     
-    print(f"\n✅ Auto-análise concluída. Log: {IMPROVEMENT_LOG}")
+    # ── SELF-EVOLUTION LOG ──
+    evo_file = Path(BASE) / 'self_evolution_log.json'
+    evo_file.parent.mkdir(parents=True, exist_ok=True)
+    evo_entry = {
+        'cycle_id': f"auto-{datetime.now().strftime('%Y%m%d-%H%M')}",
+        'timestamp': datetime.now(timezone.utc).isoformat(),
+        'research_topic': 'daily_self_improvement',
+        'problem_detected': f"Cron health: {cron.get('error',0)} errors. Script issues: {len([s for s in scripts.values() if s != 'OK'])} broken.",
+        'solution_found': f"Detected {len(suggestions)} improvement areas",
+        'implementation_done': False,
+        'test_result': f"Errors: {total}, Cron OK: {cron.get('ok',0)}/{cron.get('total',0)}",
+        'measured_gain': 'Daily self-audit completed',
+        'cost_impact': 'zero (no_agent)',
+        'rollback_path': 'none needed',
+        'status': 'completed' if not suggestions else 'pending_improvements',
+    }
+    existing = {}
+    if evo_file.exists():
+        try: existing = json.loads(evo_file.read_text())
+        except: existing = {}
+    cycles = existing.get('cycles', [])
+    cycles.append(evo_entry)
+    # Keep last 50 cycles
+    existing['cycles'] = cycles[-50:]
+    existing['last_updated'] = datetime.now(timezone.utc).isoformat()
+    evo_file.write_text(json.dumps(existing, ensure_ascii=False, indent=2, default=str))
+    
+    print(f"\n✅ Auto-análise concluída. Log: {IMPROVEMENT_LOG} | Evolution: {evo_file}")
 
 if __name__ == "__main__":
     main()

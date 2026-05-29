@@ -129,6 +129,31 @@ def main():
     print(f"🧠 Amygdala: {len(threats)} threat(s) detectados")
     for t in threats:
         print(f"  [{t['level']}] {t.get('summary', t.get('error', t.get('message', '')))}")
+    
+    # ═══ ANÁLISE PROFUNDA VIA MODELO LOCAL ═══
+    if threats:
+        try:
+            import sys; sys.path.insert(0, str(HERMES / 'scripts'))
+            from brain_orchestrator import route_task
+            
+            threat_text = '\n'.join(
+                f"[{t.get('level','?')}] {t.get('summary', t.get('error', t.get('message', '')))}"
+                for t in threats[:5]
+            )
+            
+            result = route_task('amygdala',
+                f"Avalie estas ameaças e recomende ação:\n{threat_text}",
+                context=f"ENTIDADE autônoma. MT5 forex ativo. {len(threats)} ameaças detectadas.",
+                timeout=90)
+            
+            if result['success'] and result['result']:
+                # Adicionar análise ao output
+                analysis = result['result'][:300]
+                output['ai_analysis'] = analysis
+                out_file.write_text(json.dumps(output, ensure_ascii=False, indent=2))
+                print(f"  🤖 Análise: {analysis[:150]}...")
+        except Exception as e:
+            pass  # Fallback silencioso — análise determinística já foi feita
 
 if __name__ == '__main__':
     main()
