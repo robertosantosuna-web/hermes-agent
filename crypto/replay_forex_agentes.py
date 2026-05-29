@@ -107,23 +107,30 @@ class ForexAgentAnalytics:
             
             if len(c) < 50: continue
             
+            # Calcular daily_bias real
+            if len(c) >= 96:  # ~1 dia em M15
+                prev_day_open = c[-96]
+                daily_bias = 'BUY' if c[-1] > prev_day_open else 'SELL'
+            else:
+                daily_bias = 'NEUTRAL'
+            
             # ═══ ANÁLISE DE CADA AGENTE ═══
             hour = datetime.now(timezone.utc).hour
             
-            # 1. Perfil (pair + hora)
+            # 1. Perfil (contexto, não direção)
             p_dir, p_conf, p_msg = self.perfil.analyze(self.pair, hour)
             
-            # 2. Sessão (volatilidade)
+            # 2. Sessão (volatilidade, não direção)
             s_dir, s_conf, s_msg = self.sessao.analyze(h, l, c, self.pip)
             
-            # 3. Estrutura (CHoCH + S/R)
-            e_dir, e_conf, e_msg = self.estrutura.analyze(h, l, c, 'NEUTRAL')
+            # 3. Estrutura (CRT pattern, precisa de daily_bias)
+            e_dir, e_conf, e_msg = self.estrutura.analyze(h, l, c, daily_bias)
             
             # 4. Padrão (FVG)
-            pat_dir, pat_conf, pat_sig = self.padrao.analyze(h, l, c, e_dir if e_dir != 'NEUTRAL' else 'BUY', self.pip)
+            pat_dir, pat_conf, pat_sig = self.padrao.analyze(h, l, c, e_dir if e_dir != 'NEUTRAL' else daily_bias, self.pip)
             
             # 5. Confluência (conselho)
-            c_dir, c_conf, c_msg = self.confluencia.analyze(self.pair, h, l, c, 'NEUTRAL', self.pip)
+            c_dir, c_conf, c_msg = self.confluencia.analyze(self.pair, h, l, c, daily_bias, self.pip)
             
             signals_checked += 1
             
