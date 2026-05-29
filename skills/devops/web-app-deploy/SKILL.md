@@ -39,17 +39,24 @@ CMD sh -c "python3 /usr/share/nginx/html/api.py & nginx -g 'daemon off;'"
 
 ### nginx.conf — proxy /api/* → Python
 
+**CRITICAL**: `proxy_pass` trailing slash behavior — `http://127.0.0.1:8081/` (with slash) STRIPS the `location` prefix; `http://127.0.0.1:8081` (no slash) PRESERVES it. Match your backend's expected paths.
+
 ```nginx
 server {
     listen 8080;
     root /usr/share/nginx/html;
     index index.html;
 
+    # Sem trailing slash → /api/v1/chat chega como /api/v1/chat no backend
     location /api/ {
-        proxy_pass http://127.0.0.1:8081/;
+        proxy_pass http://127.0.0.1:8081;
         proxy_http_version 1.1;
         proxy_set_header Host $host;
     }
+
+    # Legacy paths (sem /api/) — também proxy
+    location /chat { proxy_pass http://127.0.0.1:8081; proxy_http_version 1.1; proxy_set_header Host $host; }
+    location /auth { proxy_pass http://127.0.0.1:8081; proxy_http_version 1.1; proxy_set_header Host $host; }
 
     # SW — no-cache obrigatório
     location /sw.js {
@@ -61,6 +68,20 @@ server {
         try_files $uri $uri/ /index.html;
     }
 }
+```
+
+### Python backend: query string parsing pitfall
+
+`self.path.split('/')` includes query strings — `['api','v1','chat?since=5']` fails `parts[2] == 'chat'`.
+Always separate path from query:
+
+```python
+from urllib.parse import urlparse, parse_qs
+
+parsed = urlparse(self.path)
+path_parts = [p for p in parsed.path.split('/') if p]
+params = parse_qs(parsed.query)
+since = int(params.get('since', ['0'])[0])
 ```
 
 ---

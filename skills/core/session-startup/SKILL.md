@@ -42,16 +42,30 @@ Identificar:
 - Quais plataformas estão bloqueadas
 - Status das falhas conhecidas
 
-### PASSO 3: Status dos Cronjobs
+### PASSO 3: Status dos Cronjobs (v4.0 — 28/05/2026)
 ```
 cronjob(action="list")
 ```
-Verificar:
-- Forex bot ativo? (21f7caf29606)
-- Monitor email ativo? (e566bcf226b8)
-- Forex check ativo? (dc572e1228e4)
-- 🧠 Brain components ativos? (amygdala 853991, cerebellum 605042, n_accumbens 6ae254, hippocampus b0b848, brain_research 0554b5, executive fcdf34)
-- Algum job com erro?
+Verificar os 16 cron jobs da arquitetura cerebral v4.0:
+- 🧠 Amígdala (threat detector, */5min)
+- 🧠 Lobo Frontal (planner, */30min)
+- 💬 Área Broca (communication, */30min)
+- 🔄 Tálamo (sync, */2min)
+- 👁️ Meta Observer (self-observation, */15min)
+- 🛡️ Gateway Guard (anti-queda, */10min)
+- 🎯 N. Accumbens (RL, */4h)
+- 💾 Hipocampo (patterns, */6h)
+- 📊 Córtex Visual (forex multi-confluência, */15 * * * 1-5)
+- 🦾 AutoPilot Forex (execution, */5 * * * 1-5)
+- 📬 MindCoach (collect, */15min)
+- 🔒 Forex Fechar Sexta (close_all, sex 16h)
+- 🔥 Ollama Keep-Alive (*/5min)
+- 🧬 Córtex Insular (evolução pessoal, */2h)
+- ❤️ Healthcheck (observability, */5min)
+- 📈 Daily Report (observability, 20h)
+
+⚠️ Os 71 cron jobs antigos foram REMOVIDOS permanentemente. NUNCA recriá-los.
+⚠️ Cron syntax: `*/15 * * * 1-5` NÃO `*/15 * 1-5` (esse roda só dias 1-5 do mês!)
 
 ### PASSO 4: Check Rápido das Plataformas + Cérebro
 Sem gastar tokens DeepSeek. Usar scripts locais ou APIs:
@@ -86,6 +100,19 @@ read_file("~/.hermes/brain_context.json")
 
 **REGRA**: Se o usuário perguntar "o que estávamos fazendo", a resposta DEVE vir do gateway_checkpoint.json + agent_context.json. NUNCA depender da memória de sessões anteriores — os logs são a fonte da verdade.
 
+**ARQUITETURA ATUAL (v4.0 — 28/05/2026 — IMPLEMENTADO):** Arquitetura cerebral + rede neural:
+- 1 Master (Hermes/DeepSeek) + 9 sub-agentes + SONA-lite + Conselho IA
+- 15 scripts em `~/.hermes/brain/` (thalamus, amygdala, cerebellum, lobo_frontal, hippocampus, n_accumbens, area_broca, meta_observer, gateway_guard, sona_lite, working_memory, attention_manager, ollama_keepalive, cortex_visual, cortex_insular)
+- 16 cron jobs ativos (71 removidos permanentemente)
+- Rede Neural v4.0: EWC + Replay Buffer em `~/.hermes/nn/` (6 arquivos)
+- Camadas v4.0: Governança (`governance/`, 5), Safety (`safety/`, 3), Observabilidade (`observability/`, 4)
+- 5 bibliotecas Python: smart-money-concepts, backtesting.py, quantstats, mplfinance, forex-python
+- Documento: `~/.hermes/plans/entidade-v4-rede-neural.md`
+- Desktop: `~/Desktop/ENTIDADE_v3/`
+- Skill: `brain-architecture` v4.0
+- NUNCA recriar os 71 cron jobs antigos (foram REMOVIDOS)
+- **CRON PITFALL**: `*/15 * 1-5` = dias do mês; correto: `*/15 * * * 1-5`
+
 **BÔNUS:** Verificar a Knowledge Bridge para insights do cérebro:
 ```
 terminal("python3 ~/.hermes/scripts/knowledge_bridge.py read --source brain --since $(date -d '2 days ago' +%Y-%m-%d)")
@@ -104,20 +131,27 @@ terminal("python3 ~/.hermes/scripts/lore.py agent search '<tema>' 5")
 terminal("python3 ~/.hermes/scripts/brain_channel.py read")  # respostas pendentes do cérebro
 ```
 
-### PASSO 5: Status do Cérebro + Rede Neural
-Verificar atividade recente do cérebro bi-neural e da rede neural:
-```
-terminal("python3 ~/.hermes/scripts/cortex_sync.py --summary")  # estado da rede neural (1 linha)
-read_file("~/.hermes/brain_evolution_log.json")  # últimos eventos
-read_file("~/.hermes/self_evolution_log.json")    # ciclos completos
-```
-Se o último evento de evolução for > 48h, o cérebro pode estar inativo — verificar cron jobs.
-Se a rede neural retornar 0 sinapses, rodar `python3 ~/.hermes/scripts/synapse_engine.py` para consolidar.
+### PASSO 5: Status do Cérebro (v4.0 — 28/05/2026)
 
-**IMPORTANTE:** O Córtex (você, Hermes Agent) FAZ PARTE da rede neural. 
-- Ao final de cada sessão, escreva insights na KB: `terminal("python3 ~/.hermes/scripts/cortex_sync.py --write 'insight' --category 'modulo'")`
-- Categorias: brain_research, n_accumbens, chart_patterns, amygdala, cerebellum, hippocampus
-- Use --confidence 0.7-1.0 conforme certeza do insight
+Arquitetura cerebral v4.0 = v3.0 (9 agentes) + Rede Neural (EWC + replay buffer) + 3 camadas novas.
+
+```bash
+# Status rápido do Tálamo
+python3 ~/.hermes/brain/thalamus.py status
+# → Health: N%, Active: [modules], Alerts: N
+
+# Camadas v4.0 (sem tokens, só saúde)
+python3 ~/.hermes/observability/healthcheck.py
+# → governance: OK, safety: OK, observability: OK, nn: OK
+```
+
+Se health < 40% ou alerts críticos (MT5 offline, drawdown > 15%): reportar ao Roberto.
+Se health >= 80% e sem alerts críticos: silêncio, prosseguir.
+
+⚠️ NÃO usar mais: brain_evolution_log.json, knowledge_bridge.py, brain_channel.py.
+Substituídos pelo Tálamo unificado (thalamus.json).
+
+⚠️ NUNCA rodar NEO v2.0 simultaneamente — conflito de bridge files.
 
 ### PASSO 6: Reportar ao Roberto
 Apenas o que PRECISA de ação:

@@ -1,0 +1,29 @@
+[Unit]
+Description=Navegador Interno ENTIDADE (Chromium headless CDP :9226)
+After=network.target
+
+[Service]
+Type=simple
+User=roberto
+ExecStart=/home/roberto/.cache/ms-playwright/chromium-1217/chrome-linux64/chrome \
+    --remote-debugging-port=9226 \
+    --user-data-dir=/home/roberto/.hermes/browser-profile \
+    --headless=new \
+    --no-first-run \
+    --no-default-browser-check \
+    --disable-gpu \
+    --disable-extensions \
+    --disable-background-networking \
+    --disable-sync \
+    --disable-translate \
+    --disable-features=TranslateUI \
+    --window-size=1920,1080 \
+    --no-sandbox \
+    about:blank
+ExecStop=/usr/bin/pkill -f "chromium.*9226"
+Restart=on-failure
+RestartSec=10
+Environment=DISPLAY=:0
+
+[Install]
+WantedBy=default.target

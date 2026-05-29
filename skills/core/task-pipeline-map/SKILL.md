@@ -149,11 +149,41 @@ Quando enfrentar um cenário NOVO não mapeado:
 
 ---
 
+### 🔄 Forex AutoPilot — Ciclo de Morte (27/05)
+
+| ❌ NÃO funciona | ✅ FUNCIONA |
+|-----------------|-------------|
+| AutoPilot com balance hardcoded ($400) | Ler balance real do MT5 via bridge |
+| Drawdown threshold 3% ($12) | 15% mínimo + cooldown 30min |
+| Sem limite diário de trades | MAX_DAILY_TRADES=20 |
+| Fechar tudo e reabrir sem cooldown | Cooldown file após close_all |
+
+**Skill:** `forex-choch-m15` → references/v8.2-autopilot-cycle-of-death.md
+
+### 🧠 Ollama — Context Window (27/05)
+
+| ❌ NÃO funciona | ✅ FUNCIONA |
+|-----------------|-------------|
+| qwen2.5:3b (32K ctx) em cron jobs Hermes | llama3.2:3b (128K ctx) ou phi3:mini (128K) |
+| Modelos < 64K em providers config | Verificar `ollama show <model>` antes de configurar |
+
+### 🌐 CDP Browser Port (27/05)
+
+| ❌ NÃO funciona | ✅ FUNCIONA |
+|-----------------|-------------|
+| Porta :9223 (headless) offline sem systemd | Porta :9222 (Brave real, sempre ativo) |
+| CDP /json/navigate para SPAs | Page.navigate via WebSocket |
+
 ## REGISTRO DE ATUALIZAÇÕES
 
 | Data | Cenário | Falha | Solução |
 |------|---------|-------|---------|
-| 24/05 | Instalação RVC | Python 3.11 incompatível (requer 3.10) | Usar Coqui TTS XTTS v2 (compatível 3.11) |
+| 27/05 | AutoPilot fecha tudo em loop | DD 3% + balance $400 fixo | DD 15% + balance real + cooldown 30min |
+| 27/05 | 154 trades/dia | Sem limite diário | MAX_DAILY_TRADES=20 |
+| 27/05 | monitor_consumer crash | `list.get()` em vez de dict | isinstance check |
+| 27/05 | brain_browser offline | Porta :9223 headless down | Migrar para :9222 (Brave real) |
+| 27/05 | Ollama 32K rejeitado | qwen2.5:3b < 64K mínimo | llama3.2:3b (128K) |
+| 24/05 | Instalação RVC | Python 3.11 incompatível (requer 3.10) | Usar Coqui TTS XTSS v2 (compatível 3.11) |
 | 24/05 | Instalação Coqui TTS | transformers 5.9.0 quebrou | Pin transformers==4.36.2 |
 | 24/05 | Instalação Coqui TTS | torch.load weights_only PyTorch 2.6 | Patch io.py weights_only=False |
 | 24/05 | 99Freelas React input | 14 tentativas CDP falharam | ydotool type kernel-level |

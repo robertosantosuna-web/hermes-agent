@@ -1,0 +1,5586 @@
+{
+  "messages": {
+    "user_brain": [],
+    "brain_user": [],
+    "inter_agent": [
+      {
+        "id": "d4484b88",
+        "source": "cortex_visual",
+        "target": "meta_observer",
+        "type": "trade_opened",
+        "content": {
+          "pair": "USDJPY",
+          "direction": "SELL",
+          "entry": 158.911,
+          "sl": 158.961,
+          "tp": 158.811,
+          "ticket": null,
+          "confluences": [
+            "KILLZONE",
+            "HTF_ALIGNMENT",
+            "LIQUIDITY_SWEEP",
+            "SMT_DIVERGENCE"
+          ],
+          "n_confluences": 4,
+          "strategy": "MULTI_CONFLUENCE"
+        },
+        "priority": 5,
+        "timestamp": "2026-05-28T20:10:56.125586+00:00"
+      },
+      {
+        "id": "7fc01a9d",
+        "source": "cortex_visual",
+        "target": "meta_observer",
+        "type": "trade_opened",
+        "content": {
+          "pair": "USDJPY",
+          "direction": "BUY",
+          "entry": 159.487,
+          "sl": 159.437,
+          "tp": 159.587,
+          "ticket": null,
+          "confluences": [
+            "KILLZONE",
+            "HTF_ALIGNMENT",
+            "LIQUIDITY_SWEEP",
+            "SMT_DIVERGENCE"
+          ],
+          "n_confluences": 4,
+          "strategy": "MULTI_CONFLUENCE"
+        },
+        "priority": 5,
+        "timestamp": "2026-05-28T20:10:56.129255+00:00"
+      },
+      {
+        "id": "5467e3d8",
+        "source": "cortex_visual",
+        "target": "meta_observer",
+        "type": "trade_opened",
+        "content": {
+          "pair": "EURJPY",
+          "direction": "BUY",
+          "entry": 185.498,
+          "sl": 185.438,
+          "tp": 185.618,
+          "ticket": null,
+          "confluences": [
+            "KILLZONE",
+            "HTF_ALIGNMENT",
+            "LIQUIDITY_SWEEP",
+            "SMT_DIVERGENCE"
+          ],
+          "n_confluences": 4,
+          "strategy": "MULTI_CONFLUENCE"
+        },
+        "priority": 5,
+        "timestamp": "2026-05-28T20:10:56.132822+00:00"
+      },
+      {
+        "id": "da0aba6c",
+        "source": "cortex_visual",
+        "target": "meta_observer",
+        "type": "trade_opened",
+        "content": {
+          "pair": "EURJPY",
+          "direction": "SELL",
+          "entry": 185.407,
+          "sl": 185.467,
+          "tp": 185.287,
+          "ticket": null,
+          "confluences": [
+            "KILLZONE",
+            "HTF_ALIGNMENT",
+            "LIQUIDITY_SWEEP",
+            "SMT_DIVERGENCE"
+          ],
+          "n_confluences": 4,
+          "strategy": "MULTI_CONFLUENCE"
+        },
+        "priority": 5,
+        "timestamp": "2026-05-28T20:10:56.136494+00:00"
+      },
+      {
+        "id": "799e8aa9",
+        "source": "cortex_visual",
+        "target": "meta_observer",
+        "type": "trade_opened",
+        "content": {
+          "pair": "USDJPY",
+          "direction": "BUY",
+          "entry": 159.487,
+          "sl": 159.437,
+          "tp": 159.637,
+          "ticket": null,
+          "confluences": [
+            "KILLZONE",
+            "HTF_ALIGNMENT",
+            "LIQUIDITY_SWEEP",
+            "SMT_DIVERGENCE"
+          ],
+          "n_confluences": 4,
+          "strategy": "MULTI_CONFLUENCE"
+        },
+        "priority": 5,
+        "timestamp": "2026-05-29T00:53:33.670146+00:00"
+      },
+      {
+        "id": "1b52407f",
+        "source": "cortex_visual",
+        "target": "meta_observer",
+        "type": "trade_opened",
+        "content": {
+          "pair": "EURJPY",
+          "direction": "BUY",
+          "entry": 185.498,
+          "sl": 185.438,
+          "tp": 185.678,
+          "ticket": null,
+          "confluences": [
+            "KILLZONE",
+            "HTF_ALIGNMENT",
+            "LIQUIDITY_SWEEP",
+            "SMT_DIVERGENCE"
+          ],
+          "n_confluences": 4,
+          "strategy": "MULTI_CONFLUENCE"
+        },
+        "priority": 5,
+        "timestamp": "2026-05-29T00:53:33.679423+00:00"
+      },
+      {
+        "id": "acb50ef5",
+        "source": "cortex_visual",
+        "target": "meta_observer",
+        "type": "trade_opened",
+        "content": {
+          "pair": "EURJPY",
+          "direction": "SELL",
+          "entry": 185.407,
+          "sl": 185.467,
+          "tp": 185.227,
+          "ticket": null,
+          "confluences": [
+            "KILLZONE",
+            "HTF_ALIGNMENT",
+            "LIQUIDITY_SWEEP",
+            "SMT_DIVERGENCE"
+          ],
+          "n_confluences": 4,
+          "strategy": "MULTI_CONFLUENCE"
+        },
+        "priority": 5,
+        "timestamp": "2026-05-29T00:53:33.688528+00:00"
+      },
+      {
+        "id": "5d2a973d",
+        "source": "cortex_visual",
+        "target": "meta_observer",
+        "type": "trade_opened",
+        "content": {
+          "pair": "USDJPY",
+          "direction": "BUY",
+          "entry": 159.487,
+          "sl": 159.437,
+          "tp": 159.637,
+          "ticket": null,
+          "confluences": [
+            "KILLZONE",
+            "HTF_ALIGNMENT",
+            "LIQUIDITY_SWEEP",
+            "SMT_DIVERGENCE"
+          ],
+          "n_confluences": 4,
+          "strategy": "MULTI_CONFLUENCE"
+        },
+        "priority": 5,
+        "timestamp": "2026-05-29T03:21:11.139420+00:00"
+      },
+      {
+        "id": "2dec2b25",
+        "source": "cortex_visual",
+        "target": "meta_observer",
+        "type": "trade_opened",
+        "content": {
+          "pair": "EURJPY",
+          "direction": "BUY",
+          "entry": 185.498,
+          "sl": 185.438,
+          "tp": 185.678,
+          "ticket": 1674297457,
+          "confluences": [
+            "KILLZONE",
+            "HTF_ALIGNMENT",
+            "LIQUIDITY_SWEEP",
+            "SMT_DIVERGENCE"
+          ],
+          "n_confluences": 4,
+          "strategy": "MULTI_CONFLUENCE"
+        },
+        "priority": 5,
+        "timestamp": "2026-05-29T03:21:12.002881+00:00"
+      },
+      {
+        "id": "2191b020",
+        "source": "cortex_visual",
+        "target": "meta_observer",
+        "type": "trade_opened",
+        "content": {
+          "pair": "EURJPY",
+          "direction": "SELL",
+          "entry": 185.407,
+          "sl": 185.467,
+          "tp": 185.227,
+          "ticket": null,
+          "confluences": [
+            "KILLZONE",
+            "HTF_ALIGNMENT",
+            "LIQUIDITY_SWEEP",
+            "SMT_DIVERGENCE"
+          ],
+          "n_confluences": 4,
+          "strategy": "MULTI_CONFLUENCE"
+        },
+        "priority": 5,
+        "timestamp": "2026-05-29T03:21:12.264582+00:00"
+      }
+    ],
+    "external": []
+  },
+  "events": [
+    {
+      "id": "9afea0d0",
+      "type": "attention_interrupt",
+      "source": "AttentionManager",
+      "data": {
+        "item_id": "int1",
+        "content": "CRITICAL: Drawdown alert",
+        "priority": 10
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:07:01.936253+00:00"
+    },
+    {
+      "id": "a66d3b94",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex",
+        "judgement": "success",
+        "lesson": "[forex] BUY -> success (pnl=5)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:07:54.205856+00:00"
+    },
+    {
+      "id": "42244fcd",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex",
+        "judgement": "failure",
+        "lesson": "[forex] BUY -> failure (pnl=-5)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:07:54.206316+00:00"
+    },
+    {
+      "id": "53050abe",
+      "type": "amygdala_scan",
+      "source": "amygdala",
+      "data": {
+        "threats": [
+          "MT5_UNHEALTHY: mt5_state.json not found",
+          "PENDING_FAILURES: 2 unresolved"
+        ],
+        "mt5_healthy": false,
+        "drawdown_pct": 0.0,
+        "error_count": 0,
+        "pending_failures": 2
+      },
+      "severity": "warning",
+      "timestamp": "2026-05-28T16:08:01.237567+00:00"
+    },
+    {
+      "id": "8d3ed0cf",
+      "type": "lobo_frontal_plan",
+      "source": "lobo_frontal",
+      "data": {
+        "tasks_total": 8,
+        "top5_scores": [
+          77.9,
+          77.9,
+          72.9,
+          62.9,
+          62.9
+        ],
+        "near_events": 0
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:08:01.313871+00:00"
+    },
+    {
+      "id": "23df735d",
+      "type": "area_broca_scan",
+      "source": "area_broca",
+      "data": {
+        "total_messages": 1,
+        "email_msgs": 0,
+        "telegram_msgs": 0,
+        "freelas_opps": 0,
+        "tasks_created": 0
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:08:01.410750+00:00"
+    },
+    {
+      "id": "d4a70bc5",
+      "type": "hippocampus_cycle",
+      "source": "hippocampus",
+      "data": {
+        "trades_analyzed": 12,
+        "discoveries": 0,
+        "gaps": 0,
+        "failure_categories": 0
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:08:22.551918+00:00"
+    },
+    {
+      "id": "4fe06046",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:EURJPY",
+        "judgement": "success",
+        "lesson": "[weight:pair:EURJPY] adjust:0.667 -> success (pnl=1.6700000000000004)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:08:59.803763+00:00"
+    },
+    {
+      "id": "35c43aa9",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:GBPJPY",
+        "judgement": "success",
+        "lesson": "[weight:pair:GBPJPY] adjust:0.667 -> success (pnl=1.6700000000000004)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:08:59.804477+00:00"
+    },
+    {
+      "id": "b9e6998a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:GBPUSD",
+        "judgement": "success",
+        "lesson": "[weight:pair:GBPUSD] adjust:0.750 -> success (pnl=2.5)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:08:59.805130+00:00"
+    },
+    {
+      "id": "3365c8e1",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:USDJPY",
+        "judgement": "success",
+        "lesson": "[weight:pair:USDJPY] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:08:59.805778+00:00"
+    },
+    {
+      "id": "b4511bd6",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:EURUSD",
+        "judgement": "success",
+        "lesson": "[weight:pair:EURUSD] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:08:59.806474+00:00"
+    },
+    {
+      "id": "93dc6302",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:AUDUSD",
+        "judgement": "failure",
+        "lesson": "[weight:pair:AUDUSD] adjust:0.204 -> failure (pnl=-2.9600000000000004)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:08:59.807179+00:00"
+    },
+    {
+      "id": "14969864",
+      "type": "n_accumbens_cycle",
+      "source": "n_accumbens",
+      "data": {
+        "pairs_analyzed": 6,
+        "trades_processed": 12,
+        "market_regime": "ranging",
+        "priority_pairs": 5,
+        "pause_pairs": 0
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:08:59.818449+00:00"
+    },
+    {
+      "id": "df48975a",
+      "type": "meta_observer_cycle",
+      "source": "meta_observer",
+      "data": {
+        "phi": 6.05,
+        "overall_confidence": 0.964,
+        "domains_tracked": 7,
+        "anomalies": 0,
+        "delegations": 1
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:05.742732+00:00"
+    },
+    {
+      "id": "ab703e69",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:overall_confidence",
+        "judgement": "success",
+        "lesson": "[weight:self:overall_confidence] adjust:0.964 -> success (pnl=4.64)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:05.743673+00:00"
+    },
+    {
+      "id": "dc901210",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:AttentionManager",
+        "judgement": "success",
+        "lesson": "[weight:self:AttentionManager] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:05.744572+00:00"
+    },
+    {
+      "id": "fa4081dd",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:SONALite",
+        "judgement": "success",
+        "lesson": "[weight:self:SONALite] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:05.745466+00:00"
+    },
+    {
+      "id": "938bb1eb",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:amygdala",
+        "judgement": "failure",
+        "lesson": "[weight:self:amygdala] adjust:0.050 -> failure (pnl=-4.5)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:05.746367+00:00"
+    },
+    {
+      "id": "e54dd614",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:lobo_frontal",
+        "judgement": "success",
+        "lesson": "[weight:self:lobo_frontal] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:05.747269+00:00"
+    },
+    {
+      "id": "f0bffc26",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:area_broca",
+        "judgement": "success",
+        "lesson": "[weight:self:area_broca] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:05.748198+00:00"
+    },
+    {
+      "id": "8ddf23e6",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:hippocampus",
+        "judgement": "success",
+        "lesson": "[weight:self:hippocampus] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:05.749134+00:00"
+    },
+    {
+      "id": "6ef0a5b5",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:n_accumbens",
+        "judgement": "success",
+        "lesson": "[weight:self:n_accumbens] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:05.750079+00:00"
+    },
+    {
+      "id": "0a787938",
+      "type": "hippocampus_cycle",
+      "source": "hippocampus",
+      "data": {
+        "trades_analyzed": 12,
+        "discoveries": 0,
+        "gaps": 0,
+        "failure_categories": 0
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.472493+00:00"
+    },
+    {
+      "id": "ffd863a1",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:EURJPY",
+        "judgement": "partial",
+        "lesson": "[weight:pair:EURJPY] adjust:0.667 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.500193+00:00"
+    },
+    {
+      "id": "c6d0c7f8",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:GBPJPY",
+        "judgement": "partial",
+        "lesson": "[weight:pair:GBPJPY] adjust:0.667 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.501275+00:00"
+    },
+    {
+      "id": "0871009f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:GBPUSD",
+        "judgement": "partial",
+        "lesson": "[weight:pair:GBPUSD] adjust:0.750 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.502319+00:00"
+    },
+    {
+      "id": "0ccb7b0b",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:USDJPY",
+        "judgement": "partial",
+        "lesson": "[weight:pair:USDJPY] adjust:1.000 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.503354+00:00"
+    },
+    {
+      "id": "b033b0da",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:EURUSD",
+        "judgement": "partial",
+        "lesson": "[weight:pair:EURUSD] adjust:1.000 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.504419+00:00"
+    },
+    {
+      "id": "fc5ad04d",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:AUDUSD",
+        "judgement": "partial",
+        "lesson": "[weight:pair:AUDUSD] adjust:0.204 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.505633+00:00"
+    },
+    {
+      "id": "adb92bc5",
+      "type": "n_accumbens_cycle",
+      "source": "n_accumbens",
+      "data": {
+        "pairs_analyzed": 6,
+        "trades_processed": 12,
+        "market_regime": "ranging",
+        "priority_pairs": 5,
+        "pause_pairs": 0
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.511596+00:00"
+    },
+    {
+      "id": "76489a08",
+      "type": "meta_observer_cycle",
+      "source": "meta_observer",
+      "data": {
+        "phi": 7.05,
+        "overall_confidence": 0.984,
+        "domains_tracked": 8,
+        "anomalies": 0,
+        "delegations": 1
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.544585+00:00"
+    },
+    {
+      "id": "c3691852",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:overall_confidence",
+        "judgement": "success",
+        "lesson": "[weight:self:overall_confidence] adjust:0.984 -> success (pnl=4.84)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.545849+00:00"
+    },
+    {
+      "id": "cffb2ce3",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:AttentionManager",
+        "judgement": "success",
+        "lesson": "[weight:self:AttentionManager] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.547016+00:00"
+    },
+    {
+      "id": "48494c36",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:SONALite",
+        "judgement": "success",
+        "lesson": "[weight:self:SONALite] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.548170+00:00"
+    },
+    {
+      "id": "bcaac2fa",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:amygdala",
+        "judgement": "failure",
+        "lesson": "[weight:self:amygdala] adjust:0.050 -> failure (pnl=-4.5)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.549319+00:00"
+    },
+    {
+      "id": "d917c9af",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:lobo_frontal",
+        "judgement": "success",
+        "lesson": "[weight:self:lobo_frontal] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.550456+00:00"
+    },
+    {
+      "id": "bf2fd71a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:area_broca",
+        "judgement": "success",
+        "lesson": "[weight:self:area_broca] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.551612+00:00"
+    },
+    {
+      "id": "e41a1dbd",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:hippocampus",
+        "judgement": "success",
+        "lesson": "[weight:self:hippocampus] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.552801+00:00"
+    },
+    {
+      "id": "364dcff5",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:n_accumbens",
+        "judgement": "success",
+        "lesson": "[weight:self:n_accumbens] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.554009+00:00"
+    },
+    {
+      "id": "04480895",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:meta_observer",
+        "judgement": "success",
+        "lesson": "[weight:self:meta_observer] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:09:32.555414+00:00"
+    },
+    {
+      "id": "189d54b4",
+      "type": "amygdala_scan",
+      "source": "amygdala",
+      "data": {
+        "threats": [
+          "MT5_UNHEALTHY: mt5_state.json not found",
+          "PENDING_FAILURES: 2 unresolved"
+        ],
+        "mt5_healthy": false,
+        "drawdown_pct": 0.0,
+        "error_count": 0,
+        "pending_failures": 2
+      },
+      "severity": "warning",
+      "timestamp": "2026-05-28T16:10:59.470304+00:00"
+    },
+    {
+      "id": "46393c4b",
+      "type": "meta_observer_cycle",
+      "source": "meta_observer",
+      "data": {
+        "phi": 7.05,
+        "overall_confidence": 0.976,
+        "domains_tracked": 8,
+        "anomalies": 0,
+        "delegations": 1
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:10:59.500166+00:00"
+    },
+    {
+      "id": "915ddbd6",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:overall_confidence",
+        "judgement": "success",
+        "lesson": "[weight:self:overall_confidence] adjust:0.976 -> success (pnl=4.76)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:10:59.501582+00:00"
+    },
+    {
+      "id": "c0986d2a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:AttentionManager",
+        "judgement": "success",
+        "lesson": "[weight:self:AttentionManager] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:10:59.502920+00:00"
+    },
+    {
+      "id": "0cb9c0a0",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:SONALite",
+        "judgement": "success",
+        "lesson": "[weight:self:SONALite] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:10:59.504231+00:00"
+    },
+    {
+      "id": "8e9bad95",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:amygdala",
+        "judgement": "failure",
+        "lesson": "[weight:self:amygdala] adjust:0.050 -> failure (pnl=-4.5)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:10:59.505574+00:00"
+    },
+    {
+      "id": "f10df0ee",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:lobo_frontal",
+        "judgement": "success",
+        "lesson": "[weight:self:lobo_frontal] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:10:59.506935+00:00"
+    },
+    {
+      "id": "4628d805",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:area_broca",
+        "judgement": "success",
+        "lesson": "[weight:self:area_broca] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:10:59.508265+00:00"
+    },
+    {
+      "id": "983a2cb8",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:hippocampus",
+        "judgement": "success",
+        "lesson": "[weight:self:hippocampus] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:10:59.509605+00:00"
+    },
+    {
+      "id": "1194e9cf",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:n_accumbens",
+        "judgement": "success",
+        "lesson": "[weight:self:n_accumbens] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:10:59.510936+00:00"
+    },
+    {
+      "id": "de86f59b",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:meta_observer",
+        "judgement": "success",
+        "lesson": "[weight:self:meta_observer] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:10:59.512306+00:00"
+    },
+    {
+      "id": "bde66955",
+      "type": "lobo_frontal_plan",
+      "source": "lobo_frontal",
+      "data": {
+        "tasks_total": 10,
+        "top5_scores": [
+          77.9,
+          77.9,
+          72.9,
+          62.9,
+          62.9
+        ],
+        "near_events": 0
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:11:07.383994+00:00"
+    },
+    {
+      "id": "f59dff6f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:EURJPY",
+        "judgement": "partial",
+        "lesson": "[weight:pair:EURJPY] adjust:0.667 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:11:07.413877+00:00"
+    },
+    {
+      "id": "d35453a0",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:GBPJPY",
+        "judgement": "partial",
+        "lesson": "[weight:pair:GBPJPY] adjust:0.667 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:11:07.415351+00:00"
+    },
+    {
+      "id": "0a9186b9",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:GBPUSD",
+        "judgement": "partial",
+        "lesson": "[weight:pair:GBPUSD] adjust:0.750 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:11:07.416779+00:00"
+    },
+    {
+      "id": "5c1eb338",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:USDJPY",
+        "judgement": "partial",
+        "lesson": "[weight:pair:USDJPY] adjust:1.000 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:11:07.418183+00:00"
+    },
+    {
+      "id": "b4562c3e",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:EURUSD",
+        "judgement": "partial",
+        "lesson": "[weight:pair:EURUSD] adjust:1.000 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:11:07.419604+00:00"
+    },
+    {
+      "id": "a8a04bc7",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:AUDUSD",
+        "judgement": "partial",
+        "lesson": "[weight:pair:AUDUSD] adjust:0.204 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:11:07.421042+00:00"
+    },
+    {
+      "id": "1af71a01",
+      "type": "n_accumbens_cycle",
+      "source": "n_accumbens",
+      "data": {
+        "pairs_analyzed": 6,
+        "trades_processed": 12,
+        "market_regime": "ranging",
+        "priority_pairs": 5,
+        "pause_pairs": 0
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T16:11:07.428110+00:00"
+    },
+    {
+      "id": "8e37a5f8",
+      "type": "amygdala_scan",
+      "source": "amygdala",
+      "data": {
+        "threats": [
+          "MT5_UNHEALTHY: mt5_state.json not found",
+          "PENDING_FAILURES: 2 unresolved"
+        ],
+        "mt5_healthy": false,
+        "drawdown_pct": 0.0,
+        "error_count": 0,
+        "pending_failures": 2
+      },
+      "severity": "warning",
+      "timestamp": "2026-05-28T17:25:05.201205+00:00"
+    },
+    {
+      "id": "cf3415e2",
+      "type": "gateway_check",
+      "source": "GatewayGuard",
+      "data": {
+        "gateway": "ok"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:25:05.265165+00:00"
+    },
+    {
+      "id": "7804d179",
+      "type": "memory_check",
+      "source": "GatewayGuard",
+      "data": {
+        "memory_percent": 72.1,
+        "alert": false
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:25:05.280257+00:00"
+    },
+    {
+      "id": "ab6edf41",
+      "type": "disk_check",
+      "source": "GatewayGuard",
+      "data": {
+        "disk_percent": 56.0,
+        "alert": false
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:25:05.286562+00:00"
+    },
+    {
+      "id": "23309387",
+      "type": "meta_observer_cycle",
+      "source": "meta_observer",
+      "data": {
+        "phi": 1.789,
+        "overall_confidence": 0.977,
+        "domains_tracked": 9,
+        "anomalies": 0,
+        "delegations": 1
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:25:05.323523+00:00"
+    },
+    {
+      "id": "66649e04",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:overall_confidence",
+        "judgement": "success",
+        "lesson": "[weight:self:overall_confidence] adjust:0.977 -> success (pnl=4.77)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:25:05.327098+00:00"
+    },
+    {
+      "id": "4f254cd0",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:AttentionManager",
+        "judgement": "success",
+        "lesson": "[weight:self:AttentionManager] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:25:05.328698+00:00"
+    },
+    {
+      "id": "1fd6952d",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:SONALite",
+        "judgement": "success",
+        "lesson": "[weight:self:SONALite] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:25:05.330227+00:00"
+    },
+    {
+      "id": "7ce30380",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:amygdala",
+        "judgement": "failure",
+        "lesson": "[weight:self:amygdala] adjust:0.050 -> failure (pnl=-4.5)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:25:05.331837+00:00"
+    },
+    {
+      "id": "43effe6f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:lobo_frontal",
+        "judgement": "success",
+        "lesson": "[weight:self:lobo_frontal] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:25:05.333434+00:00"
+    },
+    {
+      "id": "2b750f79",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:area_broca",
+        "judgement": "success",
+        "lesson": "[weight:self:area_broca] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:25:05.335296+00:00"
+    },
+    {
+      "id": "203d73d1",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:hippocampus",
+        "judgement": "success",
+        "lesson": "[weight:self:hippocampus] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:25:05.336915+00:00"
+    },
+    {
+      "id": "7b6b9c8b",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:n_accumbens",
+        "judgement": "success",
+        "lesson": "[weight:self:n_accumbens] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:25:05.338499+00:00"
+    },
+    {
+      "id": "7a4c2884",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:meta_observer",
+        "judgement": "success",
+        "lesson": "[weight:self:meta_observer] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:25:05.340116+00:00"
+    },
+    {
+      "id": "665e96d3",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:self:GatewayGuard",
+        "judgement": "success",
+        "lesson": "[weight:self:GatewayGuard] adjust:1.000 -> success (pnl=5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:25:05.341914+00:00"
+    },
+    {
+      "id": "1e04d2a6",
+      "type": "ollama_check",
+      "source": "OllamaKeepAlive",
+      "data": {
+        "status": "ok",
+        "models": 6
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:25:05.682134+00:00"
+    },
+    {
+      "id": "e43445dc",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:strategy:choch_fvg",
+        "judgement": "success",
+        "lesson": "[forex:strategy:choch_fvg] baseline_no_filter -> success (pnl=2024.9)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.383044+00:00"
+    },
+    {
+      "id": "973e3b4d",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:strategy:choch_fvg",
+        "judgement": "success",
+        "lesson": "[forex:strategy:choch_fvg] add_h1_trend -> success (pnl=469.4)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.384838+00:00"
+    },
+    {
+      "id": "07a3dc10",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:strategy:choch_fvg_crt",
+        "judgement": "success",
+        "lesson": "[forex:strategy:choch_fvg_crt] add_crt -> success (pnl=48.2)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.386578+00:00"
+    },
+    {
+      "id": "d5593c67",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:strategy:choch_fvg_crt",
+        "judgement": "success",
+        "lesson": "[forex:strategy:choch_fvg_crt] add_sr_levels -> success (pnl=26.3)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.388468+00:00"
+    },
+    {
+      "id": "6f68f7c8",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:strategy:crt",
+        "judgement": "success",
+        "lesson": "[forex:strategy:crt] baseline -> success (pnl=1031.5)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.390365+00:00"
+    },
+    {
+      "id": "d0d1e2b2",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:strategy:crt",
+        "judgement": "success",
+        "lesson": "[forex:strategy:crt] add_sr_levels -> success (pnl=733.3)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.392131+00:00"
+    },
+    {
+      "id": "386a058f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:strategy:crt",
+        "judgement": "success",
+        "lesson": "[forex:strategy:crt] add_h1_sr -> success (pnl=138.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.393899+00:00"
+    },
+    {
+      "id": "f2c09770",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:strategy:crt",
+        "judgement": "success",
+        "lesson": "[forex:strategy:crt] add_h1_trend -> success (pnl=198.1)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.395679+00:00"
+    },
+    {
+      "id": "1c4536bb",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:killzone",
+        "judgement": "success",
+        "lesson": "[forex:killzone] trade_lc -> success (pnl=17.7)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.397515+00:00"
+    },
+    {
+      "id": "32b8a0b1",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:killzone",
+        "judgement": "failure",
+        "lesson": "[forex:killzone] trade_lo -> failure (pnl=-17.2)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.399315+00:00"
+    },
+    {
+      "id": "71f7826a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:killzone",
+        "judgement": "success",
+        "lesson": "[forex:killzone] trade_ny -> success (pnl=10.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.401216+00:00"
+    },
+    {
+      "id": "75174dec",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:killzone",
+        "judgement": "failure",
+        "lesson": "[forex:killzone] unified_v3 -> failure (pnl=-15.85)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.403080+00:00"
+    },
+    {
+      "id": "10d4345f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:strategy:smc",
+        "judgement": "failure",
+        "lesson": "[forex:strategy:smc] h1_all_pairs -> failure (pnl=-156.7)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.405028+00:00"
+    },
+    {
+      "id": "19ca35bc",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:strategy:sr_fvg",
+        "judgement": "partial",
+        "lesson": "[forex:strategy:sr_fvg] all_pairs -> partial (pnl=0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.407236+00:00"
+    },
+    {
+      "id": "b30f46ee",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:pair",
+        "judgement": "success",
+        "lesson": "[forex:pair] trade -> success (pnl=36.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.409189+00:00"
+    },
+    {
+      "id": "8f25d583",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:pair",
+        "judgement": "success",
+        "lesson": "[forex:pair] trade -> success (pnl=24.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.411125+00:00"
+    },
+    {
+      "id": "870f1f06",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:pair",
+        "judgement": "success",
+        "lesson": "[forex:pair] trade -> success (pnl=62.2)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.413071+00:00"
+    },
+    {
+      "id": "026c7849",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:pair",
+        "judgement": "failure",
+        "lesson": "[forex:pair] trade -> failure (pnl=-61.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.415028+00:00"
+    },
+    {
+      "id": "2922a2ba",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:pair",
+        "judgement": "success",
+        "lesson": "[forex:pair] trade -> success (pnl=12.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.417012+00:00"
+    },
+    {
+      "id": "b6f76532",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:pair",
+        "judgement": "failure",
+        "lesson": "[forex:pair] trade -> failure (pnl=-7.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.419032+00:00"
+    },
+    {
+      "id": "27ab3926",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:rr",
+        "judgement": "success",
+        "lesson": "[forex:rr] rr3_standard -> success (pnl=2024.9)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.421106+00:00"
+    },
+    {
+      "id": "ebbbac8f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:rr",
+        "judgement": "success",
+        "lesson": "[forex:rr] rr2_tested -> success (pnl=555.8)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:21.423154+00:00"
+    },
+    {
+      "id": "bcc4f239",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:EURJPY",
+        "judgement": "partial",
+        "lesson": "[weight:pair:EURJPY] adjust:0.667 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:25.004981+00:00"
+    },
+    {
+      "id": "8605a26d",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:GBPJPY",
+        "judgement": "partial",
+        "lesson": "[weight:pair:GBPJPY] adjust:0.667 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:25.007120+00:00"
+    },
+    {
+      "id": "11b4cd55",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:GBPUSD",
+        "judgement": "partial",
+        "lesson": "[weight:pair:GBPUSD] adjust:0.750 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:25.009154+00:00"
+    },
+    {
+      "id": "50d4a61f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:USDJPY",
+        "judgement": "partial",
+        "lesson": "[weight:pair:USDJPY] adjust:1.000 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:25.011170+00:00"
+    },
+    {
+      "id": "a586577c",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:EURUSD",
+        "judgement": "partial",
+        "lesson": "[weight:pair:EURUSD] adjust:1.000 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:25.013203+00:00"
+    },
+    {
+      "id": "d8d30e7d",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:AUDUSD",
+        "judgement": "partial",
+        "lesson": "[weight:pair:AUDUSD] adjust:0.204 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:25.015277+00:00"
+    },
+    {
+      "id": "de898b1d",
+      "type": "n_accumbens_cycle",
+      "source": "n_accumbens",
+      "data": {
+        "pairs_analyzed": 6,
+        "trades_processed": 12,
+        "market_regime": "ranging",
+        "priority_pairs": 5,
+        "pause_pairs": 0
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:25.024365+00:00"
+    },
+    {
+      "id": "7746f1aa",
+      "type": "backtest_report_consolidated",
+      "source": "hermes_agent",
+      "data": {
+        "report": "BACKTEST_REPORT.md",
+        "strategies_compared": [
+          "CHoCH+FVG+CRT",
+          "SilverBullet_Killzones",
+          "Multi_Confluencia_SMC"
+        ],
+        "best_strategy": "CHoCH+FVG+CRT (72.6% WR CRT+S/R)",
+        "best_pairs": [
+          "USDJPY (73.3%)",
+          "EURJPY (65%)"
+        ],
+        "best_killzones": [
+          "London Close (56%)",
+          "NY Open (100%)"
+        ],
+        "discarded": [
+          "SMC Fractal H1 (5.6% WR)",
+          "S/R+FVG M15 (0 trades)",
+          "London Open (25% WR)"
+        ],
+        "optimal_rr": "3:1",
+        "recommendation": "Keep CHoCH+FVG+CRT, discard SMC Fractal, focus USDJPY+EURJPY"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T17:41:45.265543+00:00"
+    },
+    {
+      "id": "024d4772",
+      "type": "agent_startup",
+      "source": "cortex_visual",
+      "data": {
+        "mode": "real",
+        "version": "1.0.0"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:10:52.055635+00:00"
+    },
+    {
+      "id": "c8d5dad3",
+      "type": "trade_signal",
+      "source": "cortex_visual",
+      "data": {
+        "pair": "USDJPY",
+        "direction": "SELL",
+        "confluences": 4,
+        "status": "dry_run"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:10:56.127383+00:00"
+    },
+    {
+      "id": "0c7098dd",
+      "type": "trade_signal",
+      "source": "cortex_visual",
+      "data": {
+        "pair": "USDJPY",
+        "direction": "BUY",
+        "confluences": 4,
+        "status": "dry_run"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:10:56.130990+00:00"
+    },
+    {
+      "id": "fb052b30",
+      "type": "trade_signal",
+      "source": "cortex_visual",
+      "data": {
+        "pair": "EURJPY",
+        "direction": "BUY",
+        "confluences": 4,
+        "status": "dry_run"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:10:56.134618+00:00"
+    },
+    {
+      "id": "8e3c6ba6",
+      "type": "trade_signal",
+      "source": "cortex_visual",
+      "data": {
+        "pair": "EURJPY",
+        "direction": "SELL",
+        "confluences": 4,
+        "status": "dry_run"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:10:56.138247+00:00"
+    },
+    {
+      "id": "e4da7e95",
+      "type": "agent_startup",
+      "source": "cortex_visual",
+      "data": {
+        "mode": "real",
+        "version": "1.0.0"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:14:40.067323+00:00"
+    },
+    {
+      "id": "0a914c96",
+      "type": "agent_startup",
+      "source": "cortex_visual",
+      "data": {
+        "mode": "real",
+        "version": "1.0.0"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:25:07.864030+00:00"
+    },
+    {
+      "id": "39705e40",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live",
+        "judgement": "success",
+        "lesson": "[forex:live] trade_EUR/JPY -> success (pnl=23.9)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:42:31.272716+00:00"
+    },
+    {
+      "id": "416dd7e6",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live",
+        "judgement": "success",
+        "lesson": "[forex:live] trade_EUR/JPY_KZ -> success (pnl=25.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:42:31.276611+00:00"
+    },
+    {
+      "id": "3d902d9c",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live",
+        "judgement": "failure",
+        "lesson": "[forex:live] trade_GBP/JPY -> failure (pnl=-6.1)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:42:31.279088+00:00"
+    },
+    {
+      "id": "fdebe388",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live",
+        "judgement": "success",
+        "lesson": "[forex:live] trade_GBP/USD_KZ -> success (pnl=46.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:42:31.281543+00:00"
+    },
+    {
+      "id": "2e5f733c",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live",
+        "judgement": "partial",
+        "lesson": "[forex:live] trade_GBP/USD_KZ -> partial (pnl=0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:42:31.284054+00:00"
+    },
+    {
+      "id": "cafa6b8c",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:EURJPY",
+        "judgement": "success",
+        "lesson": "[weight:pair:EURJPY] adjust:1.000 -> success (pnl=3.3299999999999996)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:42:41.106480+00:00"
+    },
+    {
+      "id": "b5be0b5b",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "reward_tracking",
+        "judgement": "success",
+        "lesson": "[reward_tracking] reward -> success (pnl=16.65)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:42:41.109063+00:00"
+    },
+    {
+      "id": "6ff138d3",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[weight:pair:GBPJPY] adjust:0.000 -> failure (pnl=-6.67)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:42:41.111547+00:00"
+    },
+    {
+      "id": "ae916797",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "reward_tracking",
+        "judgement": "failure",
+        "lesson": "[reward_tracking] reward -> failure (pnl=-26.680000000000003)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:42:41.114107+00:00"
+    },
+    {
+      "id": "a72161c2",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[weight:pair:GBPUSD] adjust:0.500 -> failure (pnl=-2.5)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:42:41.116652+00:00"
+    },
+    {
+      "id": "fb9fd403",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "reward_tracking",
+        "judgement": "failure",
+        "lesson": "[reward_tracking] reward -> failure (pnl=-10.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:42:41.119230+00:00"
+    },
+    {
+      "id": "420e5bf6",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:AUDUSD",
+        "judgement": "partial",
+        "lesson": "[weight:pair:AUDUSD] adjust:0.204 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:42:41.121824+00:00"
+    },
+    {
+      "id": "7c3c9432",
+      "type": "n_accumbens_cycle",
+      "source": "n_accumbens",
+      "data": {
+        "pairs_analyzed": 4,
+        "trades_processed": 5,
+        "market_regime": "ranging",
+        "priority_pairs": 1,
+        "pause_pairs": 1
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:42:41.134373+00:00"
+    },
+    {
+      "id": "05fbee40",
+      "type": "trades_assimilated",
+      "source": "sona_lite",
+      "data": {
+        "count": 5
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T20:43:32.639300+00:00"
+    },
+    {
+      "id": "ea3781f4",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:EURUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:EURUSD] trade_EURUSD_BUY -> success (pnl=0.01)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.520820+00:00"
+    },
+    {
+      "id": "de67bec1",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:EURUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:EURUSD] trade_EURUSD_BUY -> failure (pnl=-0.01)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.523557+00:00"
+    },
+    {
+      "id": "b10c44df",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:EURUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:EURUSD] trade_EURUSD_BUY -> failure (pnl=-0.02)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.526230+00:00"
+    },
+    {
+      "id": "7eccdc49",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:EURUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:EURUSD] trade_EURUSD_BUY -> failure (pnl=-0.2)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.528884+00:00"
+    },
+    {
+      "id": "9b3ecdf0",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:EURUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:EURUSD] trade_EURUSD_BUY -> failure (pnl=-0.19)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.531583+00:00"
+    },
+    {
+      "id": "697211af",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:EURUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:EURUSD] trade_EURUSD_SELL -> success (pnl=0.05)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.534292+00:00"
+    },
+    {
+      "id": "5043cc5f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:EURUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:EURUSD] trade_EURUSD_SELL -> success (pnl=0.05)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.537014+00:00"
+    },
+    {
+      "id": "00a1c8bd",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:EURUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:EURUSD] trade_EURUSD_BUY -> failure (pnl=-0.26)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.539711+00:00"
+    },
+    {
+      "id": "197c97e1",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:EURUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:EURUSD] trade_EURUSD_BUY -> failure (pnl=-0.26)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.542853+00:00"
+    },
+    {
+      "id": "f77787a7",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:EURUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:EURUSD] trade_EURUSD_BUY -> failure (pnl=-0.26)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.546627+00:00"
+    },
+    {
+      "id": "2a99d493",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:EURUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:EURUSD] trade_EURUSD_SELL -> failure (pnl=-7.15)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.566810+00:00"
+    },
+    {
+      "id": "712e877e",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:EURUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:EURUSD] trade_EURUSD_SELL -> failure (pnl=-0.05)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.569560+00:00"
+    },
+    {
+      "id": "7a48a8ce",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:EURUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:EURUSD] trade_EURUSD_BUY -> failure (pnl=-5.93)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.584345+00:00"
+    },
+    {
+      "id": "43f07df5",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_BUY -> failure (pnl=-0.26)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.591620+00:00"
+    },
+    {
+      "id": "20eaf749",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=1.95)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.595375+00:00"
+    },
+    {
+      "id": "9c5432a6",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-2.53)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.598883+00:00"
+    },
+    {
+      "id": "5ffebdf5",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.08)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.602853+00:00"
+    },
+    {
+      "id": "6a706fbe",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.05)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.606545+00:00"
+    },
+    {
+      "id": "4cb00173",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.2)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.609866+00:00"
+    },
+    {
+      "id": "4a2aac09",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.2)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.613049+00:00"
+    },
+    {
+      "id": "ccdec96f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.03)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.616391+00:00"
+    },
+    {
+      "id": "02d00aec",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.54)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.619331+00:00"
+    },
+    {
+      "id": "ff398cb4",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.08)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.622437+00:00"
+    },
+    {
+      "id": "c943ed0a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.27)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.625904+00:00"
+    },
+    {
+      "id": "920c17e7",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.01)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.629817+00:00"
+    },
+    {
+      "id": "dd1a30da",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.01)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.634149+00:00"
+    },
+    {
+      "id": "df6729b4",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.05)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.637751+00:00"
+    },
+    {
+      "id": "c9bf4aa3",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.39)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.640996+00:00"
+    },
+    {
+      "id": "8f433c40",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.31)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.644410+00:00"
+    },
+    {
+      "id": "da896258",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.51)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.648527+00:00"
+    },
+    {
+      "id": "36d03b1d",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.09)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.651601+00:00"
+    },
+    {
+      "id": "f3bd02aa",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.73)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.655471+00:00"
+    },
+    {
+      "id": "b36a2fb6",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.43)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.658715+00:00"
+    },
+    {
+      "id": "93039941",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.29)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.661975+00:00"
+    },
+    {
+      "id": "c86ae736",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.89)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.665940+00:00"
+    },
+    {
+      "id": "4c3d8ad4",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.19)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.669126+00:00"
+    },
+    {
+      "id": "c786867a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.34)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.673012+00:00"
+    },
+    {
+      "id": "11b19ab6",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.01)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.676282+00:00"
+    },
+    {
+      "id": "93f72845",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.56)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.681105+00:00"
+    },
+    {
+      "id": "748eafed",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.09)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.684855+00:00"
+    },
+    {
+      "id": "7629e05a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.75)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.688185+00:00"
+    },
+    {
+      "id": "527eaaf3",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-1.09)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.692163+00:00"
+    },
+    {
+      "id": "60ef4e7f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=8.48)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.695525+00:00"
+    },
+    {
+      "id": "6fe37723",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.98)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.700253+00:00"
+    },
+    {
+      "id": "6e8d707d",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.15)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.703515+00:00"
+    },
+    {
+      "id": "de39fcfc",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.3)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.707127+00:00"
+    },
+    {
+      "id": "9ae65e6d",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.18)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.710395+00:00"
+    },
+    {
+      "id": "0a4eb499",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.15)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.714477+00:00"
+    },
+    {
+      "id": "a2dcc431",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-10.87)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.718067+00:00"
+    },
+    {
+      "id": "a2c60c52",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.4)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.721481+00:00"
+    },
+    {
+      "id": "002bd485",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.73)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.725010+00:00"
+    },
+    {
+      "id": "d5a2457e",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.72)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.728456+00:00"
+    },
+    {
+      "id": "792ea18f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=5.1)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.732678+00:00"
+    },
+    {
+      "id": "33122c42",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-1.37)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.736130+00:00"
+    },
+    {
+      "id": "bb8307bc",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-5.66)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.740149+00:00"
+    },
+    {
+      "id": "cde68cb5",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.13)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.743688+00:00"
+    },
+    {
+      "id": "535e7876",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.47)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.749231+00:00"
+    },
+    {
+      "id": "12be1031",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.47)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.753770+00:00"
+    },
+    {
+      "id": "94f809a7",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.28)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.757404+00:00"
+    },
+    {
+      "id": "39fd5e2a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.28)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.761172+00:00"
+    },
+    {
+      "id": "64463af8",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.28)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.765597+00:00"
+    },
+    {
+      "id": "449e9fe8",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.28)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.769541+00:00"
+    },
+    {
+      "id": "9e1b1b72",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_SELL -> failure (pnl=-2.53)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.773499+00:00"
+    },
+    {
+      "id": "5feae11c",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_SELL -> failure (pnl=-1.52)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.777293+00:00"
+    },
+    {
+      "id": "428e049a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_SELL -> success (pnl=0.05)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.782164+00:00"
+    },
+    {
+      "id": "6c013960",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_SELL -> success (pnl=0.2)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.786489+00:00"
+    },
+    {
+      "id": "4b7a4861",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_SELL -> failure (pnl=-0.2)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.790846+00:00"
+    },
+    {
+      "id": "5f276d34",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.4)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.795015+00:00"
+    },
+    {
+      "id": "1e5bf998",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=1.23)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.799683+00:00"
+    },
+    {
+      "id": "4546a192",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_SELL -> success (pnl=0.08)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.804041+00:00"
+    },
+    {
+      "id": "84f7cdd0",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=1.23)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.808355+00:00"
+    },
+    {
+      "id": "1656e959",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_SELL -> failure (pnl=-0.01)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.813057+00:00"
+    },
+    {
+      "id": "d588e662",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=1.23)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.817753+00:00"
+    },
+    {
+      "id": "e21d7edd",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.04)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.822216+00:00"
+    },
+    {
+      "id": "dde38dd5",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.22)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.825938+00:00"
+    },
+    {
+      "id": "6763213b",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.94)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.830223+00:00"
+    },
+    {
+      "id": "ab8618c7",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.54)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.834463+00:00"
+    },
+    {
+      "id": "8c66c32a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=1.41)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.838937+00:00"
+    },
+    {
+      "id": "880104d2",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.18)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.842721+00:00"
+    },
+    {
+      "id": "102283ac",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-1.02)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.848141+00:00"
+    },
+    {
+      "id": "ddaacb2c",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_SELL -> success (pnl=0.73)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.852472+00:00"
+    },
+    {
+      "id": "772be99e",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-1.02)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.856642+00:00"
+    },
+    {
+      "id": "4f33284d",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=2.22)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.860477+00:00"
+    },
+    {
+      "id": "6d4ea9df",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-2.03)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.865522+00:00"
+    },
+    {
+      "id": "f9372471",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.19)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.869441+00:00"
+    },
+    {
+      "id": "0e9584be",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.22)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.874130+00:00"
+    },
+    {
+      "id": "5391a3fb",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.41)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.878141+00:00"
+    },
+    {
+      "id": "58aee97b",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.14)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.882880+00:00"
+    },
+    {
+      "id": "61125b78",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.06)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.886802+00:00"
+    },
+    {
+      "id": "4cb16176",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.03)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.891005+00:00"
+    },
+    {
+      "id": "dd6d9e10",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.35)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.895164+00:00"
+    },
+    {
+      "id": "feca5544",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.09)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.899927+00:00"
+    },
+    {
+      "id": "50bded53",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.03)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.903928+00:00"
+    },
+    {
+      "id": "28d02b5c",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.04)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.908212+00:00"
+    },
+    {
+      "id": "7c88d601",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=1.66)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.912737+00:00"
+    },
+    {
+      "id": "92e0bfe4",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.08)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.917340+00:00"
+    },
+    {
+      "id": "31ac3da5",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.41)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.921634+00:00"
+    },
+    {
+      "id": "1a679008",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.6)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.925759+00:00"
+    },
+    {
+      "id": "c379b234",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-2.1)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.930744+00:00"
+    },
+    {
+      "id": "659d5a06",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=1.13)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.934958+00:00"
+    },
+    {
+      "id": "23a0b9f2",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.09)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.939237+00:00"
+    },
+    {
+      "id": "3545f5cc",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.3)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.943387+00:00"
+    },
+    {
+      "id": "0c1d8e85",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.08)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.948681+00:00"
+    },
+    {
+      "id": "ebe80208",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.45)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.953106+00:00"
+    },
+    {
+      "id": "b41a82fd",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "success",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.53)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.957512+00:00"
+    },
+    {
+      "id": "be7a2978",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.04)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.962006+00:00"
+    },
+    {
+      "id": "2845690b",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.04)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.966852+00:00"
+    },
+    {
+      "id": "7009662e",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.17)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.971865+00:00"
+    },
+    {
+      "id": "9b2e8c5b",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.17)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.976123+00:00"
+    },
+    {
+      "id": "0629a883",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDCAD",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-5.93)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.981426+00:00"
+    },
+    {
+      "id": "d8b9dfb9",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.13)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.986461+00:00"
+    },
+    {
+      "id": "36c504f5",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.13)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.990968+00:00"
+    },
+    {
+      "id": "16126d58",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.28)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:18.995851+00:00"
+    },
+    {
+      "id": "973ecc5a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.28)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.001302+00:00"
+    },
+    {
+      "id": "1db3ec55",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_SELL -> failure (pnl=-0.53)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.005940+00:00"
+    },
+    {
+      "id": "37d1b64f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_SELL -> success (pnl=0.05)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.010178+00:00"
+    },
+    {
+      "id": "ba5d1e8f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_SELL -> success (pnl=0.2)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.015455+00:00"
+    },
+    {
+      "id": "c1be3982",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_SELL -> failure (pnl=-0.2)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.020343+00:00"
+    },
+    {
+      "id": "6cf7d0e5",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-1.02)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.024943+00:00"
+    },
+    {
+      "id": "fd36c2de",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=2.22)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.030148+00:00"
+    },
+    {
+      "id": "1a53dea7",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-2.03)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.034969+00:00"
+    },
+    {
+      "id": "13cb2558",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.19)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.040053+00:00"
+    },
+    {
+      "id": "8399639a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.22)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.044539+00:00"
+    },
+    {
+      "id": "713e4d42",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.41)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.050137+00:00"
+    },
+    {
+      "id": "96fdc84a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.06)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.054913+00:00"
+    },
+    {
+      "id": "94bdd323",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_SELL -> failure (pnl=-0.56)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.059387+00:00"
+    },
+    {
+      "id": "2f772470",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=0.03)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.065290+00:00"
+    },
+    {
+      "id": "345feeda",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_SELL -> failure (pnl=-0.09)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.069995+00:00"
+    },
+    {
+      "id": "30d37e72",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=0.35)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.074827+00:00"
+    },
+    {
+      "id": "54e745af",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.09)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.079986+00:00"
+    },
+    {
+      "id": "c38a1f40",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.03)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.085013+00:00"
+    },
+    {
+      "id": "8ae2a507",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=0.04)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.089779+00:00"
+    },
+    {
+      "id": "fa827b93",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=1.66)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.094360+00:00"
+    },
+    {
+      "id": "1ec69eab",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.08)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.099869+00:00"
+    },
+    {
+      "id": "27ebc7e2",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=0.41)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.104659+00:00"
+    },
+    {
+      "id": "d9e57991",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.6)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.109330+00:00"
+    },
+    {
+      "id": "e2d937f4",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-2.1)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.115006+00:00"
+    },
+    {
+      "id": "d56942a4",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=1.13)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.119717+00:00"
+    },
+    {
+      "id": "dda633f2",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.09)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.124621+00:00"
+    },
+    {
+      "id": "5f606f5a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.3)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.130044+00:00"
+    },
+    {
+      "id": "812acb3c",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=0.08)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.135196+00:00"
+    },
+    {
+      "id": "b3575824",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.45)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.140288+00:00"
+    },
+    {
+      "id": "73f749a4",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=0.53)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.145517+00:00"
+    },
+    {
+      "id": "7e9f634a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:USDJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.04)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.151135+00:00"
+    },
+    {
+      "id": "185c4c32",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-2.53)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.156116+00:00"
+    },
+    {
+      "id": "3eb4eb4f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-3.86)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.163197+00:00"
+    },
+    {
+      "id": "135bf129",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-3.86)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.168603+00:00"
+    },
+    {
+      "id": "23ae3a86",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.11)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.173469+00:00"
+    },
+    {
+      "id": "79fcf138",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-1.52)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.178293+00:00"
+    },
+    {
+      "id": "0ee82ba3",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.53)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.183594+00:00"
+    },
+    {
+      "id": "a8506f2f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.05)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.188686+00:00"
+    },
+    {
+      "id": "fed8acda",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.39)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.193558+00:00"
+    },
+    {
+      "id": "d4908105",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.2)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.199534+00:00"
+    },
+    {
+      "id": "fbc3d33a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.2)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.204547+00:00"
+    },
+    {
+      "id": "f965e1c9",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.01)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.209435+00:00"
+    },
+    {
+      "id": "56cbf1dc",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-1.97)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.215321+00:00"
+    },
+    {
+      "id": "9fa326fe",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.01)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.220454+00:00"
+    },
+    {
+      "id": "bd9b795e",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.05)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.225413+00:00"
+    },
+    {
+      "id": "dbc61747",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.39)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.230943+00:00"
+    },
+    {
+      "id": "7cea7275",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.51)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.236371+00:00"
+    },
+    {
+      "id": "2eda1705",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.09)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.241424+00:00"
+    },
+    {
+      "id": "09a00158",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.73)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.246963+00:00"
+    },
+    {
+      "id": "4ace3e7a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.43)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.252384+00:00"
+    },
+    {
+      "id": "c28659a7",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.29)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.257641+00:00"
+    },
+    {
+      "id": "f2e2f326",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.89)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.263264+00:00"
+    },
+    {
+      "id": "572a4780",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.19)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.268588+00:00"
+    },
+    {
+      "id": "5b024ded",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.34)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.273773+00:00"
+    },
+    {
+      "id": "f7c5536f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.01)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.279108+00:00"
+    },
+    {
+      "id": "36d110ee",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-2.17)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.284714+00:00"
+    },
+    {
+      "id": "3316d1aa",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.56)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.289903+00:00"
+    },
+    {
+      "id": "baf7426a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.09)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.295103+00:00"
+    },
+    {
+      "id": "d89952e3",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.75)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.300602+00:00"
+    },
+    {
+      "id": "f0a0ab00",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-1.09)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.305812+00:00"
+    },
+    {
+      "id": "97a73a8b",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=8.48)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.311067+00:00"
+    },
+    {
+      "id": "3c1dcb1e",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.18)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.316581+00:00"
+    },
+    {
+      "id": "c9f68f1a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.15)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.321834+00:00"
+    },
+    {
+      "id": "e0f156bc",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-10.87)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.327129+00:00"
+    },
+    {
+      "id": "ddca8c0d",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.4)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.332827+00:00"
+    },
+    {
+      "id": "b071071f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.73)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.338099+00:00"
+    },
+    {
+      "id": "8ce8d702",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.72)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.343466+00:00"
+    },
+    {
+      "id": "1f89271d",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=5.1)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.350664+00:00"
+    },
+    {
+      "id": "2b53e5c7",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.13)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.356256+00:00"
+    },
+    {
+      "id": "33f86fa5",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-5.66)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.363095+00:00"
+    },
+    {
+      "id": "583fcd8b",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-5.66)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.368885+00:00"
+    },
+    {
+      "id": "22c5f4e8",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=2.08)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.374279+00:00"
+    },
+    {
+      "id": "7b095a58",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "success",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=2.08)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.407696+00:00"
+    },
+    {
+      "id": "1425e0d1",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-2.36)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.413382+00:00"
+    },
+    {
+      "id": "00a9c42d",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-2.36)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.419051+00:00"
+    },
+    {
+      "id": "a5343538",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-7.15)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.424432+00:00"
+    },
+    {
+      "id": "e3efc402",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-7.15)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.429963+00:00"
+    },
+    {
+      "id": "8100571c",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-7.15)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.435648+00:00"
+    },
+    {
+      "id": "5f647d82",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.05)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.441074+00:00"
+    },
+    {
+      "id": "01a42f0c",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:XAUUSD",
+        "judgement": "failure",
+        "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.05)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.446526+00:00"
+    },
+    {
+      "id": "33348b67",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.11)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.452204+00:00"
+    },
+    {
+      "id": "c9c921ea",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.05)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.458023+00:00"
+    },
+    {
+      "id": "a8e6cf41",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_BUY -> failure (pnl=-0.38)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.463623+00:00"
+    },
+    {
+      "id": "183900d8",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_BUY -> failure (pnl=-0.38)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.469625+00:00"
+    },
+    {
+      "id": "fd49ffdf",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_BUY -> success (pnl=0.26)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.475219+00:00"
+    },
+    {
+      "id": "01de1550",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.54)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.480765+00:00"
+    },
+    {
+      "id": "0f3efe6b",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.01)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.486411+00:00"
+    },
+    {
+      "id": "15efb3c1",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.05)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.492272+00:00"
+    },
+    {
+      "id": "aaa33142",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.39)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.497759+00:00"
+    },
+    {
+      "id": "c2db8f34",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.31)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.503358+00:00"
+    },
+    {
+      "id": "ffbb8d69",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.51)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.508977+00:00"
+    },
+    {
+      "id": "96f6b8a8",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.09)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.514695+00:00"
+    },
+    {
+      "id": "7f22e36a",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.73)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.520721+00:00"
+    },
+    {
+      "id": "b1f6af76",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.43)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.526422+00:00"
+    },
+    {
+      "id": "0ea8ddf9",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.29)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.532240+00:00"
+    },
+    {
+      "id": "3cf0ff74",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.89)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.538168+00:00"
+    },
+    {
+      "id": "64fec17f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.19)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.543917+00:00"
+    },
+    {
+      "id": "0e9d3eb6",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.34)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.552567+00:00"
+    },
+    {
+      "id": "38815022",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.01)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.558299+00:00"
+    },
+    {
+      "id": "a4003d07",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.56)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.566286+00:00"
+    },
+    {
+      "id": "d2b3a928",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.09)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.572612+00:00"
+    },
+    {
+      "id": "2a87c953",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.75)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.578779+00:00"
+    },
+    {
+      "id": "7dd39f84",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-1.09)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.584530+00:00"
+    },
+    {
+      "id": "3f7eb340",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=8.48)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.590373+00:00"
+    },
+    {
+      "id": "150d01a3",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.98)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.596146+00:00"
+    },
+    {
+      "id": "871189e3",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.15)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.601961+00:00"
+    },
+    {
+      "id": "10028319",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.3)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.607839+00:00"
+    },
+    {
+      "id": "0aec5a6f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.18)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.613626+00:00"
+    },
+    {
+      "id": "b0e9f540",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.15)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.619871+00:00"
+    },
+    {
+      "id": "f9f2ce10",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-10.87)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.625728+00:00"
+    },
+    {
+      "id": "d8991e56",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.4)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.631679+00:00"
+    },
+    {
+      "id": "88e6105c",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.73)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.637744+00:00"
+    },
+    {
+      "id": "e5ff23d4",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.72)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.643669+00:00"
+    },
+    {
+      "id": "49c82ec4",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "success",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=5.1)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.649624+00:00"
+    },
+    {
+      "id": "9058caf8",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-1.37)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.655616+00:00"
+    },
+    {
+      "id": "7a0c3404",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.13)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.661901+00:00"
+    },
+    {
+      "id": "b653308f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-5.66)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.667878+00:00"
+    },
+    {
+      "id": "bc16650f",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-2.36)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.673855+00:00"
+    },
+    {
+      "id": "08a8f28c",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-7.15)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.680456+00:00"
+    },
+    {
+      "id": "104d2559",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:EURJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:EURJPY] trade_EURJPY_SELL -> failure (pnl=-7.15)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.686702+00:00"
+    },
+    {
+      "id": "81843244",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "forex:live:EURJPY",
+        "judgement": "failure",
+        "lesson": "[forex:live:EURJPY] trade_EURJPY_SELL -> failure (pnl=-0.05)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.692727+00:00"
+    },
+    {
+      "id": "af2c8178",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:EURJPY",
+        "judgement": "partial",
+        "lesson": "[weight:pair:EURJPY] adjust:1.000 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.726824+00:00"
+    },
+    {
+      "id": "d5e1df65",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:GBPJPY",
+        "judgement": "failure",
+        "lesson": "[weight:pair:GBPJPY] adjust:0.000 -> failure (pnl=-5.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.733098+00:00"
+    },
+    {
+      "id": "8b570d28",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:GBPUSD",
+        "judgement": "partial",
+        "lesson": "[weight:pair:GBPUSD] adjust:0.500 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.739206+00:00"
+    },
+    {
+      "id": "c9ce0e57",
+      "type": "sona_observe",
+      "source": "SONALite",
+      "data": {
+        "domain": "weight:pair:AUDUSD",
+        "judgement": "partial",
+        "lesson": "[weight:pair:AUDUSD] adjust:0.204 -> partial (pnl=0.0)"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.745226+00:00"
+    },
+    {
+      "id": "97262d5c",
+      "type": "n_accumbens_cycle",
+      "source": "n_accumbens",
+      "data": {
+        "pairs_analyzed": 4,
+        "trades_processed": 5,
+        "market_regime": "ranging",
+        "priority_pairs": 1,
+        "pause_pairs": 1
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.761971+00:00"
+    },
+    {
+      "id": "f202d758",
+      "type": "live_analysis_complete",
+      "source": "chart_analyzer",
+      "data": {
+        "trades": 234,
+        "pairs": 7
+      },
+      "severity": "info",
+      "timestamp": "2026-05-28T21:36:19.782166+00:00"
+    },
+    {
+      "id": "7cf198b9",
+      "type": "secrets_validation_failed",
+      "source": "secrets_guard",
+      "data": {
+        "missing_keys": [
+          "MT5_LOGIN",
+          "MT5_PASSWORD",
+          "MT5_SERVER",
+          "OLLAMA_HOST",
+          "HERMES_API_KEY"
+        ]
+      },
+      "severity": "error",
+      "timestamp": "2026-05-29T00:38:17.724264+00:00"
+    },
+    {
+      "id": "5bb90622",
+      "type": "anomaly_check_ok",
+      "source": "anomaly_detector",
+      "data": {
+        "checks": {
+          "error_rate": {
+            "status": "normal",
+            "error_count": 0,
+            "threshold": 10,
+            "window_hours": 1
+          },
+          "latency": {
+            "status": "normal",
+            "avg_latency_ms": 0,
+            "threshold": 5000
+          },
+          "memory": {
+            "status": "normal",
+            "memory": {
+              "system_percent": 76.9,
+              "system_used_gb": 5.1,
+              "system_total_gb": 6.63,
+              "process_mb": 19.39
+            },
+            "threshold": 85.0
+          },
+          "trades_per_day": {
+            "status": "normal",
+            "trade_count": 0,
+            "max": 50
+          }
+        }
+      },
+      "severity": "info",
+      "timestamp": "2026-05-29T00:38:17.780514+00:00"
+    },
+    {
+      "id": "5bd36bb7",
+      "type": "log_error",
+      "source": "log_writer.test",
+      "data": {
+        "message": "Mensagem de erro simulada",
+        "level": "ERROR",
+        "function": "<module>",
+        "line": 273
+      },
+      "severity": "error",
+      "timestamp": "2026-05-29T00:38:20.892960+00:00"
+    },
+    {
+      "id": "2cf161c4",
+      "type": "daily_report_generated",
+      "source": "report_daily",
+      "data": {
+        "date": "2026-05-29",
+        "summary": {
+          "total_trades": 0,
+          "pnl_total": 0.0,
+          "win_rate": 0.0,
+          "alerts_total": 1,
+          "health_score": 80,
+          "discoveries": 0,
+          "new_patterns": 0
+        }
+      },
+      "severity": "info",
+      "timestamp": "2026-05-29T00:38:20.938108+00:00"
+    },
+    {
+      "id": "2d57f87e",
+      "type": "checkpoint_created",
+      "source": "rollback_manager",
+      "data": {
+        "name": "test_init",
+        "method": "git"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-29T00:38:32.760133+00:00"
+    },
+    {
+      "id": "a251b0ce",
+      "type": "agent_startup",
+      "source": "cortex_visual",
+      "data": {
+        "mode": "real",
+        "version": "1.0.0"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-29T00:53:25.188106+00:00"
+    },
+    {
+      "id": "7fff5770",
+      "type": "trade_signal",
+      "source": "cortex_visual",
+      "data": {
+        "pair": "USDJPY",
+        "direction": "BUY",
+        "confluences": 4,
+        "status": "dry_run"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-29T00:53:33.674523+00:00"
+    },
+    {
+      "id": "3374c14d",
+      "type": "trade_signal",
+      "source": "cortex_visual",
+      "data": {
+        "pair": "EURJPY",
+        "direction": "BUY",
+        "confluences": 4,
+        "status": "dry_run"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-29T00:53:33.683855+00:00"
+    },
+    {
+      "id": "5d3744ac",
+      "type": "trade_signal",
+      "source": "cortex_visual",
+      "data": {
+        "pair": "EURJPY",
+        "direction": "SELL",
+        "confluences": 4,
+        "status": "dry_run"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-29T00:53:33.692969+00:00"
+    },
+    {
+      "id": "0ead132a",
+      "type": "mental_insight",
+      "source": "cortex_insular",
+      "data": {
+        "recommendation": "\ud83c\udf06 Final do dia \u2014 bom momento para reflex\u00e3o, n\u00e3o para trading agressivo."
+      },
+      "severity": "info",
+      "timestamp": "2026-05-29T01:00:53.185926+00:00"
+    },
+    {
+      "id": "3266a5a6",
+      "type": "social_insight",
+      "source": "cortex_insular",
+      "data": {
+        "insight": "\ud83d\udc68\u200d\ud83d\udc67\u200d\ud83d\udc67 Filhas Heloisa e Isadora \u2014 mantenha contato regular. Sua presen\u00e7a \u00e9 o melhor investimento."
+      },
+      "severity": "info",
+      "timestamp": "2026-05-29T01:00:53.190525+00:00"
+    },
+    {
+      "id": "8c802030",
+      "type": "agent_startup",
+      "source": "cortex_visual",
+      "data": {
+        "mode": "real",
+        "version": "1.0.0"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-29T01:10:21.007454+00:00"
+    },
+    {
+      "id": "6d229662",
+      "type": "agent_startup",
+      "source": "cortex_visual",
+      "data": {
+        "mode": "real",
+        "version": "1.0.0"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-29T03:21:07.568393+00:00"
+    },
+    {
+      "id": "406f6b6a",
+      "type": "trade_signal",
+      "source": "cortex_visual",
+      "data": {
+        "pair": "USDJPY",
+        "direction": "BUY",
+        "confluences": 4,
+        "status": "failed"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-29T03:21:11.143998+00:00"
+    },
+    {
+      "id": "7158c108",
+      "type": "trade_signal",
+      "source": "cortex_visual",
+      "data": {
+        "pair": "EURJPY",
+        "direction": "BUY",
+        "confluences": 4,
+        "status": "executed"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-29T03:21:12.007939+00:00"
+    },
+    {
+      "id": "9fc3b846",
+      "type": "trade_signal",
+      "source": "cortex_visual",
+      "data": {
+        "pair": "EURJPY",
+        "direction": "SELL",
+        "confluences": 4,
+        "status": "failed"
+      },
+      "severity": "info",
+      "timestamp": "2026-05-29T03:21:12.269546+00:00"
+    }
+  ],
+  "alerts": [
+    {
+      "id": "c6e9bccc",
+      "level": "critical",
+      "title": "MT5 Connection Stale",
+      "description": "mt5_state.json not found",
+      "source": "amygdala",
+      "timestamp": "2026-05-28T16:08:01.235954+00:00",
+      "acknowledged": false
+    },
+    {
+      "id": "47cd30f3",
+      "level": "warning",
+      "title": "2 Unresolved Failures",
+      "description": "#fail-009: P&L quebrado \u2014 trades ficam 'open' para sempre no tracker; #fail-010: Bug na plataforma impede login na conta real",
+      "source": "amygdala",
+      "timestamp": "2026-05-28T16:08:01.237053+00:00",
+      "acknowledged": false
+    },
+    {
+      "id": "e3e92273",
+      "level": "critical",
+      "title": "MT5 Connection Stale",
+      "description": "mt5_state.json not found",
+      "source": "amygdala",
+      "timestamp": "2026-05-28T16:10:59.466095+00:00",
+      "acknowledged": false
+    },
+    {
+      "id": "7732256b",
+      "level": "warning",
+      "title": "2 Unresolved Failures",
+      "description": "#fail-009: P&L quebrado \u2014 trades ficam 'open' para sempre no tracker; #fail-010: Bug na plataforma impede login na conta real",
+      "source": "amygdala",
+      "timestamp": "2026-05-28T16:10:59.468468+00:00",
+      "acknowledged": false
+    },
+    {
+      "id": "4c008336",
+      "level": "critical",
+      "title": "MT5 Connection Stale",
+      "description": "mt5_state.json not found",
+      "source": "amygdala",
+      "timestamp": "2026-05-28T17:25:05.195700+00:00",
+      "acknowledged": false
+    },
+    {
+      "id": "3d3e1576",
+      "level": "warning",
+      "title": "2 Unresolved Failures",
+      "description": "#fail-009: P&L quebrado \u2014 trades ficam 'open' para sempre no tracker; #fail-010: Bug na plataforma impede login na conta real",
+      "source": "amygdala",
+      "timestamp": "2026-05-28T17:25:05.198708+00:00",
+      "acknowledged": false
+    },
+    {
+      "id": "a0fb27e0",
+      "level": "critical",
+      "title": "Healthcheck: critical (1 down, 0 degraded)",
+      "description": "M\u00f3dulos com problema: mt5_bridge",
+      "source": "healthcheck",
+      "timestamp": "2026-05-29T00:38:19.612660+00:00",
+      "acknowledged": false
+    },
+    {
+      "id": "51480d43",
+      "level": "critical",
+      "title": "Healthcheck: critical (1 down, 0 degraded)",
+      "description": "M\u00f3dulos com problema: mt5_bridge",
+      "source": "healthcheck",
+      "timestamp": "2026-05-29T00:39:36.455254+00:00",
+      "acknowledged": false
+    }
+  ],
+  "state": {
+    "market_regime": {
+      "overall": "ranging",
+      "pairs": {
+        "EURJPY": "unknown",
+        "EURUSD": "unknown",
+        "GBPJPY": "unknown",
+        "GBPUSD": "unknown",
+        "GC=F": "unknown",
+        "USDCAD": "unknown",
+        "USDJPY": "unknown"
+      }
+    },
+    "risk_level": "low",
+    "health_score": 80,
+    "active_modules": [
+      "amygdala"
+    ],
+    "consciousness_phi": 1.789,
+    "last_cycle": "2026-05-29T01:00:53.181263+00:00",
+    "threats_active": 2,
+    "daily_plan": {
+      "date": "2026-05-28",
+      "generated_at": "2026-05-28T16:11:07.378927+00:00",
+      "calendar_appointments": [],
+      "calendar_upcoming": {},
+      "top_tasks": [
+        {
+          "rank": 1,
+          "score": 77.9,
+          "source": "agent_context",
+          "title": "[BUG/critical] MAX_POSITIONS=8 com $400: cada trade 2% risco = 16% exposi\u00e7\u00e3o simult\u00e2nea",
+          "id": "bug-critical"
+        },
+        {
+          "rank": 2,
+          "score": 77.9,
+          "source": "agent_context",
+          "title": "[BUG/critical] INITIAL_BALANCE=400 hardcoded: circuit breaker usava base errada ap\u00f3s drawdown",
+          "id": "bug-critical"
+        },
+        {
+          "rank": 3,
+          "score": 72.9,
+          "source": "agent_context",
+          "title": "[BUG/critical] timestamp vs time mismatch: limite di\u00e1rio NUNCA ativou (linha 517)",
+          "id": "bug-critical"
+        },
+        {
+          "rank": 4,
+          "score": 62.9,
+          "source": "agent_context",
+          "title": "[BUG/critical] zero duplicate check: abria mesmos pares a cada 15min (172 trades/dia)",
+          "id": "bug-critical"
+        },
+        {
+          "rank": 5,
+          "score": 62.9,
+          "source": "agent_context",
+          "title": "[BUG/critical] trade_log.json nunca recebia dados do bot_multi (record_trade importado mas nunca chamado)",
+          "id": "bug-critical"
+        }
+      ],
+      "total_pending": 10
+    },
+    "broca_messages_collected": 1,
+    "patterns": {
+      "wr_by_day": {
+        "Wednesday": {
+          "wr": 71.4,
+          "trades": 7,
+          "wins": 5,
+          "pnl": 105.0
+        },
+        "Thursday": {
+          "wr": 80.0,
+          "trades": 5,
+          "wins": 4,
+          "pnl": 46.2
+        }
+      },
+      "wr_by_pair": {
+        "EURJPY": {
+          "wr": 66.7,
+          "trades": 3,
+          "wins": 2,
+          "pnl": 33.9
+        },
+        "GBPJPY": {
+          "wr": 66.7,
+          "trades": 3,
+          "wins": 2,
+          "pnl": 32.3
+        },
+        "GBPUSD": {
+          "wr": 75.0,
+          "trades": 4,
+          "wins": 3,
+          "pnl": 62.2
+        },
+        "USDJPY": {
+          "wr": 100.0,
+          "trades": 1,
+          "wins": 1,
+          "pnl": 6.6
+        },
+        "EURUSD": {
+          "wr": 100.0,
+          "trades": 1,
+          "wins": 1,
+          "pnl": 16.2
+        }
+      },
+      "wr_by_hour": {
+        "3": {
+          "wr": 100.0,
+          "trades": 1,
+          "wins": 1,
+          "pnl": 23.9
+        },
+        "8": {
+          "wr": 100.0,
+          "trades": 1,
+          "wins": 1,
+          "pnl": 25.0
+        },
+        "12": {
+          "wr": 0.0,
+          "trades": 1,
+          "wins": 0,
+          "pnl": -6.1
+        },
+        "13": {
+          "wr": 50.0,
+          "trades": 2,
+          "wins": 1,
+          "pnl": 46.0
+        },
+        "22": {
+          "wr": 100.0,
+          "trades": 2,
+          "wins": 2,
+          "pnl": 16.2
+        },
+        "0": {
+          "wr": 66.7,
+          "trades": 3,
+          "wins": 2,
+          "pnl": 23.4
+        },
+        "1": {
+          "wr": 100.0,
+          "trades": 1,
+          "wins": 1,
+          "pnl": 6.6
+        },
+        "9": {
+          "wr": 100.0,
+          "trades": 1,
+          "wins": 1,
+          "pnl": 16.2
+        }
+      },
+      "failure_categories": {}
+    },
+    "pair_weights": {
+      "weights": {
+        "EURJPY": {
+          "wr": 100.0,
+          "trades": 2,
+          "wins": 2,
+          "pnl": 48.9,
+          "score": 109.9
+        },
+        "GBPJPY": {
+          "wr": 0.0,
+          "trades": 1,
+          "wins": 0,
+          "pnl": -6.1,
+          "score": 0.0
+        },
+        "GBPUSD": {
+          "wr": 50.0,
+          "trades": 2,
+          "wins": 1,
+          "pnl": 46.0,
+          "score": 54.9
+        },
+        "AUDUSD": {
+          "wr": 20.4,
+          "trades": 0,
+          "wins": 0,
+          "pnl": 588.6,
+          "score": 155.3,
+          "seeded": true,
+          "seed_source": "best_params",
+          "backtest_trades": 2023
+        }
+      },
+      "classifications": {
+        "EURJPY": "PRIORITY",
+        "GBPJPY": "PAUSE",
+        "GBPUSD": "WATCH"
+      },
+      "trades_processed": 5,
+      "updated_at": "2026-05-28T21:36:19.752578+00:00"
+    },
+    "mt5_status": "offline",
+    "motor_summary": {
+      "mt5": "online",
+      "balance": 335.28,
+      "equity": 335.28,
+      "positions": 0,
+      "timestamp": "2026-05-28T20:38:44.252965+00:00"
+    },
+    "mt5_balance": 335.28,
+    "mt5_equity": 335.28,
+    "mt5_positions": 0,
+    "mt5_last_update": "2026-05-28T20:38:44.252965+00:00",
+    "trades_mapped": 5,
+    "live_trades_analyzed": 234,
+    "mental_state": {
+      "timestamp": "2026-05-29T01:00:53.163621+00:00",
+      "metrics": {},
+      "trends": {},
+      "insights": [],
+      "recommendations": [
+        "\ud83c\udf06 Final do dia \u2014 bom momento para reflex\u00e3o, n\u00e3o para trading agressivo."
+      ],
+      "mindcoach": {
+        "last_update": "?",
+        "mood": null,
+        "energy": null,
+        "sleep_hours": null,
+        "stress": null,
+        "anxiety": null
+      },
+      "day_of_week": "Thursday",
+      "week_number": 22
+    },
+    "social_patterns": {
+      "timestamp": "2026-05-29T01:00:53.164088+00:00",
+      "contacts": {},
+      "sentiment": {
+        "positive": 0,
+        "neutral": 0,
+        "negative": 0
+      },
+      "response_times": [],
+      "insights": [
+        "\ud83d\udc68\u200d\ud83d\udc67\u200d\ud83d\udc67 Filhas Heloisa e Isadora \u2014 mantenha contato regular. Sua presen\u00e7a \u00e9 o melhor investimento."
+      ],
+      "relationships_to_nurture": [],
+      "boundaries_to_set": []
+    },
+    "evolution_progress": {
+      "timestamp": "2026-05-29T01:00:53.164152+00:00",
+      "pillars": {
+        "financeiro": {
+          "goal": "Autonomia financeira",
+          "metric": "forex_pnl",
+          "target": "Renda extra > R$500/m\u00eas"
+        },
+        "profissional": {
+          "goal": "Transi\u00e7\u00e3o GOL",
+          "metric": "promo\u00e7\u00e3o",
+          "target": "In\u00edcio Jul/2026",
+          "status": "aprovado"
+        },
+        "paternal": {
+          "goal": "Ser melhor pai",
+          "metric": "tempo_qualidade",
+          "target": "Contato di\u00e1rio com filhas"
+        },
+        "mental": {
+          "goal": "Estabilidade emocional",
+          "metric": "mindcoach_score",
+          "target": "Score > 7/10"
+        },
+        "social": {
+          "goal": "Rede de apoio saud\u00e1vel",
+          "metric": "intera\u00e7\u00f5es_positivas",
+          "target": "> 60% positivas"
+        },
+        "fisico": {
+          "goal": "Sa\u00fade e energia",
+          "metric": "sono_exercicio",
+          "target": "Sono > 7h, exerc\u00edcio 3x/semana"
+        }
+      },
+      "streaks": {
+        "forex_consistency": "Sistema aut\u00f4nomo ativo desde 28/05",
+        "learning": "Novo agente de evolu\u00e7\u00e3o criado"
+      },
+      "weekly_review": {}
+    }
+  },
+  "discoveries": [
+    {
+      "id": "58cb9d8d",
+      "domain": "forex:strategy",
+      "insight": "CRT \u00e9 o filtro mais poderoso: eleva WR de 50%\u219270% consistentemente. CRT+S/R atinge 72.6% WR em 113 trades.",
+      "confidence": 0.92,
+      "source": "BACKTEST_REPORT_CONSOLIDATED",
+      "timestamp": "2026-05-28T17:41:58.106373+00:00"
+    },
+    {
+      "id": "b211390f",
+      "domain": "forex:strategy",
+      "insight": "SMC Fractal H1 \u00e9 INVI\u00c1VEL: 5.6% WR (-156.7p) em 18 trades nos 5 pares. Deve ser removido do bot.",
+      "confidence": 0.95,
+      "source": "BACKTEST_REPORT_CONSOLIDATED",
+      "timestamp": "2026-05-28T17:41:58.108186+00:00"
+    },
+    {
+      "id": "f01e7337",
+      "domain": "forex:killzone",
+      "insight": "London Close \u00e9 a melhor killzone (56% WR). London Open \u00e9 a pior (25% WR) e deve ser evitada.",
+      "confidence": 0.88,
+      "source": "BACKTEST_REPORT_CONSOLIDATED",
+      "timestamp": "2026-05-28T17:41:58.109869+00:00"
+    },
+    {
+      "id": "59decfb4",
+      "domain": "forex:pairs",
+      "insight": "USDJPY e EURJPY s\u00e3o os \u00fanicos pares consistentemente lucrativos em todos os backtests. Concentrar 90% do capital neles.",
+      "confidence": 0.9,
+      "source": "BACKTEST_REPORT_CONSOLIDATED",
+      "timestamp": "2026-05-28T17:41:58.111522+00:00"
+    },
+    {
+      "id": "52e95211",
+      "domain": "forex:rr",
+      "insight": "RR 3:1 \u00e9 \u00f3timo. RR 2:0 gera apenas 35% WR (AUDUSD). Manter 3:1 como padr\u00e3o fixo.",
+      "confidence": 0.85,
+      "source": "BACKTEST_REPORT_CONSOLIDATED",
+      "timestamp": "2026-05-28T17:41:58.113216+00:00"
+    },
+    {
+      "id": "68a41380",
+      "domain": "forex:risk",
+      "insight": "MAX_POSITIONS deve ser reduzido de 4 para 2. Range Detector deve ser integrado como gate pr\u00e9-entry.",
+      "confidence": 0.87,
+      "source": "BACKTEST_REPORT_CONSOLIDATED",
+      "timestamp": "2026-05-28T17:41:58.114891+00:00"
+    },
+    {
+      "id": "2781e504",
+      "domain": "forex:pairs",
+      "insight": "GBPJPY, USDCAD, AUDUSD, NZDUSD n\u00e3o possuem edge nos backtests \u2014 colocar em PAUSE permanente.",
+      "confidence": 0.89,
+      "source": "BACKTEST_REPORT_CONSOLIDATED",
+      "timestamp": "2026-05-28T17:41:58.116559+00:00"
+    },
+    {
+      "id": "1eb18277",
+      "domain": "forex:filter",
+      "insight": "Volume e Wyckoff/Sweep como filtros ZERAM trades \u2014 n\u00e3o devem ser usados como gate obrigat\u00f3rio.",
+      "confidence": 0.82,
+      "source": "BACKTEST_REPORT_CONSOLIDATED",
+      "timestamp": "2026-05-28T17:41:58.118231+00:00"
+    },
+    {
+      "id": "c3d5c1ef",
+      "domain": "forex:live",
+      "insight": "[LIVE] EUR/JPY BUY \u2192 success (P&L=$+23.90)",
+      "confidence": 0.7,
+      "source": "sona_lite",
+      "timestamp": "2026-05-28T20:43:32.627641+00:00"
+    },
+    {
+      "id": "a80d8f3b",
+      "domain": "forex:live",
+      "insight": "[LIVE] EUR/JPY_KZ BUY \u2192 success (P&L=$+25.00)",
+      "confidence": 0.7,
+      "source": "sona_lite",
+      "timestamp": "2026-05-28T20:43:32.629717+00:00"
+    },
+    {
+      "id": "42133036",
+      "domain": "forex:live",
+      "insight": "[LIVE] GBP/JPY SELL \u2192 failure (P&L=$-6.10)",
+      "confidence": 0.7,
+      "source": "sona_lite",
+      "timestamp": "2026-05-28T20:43:32.631661+00:00"
+    },
+    {
+      "id": "2ae24724",
+      "domain": "forex:live",
+      "insight": "[LIVE] GBP/USD_KZ SELL \u2192 success (P&L=$+46.00)",
+      "confidence": 0.7,
+      "source": "sona_lite",
+      "timestamp": "2026-05-28T20:43:32.633594+00:00"
+    },
+    {
+      "id": "eab6bbb9",
+      "domain": "forex:live",
+      "insight": "[LIVE] GBP/USD_KZ SELL \u2192 partial (P&L=$+0.00)",
+      "confidence": 0.7,
+      "source": "sona_lite",
+      "timestamp": "2026-05-28T20:43:32.635501+00:00"
+    },
+    {
+      "id": "66367ef2",
+      "domain": "forex:live_analysis",
+      "insight": "234 trades reais analisados: WR=43%",
+      "confidence": 0.95,
+      "source": "chart_analyzer",
+      "timestamp": "2026-05-28T21:36:19.772948+00:00"
+    }
+  ],
+  "patterns": {},
+  "weights": {},
+  "validations": [],
+  "tasks": [],
+  "global_workspace": {
+    "current_focus": null,
+    "attention_queue": [
+      {
+        "content": "BACKTEST REPORT: CHoCH+FVG+CRT vence (72.6% WR). SMC Fractal descartado (5.6% WR). Foco em USDJPY+EURJPY, London Close+NY Open, RR 3:1. Relat\u00f3rio completo em BACKTEST_REPORT.md",
+        "priority": 90,
+        "source": "hermes_agent",
+        "timestamp": "2026-05-28T17:41:58.119909+00:00"
+      },
+      {
+        "content": "Attention: System health check",
+        "priority": 54,
+        "source": "attention_manager",
+        "timestamp": "2026-05-28T16:07:01.935688+00:00"
+      },
+      {
+        "content": "Attention: Check forex EURUSD",
+        "priority": 50,
+        "source": "attention_manager",
+        "timestamp": "2026-05-28T16:07:01.935399+00:00"
+      },
+      {
+        "content": "Attention: Read news feed",
+        "priority": 48,
+        "source": "attention_manager",
+        "timestamp": "2026-05-28T16:07:01.935960+00:00"
+      },
+      {
+        "content": "\u26a0\ufe0f CR\u00cdTICO: MT5 offline \u2014 mt5_state.json not found",
+        "priority": 10,
+        "source": "amygdala",
+        "timestamp": "2026-05-28T16:08:01.236297+00:00"
+      },
+      {
+        "content": "\u26a0\ufe0f CR\u00cdTICO: MT5 offline \u2014 mt5_state.json not found",
+        "priority": 10,
+        "source": "amygdala",
+        "timestamp": "2026-05-28T16:10:59.467136+00:00"
+      },
+      {
+        "content": "\u26a0\ufe0f CR\u00cdTICO: MT5 offline \u2014 mt5_state.json not found",
+        "priority": 10,
+        "source": "amygdala",
+        "timestamp": "2026-05-28T17:25:05.196962+00:00"
+      },
+      {
+        "content": "\ud83d\udccb Plano di\u00e1rio (2026-05-28): 5 tasks priorit\u00e1rias, 8 pendentes total | Top: [BUG/critical] MAX_POSITIONS=8 com $400: cada trade 2% risco = 16% exposi\u00e7\u00e3o sim",
+        "priority": 6,
+        "source": "lobo_frontal",
+        "timestamp": "2026-05-28T16:08:01.313487+00:00"
+      },
+      {
+        "content": "\ud83d\udccb Plano di\u00e1rio (2026-05-28): 5 tasks priorit\u00e1rias, 10 pendentes total | Top: [BUG/critical] MAX_POSITIONS=8 com $400: cada trade 2% risco = 16% exposi\u00e7\u00e3o sim",
+        "priority": 6,
+        "source": "lobo_frontal",
+        "timestamp": "2026-05-28T16:11:07.382892+00:00"
+      },
+      {
+        "content": "Meta: Phi \u2193 7.05 \u2192 1.79",
+        "priority": 2,
+        "source": "meta_observer",
+        "timestamp": "2026-05-28T17:25:05.324745+00:00"
+      }
+    ],
+    "broadcast_history": [
+      {
+        "content": "Attention: Check forex EURUSD",
+        "priority": 50,
+        "source": "attention_manager",
+        "timestamp": "2026-05-28T16:07:01.935399+00:00"
+      },
+      {
+        "content": "Attention: System health check",
+        "priority": 54,
+        "source": "attention_manager",
+        "timestamp": "2026-05-28T16:07:01.935688+00:00"
+      },
+      {
+        "content": "Attention: Read news feed",
+        "priority": 48,
+        "source": "attention_manager",
+        "timestamp": "2026-05-28T16:07:01.935960+00:00"
+      },
+      {
+        "content": "\u26a0\ufe0f CR\u00cdTICO: MT5 offline \u2014 mt5_state.json not found",
+        "priority": 10,
+        "source": "amygdala",
+        "timestamp": "2026-05-28T16:08:01.236297+00:00"
+      },
+      {
+        "content": "\ud83d\udccb Plano di\u00e1rio (2026-05-28): 5 tasks priorit\u00e1rias, 8 pendentes total | Top: [BUG/critical] MAX_POSITIONS=8 com $400: cada trade 2% risco = 16% exposi\u00e7\u00e3o sim",
+        "priority": 6,
+        "source": "lobo_frontal",
+        "timestamp": "2026-05-28T16:08:01.313487+00:00"
+      },
+      {
+        "content": "\u26a0\ufe0f CR\u00cdTICO: MT5 offline \u2014 mt5_state.json not found",
+        "priority": 10,
+        "source": "amygdala",
+        "timestamp": "2026-05-28T16:10:59.467136+00:00"
+      },
+      {
+        "content": "\ud83d\udccb Plano di\u00e1rio (2026-05-28): 5 tasks priorit\u00e1rias, 10 pendentes total | Top: [BUG/critical] MAX_POSITIONS=8 com $400: cada trade 2% risco = 16% exposi\u00e7\u00e3o sim",
+        "priority": 6,
+        "source": "lobo_frontal",
+        "timestamp": "2026-05-28T16:11:07.382892+00:00"
+      },
+      {
+        "content": "\u26a0\ufe0f CR\u00cdTICO: MT5 offline \u2014 mt5_state.json not found",
+        "priority": 10,
+        "source": "amygdala",
+        "timestamp": "2026-05-28T17:25:05.196962+00:00"
+      },
+      {
+        "content": "Meta: Phi \u2193 7.05 \u2192 1.79",
+        "priority": 2,
+        "source": "meta_observer",
+        "timestamp": "2026-05-28T17:25:05.324745+00:00"
+      },
+      {
+        "content": "BACKTEST REPORT: CHoCH+FVG+CRT vence (72.6% WR). SMC Fractal descartado (5.6% WR). Foco em USDJPY+EURJPY, London Close+NY Open, RR 3:1. Relat\u00f3rio completo em BACKTEST_REPORT.md",
+        "priority": 90,
+        "source": "hermes_agent",
+        "timestamp": "2026-05-28T17:41:58.119909+00:00"
+      }
+    ]
+  },
+  "meta_cognition": {
+    "confidence": 0.977,
+    "self_model": {
+      "confidence_by_domain": {
+        "AttentionManager": 1.0,
+        "SONALite": 1.0,
+        "amygdala": 0.05,
+        "lobo_frontal": 1.0,
+        "area_broca": 1.0,
+        "hippocampus": 1.0,
+        "n_accumbens": 1.0,
+        "meta_observer": 1.0,
+        "GatewayGuard": 1.0
+      },
+      "overall_confidence": 0.977,
+      "domains_tracked": 9,
+      "updated_at": "2026-05-28T17:25:05.320377+00:00"
+    },
+    "phi": 1.789,
+    "anomalies_detected": 0,
+    "delegation_decisions": {
+      "amygdala": "delegate"
+    },
+    "timestamp": "2026-05-28T17:25:05.320868+00:00"
+  }
+}

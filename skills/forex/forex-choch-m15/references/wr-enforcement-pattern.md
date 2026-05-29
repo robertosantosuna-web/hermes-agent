@@ -1,4 +1,60 @@
-# WR Enforcement Pattern (22/05/2026)
+# ⚠️ PITFALL: WR enforcement ausente (corrigido 26/05)
+
+O bot `forex_bot_multi.py` definia `MIN_WR_REAL = 50.0` mas **nunca chamava** a função de verificação. Os trades eram abertos usando o `backtest_wr` hardcoded (~67%) em vez do WR real da conta.
+
+**Sintoma:** Bot abrindo ordens mesmo com WR real de 14.3% (1W/6L).
+
+**Corrigido:** Adicionado `should_trade_pair(pair)` que:
+- Lê `trade_log.json` e calcula WR real por par
+- Bloqueia pares com WR < 50%
+- Bloqueia pares com WR < 50% quando WR agregado < 35%
+
+```python
+def should_trade_pair(pair):
+    wr_real = get_real_wr(pair, min_trades=3)
+    if wr_real is not None and wr_real < MIN_WR_REAL:
+        return False  # BLOQUEADO
+    wr_agg = get_real_wr(min_trades=5)
+    if wr_agg is not None and wr_agg < 35.0:
+        if wr_real is not None and wr_real < 50.0:
+            return False
+    return True
+```
+
+Chamado no loop de scan antes de detectar sinais:
+```python
+if not should_trade_pair(base_pair):
+    continue
+```
+
+---
+
+# ⚠️ PITFALL: Filtro de correlação só checava trades NOVOS (corrigido 26/05)
+
+O limite `MAX_CORRELATED_PAIRS = 2` só contava os trades sendo adicionados na execução atual, ignorando posições já abertas no MT5. Resultado: 4 USDCAD simultâneos.
+
+**Corrigido:** Agora conta posições existentes via `status.get('positions_data')` do MT5:
+```python
+jpy_open = sum(1 for p in status.get('positions_data', [])
+               if p.get('symbol') in correlated_groups['JPY'])
+usd_open = sum(1 for p in status.get('positions_data', [])
+               if p.get('symbol') in correlated_groups['USD'])
+# Depois: jpy_count = jpy_open + sum(... novos ...)
+```
+
+---
+
+# ⚠️ PITFALL: real_daily_state.json com balance stale
+
+**Sintoma:** `calculate_max_risk_sl()` calcula SL máximo minúsculo (ex: 0.1 pips) e bloqueia entradas.
+
+**Solução:** Atualizar com balance real do MT5:
+```bash
+python3 ~/.hermes/scripts/hermes_mt5_bridge.py status  # pega balance
+cat > ~/.hermes/forex/real_daily_state.json << EOF
+{"date": "$(date +%Y-%m-%d)", "balance": 399.0, "equity": 400.49, "pnl_today": 0, "updated": "$(date -Iseconds)", "trades_today": 0, "trade_log": []}
+EOF
+```
 
 ## Problem
 Bot used hardcoded `cfg['wr']` from backtest (~67%) instead of real WR from trade_log. Results: opened orders despite real WR of 33% with -39.7 pips loss.

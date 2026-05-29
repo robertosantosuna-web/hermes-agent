@@ -15,15 +15,34 @@ Automação confiável de browser usando Chrome DevTools Protocol conectado ao M
 
 **Suporte multi-browser:** Edge (porta 9222, IPv4), Edge WhatsApp (porta 9224, IPv4), Brave/Chromium headless (porta 9223, **IPv6-only `[::1]:9223`**, systemd service).
 
-### CDP Port Matrix (atualizado 25/05)
+#**TradingView OHLC extraction** — see `references/tradingview-ohlc-extraction.md` for the complete pattern. Integrated into `tv_data.py` via `_tv_cdp_fetch()`.
+
+## CDP Port Matrix (atualizado 29/05/2026 — sessão real)
 
 | Porta | Browser | IP | Uso | Cuidados |
 |-------|---------|-----|-----|----------|
-| `:9222` | Brave real (usuário) | IPv4 `localhost` | Evitar — interfere na navegação | Pode estar offline |
-| `:9223` | Brave headless (brain) | **IPv4 OU IPv6** | Automação forex (TradingView) | Testar `localhost` E `[::1]` |
+| `:9222` | **Brave desktop real** | IPv4 `localhost` | **PRIMÁRIO — Freelancer, 99Freelas, TradingView** | Sessão ativa com cookies, Google OAuth logado. **MAIS ESTÁVEL.** |
 | `:9224` | Edge (WhatsApp) | IPv4 `localhost` | WhatsApp Web automação | Sob demanda |
+| `:9225` | Edge main | IPv4 `localhost` | ⚠️ **INSTÁVEL** — caiu durante sessão 29/05 | Pode morrer com múltiplas conexões Playwright |
+| `:9226` | Chromium headless (systemd) | IPv4 `localhost` | Background scraping, abas de monitoramento | `headless=new`, pode ser bloqueado por alguns sites |
 
-⚠️ **PITFALL — Porta 9223 muda IPv4/IPv6:** Dependendo de como o Brave foi iniciado (systemd vs manual), a porta 9223 pode escutar em IPv4 (`127.0.0.1`) ou IPv6 (`[::1]`). Sempre testar ambos: `curl http://localhost:9223/json/version` e `curl http://[::1]:9223/json/version`. O `brain_browser.py` usa `CDP_URL = 'http://localhost:9223'` (cobre ambos se o sistema resolver localhost para IPv4+IPv6).
+**REGRA:** Brave :9222 é o mais estável para navegação HTTP (PUT /json/new?url, GET /json/list) e tem sessão logada no Freelancer.com e 99Freelas. **Porém bloqueia comandos de sessão CDP** — `Target.attachToTarget`, `Target.sendMessageToTarget`, `Runtime.evaluate` e `Network.getAllCookies` NÃO funcionam (retornam vazio, timeout, ou erro "No session for given target id"). Para extrair dados de abas existentes, usar apenas navegação HTTP + verificação visual. Edge :9225 pode cair sob carga. Sempre verificar qual porta está ativa antes de começar: `ss -tlnp | grep -E '922[2-6]'`.
+
+⚠️ **PITFALL — Porta 9223 muda IPv4/IPv6:** Dependendo de como o Brave foi iniciado (systemd vs manual), a porta 9223 pode escutar em IPv4 (`127.0.0.1`) ou IPv6 (`[::1]`). Sempre testar ambos: `curl http://localhost:9223/json/version` e `curl http://[::1]:9223/json/version`.
+
+**PITFALL — Playwright `connect_over_cdp` resolve `localhost` como IPv6:** O Playwright resolve `localhost` para `::1` (IPv6) antes de `127.0.0.1` (IPv4). Como os browsers escutam em `127.0.0.1`, a conexão falha com `ECONNREFUSED`. **SEMPRE usar `127.0.0.1` explícito:** `p.chromium.connect_over_cdp('http://127.0.0.1:9222')`.
+
+**PITFALL — Edge :9225 morre sob carga:** Múltiplas conexões e desconexões Playwright no Edge :9225 podem derrubar o processo. Verificar com `ss -tlnp | grep 9225` antes de cada uso. Se caiu, migrar para Brave :9222.
+
+**PITFALL — Brave :9222 rejeita comandos de sessão CDP (29/05/2026):** Apesar de aceitar WebSocket e comandos de navegador (`Target.createTarget`, `Target.getTargets`), o Brave :9222 bloqueia TODOS os comandos que exigem sessionId:
+- `Target.attachToTarget` → evento `Target.attachedToTarget` NUNCA chega (timeout)
+- `Target.sendMessageToTarget` → erro "No session for given target id"
+- `Network.getAllCookies` → retorna 0 cookies (mesmo com usuário logado)
+- `Runtime.evaluate` via session → "session with given id not found"
+
+**Workaround:** Brave :9222 serve apenas para navegação HTTP (`PUT /json/new?url`, `GET /json/list`, `GET /json/activate`) e verificação visual. Para extrair dados, usar APIs REST com cookies extraídos de outro navegador, ou usar Chrome :9226 (requer flag `--remote-allow-origins=*` para WebSocket). Playwright `connect_over_cdp` para Brave :9222 também falha (timeout).
+
+**PITFALL — Chrome :9226 WebSocket bloqueado (29/05/2026):** O Chromium headless na porta 9226 rejeita conexões WebSocket com "403 Forbidden — Rejected an incoming WebSocket connection from the http://127.0.0.1:9226 origin". Requer flag `--remote-allow-origins=*` no lançamento. Sem esta flag, apenas endpoints HTTP funcionam (`PUT /json/new?url`, `GET /json/list`). WebSocket e Playwright `connect_over_cdp` falham.
 
 **NUNCA abrir abas novas sem reuso** — cada `PUT /json/new` consome ~200MB RAM. Usar `navigate(url, reuse=True)`. **REGRA (25/05): máximo 1 aba ativa no brain browser.** Se precisar de outro par/símbolo, navegar na MESMA aba. Múltiplas abas = crash garantido.
 
@@ -55,6 +74,8 @@ Templates para deploy: `templates/cloudrun-static-dockerfile`, `templates/cloudr
 - **Formulários Material Design** aceitam `Input.dispatchKeyEvent` com `type: "char"` — NÃO usar `.value =` setter.
 - **Botões** no GCP Console respondem a JS `.click()` (não precisa de `Input.dispatchMouseEvent` para botões simples).
 - **Billing necessário** para Cloud Run/Cloud Build/Artifact Registry. Sem billing account vinculada, `gcloud services enable` falha com `UREQ_PROJECT_BILLING_NOT_FOUND`.
+
+Ver `references/platform-registration-results-2026-05-29.md` para testes de cadastro em Fiverr, Workana, Mercado Livre, OLX, GetNinjas com números virtuais.
 
 Ver `references/gcp-console-cdp-patterns.md` para DOM queries detalhadas e fluxo completo.
 
@@ -97,22 +118,15 @@ async def navigate(url, reuse=True):
 
 ```bash
 # Teste rápido — deve retornar JSON com abas
-curl -s --max-time 3 http://localhost:9222/json | python3 -c "import json,sys; d=json.load(sys.stdin); print(f'{len(d)} tabs')" 2>&1
-curl -s --max-time 3 http://[::1]:9223/json | python3 -c "import json,sys; d=json.load(sys.stdin); print(f'{len(d)} tabs')" 2>&1
+curl -s --max-time 3 http://localhost:9225/json | python3 -c "import json,sys; d=json.load(sys.stdin); print(f'{len(d)} tabs')" 2>&1
+curl -s --max-time 3 http://localhost:9226/json | python3 -c "import json,sys; d=json.load(sys.stdin); print(f'{len(d)} tabs')" 2>&1
 ```
 
 Se retornar erro ou vazio → browser NÃO está rodando com CDP. NÃO insistir com CDP. Usar desktop-control.
 
-### ⚠️ IPv4 vs IPv6 na porta 9223
+### ⚠️ Porta 9225 é a mais confiável
 
-A porta 9223 pode estar em **IPv4** ou **IPv6** dependendo de como o Brave foi iniciado:
-- **Systemd**: `--remote-debugging-port=9223` → pode ser IPv6-only `[::1]:9223`
-- **Manual**: mesma flag → pode ser IPv4 `127.0.0.1:9223`
-
-**Sempre testar ambos** antes de desistir:
-```bash
-curl -s http://localhost:9223/json/version || curl -s http://[::1]:9223/json/version
-```
+A porta 9225 (Edge main) responde a `PUT /json/new?url` corretamente. A porta 9226 (Chromium headless) pode retornar vazio para `/json/new`. Para criar novas abas com URL, preferir Edge :9225.
 
 ### Iniciar Edge com CDP (se necessário)
 
@@ -140,27 +154,23 @@ Instalar se necessário: `pip install websocket-client`
 import json, time, urllib.request, websocket
 
 # Listar abas
-pages = json.loads(urllib.request.urlopen('http://localhost:9222/json', timeout=5).read())
+pages = json.loads(urllib.request.urlopen('http://127.0.0.1:9222/json', timeout=5).read())
+```
 
-# Filtrar por URL
-target = next(p for p in pages if 'site-alvo.com' in p['url'])
+**PITFALL — `Target.attachToTarget` retorna EVENTO, não resposta direta:**
+O CDP envia o `sessionId` como evento assíncrono `Target.attachedToTarget`, não como `result` síncrono:
 
-# Conectar
-ws = websocket.create_connection(target['webSocketDebuggerUrl'], timeout=10, origin='http://localhost:9222')
+```python
+ws.send(json.dumps({"id": 1, "method": "Target.attachToTarget", "params": {"targetId": tid}}))
+r = json.loads(ws.recv())
+# r = {'method': 'Target.attachedToTarget', 'params': {'sessionId': '...', 'targetInfo': {...}}}
+sid = r['params']['sessionId']  # sessionId está AQUI, não em result
+```
 
-# Contador de mensagens
-mid = [0]
-def cdp(method, params=None):
-    mid[0] += 1
-    ws.send(json.dumps({'id': mid[0], 'method': method, 'params': params or {}}))
-    while True:
-        resp = json.loads(ws.recv())
-        if resp.get('id') == mid[0]:
-            return resp.get('result', {})
-
-def ev(expr):
-    """Evaluate JS, return value"""
-    return cdp('Runtime.evaluate', {'expression': expr, 'returnByValue': True}).get('result', {}).get('value')
+Depois de obter o `sessionId`, incluí-lo em TODOS os comandos subsequentes:
+```python
+ws.send(json.dumps({"id": 2, "method": "Runtime.evaluate", "params": {...}, "sessionId": sid}))
+r = json.loads(ws.recv())  # {'id': 2, 'result': {...}}
 ```
 
 ## NOVA ABA (REUSA SESSÃO EDGE)
@@ -382,6 +392,26 @@ import json, urllib.request, websocket, time
 
 **Pitfall de escaping:** `terminal()` com `-c` exige cuidado com aspas. Use aspas simples no outer, duplas no inner. Evite f-strings com aspas triplas aninhadas. Se o script for muito longo, escreva com `python3 -c "open('/tmp/script.py','w').write(...)"` e execute depois.
 
+## DIAGNÓSTICO: ABAS EM TODAS AS PORTAS
+
+Quando `browser_cdp` não encontra a aba esperada (wrong port), escanear TODAS as portas CDP de uma vez:
+
+```bash
+for port in 9224 9225 9226; do
+  echo "=== Porta $port ==="
+  curl -s http://localhost:$port/json | python3 -c "
+import sys, json
+tabs = json.load(sys.stdin)
+for t in tabs:
+    if t['type'] == 'page':
+        print(f\"  {t['id'][:20]}... | {t.get('title','?')[:80]}\")
+        print(f\"    {t.get('url','?')[:120]}\")
+" 2>/dev/null
+done
+```
+
+**PITFALL**: `browser_cdp` pode estar configurado para uma porta (ex: :9223) enquanto a aba que você precisa está em outra (:9222). Sempre verificar com o scan acima antes de assumir que a aba não existe. Após achar a porta correta, usar `websockets.connect(url)` diretamente (não `browser_cdp`) para acessar abas em portas diferentes da configurada.
+
 ## ANTI-PADRÃO: RETENTAR CDP SEM DIAGNÓSTICO
 
 **NUNCA repetir chamadas CDP quando a porta 9222 não responde.** Se `curl localhost:9222/json` falhar:
@@ -389,13 +419,18 @@ import json, urllib.request, websocket, time
 2. Se não: iniciar Edge COM as flags CDP, OU usar desktop-control
 3. Se sim mas sem CDP: matar Edge e reiniciar COM flags
 
-Repetir a mesma chamada CDP 3+ vezes sem diagnóstico é desperdício de tokens e frustração do usuário.
+## PITFALLS E RESISTÊNCIA DE PLATAFORMAS
 
 | Componente | Onde aparece | Sintoma | Solução |
 |-----------|-------------|---------|---------|
+| **Outlook Web sandbox** | outlook.live.com | `document.body.innerText` NÃO mostra corpo do email (só sidebar/lista). Iframes `display:none` com `about:blank`. | Extrair MSAL token do localStorage → Outlook REST API. Ver `email-autonomy` skill, `references/outlook-token-extraction.md`. |
 | **Bootstrap-select** | Clickworker, SproutGigs, OneForma | `select.value = "br"` + `change` event NÃO funciona. Dropdown visual não atualiza. | Mouse click no dropdown customizado + click na opção. Ou usuário resolve manualmente. |
 | **React custom dropdown** | Neevo language selector | Lista virtualizada, `Input.dispatchKeyEvent` não filtra, opções não estão no DOM | Scroll no container até a opção aparecer + click. Ou usar `select.options[i].selected` + `dispatchEvent` (funcionou para definir valor mas não para UI React) |
-| **PerimeterX CDP block** | Fiverr inbox | ERRCODE PXCR10002539 bloqueia navegação CDP | Sem workaround. Usar email monitoring. |
+| **PerimeterX CDP block** | Fiverr join/login | ERRCODE PXCR10002539 bloqueia navegação CDP | Sem workaround. Usar email monitoring ou app mobile. |
+| **Workana multi-step signup** | workana.com/signup | Fluxo: "Busco trabalho" → "Freelance/Projetos" → "Avançar" → formulário. Text selectors funcionam com Playwright `page.click('text=...')`. | Usar Playwright `connect_over_cdp` para navegação multi-etapa. Raw CDP com `Input.dispatchMouseEvent` desnecessário aqui. |
+| **Mercado Livre registration** | mercadolivre.com.br/registration | Tem campo `tel` (type=tel). Pede email primeiro, telefone depois. Formulário React — `page.fill()` do Playwright funciona. | Usar Playwright. Raw CDP também funciona com `Input.dispatchKeyEvent`. |
+| **OLX registration** | conta.olx.com.br/cadastro | NÃO pede telefone no cadastro inicial (apenas CPF, nome, nascimento, email, senha). Telefone pode ser pedido depois na publicação de anúncio. | Para验证 SMS, OLX não serve como primeiro passo. |
+| **GetNinjas** | getninjas.com.br | Cadastro retorna 404. URL `/cadastro/profissional` não funciona mais. | Plataforma pode ter mudado URL ou estar em manutenção. |
 | **Google OAuth consent** | Conta Google | Account chooser + consent screen normais | Padrão funciona: click profile → click "Continuar". Sessão Google do Edge é herdada. |
 
 16. **99Freelas botão "Enviar" (React) — RESISTENTE a tudo**: o botão de envio de mensagens do 99Freelas ignora `Input.dispatchMouseEvent`, JS `.click()`, `dispatchEvent(new MouseEvent(...))`, e tecla Enter via `Input.dispatchKeyEvent`. **WORKAROUND PARCIAL**: o textarea ACEITA `document.execCommand('insertText', false, texto)` — o campo preenche corretamente (ver seção "React textarea: execCommand" acima). Só o submit que nunca dispara. **Solução final**: preencher via `execCommand('insertText')` e entregar o conteúdo pronto ao usuário para clicar Enviar manualmente (~30s).
@@ -451,7 +486,33 @@ cdp('Runtime.enable')
 ws.close()
 ```
 
-## GOOGLE OAUTH FLOW (CONFIÁVEL)
+## PLAYWRIGHT VIA CDP (connect_over_cdp)
+
+Para cenários onde `Input.dispatchMouseEvent` raw é muito verboso, usar Playwright conectando ao browser existente:
+
+```python
+from playwright.async_api import async_playwright
+
+async with async_playwright() as p:
+    # Conectar ao Edge (9225) ou Chromium headless (9226)
+    browser = await p.chromium.connect_over_cdp('http://localhost:9225')
+    
+    # Criar nova página (persiste após script fechar? NÃO — usar PUT /json/new para abas persistentes)
+    page = await browser.contexts[0].new_page()
+    await page.goto('https://site-alvo.com', timeout=20000, wait_until='domcontentloaded')
+    await page.wait_for_timeout(4000)
+    
+    # Interagir com Playwright API normal
+    text = await page.evaluate('() => document.body.innerText')
+    await page.click('text=Botão Alvo', timeout=5000)
+    await page.fill('input[placeholder="Email"]', 'valor')
+```
+
+**IMPORTANTE:** Páginas criadas via Playwright `connect_over_cdp` são DESTRUÍDAS quando o script termina. Para abas persistentes que sobrevivem ao script, usar `PUT /json/new?url` diretamente via HTTP (funciona no Edge :9225).
+
+**Quando usar Playwright vs raw CDP:**
+- **Playwright**: formulários complexos, navegação multi-etapa, extração de texto
+- **Raw CDP**: abas persistentes, sites com anti-automação que detectam Playwright, quando precisa de controle fino de mouse/keyboard
 
 Fluxo testado e funcional em Toloka e TimeBucks (19/05/2026). A sessão do Google no Edge é herdada pela nova aba CDP.
 

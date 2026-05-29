@@ -360,35 +360,28 @@ A ENTIDADE NÃO PERGUNTA para executar ações reversíveis. Instalações de pa
 
 14. ☠️ **Rediscover em vez de consultar o mapa** — Tentar abordagens via CDP que o skill já documentou como falhas (Input.insertText, JS .click()) sem antes verificar o pipeline mapeado. Regra: ANTES de qualquer ação web, carregar o skill relevante e consultar a tabela de métodos. Se o skill diz "X não funciona, use Y", use Y primeiro. Só tente alternativas se Y falhar. Ex: 99Freelas — skill dizia "CDP não funciona para envio → usar Desktop Daemon". Tentativas de CDP Input antes de checar o skill queimaram tokens. Correção 25/05/2026.
 
-## MINDCOACH PRO — CANAL PRIMÁRIO (25/05/2026)
+15. ☠️ **Inventar nomes de familiares** — NUNCA criar nomes fictícios para filhas, parentes ou pessoas próximas a Roberto. Usar apenas dados confirmados na memória. Quando um dado pessoal não estiver disponível, usar descrições genéricas ("suas 2 filhas", "sua família"). Placeholders genéricos são melhores que invenções. Ex: "Eduarda e Sophia", "Heloisa e Isadora" eram nomes FALSOS. Correção 26/05/2026.
 
-O app MindCoach Pro é o **canal primário** de interação. Telegram é **backup/suporte**.
+## MINDCOACH PRO — CANAL PRIMÁRIO (26/05/2026)
+
+O app MindCoach Pro (Android + PWA) é o canal primário. Telegram é backup.
 
 **URL:** `https://mindcoach-541659260074.us-central1.run.app`
-**Deploy:** `cd ~/.hermes/mindcoach-pro && gcloud run deploy mindcoach --source . --region us-central1 --allow-unauthenticated`
+**Deploy:** `cd ~/.hermes/mindcoach-pro && gcloud run deploy mindcoach --source . --region us-central1 --allow-unauthenticated --quiet`
+**App Android:** `~/Downloads/mindcoach (1)/` — Kotlin/Compose, compilação via `./gradlew assembleDebug`
+**APK servido em:** `/mindcoach.apk` no Cloud Run
+**OTA:** `GET /api/v1/ota` → verifica versão → download + instala automática
 
 **Prioridade de canais:**
-1. **App MindCoach** — chat, autorizações, dados neurais, notificações (PRIMÁRIO)
-2. **Telegram** — backup (se app offline >30min ou não respondeu)
+1. App MindCoach (chat, autorizações, eventos, OTA) — PRIMÁRIO
+2. Telegram — backup
 
-**Dock bar (v29+):** 3 ícones fixos no rodapé (🔐 Auth, 📊 Painel, 💬 Chat). O dock sobe junto quando painéis abrem.
+**⚠️ Personalização:** NUNCA inventar nomes de familiares. Usar "2 filhas" — placeholders genéricos > invenções.
 
-**Fluxo de autorização:**
-```bash
-python3 ~/.hermes/scripts/auth_request.py "Título" "Mensagem"
-```
-Roberto recebe no 🔐 com ✅ Autorizar / ❌ Recusar.
+**Córtex Dual no app:** Barra superior mostra Hermes (DeepSeek V4) + Codex (GPT-5.5) + status ONLINE.
+**6 Pilares:** Financeiro, Saúde, Mente, Operacional, Comunicação, Conhecimento.
 
-**Chat:** Mensagens do 💬 roteadas para **o agente** (DeepSeek/Claude), não Ollama.
-O bridge envia "📨 Recebido!" imediato, marca `pending_chat` no gateway, e o agente responde com qualidade total via `respond_chat.py`.
-```bash
-python3 ~/.hermes/scripts/respond_chat.py "Resposta do agente"
-```
-
-**Regras:**
-- Refresh não interrompe se chat/auth aberto ou usuário digitando
-- Dock usa safe-area-inset (respeita notch/gesture bar)
-- 3 toques no número da versão (topo) = reset total de cache
+**CODE TAKEOVER:** Se Hermes rate-limitar ou timeout >30s, Codex (Lobo Direito) DEVE assumir imediatamente via `delegate_task`. Não esperar — acionar na hora. Codex é PAR, não subordinado.
 
 ## ANTI-PADRÕES (NUNCA FAZER)
 

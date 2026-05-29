@@ -33,13 +33,40 @@ https://myaccount.google.com/apppasswords
 Pré-requisito: verificação em 2 etapas ativada na conta.
 Gerar para app "E-mail", dispositivo "Linux". Senha de 16 caracteres (com espaços).
 
-## CONTA CONFIGURADA
+## OUTLOOK PESSOAL (robertosantos141@outlook.com)
 
+A conta pessoal Outlook é acessível via:
+- **Brave real (:9222)** — sessão autenticada, outlook.live.com
+- **Edge CDP (:9224)** — também tem sessão
+
+**⚠️ Outlook web é React SPA com sandboxed iframes — DOM extraction NÃO funciona para o corpo do email.** `document.body.innerText` retorna apenas sidebar e lista, nunca o conteúdo do email. Para ler emails:
+
+1. **🥇 Token extraction (RECOMENDADO):** Extrair MSAL token do localStorage via CDP → Outlook REST API (`outlook.office.com/api/v2.0`). Ver `references/outlook-token-extraction.md` para o workflow completo.
+2. **🥈 Desktop Daemon + ydotool:** Fallback quando o token expirou. Ver skill `desktop-control`.
+
+**Contas vinculadas:** O Outlook pessoal e o corporativo (robrsantos@voegol.com.br) podem compartilhar inbox no mesmo tenant Microsoft 365. Verificar qual conta está ativa no canto superior direito.
+
+## GMAIL PESSOAL (robertosantos.una@gmail.com)
+
+Acessível via:
+- **IMAP direto** (recomendado para leitura) — `imap.gmail.com:993`, app password
+- **Brave real (:9222)** — sessão Google ativa, mail.google.com
+
+## VARREdura MULTI-CANAL
+
+Para buscar compromissos em TODAS as fontes simultaneamente:
+```python
+# Paralelo: Gmail (IMAP) + Outlook (CDP) + WhatsApp (Edge CDP :9224)
+# Usar delegate_task com 3 subagentes para máxima eficiência
 ```
-Email: robertosantos.una@gmail.com
-IMAP:  imap.gmail.com:993 (SSL)
-SMTP:  smtp.gmail.com:587 (STARTTLS)
-Senha: App Password (16 chars)
+
+Resultado salvo em `~/.hermes/mindcoach-pro/data/agenda_scan.json` com estrutura:
+```json
+{
+  "commitments": [{"date", "time", "type", "title", "source", "priority"}],
+  "pending_actions": [{"action", "source", "priority"}],
+  "recurring": [{"type", "schedule"}]
+}
 ```
 
 ## COMANDOS RÁPIDOS

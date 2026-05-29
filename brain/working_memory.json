@@ -1,0 +1,18 @@
+{
+  "items": {
+    "obs:meta:1779989105.3439": {
+      "value": {
+        "domain": "meta",
+        "data": {
+          "phi": 1.789,
+          "overall_confidence": 0.977,
+          "anomalies": 0
+        },
+        "timestamp": "2026-05-28T17:25:05.343905+00:00"
+      },
+      "expires_at": 1779992705.3439226,
+      "last_access": 1779989105.3439238
+    }
+  },
+  "updated": "2026-05-28T17:25:05.343994+00:00"
+}

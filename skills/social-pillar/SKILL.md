@@ -87,7 +87,7 @@ category: core
 | Telegram | Telethon API | 13 conversas |
 | WhatsApp | Edge CDP :9224 | 105 conversas |
 | 99Freelas | Brave CDP | Mensagens de projetos |
-| Email | IMAP | himalaya |
+| Instagram | Brave CDP :9222 | `~/.hermes/brain/instagram_monitor.py` |
 
 ## Protocolo Diário (24/05/2026)
 

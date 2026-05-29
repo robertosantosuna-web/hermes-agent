@@ -18,8 +18,22 @@ version: 1.0.0
 | Fiverr | PerimeterX | ❌ NUNCA | ❌ Não | ✅ SEMPRE |
 | Workana | Google OAuth | 🟡 Parcial | ✅ Sim | Se 2FA |
 | Gmail | Google login | 🟡 Parcial | ✅ Sim | Se 2FA |
+| Exness (sign-up) | Cloudflare Turnstile | ❌ NUNCA | ❌ Não | ✅ SEMPRE |
+| Exness (sign-in) | Sem Cloudflare | ✅ OK | ✅ Sim | Se UNAUTHORIZED |
+| Exness (PA/manage) | Precisa sessão | 🟡 Brave :9222 | — | — |
 | Neevo | Nenhuma | ✅ OK | — | — |
 | TimeBucks | Nenhuma | ✅ OK | — | — |
+
+## Cloudflare Turnstile — Iframe OOPIF (26/05)
+
+Exness e outros serviços financeiros usam Cloudflare Turnstile com checkbox "Confirme que é humano" em iframe OOPIF. **Programaticamente impossível de clicar.** O `browser_click` no ref do checkbox falha silenciosamente — o iframe é out-of-process e o clique não registra. `Runtime.evaluate` no iframe retorna `body.innerHTML = ""` (protegido). `Input.dispatchMouseEvent` também não resolve.
+
+**Workflow correto:**
+1. Navegar até a página → Cloudflare aparece
+2. Dizer ao usuário: "Clica no checkbox Confirme que é humano aí no Brave"
+3. Usuário clica → página libera → continuar automação
+
+**NÃO perder tempo com:** CDP no iframe, dispatchMouseEvent, Runtime.evaluate no frame, ydotool no checkbox. Já testado — NADA funciona em OOPIF Cloudflare.
 
 ## Nova Descoberta (22/05): Google OAuth PULA Turnstile, mas Google bloqueia Hermes Browser
 
@@ -89,6 +103,24 @@ NÃO reportar:
 3. Se sessão ok → navegar normalmente
 ```
 
+### Exness (26/05 — ATUALIZADO)
+
+**Duas situações distintas:**
+
+**1. Sign-up (criar conta) — Cloudflare Turnstile bloqueia:**
+- Navegar para https://my.exness.com/accounts/sign-up
+- Cloudflare Turnstile aparece → 🔴 "Clica no checkbox Confirme que é humano aí no Brave"
+- Aguardar usuário clicar → página de cadastro carrega
+- Continuar preenchimento normalmente
+
+**2. Sign-in + PA (gerenciar conta existente) — Brave :9222 resolve:**
+- A página de login (https://my.exness.com/accounts/sign-in) NÃO tem Cloudflare
+- Password auth pode retornar `SIGN_IN_REQUEST_ERROR: UNAUTHORIZED` se senha errada
+- Se a conta foi criada via Google OAuth, usar o Brave real :9222 que já tem sessão ativa
+- Dados da conta no WebTerminal: `localStorage.getItem('texActiveAccountNumber')`
+- Área Pessoal em `my.exness.com/pa/trading/accounts` para gerenciar senhas/servidores
+- **PITFALL:** `browser_navigate` no navegador interno para a PA redireciona para /sign-in (sem cookies). Usar Brave :9222 que já tem cookies de sessão.
+
 ## Log de Falhas Anti-Bot
 
 Toda falha anti-bot DEVE ser registrada em `~/.hermes/failure_log.json` com:
@@ -109,9 +141,60 @@ Toda falha anti-bot DEVE ser registrada em `~/.hermes/failure_log.json` com:
 | 22/05 | 99Freelas | Email+senha CDP | ❌ Turnstile "token inválido" |
 | 22/05 | 99Freelas | Google OAuth CDP | ❌ Google bloqueou "navegador inseguro" |
 | 22/05 | 99Freelas | Desktop Daemon (cego) | ⚠️ Navegou mas sem confirmação visual |
+| 26/05 | Exness | CDP browser_click checkbox | ❌ Cloudflare Turnstile OOPIF — clique não registra |
+| 26/05 | Exness PA | Brave :9222 CDP (sessão ativa) | ✅ Acessou PA, extraiu conta, alterou senha MT5 |
+| 26/05 | Exness login | browser_navigate + password | ❌ UNAUTHORIZED (senha incorreta) |
+| 26/05 | Exness login | browser_navigate + Google OAuth | ❌ Redirecionou para TradingView (popup bloqueado) |
 
-**Conclusão: CDP para 99Freelas = 100% de falha. NUNCA MAIS.**
-**Google OAuth via browser tools também falha — Google detecta Chromium do Hermes como inseguro.**
+| 28/05 | Instagram | Brave :9222 CDP (navegador real) | ✅ Contornou bloqueio do Chromium |
+| 28/05 | Instagram | Chromium headless :9226 | ❌ Bloqueado — não aceita Chrome automatizado |
+
+**Regra Instagram (28/05):** Chromium headless é bloqueado. Brave/Edge (navegadores reais com perfil de usuário) passam. Para login: ação humana única no Brave real, depois CDP extrai métricas.
+
+## Dual-Browser Strategy (26/05 — PADRÃO)
+
+Quando o browser interno (browser_navigate) é bloqueado por Cloudflare ou perde cookies de sessão:
+
+1. **Browser interno**: apenas para páginas públicas ou primeiro contato
+2. **Brave real :9222**: para páginas que exigem autenticação — a sessão Google/Gmail/Exness já está ativa
+3. **Desktop Daemon :9876**: para cliques que exigem evento de mouse kernel-level (React SPAs que rejeitam `Input.dispatchMouseEvent`)
+
+**Fluxo de decisão:**
+```
+Precisa acessar plataforma X?
+├─ X tem Cloudflare? → Brave :9222 + Desktop Daemon (pular browser interno)
+├─ X precisa de login? → Brave :9222 (sessão ativa) → CDP Runtime.evaluate para extrair dados
+├─ X é pública? → browser_navigate (browser interno)
+└─ X bloqueou tudo? → ação humana
+```
+
+## Exness — Extração de Dados da Conta (26/05)
+
+**Problema:** browser interno redireciona para /sign-in sem cookies. Cloudflare no sign-up bloqueia automação.
+
+**Solução:** Brave real :9222 já tem sessão Google ativa → acessar WebTerminal ou PA diretamente.
+
+**WebTerminal** (`https://my.exness.com/webtrading/`):
+```javascript
+// Número da conta no localStorage
+localStorage.getItem('texActiveAccountNumber')  // → "198420982"
+// Outros dados: saldo, margem, alavancagem visíveis no DOM
+document.body.innerText  // → extrair "Demo", "Standard", "10,000.00 USD"
+```
+
+**Personal Area** (`https://my.exness.com/pa/trading/accounts`):
+- Abrir via Brave :9222: `http://localhost:9222/json/new?https://my.exness.com/pa/trading/accounts`
+- Clicar aba "Demo" para ver conta demo
+- Dados expostos: servidor (`Exness-MT5Trial11`), alavancagem (`1:200`), saldo
+- Botão "Altere a senha da operação" → modal com campos new password/confirm
+
+**Alterar senha MT5 via PA:**
+1. `document.querySelectorAll('button')` → achar "Altere a senha da operação"
+2. `.click()` → modal abre com campo password
+3. `nativeInputValueSetter.call(input, 'nova_senha')` + dispatch Event('input')
+4. Clicar "Alterar a senha" → modal fecha se sucesso
+
+**PITFALL:** Não usar `ydotool type` para senhas com caracteres especiais — layout ABNT2 corrompe `@`, `!`, `#`. Usar CDP `Input.dispatchKeyEvent` com `type: "char"` ou `nativeInputValueSetter`. Para senhas puramente alfanuméricas (ex: `Wc0ZO6#p`), testar antes — `#` pode falhar no ABNT2.
 
 ## Limitação Crítica: Visão no Wayland/GNOME
 

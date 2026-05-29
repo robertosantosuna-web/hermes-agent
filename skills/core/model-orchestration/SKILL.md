@@ -26,6 +26,10 @@ Modelos locais (GTX 1650 4GB, Q4_0 quantização):
 Uso: tarefas sem custo, privacidade, classificação, pré-processamento
 Limitação: GPU 4GB — ~81% CPU quando modelo >3GB. Primeira carga ~90s, seguintes ~30-50s.
 Timeout: 120s (modelos em CPU+GPU são lentos na primeira inferência)
+
+⚠️ RAM constraint (6.6GB total): modelos 7B+ inviáveis mesmo com Q3.
+   Usar apenas modelos ≤3B. Ver referência completa em:
+   → references/local-brain-5region-architecture.md
 ```
 
 ### Camada 1: Produção (sempre disponível)
@@ -122,6 +126,10 @@ Reportar [FALHA] ao usuário com diagnóstico
 5. **GPU 4GB é limite.** Snap do Ollama precisa de conexão `opengl` para acessar GPU: `snap connect ollama:opengl`. Modelos >3GB vão 81%+ para CPU.
 
 6. **Ollama PS mostra uso real.** `ollama ps` exibe quanto do modelo está em GPU vs CPU. Se 80%+ CPU, considerar modelo menor (qwen2.5:1.5b, gemma2:2b).
+
+7. ⚠️ **RAM <8GB = OBLITERATUS inviável.** Abliterar modelos 3B+ requer carregar modelo + datasets em VRAM+RAM simultaneamente (~8GB+). Em sistemas com 6.6GB RAM total, usar prompt engineering (system prompts uncensored) como alternativa. Ver `references/local-brain-5region-architecture.md`.
+
+8. ⚠️ **Swap lotado = thrashing.** Se swap >80% usado, qualquer modelo novo vai causar thrashing (swap constante → lentidão extrema). Verificar com `swapon --show` antes de carregar modelos.
 
 ### Métricas a Observar
 - Latência média por provider

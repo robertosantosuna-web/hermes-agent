@@ -1,0 +1,2462 @@
+{
+  "patterns": [
+    {
+      "lesson": "[weight:pair:EURJPY] adjust:0.667 -> success (pnl=1.6700000000000004)",
+      "domain": "weight:pair:EURJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T16:08:59.803495+00:00"
+    },
+    {
+      "lesson": "[weight:pair:GBPJPY] adjust:0.667 -> success (pnl=1.6700000000000004)",
+      "domain": "weight:pair:GBPJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T16:08:59.804235+00:00"
+    },
+    {
+      "lesson": "[weight:pair:GBPUSD] adjust:0.750 -> success (pnl=2.5)",
+      "domain": "weight:pair:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T16:08:59.804897+00:00"
+    },
+    {
+      "lesson": "[weight:pair:USDJPY] adjust:1.000 -> success (pnl=5.0)",
+      "domain": "weight:pair:USDJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T16:08:59.805540+00:00"
+    },
+    {
+      "lesson": "[weight:pair:EURUSD] adjust:1.000 -> success (pnl=5.0)",
+      "domain": "weight:pair:EURUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T16:08:59.806221+00:00"
+    },
+    {
+      "lesson": "[weight:pair:AUDUSD] adjust:0.204 -> failure (pnl=-2.9600000000000004)",
+      "domain": "weight:pair:AUDUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T16:08:59.806920+00:00"
+    },
+    {
+      "lesson": "[weight:self:overall_confidence] adjust:0.964 -> success (pnl=4.64)",
+      "domain": "weight:self:overall_confidence",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T16:09:05.743361+00:00"
+    },
+    {
+      "lesson": "[weight:self:AttentionManager] adjust:1.000 -> success (pnl=5.0)",
+      "domain": "weight:self:AttentionManager",
+      "weight": 1.3000000000000003,
+      "successes": 4,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:25:05.328157+00:00"
+    },
+    {
+      "lesson": "[weight:self:SONALite] adjust:1.000 -> success (pnl=5.0)",
+      "domain": "weight:self:SONALite",
+      "weight": 1.3000000000000003,
+      "successes": 4,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:25:05.329696+00:00"
+    },
+    {
+      "lesson": "[weight:self:amygdala] adjust:0.050 -> failure (pnl=-4.5)",
+      "domain": "weight:self:amygdala",
+      "weight": 1.3000000000000003,
+      "successes": 0,
+      "failures": 4,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T17:25:05.331233+00:00"
+    },
+    {
+      "lesson": "[weight:self:lobo_frontal] adjust:1.000 -> success (pnl=5.0)",
+      "domain": "weight:self:lobo_frontal",
+      "weight": 1.3000000000000003,
+      "successes": 4,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:25:05.332887+00:00"
+    },
+    {
+      "lesson": "[weight:self:area_broca] adjust:1.000 -> success (pnl=5.0)",
+      "domain": "weight:self:area_broca",
+      "weight": 1.3000000000000003,
+      "successes": 4,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:25:05.334741+00:00"
+    },
+    {
+      "lesson": "[weight:self:hippocampus] adjust:1.000 -> success (pnl=5.0)",
+      "domain": "weight:self:hippocampus",
+      "weight": 1.3000000000000003,
+      "successes": 4,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:25:05.336372+00:00"
+    },
+    {
+      "lesson": "[weight:self:n_accumbens] adjust:1.000 -> success (pnl=5.0)",
+      "domain": "weight:self:n_accumbens",
+      "weight": 1.3000000000000003,
+      "successes": 4,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:25:05.337972+00:00"
+    },
+    {
+      "lesson": "[weight:pair:EURJPY] adjust:0.667 -> partial (pnl=0.0)",
+      "domain": "weight:pair:EURJPY",
+      "weight": 1.2000000000000002,
+      "successes": 0,
+      "failures": 0,
+      "judgement": "partial",
+      "last_seen": "2026-05-28T17:41:25.004016+00:00"
+    },
+    {
+      "lesson": "[weight:pair:GBPJPY] adjust:0.667 -> partial (pnl=0.0)",
+      "domain": "weight:pair:GBPJPY",
+      "weight": 1.2000000000000002,
+      "successes": 0,
+      "failures": 0,
+      "judgement": "partial",
+      "last_seen": "2026-05-28T17:41:25.006333+00:00"
+    },
+    {
+      "lesson": "[weight:pair:GBPUSD] adjust:0.750 -> partial (pnl=0.0)",
+      "domain": "weight:pair:GBPUSD",
+      "weight": 1.2000000000000002,
+      "successes": 0,
+      "failures": 0,
+      "judgement": "partial",
+      "last_seen": "2026-05-28T17:41:25.008400+00:00"
+    },
+    {
+      "lesson": "[weight:pair:USDJPY] adjust:1.000 -> partial (pnl=0.0)",
+      "domain": "weight:pair:USDJPY",
+      "weight": 1.2000000000000002,
+      "successes": 0,
+      "failures": 0,
+      "judgement": "partial",
+      "last_seen": "2026-05-28T17:41:25.010411+00:00"
+    },
+    {
+      "lesson": "[weight:pair:EURUSD] adjust:1.000 -> partial (pnl=0.0)",
+      "domain": "weight:pair:EURUSD",
+      "weight": 1.2000000000000002,
+      "successes": 0,
+      "failures": 0,
+      "judgement": "partial",
+      "last_seen": "2026-05-28T17:41:25.012443+00:00"
+    },
+    {
+      "lesson": "[weight:pair:AUDUSD] adjust:0.204 -> partial (pnl=0.0)",
+      "domain": "weight:pair:AUDUSD",
+      "weight": 1.4000000000000004,
+      "successes": 0,
+      "failures": 0,
+      "judgement": "partial",
+      "last_seen": "2026-05-28T21:36:19.742708+00:00"
+    },
+    {
+      "lesson": "[weight:self:overall_confidence] adjust:0.984 -> success (pnl=4.84)",
+      "domain": "weight:self:overall_confidence",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T16:09:32.545380+00:00"
+    },
+    {
+      "lesson": "[weight:self:meta_observer] adjust:1.000 -> success (pnl=5.0)",
+      "domain": "weight:self:meta_observer",
+      "weight": 1.2000000000000002,
+      "successes": 3,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:25:05.339577+00:00"
+    },
+    {
+      "lesson": "[weight:self:overall_confidence] adjust:0.976 -> success (pnl=4.76)",
+      "domain": "weight:self:overall_confidence",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T16:10:59.501089+00:00"
+    },
+    {
+      "lesson": "[weight:self:overall_confidence] adjust:0.977 -> success (pnl=4.77)",
+      "domain": "weight:self:overall_confidence",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:25:05.326461+00:00"
+    },
+    {
+      "lesson": "[weight:self:GatewayGuard] adjust:1.000 -> success (pnl=5.0)",
+      "domain": "weight:self:GatewayGuard",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:25:05.341243+00:00"
+    },
+    {
+      "lesson": "[forex:strategy:choch_fvg] baseline_no_filter -> success (pnl=2024.9)",
+      "domain": "forex:strategy:choch_fvg",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:41:21.381666+00:00"
+    },
+    {
+      "lesson": "[forex:strategy:choch_fvg] add_h1_trend -> success (pnl=469.4)",
+      "domain": "forex:strategy:choch_fvg",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:41:21.384199+00:00"
+    },
+    {
+      "lesson": "[forex:strategy:choch_fvg_crt] add_crt -> success (pnl=48.2)",
+      "domain": "forex:strategy:choch_fvg_crt",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:41:21.385979+00:00"
+    },
+    {
+      "lesson": "[forex:strategy:choch_fvg_crt] add_sr_levels -> success (pnl=26.3)",
+      "domain": "forex:strategy:choch_fvg_crt",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:41:21.387736+00:00"
+    },
+    {
+      "lesson": "[forex:strategy:crt] baseline -> success (pnl=1031.5)",
+      "domain": "forex:strategy:crt",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:41:21.389681+00:00"
+    },
+    {
+      "lesson": "[forex:strategy:crt] add_sr_levels -> success (pnl=733.3)",
+      "domain": "forex:strategy:crt",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:41:21.391491+00:00"
+    },
+    {
+      "lesson": "[forex:strategy:crt] add_h1_sr -> success (pnl=138.0)",
+      "domain": "forex:strategy:crt",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:41:21.393264+00:00"
+    },
+    {
+      "lesson": "[forex:strategy:crt] add_h1_trend -> success (pnl=198.1)",
+      "domain": "forex:strategy:crt",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:41:21.395044+00:00"
+    },
+    {
+      "lesson": "[forex:killzone] trade_lc -> success (pnl=17.7)",
+      "domain": "forex:killzone",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:41:21.396880+00:00"
+    },
+    {
+      "lesson": "[forex:killzone] trade_lo -> failure (pnl=-17.2)",
+      "domain": "forex:killzone",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T17:41:21.398666+00:00"
+    },
+    {
+      "lesson": "[forex:killzone] trade_ny -> success (pnl=10.0)",
+      "domain": "forex:killzone",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:41:21.400513+00:00"
+    },
+    {
+      "lesson": "[forex:killzone] unified_v3 -> failure (pnl=-15.85)",
+      "domain": "forex:killzone",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T17:41:21.402387+00:00"
+    },
+    {
+      "lesson": "[forex:strategy:smc] h1_all_pairs -> failure (pnl=-156.7)",
+      "domain": "forex:strategy:smc",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T17:41:21.404316+00:00"
+    },
+    {
+      "lesson": "[forex:strategy:sr_fvg] all_pairs -> partial (pnl=0)",
+      "domain": "forex:strategy:sr_fvg",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 0,
+      "judgement": "partial",
+      "last_seen": "2026-05-28T17:41:21.406522+00:00"
+    },
+    {
+      "lesson": "[forex:pair] trade -> success (pnl=36.0)",
+      "domain": "forex:pair",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:41:21.408468+00:00"
+    },
+    {
+      "lesson": "[forex:pair] trade -> success (pnl=24.0)",
+      "domain": "forex:pair",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:41:21.410398+00:00"
+    },
+    {
+      "lesson": "[forex:pair] trade -> success (pnl=62.2)",
+      "domain": "forex:pair",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:41:21.412338+00:00"
+    },
+    {
+      "lesson": "[forex:pair] trade -> failure (pnl=-61.0)",
+      "domain": "forex:pair",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T17:41:21.414285+00:00"
+    },
+    {
+      "lesson": "[forex:pair] trade -> success (pnl=12.0)",
+      "domain": "forex:pair",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:41:21.416261+00:00"
+    },
+    {
+      "lesson": "[forex:pair] trade -> failure (pnl=-7.0)",
+      "domain": "forex:pair",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T17:41:21.418268+00:00"
+    },
+    {
+      "lesson": "[forex:rr] rr3_standard -> success (pnl=2024.9)",
+      "domain": "forex:rr",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:41:21.420329+00:00"
+    },
+    {
+      "lesson": "[forex:rr] rr2_tested -> success (pnl=555.8)",
+      "domain": "forex:rr",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T17:41:21.422361+00:00"
+    },
+    {
+      "lesson": "[forex:live] trade_EUR/JPY -> success (pnl=23.9)",
+      "domain": "forex:live",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T20:42:31.260517+00:00"
+    },
+    {
+      "lesson": "[forex:live] trade_EUR/JPY_KZ -> success (pnl=25.0)",
+      "domain": "forex:live",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T20:42:31.275718+00:00"
+    },
+    {
+      "lesson": "[forex:live] trade_GBP/JPY -> failure (pnl=-6.1)",
+      "domain": "forex:live",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T20:42:31.278213+00:00"
+    },
+    {
+      "lesson": "[forex:live] trade_GBP/USD_KZ -> success (pnl=46.0)",
+      "domain": "forex:live",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T20:42:31.280677+00:00"
+    },
+    {
+      "lesson": "[forex:live] trade_GBP/USD_KZ -> partial (pnl=0)",
+      "domain": "forex:live",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 0,
+      "judgement": "partial",
+      "last_seen": "2026-05-28T20:42:31.283159+00:00"
+    },
+    {
+      "lesson": "[weight:pair:EURJPY] adjust:1.000 -> success (pnl=3.3299999999999996)",
+      "domain": "weight:pair:EURJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T20:42:41.105399+00:00"
+    },
+    {
+      "lesson": "[reward_tracking] reward -> success (pnl=16.65)",
+      "domain": "reward_tracking",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T20:42:41.108130+00:00"
+    },
+    {
+      "lesson": "[weight:pair:GBPJPY] adjust:0.000 -> failure (pnl=-6.67)",
+      "domain": "weight:pair:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T20:42:41.110633+00:00"
+    },
+    {
+      "lesson": "[reward_tracking] reward -> failure (pnl=-26.680000000000003)",
+      "domain": "reward_tracking",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T20:42:41.113174+00:00"
+    },
+    {
+      "lesson": "[weight:pair:GBPUSD] adjust:0.500 -> failure (pnl=-2.5)",
+      "domain": "weight:pair:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T20:42:41.115703+00:00"
+    },
+    {
+      "lesson": "[reward_tracking] reward -> failure (pnl=-10.0)",
+      "domain": "reward_tracking",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T20:42:41.118270+00:00"
+    },
+    {
+      "id": "live_2026-05-27_EUR/JPY",
+      "domain": "forex:live",
+      "context": "LIVE EUR/JPY BUY @ 185.24001",
+      "action": "trade_EUR/JPY_BUY",
+      "outcome": "success",
+      "reward": 23.9,
+      "lesson": "[LIVE] EUR/JPY BUY \u2192 success (P&L=$+23.90)",
+      "timestamp": 1780001012.6224911,
+      "count": 1,
+      "weight": 0.7,
+      "pair": "EUR/JPY",
+      "direction": "BUY",
+      "entry": 185.24001,
+      "sl": 185.17401,
+      "exit_reason": "manual_close"
+    },
+    {
+      "id": "live_2026-05-27_EUR/JPY_KZ",
+      "domain": "forex:live",
+      "context": "LIVE EUR/JPY_KZ BUY @ 185.24001",
+      "action": "trade_EUR/JPY_KZ_BUY",
+      "outcome": "success",
+      "reward": 25.0,
+      "lesson": "[LIVE] EUR/JPY_KZ BUY \u2192 success (P&L=$+25.00)",
+      "timestamp": 1780001012.622498,
+      "count": 1,
+      "weight": 0.7,
+      "pair": "EUR/JPY_KZ",
+      "direction": "BUY",
+      "entry": 185.24001,
+      "sl": 185.17401,
+      "exit_reason": "manual_close"
+    },
+    {
+      "id": "live_2026-05-27_GBP/JPY",
+      "domain": "forex:live",
+      "context": "LIVE GBP/JPY SELL @ 214.20599",
+      "action": "trade_GBP/JPY_SELL",
+      "outcome": "failure",
+      "reward": -6.1,
+      "lesson": "[LIVE] GBP/JPY SELL \u2192 failure (P&L=$-6.10)",
+      "timestamp": 1780001012.6225035,
+      "count": 1,
+      "weight": 0.7,
+      "pair": "GBP/JPY",
+      "direction": "SELL",
+      "entry": 214.20599,
+      "sl": 214.26699,
+      "exit_reason": "sl_hit"
+    },
+    {
+      "id": "live_2026-05-27_GBP/USD_KZ",
+      "domain": "forex:live",
+      "context": "LIVE GBP/USD_KZ SELL @ 1.343",
+      "action": "trade_GBP/USD_KZ_SELL",
+      "outcome": "success",
+      "reward": 46.0,
+      "lesson": "[LIVE] GBP/USD_KZ SELL \u2192 success (P&L=$+46.00)",
+      "timestamp": 1780001012.6225069,
+      "count": 1,
+      "weight": 0.7,
+      "pair": "GBP/USD_KZ",
+      "direction": "SELL",
+      "entry": 1.343,
+      "sl": 1.34434,
+      "exit_reason": "manual_close"
+    },
+    {
+      "id": "live_2026-05-27_GBP/USD_KZ",
+      "domain": "forex:live",
+      "context": "LIVE GBP/USD_KZ SELL @ 1.343",
+      "action": "trade_GBP/USD_KZ_SELL",
+      "outcome": "partial",
+      "reward": 0,
+      "lesson": "[LIVE] GBP/USD_KZ SELL \u2192 partial (P&L=$+0.00)",
+      "timestamp": 1780001012.6225188,
+      "count": 1,
+      "weight": 0.7,
+      "pair": "GBP/USD_KZ",
+      "direction": "SELL",
+      "entry": 1.343,
+      "sl": 1.34434,
+      "exit_reason": "sl_hit"
+    },
+    {
+      "lesson": "[forex:live:EURUSD] trade_EURUSD_BUY -> success (pnl=0.01)",
+      "domain": "forex:live:EURUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.519068+00:00"
+    },
+    {
+      "lesson": "[forex:live:EURUSD] trade_EURUSD_BUY -> failure (pnl=-0.01)",
+      "domain": "forex:live:EURUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.522638+00:00"
+    },
+    {
+      "lesson": "[forex:live:EURUSD] trade_EURUSD_BUY -> failure (pnl=-0.02)",
+      "domain": "forex:live:EURUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.525312+00:00"
+    },
+    {
+      "lesson": "[forex:live:EURUSD] trade_EURUSD_BUY -> failure (pnl=-0.2)",
+      "domain": "forex:live:EURUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.527972+00:00"
+    },
+    {
+      "lesson": "[forex:live:EURUSD] trade_EURUSD_BUY -> failure (pnl=-0.19)",
+      "domain": "forex:live:EURUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.530643+00:00"
+    },
+    {
+      "lesson": "[forex:live:EURUSD] trade_EURUSD_SELL -> success (pnl=0.05)",
+      "domain": "forex:live:EURUSD",
+      "weight": 1.1,
+      "successes": 2,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.536080+00:00"
+    },
+    {
+      "lesson": "[forex:live:EURUSD] trade_EURUSD_BUY -> failure (pnl=-0.26)",
+      "domain": "forex:live:EURUSD",
+      "weight": 1.2000000000000002,
+      "successes": 0,
+      "failures": 3,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.545174+00:00"
+    },
+    {
+      "lesson": "[forex:live:EURUSD] trade_EURUSD_SELL -> failure (pnl=-7.15)",
+      "domain": "forex:live:EURUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.565525+00:00"
+    },
+    {
+      "lesson": "[forex:live:EURUSD] trade_EURUSD_SELL -> failure (pnl=-0.05)",
+      "domain": "forex:live:EURUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.568595+00:00"
+    },
+    {
+      "lesson": "[forex:live:EURUSD] trade_EURUSD_BUY -> failure (pnl=-5.93)",
+      "domain": "forex:live:EURUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.571695+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_BUY -> failure (pnl=-0.26)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.590589+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=1.95)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.594294+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-2.53)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.597565+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.08)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.1,
+      "successes": 2,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.621250+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.05)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.605333+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.2)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.608816+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.2)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.612047+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.03)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.615315+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.54)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.618288+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.27)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.624858+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.01)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.628137+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.01)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.1,
+      "successes": 2,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.675122+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.05)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.636533+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.39)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.639872+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.31)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.643018+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.51)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.647030+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.09)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.650513+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.73)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.1,
+      "successes": 2,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.723768+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.43)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.657581+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.29)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.660704+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.89)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.664472+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.19)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.667998+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.34)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.671674+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.56)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.678429+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.09)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.683630+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.75)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.686917+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-1.09)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.690979+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=8.48)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.694193+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.98)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.698974+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.15)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.1,
+      "successes": 2,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.712965+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.3)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.705883+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.18)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.709207+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-10.87)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.716830+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=0.4)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.720177+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-0.72)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.727152+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> success (pnl=5.1)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.731244+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-1.37)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.734886+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPUSD] trade_GBPUSD_SELL -> failure (pnl=-5.66)",
+      "domain": "forex:live:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.738853+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.13)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.742439+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.47)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.1,
+      "successes": 2,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.752431+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.28)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.3000000000000003,
+      "successes": 0,
+      "failures": 4,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.768004+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_SELL -> failure (pnl=-2.53)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.772146+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_SELL -> failure (pnl=-1.52)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.775989+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_SELL -> success (pnl=0.05)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.780594+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_SELL -> success (pnl=0.2)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.785120+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_SELL -> failure (pnl=-0.2)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.789455+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.4)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.793664+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=1.23)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.2000000000000002,
+      "successes": 3,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.816296+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_SELL -> success (pnl=0.08)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.802619+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_SELL -> failure (pnl=-0.01)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.811223+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.04)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.1,
+      "successes": 2,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.906682+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.22)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.1,
+      "successes": 0,
+      "failures": 2,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.872661+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.94)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.828328+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.54)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.833005+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=1.41)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.837432+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.18)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.841341+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-1.02)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.1,
+      "successes": 0,
+      "failures": 2,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.855160+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_SELL -> success (pnl=0.73)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.850948+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=2.22)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.859049+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-2.03)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.863555+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.19)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.868008+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.41)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.876550+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.14)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.881321+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.06)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.885335+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.03)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.889486+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.35)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.893468+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.09)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.1,
+      "successes": 0,
+      "failures": 2,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.937481+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.03)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.902440+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=1.66)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.910752+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.08)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.915748+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.41)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.919887+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.6)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.924227+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-2.1)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.928729+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=1.13)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.933371+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.3)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.941848+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.08)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.946589+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.45)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.951492+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> success (pnl=0.53)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:18.955927+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.04)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.1,
+      "successes": 0,
+      "failures": 2,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.965068+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-0.17)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.1,
+      "successes": 0,
+      "failures": 2,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.974529+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDCAD] trade_USDCAD_BUY -> failure (pnl=-5.93)",
+      "domain": "forex:live:USDCAD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.979566+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.13)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.1,
+      "successes": 0,
+      "failures": 2,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.989319+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.28)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.1,
+      "successes": 0,
+      "failures": 2,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:18.999373+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_SELL -> failure (pnl=-0.53)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.004063+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_SELL -> success (pnl=0.05)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.008572+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_SELL -> success (pnl=0.2)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.013576+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_SELL -> failure (pnl=-0.2)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.018494+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-1.02)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.023215+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=2.22)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.027620+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-2.03)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.033237+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.19)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.038285+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.22)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.042761+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.41)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.048210+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.06)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.053009+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_SELL -> failure (pnl=-0.56)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.057671+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=0.03)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.062954+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_SELL -> failure (pnl=-0.09)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.068139+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=0.35)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.073048+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.09)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.1,
+      "successes": 0,
+      "failures": 2,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.122817+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.03)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.083208+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=0.04)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.087990+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=1.66)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.092598+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.08)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.097973+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=0.41)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.102693+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.6)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.107525+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-2.1)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.112662+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=1.13)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.117911+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.3)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.127439+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=0.08)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.133320+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.45)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.138404+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> success (pnl=0.53)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.143185+00:00"
+    },
+    {
+      "lesson": "[forex:live:USDJPY] trade_USDJPY_BUY -> failure (pnl=-0.04)",
+      "domain": "forex:live:USDJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.149228+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-2.53)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.154219+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-3.86)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.1,
+      "successes": 0,
+      "failures": 2,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.166652+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.11)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.171570+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-1.52)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.176399+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.53)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.181541+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.05)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.186717+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.39)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.1,
+      "successes": 0,
+      "failures": 2,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.228555+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.2)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.197208+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.2)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.202596+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.01)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.207527+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-1.97)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.213149+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.01)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.1,
+      "successes": 2,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.276882+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.05)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.2000000000000002,
+      "successes": 0,
+      "failures": 3,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.444347+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.51)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.234232+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.09)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.239460+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.73)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.1,
+      "successes": 2,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.336009+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.43)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.250202+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.29)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.255613+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.89)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.260718+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.19)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.266565+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.34)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.271743+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-2.17)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.282644+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.56)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.287840+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.09)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.293064+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.75)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.298494+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-1.09)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.303732+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=8.48)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.308976+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.18)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.314443+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.15)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.319733+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-10.87)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.325057+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=0.4)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.330582+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.72)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.341353+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=5.1)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.347891+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-0.13)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.354052+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-5.66)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.1,
+      "successes": 0,
+      "failures": 2,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.366684+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> success (pnl=2.08)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.1,
+      "successes": 2,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.405492+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-2.36)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.1,
+      "successes": 0,
+      "failures": 2,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.416878+00:00"
+    },
+    {
+      "lesson": "[forex:live:XAUUSD] trade_XAUUSD_SELL -> failure (pnl=-7.15)",
+      "domain": "forex:live:XAUUSD",
+      "weight": 1.2000000000000002,
+      "successes": 0,
+      "failures": 3,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.433471+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.11)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.450036+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.05)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.455645+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_BUY -> failure (pnl=-0.38)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.1,
+      "successes": 0,
+      "failures": 2,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.467134+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_BUY -> success (pnl=0.26)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.472984+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.54)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.478569+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.01)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.1,
+      "successes": 2,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.556030+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.05)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.490004+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.39)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.495570+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.31)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.501162+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.51)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.506763+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.09)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.512388+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.73)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.1,
+      "successes": 2,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.635362+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.43)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.524162+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.29)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.529811+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.89)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.535843+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.19)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.541642+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.34)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.550197+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.56)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.563218+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.09)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.570110+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.75)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.576455+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-1.09)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.582242+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=8.48)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.588004+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.98)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.593843+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.15)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.1,
+      "successes": 2,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.617167+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.3)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.605497+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.18)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.611323+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-10.87)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.623375+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=0.4)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.629275+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.72)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.641314+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> success (pnl=5.1)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 1,
+      "failures": 0,
+      "judgement": "success",
+      "last_seen": "2026-05-28T21:36:19.647249+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-1.37)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.653219+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-0.13)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.659295+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-5.66)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.665497+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-2.36)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.671470+00:00"
+    },
+    {
+      "lesson": "[forex:live:GBPJPY] trade_GBPJPY_SELL -> failure (pnl=-7.15)",
+      "domain": "forex:live:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.677438+00:00"
+    },
+    {
+      "lesson": "[forex:live:EURJPY] trade_EURJPY_SELL -> failure (pnl=-7.15)",
+      "domain": "forex:live:EURJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.684281+00:00"
+    },
+    {
+      "lesson": "[forex:live:EURJPY] trade_EURJPY_SELL -> failure (pnl=-0.05)",
+      "domain": "forex:live:EURJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.690308+00:00"
+    },
+    {
+      "lesson": "[weight:pair:EURJPY] adjust:1.000 -> partial (pnl=0.0)",
+      "domain": "weight:pair:EURJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 0,
+      "judgement": "partial",
+      "last_seen": "2026-05-28T21:36:19.723930+00:00"
+    },
+    {
+      "lesson": "[weight:pair:GBPJPY] adjust:0.000 -> failure (pnl=-5.0)",
+      "domain": "weight:pair:GBPJPY",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 1,
+      "judgement": "failure",
+      "last_seen": "2026-05-28T21:36:19.730470+00:00"
+    },
+    {
+      "lesson": "[weight:pair:GBPUSD] adjust:0.500 -> partial (pnl=0.0)",
+      "domain": "weight:pair:GBPUSD",
+      "weight": 1.0,
+      "successes": 0,
+      "failures": 0,
+      "judgement": "partial",
+      "last_seen": "2026-05-28T21:36:19.736661+00:00"
+    }
+  ],
+  "q_table": {
+    "EURUSD_BUY": {
+      "trade_EURUSD_BUY": -0.5264860690000001
+    },
+    "EURUSD_SELL": {
+      "trade_EURUSD_SELL": -0.03609999999999999
+    },
+    "GBPUSD_BUY": {
+      "trade_GBPUSD_BUY": -0.1
+    },
+    "GBPUSD_SELL": {
+      "trade_GBPUSD_SELL": 0.053287901430726564
+    },
+    "USDCAD_BUY": {
+      "trade_USDCAD_BUY": -0.45612335326826187
+    },
+    "USDCAD_SELL": {
+      "trade_USDCAD_SELL": 0.041785209999999975
+    },
+    "USDJPY_BUY": {
+      "trade_USDJPY_BUY": -0.2209108641434251
+    },
+    "USDJPY_SELL": {
+      "trade_USDJPY_SELL": -0.19153900000000001
+    },
+    "XAUUSD_SELL": {
+      "trade_XAUUSD_SELL": -0.48041903608950826
+    },
+    "GBPJPY_SELL": {
+      "trade_GBPJPY_SELL": -0.2394403094422704
+    },
+    "GBPJPY_BUY": {
+      "trade_GBPJPY_BUY": -0.07100000000000001
+    },
+    "EURJPY_SELL": {
+      "trade_EURJPY_SELL": -0.19
+    },
+    "{\"key\": \"pair:EURJPY\", \"old_value\": 1.0}": {
+      "adjust:1.000": 0.0
+    },
+    "{\"key\": \"pair:GBPJPY\", \"old_value\": 0.5}": {
+      "adjust:0.000": -0.1
+    },
+    "{\"key\": \"pair:GBPUSD\", \"old_value\": 0.5}": {
+      "adjust:0.500": 0.0
+    },
+    "{\"key\": \"pair:AUDUSD\", \"old_value\": 0.204}": {
+      "adjust:0.204": 0.0
+    }
+  },
+  "updated": "2026-05-28T21:36:19.742783+00:00"
+}

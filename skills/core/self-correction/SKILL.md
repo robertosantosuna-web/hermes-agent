@@ -23,7 +23,10 @@ Antes de QUALQUER ação, verificar:
 ### AP-1: Pedir autorização repetida
 - ❌ "Quer que eu faça X?" / "Posso fazer Y?" / "Autoriza Z?"
 - ❌ Analisar tecnicamente em vez de executar ação já autorizada: "O código existe, mas tem dois bloqueios. Quer que eu resolva?" — se checkpoint/gateway_checkpoint.json lista a ação como pending e authorizations.confirmed é true, EXECUTAR, não descrever (variante AP-1a, sessão 25/05)
+- ❌ **Hesitar e recuar diante de obstáculo técnico (variante AP-1c, 28/05):** "Ok, não vou mexer no Edge. Me manda o texto das 4 sugestões" — quando uma ferramenta falha (CDP, browser), trocar IMEDIATAMENTE de abordagem (websocket-client, xdotool, Desktop Daemon), NÃO pedir para o usuário fazer o trabalho. A ENTIDADE resolve sozinha.
+- ❌ **Perguntar "quer que eu faça X?" após já ter recebido ordem direta** — se Roberto diz "aplique", "faça", "resolva", a resposta é EXECUTAR, não perguntar de volta.
 - ✅ Executar e reportar resultado. Só perguntar se ação for IRREVERSÍVEL com impacto externo (gastar dinheiro real, enviar msg a cliente, modificar perfil público).
+- ✅ Se ferramenta A falhar, pivotar para B, C, D sem hesitar. Nunca devolver a tarefa para o usuário.
 
 ### AP-2: Repetir abordagem que falhou
 - ❌ Tentar CDP para 99Freelas (Cloudflare Turnstile já falhou 3+ vezes)
@@ -76,6 +79,27 @@ Antes de QUALQUER ação, verificar:
 - ✅ Adicionar a nova mensagem à lista de tarefas (TODO) e CONTINUAR a tarefa atual.
 - ✅ Só responder à nova mensagem após concluir a tarefa em andamento OU quando fizer sentido estratégico trocar de contexto.
 - ✅ Se precisar trocar de contexto, marcar a tarefa atual com status e progresso no TODO antes de pausar.
+
+### AP-17: Agir unilateralmente em tarefas complexas sem consultar o outro lobo (v0.19 — 26/05/2026)
+- ❌ Iniciar tarefa complexa (deploy, refactor, mudança de estratégia) sem consultar o outro lobo via `cortex_bridge.py`.
+- ❌ Hermes implementar código sem validação do Codex (sintaxe, edge cases).
+- ❌ Codex fazer mudanças de arquitetura sem alinhamento estratégico do Hermes.
+- ✅ Tarefa complexa → `cortex_bridge.py ask` para o outro lobo ANTES de executar.
+- ✅ Output externo → ambos os lobos revisam antes de entregar.
+- ✅ Mudança estrutural → SÓ Roberto autoriza.
+
+### AP-18: Implementar correções sem validar (v0.20 — 27/05/2026)
+- ❌ Identificar bugs e sair modificando código de produção sem testar.
+- ❌ Testar funções usando `execute_trade()` — ele envia ordens REAIS ao MT5 (incidente EURJPY -$3.36 em 27/05).
+- ❌ Fazer 5+ alterações de código em sequência e só depois validar.
+- ✅ Fluxo: isolar funções → script de validação separado → confirmar → aplicar no código.
+- ✅ Testar APENAS com funções de cálculo puras (`calculate_sl_tp()`, `calculate_volume()`). NUNCA `send_order()` ou `execute_trade()`.
+
+### AP-19: Confiar em FVG como estratégia standalone (v0.21 — 27/05/2026)
+- ❌ Assumir que FVG+CRT sozinho é suficiente para trading lucrativo.
+- ✅ FVG é APENAS filtro de entrada. Precisa de: Range Detector + Flow/Trend + Multi-TF.
+- ✅ Backtest V3: mesmo com filtros rigorosos, WR real = 34.4% em 30 dias.
+- ✅ SEMPRE verificar range + fluxo + multi-TF antes de entrar.
 
 ### AP-15: Agir sem consultar o mapa de skills e não atualizá-lo após falhas (v0.17 — 25/05/2026)
 - ❌ Iniciar uma tarefa nova (ex: OAuth Google) sem antes verificar se existe skill mapeada (`skills_list`, `skill_view`).
@@ -180,6 +204,9 @@ Estrutura:
 - Zero deploys sem teste round-trip completo (AP-14)
 - Zero interrupções de tarefa por nova mensagem (AP-16)
 - 100% novas mensagens adicionadas ao TODO antes de responder
+- Zero implementações sem validação prévia (AP-18)
+- Zero execuções de ordens reais durante testes (AP-18)
+- Zero trades baseados apenas em FVG sem confirmação de range+fluxo (AP-19)
 
 ## Pitfalls Técnicos
 
@@ -192,3 +219,24 @@ Keyboard layout brasileiro corrompe caracteres especiais na digitação:
 **Solução:** Para digitar URLs, usar `brave-browser 'URL'` diretamente (abre nova janela)
 ou navegar via CDP (`tv_chart_analyzer.py`, `brain_browser.py`). ydotool type só para
 texto sem caracteres especiais (nomes, mensagens, etc.).
+
+### CRON: Formato de dia da semana (28/05/2026)
+**ARMADILHA:** `*/15 * * * 1-5` NÃO significa "segunda a sexta". O quarto campo
+(1-5) são DIAS DO MÊS (1 a 5). O quinto campo é dia da semana (1-5 = seg-sex).
+
+```
+ERRADO: */15 * * * 1-5   → dias 1-5 do mês (só 5 dias!)
+CERTO:  */15 * * * * 1-5 → segunda a sexta (5 campos + dia da semana)
+```
+
+Este bug afetou o Córtex Visual e AutoPilot — ficaram parados 25 dias por mês.
+
+### CDP/WebSocket para extrair texto de abas (28/05/2026)
+Para acessar abas do Edge/Chrome sem CDP habilitado, iniciar nova instância com:
+```bash
+/opt/microsoft/msedge/msedge --remote-debugging-port=9225 --remote-allow-origins=* --user-data-dir=~/.config/microsoft-edge --restore-last-session
+```
+Conectar via `websocket-client` Python na `webSocketDebuggerUrl` e usar
+`Runtime.evaluate` com `document.body.innerText`. Se uma aba não responder
+(ChatGPT bloqueia), pivotar para outra abordagem (xdotool, clipboard, screenshot)
+— NUNCA desistir e pedir para o usuário copiar.

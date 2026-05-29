@@ -31,3 +31,13 @@ if pair + direction in traded_today:
 **Sintoma:** Tesseract retorna "2- - +" em vez de saldo. 95% confiança no texto do menu, ~0% nos números.
 
 **Workaround:** `trade_closer.py` usa snapshot de saldo (quando OCR funciona) + cálculo proporcional quando não funciona. Alternativa: usar Ctrl+C no Trade tab do MT5 para copiar tabela de posições como texto.
+
+## needs_human_validation Bloqueia TUDO (29/05/2026)
+
+**Sintoma:** NENHUMA ordem aberta por 3 dias. `signals_pending.json` acumula sinais com status `PENDING_VALIDATION`. Bot silencioso, sem erros visíveis.
+
+**Causa:** `brain_signal_generator.py` linha 124 define `"needs_human_validation": True`. Todos os sinais gerados exigem validação humana, mas ninguém valida. Sinais ficam eternamente em `pending[]`.
+
+**Correção:** Alterar para `"needs_human_validation": False` no `brain_signal_generator.py` (scripts/ e archive/). Validar sinais pendentes manualmente movendo de `pending[]` para `validated[]` no `signals_pending.json`.
+
+**Verificação:** Após correção, `forex_bot_multi.py` abriu 2 ordens em segundos (USDJPY SELL, EURUSD BUY).

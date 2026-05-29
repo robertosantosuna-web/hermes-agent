@@ -1,12 +1,12 @@
 ---
 name: mindcoach-app
-description: "MindCoach Pro PWA — desenvolvimento, debugging, deploy e manutenção. Cobre Cloud Run, WebSocket bridge, Service Worker, IndexedDB offline-first, chat, notificações, e bugs comuns com soluções validadas."
-version: 2.0.0
+description: "MindCoach Pro — app Android (WebView) + PWA fallback. REST-first, single-file HTML, Cloud Run, sistema de comandos neurais, OTA, chat_api.py. Cliente PRIMÁRIO: APK Android. UI iterável via browser."
+version: 2.1.0
 author: Hermes Agent
 license: MIT
 metadata:
   hermes:
-    tags: [mindcoach, pwa, cloud-run, websocket, offline, debugging]
+    tags: [mindcoach, android, cloud-run, rest-api, ota, neural-interface]
     related_skills: [browser-automation, life-os]
 ---
 
@@ -14,33 +14,35 @@ metadata:
 
 App PWA multi-plataforma (Cloud Run + desktop local). Exibe dados da rede neural (forex, pilares, backtests, alertas), chat bidirecional com o agente, e painel de autorizações. Deploy público: `mindcoach-541659260074.us-central1.run.app`.
 
-## ARQUITETURA
+## ARQUITETURA (v40 — REST-first, single-file HTML)
+
+**A partir da v40 (26/05), o app migrou para arquitetura REST-first com um único `index.html` autocontido.** Os arquivos `core/main.js`, `core/websocket.js`, e `store/localDB.js` são LEGACY e não são mais usados. Toda a UI, lógica de polling, e renderização está inline no `index.html`.
 
 ```
-[index.html] ←→ [core/main.js] ←→ [core/websocket.js] → cloudflare tunnel → mindcoach_bridge.py (:9877)
-     ↕ REST /api/* (nginx :8080 → chat_api.py :8081)
-[chat_api.py] — Python HTTP server (chat, auth, calendar, notify endpoints)
-[Dockerfile] — python:3.11-slim + nginx + google-auth deps
-[data.json] — dados da rede neural (build_data.sh)
-[sw.js] — Service Worker network-first + auto-reload
-[store/localDB.js] — IndexedDB (pilares, métricas, cache, chat_history)
+[APK Android] → WebView → https://mindcoach-...run.app/index.html
+     │                              │
+     │ (Kotlin mínimo: OTA + WebView)│ (Toda UI no index.html)
+     ▼                              ▼
+[Cloud Run] ← nginx → chat_api.py → /tmp/mindcoach_*.json
+                              ↓
+                    /chat, /auth, /outbox, /notify, /calendar (REST)
 ```
 
-### Arquivos principais
+### Arquivos principais (v40+)
 
 | Arquivo | Função |
 |---|---|
-| `index.html` | PWA shell, dock bar, panels (chat/auth/calendar), inline functions |
-| `core/main.js` | Renderização, WebSocket, IndexedDB, dados neurais, polling notify |
-| `core/websocket.js` | Conexão WebSocket com o bridge |
-| `store/localDB.js` | IndexedDB — `cacheSet/get`, `getLatest`, `getStore` |
-| `chat_api.py` | REST API (:8081) — `/chat`, `/auth`, `/notify`, `/calendar` |
-| `sw.js` | Service Worker v8 — network-first, auto-reload sem busy check |
-| `nginx.conf` | Proxy `/api/` → :8081, serve estáticos |
-| `Dockerfile` | python:3.11-slim + nginx + google-api-python-client |
-| `build_data.sh` | Gera `data.json` dos dados locais da rede neural |
-| `scripts/mindcoach_bridge.py` | WebSocket bridge Hermes ↔ App (:9877) |
-| `scripts/notify_app.py` | Envia notificações para o app via REST |
+| `index.html` | **ÚNICO arquivo de UI** — Canvas neural, synapse stream, chat, comandos, polling REST. Autocontido (CSS + JS inline). |
+| `chat_api.py` | REST API (:8081) — `/chat`, `/auth`, `/outbox`, `/notify`, `/calendar` |
+| `nginx.conf` | Proxy `/auth`, `/outbox`, `/chat`, `/notify`, `/calendar` → :8081 |
+| `sw.js` | Service Worker (cache + auto-reload) |
+| `data.json` | Dados neurais estáticos (build_data.sh) |
+| `Dockerfile` | python:3.11-slim + nginx |
+| `mindcoach.apk` | APK servido para OTA |
+| `scripts/mindcoach_commands.py` | Bridge: Hermes envia impulsos/lee respostas do app |
+| `scripts/mindcoach_bridge.py` | LEGACY — WebSocket bridge (não usado pelo APK v40) |
+| `core/main.js` | LEGACY — substituído pelo inline JS no index.html |
+| `store/localDB.js` | LEGACY — IndexedDB (não usado na v40) |
 
 ## DEPLOY
 
@@ -59,7 +61,9 @@ gcloud run deploy mindcoach \
 3. Rodar `build_data.sh` para data.json fresco
 4. Verificar que `data.json` tem as chaves esperadas (forex, pilares, tech_status)
 
-## BUGS COMUNS E SOLUÇÕES
+## BUGS COMUNS (v39 LEGACY — multi-file architecture)
+
+⚠️ **Os bugs 1-10 abaixo são da arquitetura v39 (multi-file: main.js + websocket.js + localDB.js).** Na v40 (single-file index.html REST-first), esses bugs não se aplicam mais. Mantidos como referência histórica.
 
 ### 1. Dashboard vazio / "Modo offline — conectando ao Hermes..."
 
@@ -143,7 +147,7 @@ try { cacheSet('key', data).catch(()=>{}); } catch(e) {}
 
 **Solução:** Em todos os 5 pontos, adicionar `classList.remove('open')` junto com `style.display='none'` e trocar verificações para `classList.contains('open')`. Regra permanente: **NUNCA usar style.display e classList juntos para o mesmo controle de estado.**
 
-**Diffs exatos:** Ver `references/calendar-painel-fixes-v38-v39.md`.
+**Diffs exatos:** Ver `references/calendar-painel-fixes-v38-v39.md` e `references/agenda-multi-fonte.md`.
 
 ### 9. Painel não fecha painéis (v38→v39)
 
@@ -188,7 +192,153 @@ dockPainel.onclick = () => {
 6. `dock-up` só remove quando NENHUM panel tem classe 'open'
 7. Painel (`main.js:129`) chama `togglePanel()` ANTES de `cyclePilar()` (adicionado na v39)
 
-## ENDPOINTS REST (chat_api.py :8081)
+## PERSONALIZATION RULES (CRITICAL)
+
+**NUNCA inventar nomes de familiares, filhas, ou pessoas próximas ao Roberto.** Usar apenas dados confirmados:
+- "2 filhas" (sem nomes — nunca "Eduarda e Sophia", "Heloisa e Isadora" ou qualquer outro nome)
+- "mora com pai e irmã em Vespasiano-MG"
+- "Igreja CURA Church"
+
+Placeholders genéricos são melhores que invenções. Se não souber um dado, usar descrições genéricas (ex: "suas filhas", "sua família"). Esta regra se aplica tanto ao backend (entidade_bridge.py, chat_api.py) quanto ao app Android (MindCoachRepository.kt, MindCoachScreen.kt).
+
+## ⚠️ CLIENTE PRIMÁRIO: ANDROID APK (NÃO web PWA)
+
+**O APK Android é o cliente PRIMÁRIO do Roberto.** O web PWA (index.html no Cloud Run) é um fallback/backup, NÃO o destino principal de desenvolvimento de UI. **Sempre priorizar mudanças no APK Kotlin/Compose.** Quando o usuário pedir melhorias no "app", ele se refere ao APK instalado no celular Android dele, não ao site web.
+
+## ANDROID APP (Kotlin + Compose) — CLIENTE PRIMÁRIO
+
+App Android nativo em `/home/roberto/Downloads/mindcoach (1)/`. Conectado à ENTIDADE via REST API no Cloud Run.
+
+### Arquitetura
+```
+[App Android (Kotlin/Compose)]
+    │ Retrofit + OkHttp
+    ▼
+[Cloud Run /api/v1/*]
+    │ nginx → chat_api.py :8081
+    ▼
+[ENTIDADE (cron 1min)]
+    │ entidade_bridge.py — GET inbox → POST response
+    ▼
+[App Android] ← polling GET /api/v1/chat?since=N
+```
+
+### Arquivos-chave
+| Arquivo | Função |
+|---|---|
+| `EntidadeApi.kt` | Interface Retrofit para a API neural |
+| `MindCoachRepository.kt` | Lógica de chat, eventos, polling, fallback offline |
+| `MindCoachScreen.kt` | UI Compose — estados, cards, chat, banner OTA |
+| `MindCoachViewModel.kt` | Estado: chat, eventos, OTA, estados orgânicos |
+| `OtaManager.kt` | Download e instalação de APK via DownloadManager |
+| `AndroidManifest.xml` | Permissões: INTERNET, REQUEST_INSTALL_PACKAGES, FileProvider |
+
+### Compilação
+```bash
+cd "/home/roberto/Downloads/mindcoach (1)"
+export ANDROID_HOME=/home/roberto/android-sdk
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+echo "GEMINI_API_KEY=*** > .env  # exigido pelo plugin secrets
+./gradlew assembleDebug
+# APK em: app/build/outputs/apk/debug/app-debug.apk
+```
+
+### Estados orgânicos (cores)
+- `OPERANDO_FOREX` → Dourado (#F59E0B) — "IC Markets · 6 pares · Bot ativo"
+- `ESCALA_GOL` → Laranja GOL (#E87700) — "Téc CMM Lagoa Santa · R$3.671 · Jul/2026"
+- `TEMPO_FAMILIA` → Verde (#10B981) — "2 filhas · CURA Church · Vespasiano-MG"
+- `CONEXAO_TERAPIA` → Roxo (#8B5CF6) — "Telavita · Check-in 10h · Calistenia 11h"
+
+### Ícones (material-icons-core apenas)
+Star, Place, FavoriteBorder, AccountCircle, Refresh, Send (AutoMirrored)
+
+## OTA SYSTEM
+
+Atualização Over-The-Air real. App verifica versão ao iniciar, baixa APK e instala.
+
+### Fluxo
+1. App chama `GET /api/v1/ota` → `{"version": 4, "apk_url": "...", "changelog": "..."}`
+2. Se `version > CURRENT_VERSION`, mostra banner "Atualização disponível"
+3. Usuário clica BAIXAR → DownloadManager baixa → FileProvider instala
+
+### Componentes
+- `OtaManager.kt` — `checkForUpdate()` (HTTP), `downloadAndInstall()` (DownloadManager + BroadcastReceiver)
+- `AndroidManifest.xml` — `<provider>` FileProvider + `REQUEST_INSTALL_PACKAGES`
+- `res/xml/file_paths.xml` — `<external-files-path name="downloads" path="Download/" />`
+- `chat_api.py` — `GET /api/v1/ota` endpoint
+- `mindcoach.apk` — servido estaticamente pelo nginx no Cloud Run
+
+### Atualizar versão
+```bash
+# 1. Compilar APK
+cd "/home/roberto/Downloads/mindcoach (1)"
+./gradlew assembleDebug
+
+# 2. Copiar para servir no Cloud Run
+cp app/build/outputs/apk/debug/app-debug.apk /home/roberto/.hermes/mindcoach-pro/mindcoach.apk
+
+# 3. Incrementar versão no chat_api.py (endpoint /api/v1/ota)
+# 4. Deploy
+cd ~/.hermes/mindcoach-pro && gcloud run deploy mindcoach --source . --region us-central1 --allow-unauthenticated --quiet
+```
+
+## ENTIDADE BRIDGE (entidade_bridge.py)
+
+Script Python que faz a ponte ENTIDADE ↔ Cloud Run via HTTP (não mais WebSocket/arquivos locais).
+
+### Funcionamento
+1. `GET /api/v1/chat?since=N` — busca mensagens pendentes
+2. Para cada mensagem de usuário, gera resposta contextual
+3. `POST /api/v1/chat` com `from=coach` — envia resposta
+
+### Cron
+```
+Job: entidade-inbox-processor (970a8181cbd2)
+Schedule: */1 * * * * (a cada 1 minuto)
+Action: python3 /home/roberto/.hermes/mindcoach-pro/entidade_bridge.py
+Skills: life-os, identidade-entidade
+```
+
+### Respostas por contexto
+- "status" → Dashboard (Forex, GOL, ecossistema)
+- "forex" → Sinais, pares, estratégias
+- "gol" → Carta Proposta, cargo, salário, transição
+- "família" → Filhas, CURA Church, Vespasiano-MG
+- "terapia" → Telavita, check-in, calistenia
+- "ajuda" → Lista de comandos
+
+## AGENDA SCAN — Varredura Multicanal
+
+Fluxo para atualizar compromissos no app a partir de todas as fontes:
+
+### Fontes
+| Fonte | Acesso | Conta |
+|-------|--------|-------|
+| Gmail pessoal | IMAP direto (`imaplib`) | robertosantos.una@gmail.com |
+| Outlook trabalho | Edge CDP :9222 | robrsantos@voegol.com.br |
+| Outlook pessoal | Edge CDP :9222 | robertosantos141@outlook.com |
+| WhatsApp | Edge CDP :9224 | `scripts/whatsapp_bridge.py` |
+
+### Pipeline
+1. **Coleta:** 3 subagentes em paralelo varrem cada fonte desde a última varredura
+2. **Compilação:** Unificar em `mindcoach-pro/data/agenda_scan.json` com campos: date, time, type, title, description, source, priority
+3. **Notificação:** `python3 scripts/notify_app.py "📅 Agenda Atualizada" "N compromissos encontrados" info`
+4. **Deploy:** `bash build_data.sh && gcloud run deploy` (se dados neurais também mudaram)
+
+### Keywords de busca
+Português: reunião, consulta, médico, terapia, voo, escala, compromisso, agendamento, prazo, entrevista, igreja, evento, calendário, confirmado, agendado, cirurgia, atestado
+Inglês: meeting, appointment, deadline, interview, flight, schedule, training
+
+### Estrutura do agenda_scan.json
+```json
+{
+  "last_scan": "ISO timestamp",
+  "sources": ["gmail_pessoal", "outlook_trabalho", "whatsapp"],
+  "commitments": [{ "date", "time", "type", "title", "description", "source", "priority" }],
+  "pending_actions": [{ "action", "source", "priority" }],
+  "recurring": [{ "type", "title", "schedule" }]
+}
+```
 
 ### `/api/chat` (GET/POST)
 - GET: `?since=N` → mensagens desde ID
@@ -197,7 +347,11 @@ dockPainel.onclick = () => {
 ### `/api/auth` (GET/POST)
 - GET: lista pendentes
 - POST: criar `{"titulo", "msg", "actions"}`
-- POST `/api/auth/ID/respond`: `{"action": "approved"|"rejected"}`
+- POST com `{"type":"command_response", "id": "req_0001", "action": "approve"|"reject"}` — responde a comando neural
+- POST `/api/auth/ID/respond`: `{"action": "approved"|"rejected"}` (legacy)
+
+### `/api/outbox` (GET)
+- GET: respostas de comandos (`?since=N` opcional). A ENTIDADE lê para saber o que foi aprovado/recusado.
 
 ### `/api/notify` (GET/POST)
 - GET: `?since=N` → notificações não lidas
@@ -220,6 +374,12 @@ dockPainel.onclick = () => {
 # Enviar notificação para o app
 python3 ~/.hermes/scripts/notify_app.py "Título" "Mensagem" [info|warn]
 
+# Enviar impulso neural (comando para aprovação)
+python3 ~/.hermes/scripts/mindcoach_commands.py send "Título" "Descrição detalhada"
+
+# Ver respostas do usuário a comandos
+python3 ~/.hermes/scripts/mindcoach_commands.py check
+
 # Recarregar dados do bridge
 python3 ~/.hermes/scripts/mindcoach_bridge.py  # send_command via thread
 
@@ -227,12 +387,114 @@ python3 ~/.hermes/scripts/mindcoach_bridge.py  # send_command via thread
 curl http://localhost:9877/
 ```
 
+## SISTEMA DE COMANDOS NEURAIS (26/05/2026)
+
+Fluxo completo de aprovação bidirecional:
+
+```
+Hermes Agent → mindcoach_commands.py send → POST /auth (Cloud Run)
+    ↓
+App Android (polling 10s) → GET /auth → NeuralCommandDialog
+    ↓
+Roberto aprova/rejeita → POST /auth {type:"command_response", id, action}
+    ↓
+Cloud Run escreve em /tmp/mindcoach_outbox.json
+    ↓
+Hermes Agent → mindcoach_commands.py check → GET /outbox → lê resposta
+```
+
+### Componentes
+| Componente | Função |
+|---|---|
+| `scripts/mindcoach_commands.py` | Bridge: Hermes envia comandos e lê respostas |
+| `chat_api.py` (POST /auth) | Aceita `{type:"command_response", id, action}` |
+| `chat_api.py` (GET /outbox) | ENTIDADE lê respostas aprovadas/recusadas |
+| `EntidadeApi.kt` | Retrofit: `getPendingCommands()`, `respondToCommand()` |
+| `MindCoachRepository.kt` | `getPendingCommands()`, `respondToCommand(id, approve)` |
+| `MindCoachViewModel.kt` | `pendingCommands` StateFlow, polling 10s, `respondToCommand()` |
+| `MindCoachScreen.kt` | `NeuralCommandDialog` — modal com glow, aprovar/rejeitar |
+
+### Pitfall: Atualizar APK, não web PWA
+**⚠️ O cliente primário é o APK Android.** Quando o usuário pede mudanças no "app", altere os arquivos Kotlin em `/home/roberto/Downloads/mindcoach (1)/` e recompile. O web PWA no Cloud Run é fallback.
+
 ## VERSÕES RECENTES
 
-- v33: Chat "✓" ack + Docker base fix (Alpine→python:3.11-slim)
-- v34: Dockerfile google deps
-- v35: Objetos unificados corrigidos
-- v36: **SW v7 + cache-bust + force reload sem busy check**
-- v37: **Bridge não sobrescreve + Painel recarrega + IndexedDB try/catch**
-- v38: **Calendar panel: 5 correções classList/style.display (Bug #8)**
-- v39: **main.js dockPainel.onclick adiciona togglePanel() antes de cyclePilar() (Bug #9)**
+- v33-v39: Ver histórico completo no skill
+- v40 (26/05): **APK migrado para WebView** — `MindCoachScreen.kt` agora é um wrapper WebView que carrega `https://mindcoach-...run.app`. Uma base de código web (index.html) serve tanto o PWA quanto o APK. Mudanças na UI são feitas no HTML/CSS/JS do Cloud Run e aparecem instantaneamente no APK sem recompilar.
+- v40 (26/05): **Sistema de Comandos Neurais** — `/auth` agora aceita `{type:"command_response", id, action}`, `/outbox` para leitura de respostas, `mindcoach_commands.py` bridge.
+- v40 (26/05): **Neural Link Interface** — índice neural com Canvas de partículas, Brain Core pulsante, synapse stream, NeuralCommandDialog modal.
+
+## ⚠️ PITFALL CRÍTICO: NUNCA desenhar UI Compose às cegas
+
+**Lição (26/05):** Tentar iterar visual de Kotlin Compose sem emulador/dispositivo = perda de tempo.
+Usuário rejeitou 3 versões: "Visualize antes de enviar", "Está uma merda", "Não parece rede neural".
+
+**Regra:** Toda UI visível mora no `index.html` do Cloud Run. Iterável no browser.
+O APK Kotlin é um wrapper WebView puro:
+
+```kotlin
+// MindCoachScreen.kt — 5 linhas
+AndroidView(factory = { ctx ->
+    WebView(ctx).apply {
+        settings.javaScriptEnabled = true
+        loadUrl("https://mindcoach-...app")
+    }
+})
+```
+
+**Fluxo correto:** Editar HTML → Abrir no browser (browser_navigate + snapshot) → ver visual → fazer deploy.
+
+## SISTEMA DE COMANDOS NEURAIS (26/05/2026)
+
+Fluxo Hermes → Usuário (aprovação de ações):
+
+```
+Hermes → mindcoach_commands.py send → POST /auth → Cloud Run
+  → APK poll a cada 10s → GET /auth → mostra diálogo modal
+  → Usuário aprova/rejeita → POST /auth {type:'command_response'} → /outbox
+  → Hermes lê → mindcoach_commands.py check → GET /outbox
+```
+
+### Enviar impulso (Hermes)
+```bash
+python3 scripts/mindcoach_commands.py send "Título" "Mensagem detalhada"
+python3 scripts/mindcoach_commands.py check   # ver respostas
+python3 scripts/mindcoach_commands.py notify "Título" "Msg" info  # notificação simples
+```
+
+### Endpoints envolvidos
+| Endpoint | Método | Função |
+|----------|--------|--------|
+| `/auth` | GET | Lista comandos pendentes (`{requests: [...], total: N}`) |
+| `/auth` | POST | Criar comando (`{titulo, msg, from}`) OU responder (`{type:"command_response", id, action}`) |
+| `/outbox` | GET | Respostas do usuário (`{responses: [{id, action, time}]}`) |
+
+O diálogo de comando no APK mostra: título, mensagem, botão ✓ APROVAR (roxo) e ✕ RECUSAR (vermelho).
+
+```
+[APK Android] → WebView → https://mindcoach-...run.app/index.html
+     │                              │
+     │ (Kotlin só gerencia)          │ (Toda UI em HTML/CSS/JS)
+     │ • OTA updates                 │ • Canvas neural background
+     │ • WebView config              │ • Synapse stream
+     │ • Manifest permissions        │ • Command dialog
+     │                              │ • Chat, Calendar, Auth
+     ▼                              ▼
+[Cloud Run] ← nginx → chat_api.py → /tmp/mindcoach_*.json
+```
+
+### Arquivos Kotlin (mínimo)
+| Arquivo | Função |
+|---|---|
+| `MindCoachScreen.kt` | WebView wrapper (5 linhas) |
+| `MindCoachViewModel.kt` | Estado + polling de comandos |
+| `MindCoachRepository.kt` | REST endpoints (chat, auth, commands) |
+| `EntidadeApi.kt` | Interface Retrofit + DTOs |
+
+### Arquivos Web (iteráveis visualmente)
+| Arquivo | Função |
+|---|---|
+| `index.html` | Shell neural completa (Canvas, synapse stream, comandos, chat, dock) |
+| `chat_api.py` | REST API: `/chat`, `/auth`, `/outbox`, `/notify`, `/calendar` |
+| `nginx.conf` | Proxy rotas → chat_api.py, serve estáticos |
+| `sw.js` | Service Worker (cache + auto-reload) |

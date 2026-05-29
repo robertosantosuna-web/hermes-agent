@@ -1,6 +1,6 @@
 ---
 name: forex-choch-m15
-description: "V12 (29/05): Multi-Agente (Perfil+Sessão+Estrutura+Padrão) + Self-Learning. Backtest 21d: 110 trades, 62% WR, +162R, PF 4.86. CDP TradingView M1, RR 3:1, gestão 2R/3R."
+description: "V12 (29/05): Multi-Agente (5 agentes) + Self-Learning. RR 3:1 fixo, M15 estrutura, M1 entrada. BT 21d: 110t/62%WR/+162R/PF4.86. Bootstrap: ~/bootstrap.sh."
 ---
 ## AutoPilot v12 — Multi-Agente + Self-Learning (29/05/2026) ⭐
 

@@ -69,14 +69,29 @@ Roberto
 > Posso começar hoje. abs, Roberto
 
 ## Anti-padrões (nunca usar)
+## Anti-padrões (nunca usar)
 
 - ❌ "Enviei uma proposta de R$ X..." — redundante
-- ❌ "Valor: R$ XX, Prazo: X dias" — já está nos campos
 - ❌ "Tenho o perfil ideal para este projeto"
 - ❌ "Posso ajudar com..."
 - ❌ "experiencia", "formatacao" (sem acentos)
 - ❌ Texto em parágrafo único sem quebras
 - ❌ Sem nome do cliente na abertura
+
+## Templates automáticos por categoria (Freelancer Agent v1)
+
+O agente gera propostas automaticamente baseadas no tipo de job. Templates por categoria:
+
+| Categoria | Keywords | Abertura |
+|-----------|----------|----------|
+| Planilhas | excel, planilha, google sheets | "Entendi a necessidade da planilha. Tenho experiência com Excel/Google Sheets..." |
+| Digitação | digita, cadastro, lista, copiar | "Posso fazer essa digitação/cadastro. Sou rápido e organizado..." |
+| Revisão | revisão, correção, abnt, tcc | "Faço revisão ortográfica e formatação ABNT/NBR. Já revisei artigos..." |
+| Tradução | traduç, tradução | "Faço tradução PT-EN e EN-PT. Texto natural, sem tradução literal..." |
+| PDF/Word | pdf, word, converter | "Faço conversão e edição de PDF/Word. Posso converter, formatar..." |
+| Genérico | (fallback) | "Vi seu projeto e posso ajudar. Sou organizado, cumpro prazos..." |
+
+Todas as propostas fecham com "abs,\nRoberto". Nunca repetir valor/prazo no corpo.
 - ❌ Sem assinatura no final
 - ❌ "I am confident I can..." / "I believe I am the perfect fit" (Freelancer EN)
 

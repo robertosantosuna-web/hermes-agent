@@ -1,0 +1,39 @@
+{
+  "self_model": {
+    "confidence_by_domain": {
+      "AttentionManager": 1.0,
+      "SONALite": 1.0,
+      "amygdala": 0.05,
+      "lobo_frontal": 1.0,
+      "area_broca": 1.0,
+      "hippocampus": 1.0,
+      "n_accumbens": 1.0,
+      "meta_observer": 1.0,
+      "GatewayGuard": 1.0
+    },
+    "overall_confidence": 0.977,
+    "domains_tracked": 9,
+    "updated_at": "2026-05-28T17:25:05.320377+00:00"
+  },
+  "last_run": "2026-05-28T17:25:05.344085+00:00",
+  "cycle_count": 3,
+  "phi_history": [
+    {
+      "value": 7.05,
+      "timestamp": "2026-05-28T16:09:32.556333+00:00"
+    },
+    {
+      "value": 7.05,
+      "timestamp": "2026-05-28T16:10:59.513358+00:00"
+    },
+    {
+      "value": 1.789,
+      "timestamp": "2026-05-28T17:25:05.344079+00:00"
+    }
+  ],
+  "last_phi": 1.789,
+  "last_anomalies": 0,
+  "delegation_decisions": {
+    "amygdala": "delegate"
+  }
+}

@@ -23,17 +23,22 @@ Foram 107 tentativas frustradas. Consulte `skill: anti-bot-strategies` antes de 
 
 **Desktop Daemon screenshots via mss são bugados** — capturas retornam sempre a mesma imagem (md5 idêntico entre screenshots). Navegação é cega. Usar CDP `Runtime.evaluate` para "ver" o conteúdo da página.
 
-### 🔑 Dois Bravos, Duas Portas CDP (Descoberto 24/05/2026)
+### 🔑 Portas CDP Ativas (Verificado 29/05/2026)
 
-O sistema tem DUAS instâncias do Brave simultâneas:
+| Porta | Browser | Estado | Sessão | Caso de Uso |
+|-------|---------|--------|--------|-------------|
+| **9222** | Brave desktop | ✅ ATIVO | Freelancer + 99Freelas + TradingView logados | **PRIMÁRIO** |
+| 9224 | Edge WhatsApp | ✅ ATIVO | WhatsApp Web | Mensagens |
+| 9225 | Edge main | ❌ MORREU 29/05 | Google OAuth | Instável sob carga Playwright |
+| 9226 | Chromium headless | ✅ ATIVO | Scraping genérico | Background tasks |
 
-| Porta | Tipo | Ozone | Cloudflare | Caso de Uso |
-|-------|------|-------|------------|-------------|
-| **9222** | Desktop real | Wayland | ✅ Bypassa Turnstile | **99Freelas**, TradingView (logado) |
-| 9223 | Headless | Headless | ❌ Bloqueado | Navegação geral, sites sem Cloudflare |
+**REGRA:** Brave :9222 é o mais confiável para freelancer (sessão logada, bypassa Cloudflare). Edge :9225 pode morrer — sempre verificar com `ss -tlnp | grep 922` antes de usar.
 
-O Brave real na porta 9222 tem cookies de sessão válidos (Google OAuth logado, 99Freelas logado, TradingView).
-Para extrair mensagens do 99Freelas: conectar WebSocket CDP em `localhost:9222`, NUNCA em `localhost:9223`.
+**⚠️ Brave :9222 — comandos de sessão BLOQUEADOS (29/05):** Apesar de aceitar WebSocket e navegação HTTP, o Brave :9222 bloqueia `Target.attachToTarget`, `Target.sendMessageToTarget`, `Runtime.evaluate` com sessionId e `Network.getAllCookies`. Use apenas para navegação (`PUT /json/new?url`) e verificação visual. Para extração de dados, use APIs REST ou o Playwright standalone.
+
+**⚠️ Chrome :9226 — WebSocket BLOQUEADO:** Requer flag `--remote-allow-origins=*` para aceitar conexões WebSocket. Sem ela, só endpoints HTTP funcionam. Se precisar de evaluate/attach, use Playwright standalone ou corrija a flag de lançamento.
+
+**Playwright `connect_over_cdp` requer `127.0.0.1` explícito** — `localhost` resolve para IPv6 `::1` e falha com ECONNREFUSED.
 Ver `references/99freelas-cdp-messages.md` para o fluxo completo de extração de conversas.
 
 | Plataforma | Abordagem Correta |
@@ -313,7 +318,35 @@ pkill -f msedge 2>/dev/null
 - `Input.dispatchMouseEvent` é mais confiável que `element.click()` para elementos React
 - A URL de mensagens é: `/messages/inbox/ID_DO_PROJETO`
 
-## PLATAFORMAS ALVO — STATUS (19/05/2026)
+### ⚠️ CDP Navigation Pitfall (28/05/2026)
+
+**`json/new?url=...` NÃO funciona** em Brave/Edge/Chromium. A URL é ignorada e a aba abre em `about:blank`.
+Solução correta:
+```python
+# 1. Criar aba vazia
+tab = json.loads(urllib.request.urlopen(
+    Request('http://localhost:9222/json/new', method='PUT')
+).read())
+
+# 2. Navegar via WebSocket Page.navigate
+ws = websocket.create_connection(tab['webSocketDebuggerUrl'])
+cdp('Page.enable')
+cdp('Page.navigate', {'url': 'https://destino.com'})
+# Aguardar Page.loadEventFired
+```
+
+## PLATAFORMAS ALVO — STATUS (28/05/2026)
+
+### Consenso dos Especialistas (3 IAs — 28/05)
+
+ChatGPT, Gemini e DeepSeek consultados com mapeamento completo de 5 plataformas. Convergência total:
+- **Freelancer.com FIRST** (3/3) — USD multiplica renda por 5x, ticket maior, menos saturado
+- **Workana NÃO PAGAR** (3/3) — paywall R$59,90 não garante liberação
+- **Fiverr ABANDONAR** (3/3) — 3 bans, lista negra permanente
+- **Preço FIXO por projeto, nunca por hora** (2/3)
+- **Primeiras 5 entregas 20% abaixo do mercado** (DeepSeek)
+
+Análise completa em `references/expert-consensus-freelancer.md`.
 
 ### Freelance (propostas manuais)
 
@@ -330,13 +363,15 @@ pkill -f msedge 2>/dev/null
 - 910 vagas ativas em skills compatíveis
 - Clientes internacionais (EUA, Europa, Ásia) com orçamento maior
 
-**Status do perfil (19/05/2026):**
+**Status do perfil (29/05/2026 — sessão ativa no Brave :9222):**
+- ✅ Sessão logada ativa (Google OAuth) — Dashboard com 5 notificações
 - ✅ Nome: Roberto Rodrigues dos Santos
-- ✅ Headline: "Automation & AI Engineer | Python | LLM Fine-Tuning | Browser Automation | Excel VBA"
+- ✅ Headline: "Automation & AI Engineer | Python & LLM" (39 chars, limite 50)
 - ✅ Summary (EN): automações web, pipelines de dados, IA, Excel avançado
-- ✅ Hourly rate: $45/h (mid-senior Python dev + AI)
+- ✅ Hourly rate: $45/h
 - ✅ Endereço: Vespasiano, MG, Brazil
-- ❌ Telefone: NÃO verificado (SMS pendente)
+- ✅ Abas abertas: busca `budget_min=30` + `skills=python,data-entry` + `excel data entry`
+- ❌ Telefone: NÃO verificado (SMS pendente — número virtual +55 61 98173-7725 disponível no quackr.io)
 - ❌ Verified by Freelancer: NÃO (bloqueia projetos >$2.500)
 
 **Bloqueios a resolver:**
@@ -386,7 +421,28 @@ Todas em `~/.hermes/forex/user_profile.yaml`. Senhas:
 - Freelancer: `@robertor03` (email: robertosantos.una@gmail.com)
 - **99Freelas: ❌ NÃO salvas no user_profile.yaml.** Sessão depende do Edge com cookies. Se a sessão expirar (abas em `/login`), NÃO tentar login via CDP — usar email + CloudFront.
 
-### Freelancer.com — Perfil e Onboarding
+### Freelancer.com — RSS Feed + CDP (28/05/2026)
+
+**RSS Feed oficial:** `https://www.freelancer.com/rss.xml` (feed geral de novos projetos).
+Os endpoints `/jobs/rss/N` foram descontinuados (retornam 301→HTML, não XML).
+Parse com `xml.etree.ElementTree`, títulos vêm em `<![CDATA[...]]>`.
+
+**Varredura CDP** para categorias específicas:
+```python
+# Navegar para categoria com keyword
+await Page.navigate("https://www.freelancer.com/jobs/1/?keyword=excel%20data%20entry")
+
+# Extrair cards com seletores específicos
+document.querySelectorAll('.JobSearchCard-item').forEach(card => {
+    title:  card.querySelector('.JobSearchCard-primary-heading-link')
+    budget: card.querySelector('.JobSearchCard-secondary-price')
+    bids:   card.querySelector('.JobSearchCard-secondary-entry')
+})
+```
+
+Categorias com +jobs rápidos: Excel/Data Entry, Virtual Assistant, PDF/Word, Copy Typing. Projetos USD $8-50/h com 0-5 bids são alvos prioritários.
+
+Bloqueio principal: perfil do Freelancer.com precisa de telefone verificado (SMS) + selo "Verified by Freelancer" para projetos >$2,500.
 
 **Status (19/05/2026):** Perfil parcialmente completo. Principais bloqueios:
 
@@ -502,9 +558,26 @@ Workflow validado para preencher planilhas de prospecção B2B (CNPJ, endereço,
 
 ## MONITORAMENTO CONTÍNUO
 
-### ⚠️ REGRA DE OURO: TOKEN COST AWARENESS
+### ⚠️ REGRA DE OURO: TOKEN COST AWARENESS + RESILIÊNCIA DE REDE
 
 **Cada execução do agente custa tokens. Monitorar sem retorno = prejuízo.**
+**Internet pode cair a qualquer momento — timeout 10s + retry (2 tentativas) em TODA operação de rede.**
+
+Padrão de resiliência:
+```python
+for attempt in range(2):
+    try:
+        result = network_operation(timeout=10)
+        break  # Sucesso
+    except Exception as e:
+        if attempt == 0:
+            time.sleep(3)
+            continue
+        log(f"Falha após 2 tentativas: {e}")
+        return fallback_value
+```
+
+Aplica-se a: IMAP, CDP WebSocket, curl HTTP, yfinance, APIs externas. Nunca congelar esperando rede.
 
 O agente NUNCA deve fazer polling ativo de plataformas (abrir browser, verificar dashboards, checar emails)
 em loop. Isso queima $30+/dia sem gerar receita. O padrão correto:
@@ -542,7 +615,59 @@ Script em `~/.hermes/scripts/monitor.py`. Credenciais Gmail (app password) hardc
 | Novo projeto (genérico/survey) | ❌ NÃO | Baixa prioridade |
 | Login alert | ❌ NÃO | Ignorar |
 
-## SKILLS COMERCIAIS (o que vender)
+## Agente Freelancer Autônomo (28/05/2026, atualizado 29/05)
+
+Agente unificado em `~/.hermes/brain/freelancer_agent.py` — pipeline completo:
+- Monitoramento IMAP Gmail (4 plataformas) a cada 30min
+- Classificação automática: jobs rápidos vs longos
+- Templates de proposta por tipo (6 templates: Excel, Digitação, Revisão, Tradução, PDF, Python)
+- Follow-up tracking (>6h sem resposta = alerta)
+- Rastreamento de pagamentos pendentes
+
+### ⚠️ Pitfalls do Classificador de Email (CORRIGIDOS 29/05/2026)
+
+**13 bugs encontrados e corrigidos no agente (6 iniciais + 7 na revisão de 29/05). Ver `references/agent-email-pitfalls.md` para detalhes completos.**
+
+| # | Bug | Sintoma | Correção |
+|---|-----|---------|----------|
+| 1 | Remetentes errados no `PLATFORM_EMAILS` | Zero emails de Freelancer/Workana | Usar endereços reais |
+| 2 | `'novo projeto'` (singular) não captura `'Novos projetos'` (plural) | Digests 99Freelas ignorados | Adicionar `'novos projetos'` ao check |
+| 3 | Keywords só em português | Freelancer.com nunca dá match | Adicionar keywords em inglês |
+| 4 | Digest contém keywords de skip | `is_skip=True` bloqueia digests | `is_digest and is_quick → is_skip=False` |
+| 5 | Check `'login'` genérico antes do específico | Emails Freelancer → `login_alert` | Platform-specific ANTES do genérico |
+| 6 | `extract_project_title` captura HTML | Título: `s <html xmlns=` | Strip HTML antes do regex |
+| 7 | Digest detectado mas regex captura igual | 8 propostas falsas para digests | Check digest ANTES do regex + filtros anti-saudação |
+| 8 | Contador de propostas cumulativo | "Propostas: 23" toda execução | Contador separado por sessão |
+| 9 | `body[:3000]` truncado por CSS | Parser retorna 0 projetos | Strip `<style>` + aumentar para 15KB |
+| 10 | Caracteres acentuados no META_RE | "Edição" não matcha regex | `Edi[cç]ão`, `Intermedi[áa]rio` |
+| 11 | Cabeçalhos de categoria vazando | "Planilhas e Relatórios \|" como título | `normalized = line.rstrip('\|').strip()` |
+| 12 | Keyword stemming | "cadastrar" ≠ keyword "cadastro" | Adicionar variantes: `cadastrar`, `digitar` |
+| 13 | Digest tratado como projeto individual | Proposta genérica para digest inteiro | Separar digests de projetos; NÃO gerar propostas automáticas |
+
+**Regra de ouro para classificação de email:** Sempre verificar os remetentes REAIS (inspecionar header `From:`), não presumir. Testar `classify_opportunity()` com dados reais antes de deploy. Checks platform-specific DEVEM vir antes de checks genéricos (`'login'`, `'acesso'`).
+
+**Sub-agente Freelancer.com:** `~/.hermes/brain/subagent_freelancer.py`
+- RSS feed monitoring (`freelancer.com/rss.xml`)
+- Filtro por keywords (Excel, Python, Data Entry, VA, PDF)
+- Score de match + budget mínimo USD $10
+- Alerta via Tálamo para jobs high-score
+- Verificação de status do perfil (telefone, Verified)
+
+**Cron:** `*/30 * * * * 1-5` — executa a cada 30 min em dias úteis.
+
+**Timeout+retry obrigatório em toda operação de rede:**
+```python
+for attempt in range(2):
+    try:
+        result = network_operation(timeout=10)
+        break
+    except Exception:
+        if attempt == 0:
+            time.sleep(3)
+            continue
+        log(f"Falha após 2 tentativas")
+```
+Aplica-se a: IMAP, CDP WebSocket, curl HTTP, RSS feed, APIs externas. Nunca congelar esperando rede.
 
 ### Categoria Principal: AI/ML Engineering
 - LLM Fine-tuning (LoRA/QLoRA)
@@ -626,7 +751,7 @@ Cron job ativo: `"Freelance Opportunity Scanner"` — escaneia Gmail a cada 2h p
 ### Fluxo primário: Email → Extração → Ação
 
 1. **Monitorar**: IMAP scan por remetente `99freelas` a cada 1-2h
-2. **Extrair**: Parse do HTML do email (ver `references/99freelas-email-parsing.md`)
+2. **Extrair**: Parse do HTML do email — ver `references/99freelas-email-parsing.md` (digest "Novos projetos") e `references/99freelas-email-parsing.md` (emails de mensagem de cliente, mesma técnica de strip)
 3. **Classificar**: Novo projeto / Nova mensagem / Pagamento / Login
 4. **Agir**: Alertar usuário imediatamente se for mensagem de cliente ou projeto com budget
 5. **Responder**: Se login for necessário, pedir ao usuário que acesse manualmente
@@ -737,8 +862,9 @@ elif mensagem:
 
 - Cliente: Martin L.
 - Projeto: Pesquisa e prospecção B2B de clínicas radiológicas
-- Status: Pago (R$ 75), em execução — pesquisa SP+RJ concluída (19/05)
+- Status: **Concluído (26/05/2026) — aguardando liberação de pagamento (R$75)**
 - Entregue: CSV com 69 clínicas (38 SP + 31 RJ), 76% com telefone, 52 com site
+- **26/05:** Projeto marcado como concluído. Cliente precisa liberar pagamento. Se não liberar, abrir disputa.
 - Arquivo CSV: `~/.hermes/forex/clinicas_radiologicas_martin.csv`
 - **22/05:** Martin devolveu planilha `Nexus_Lead_Base_Estrategica_Preenchida.xlsx` com 18 clínicas/redes em 3 abas: Prioridade Alta (11), Prioridade Média (3), Grandes Redes (4). Campos preenchidos: nome, cidade, estado, telefone, site. Faltam: CNPJ, endereço, modalidades, decisor, LinkedIn. Arquivo: `~/.hermes/nexus_lead_base_estrategica_preenchida.xlsx`
 
@@ -838,6 +964,25 @@ Quando o cliente aprova mas não define parâmetros:
 
 - `references/data-enrichment-techniques.md` — Técnicas de pesquisa e enriquecimento de dados (CNPJ, endereço, decisores, LinkedIn)
 
+## METODOLOGIA DE CONSTRUÇÃO (validada Forex + Freelancer — 28/05)
+
+Para qualquer novo domínio de automação, seguir estas 3 fases (validado em 2 domínios):
+
+1. **MAPEAMENTO**: Levantar TODAS as plataformas, contas, status, bloqueios, pipelines e histórico. Documentar o que funciona e o que falhou. Output: matriz de plataformas com status e bloqueios.
+2. **SUB-AGENTES**: Criar agente unificado (`domain_agent.py`) com pipeline completo (monitorar → classificar → agir → follow-up). Timeout 10s + retry (2 tentativas) em TODA operação de rede.
+3. **CONSULTA A ESPECIALISTAS**: Abrir 4 IAs (ChatGPT, Gemini, DeepSeek, Grok) via CDP com prompt estruturado (perfil + plataformas + bloqueios + perguntas específicas). Extrair respostas e consolidar pontos convergentes. Salvar em `references/expert-consensus-<dominio>.md`.
+
+Regra: nunca codar antes de mapear. Nunca automatizar plataforma com anti-bot ativo.
+
+## INSTAGRAM — BLOQUEIO TOTAL (28/05/2026)
+
+Instagram bloqueia QUALQUER automação:
+- CDP via Brave (:9222) → recaptcha na auth_platform
+- CDP via Chromium headless (:9226) → recaptcha
+- Playwright/Selenium → detecção de automação
+
+Única abordagem viável: **monitoramento passivo** — detectar se a aba está aberta no Brave, registrar timestamps de uso, NUNCA interagir com a página. Dados de interação social real vêm de WhatsApp, Telegram e Email. Instagram Web é hostil a qualquer forma de automação, mesmo via CDP em navegador real logado.
+
 ## ESTRATÉGIA: JOBS RÁPIDOS (PRIORIDADE MÁXIMA — 25/05/2026)
 
 **Regra:** Priorizar jobs de entrega rápida. EVITAR projetos longos tipo Martin (prospecção B2B — demorou semanas, pagou R$75). Foco em:
@@ -912,6 +1057,7 @@ matches = [p for p in projects if any(k in p['title'].lower() for k in quick_kw)
 | WhatsApp Web | User-Agent do Brave rejeitado | Usar WhatsApp Desktop (snap) |
 | my.telegram.org | Google OAuth rejeita Brave/CDP | Usar Edge ou Telethon direto |
 | **Múltiplas plataformas** | **Bootstrap-select** | JS `value` setter + eventos `change`/`input` não funcionam. O componente Bootstrap-select intercepta o select nativo. Soluções: (1) `$(el).selectpicker('val', '...')` se jQuery disponível, (2) interação manual de mouse (abrir dropdown → scroll → click), (3) marcar como pendente e seguir. Afeta: Clickworker, OneForma, SproutGigs. |
+| **Instagram** | **Recaptcha universal** | Instagram bloqueia 100% da automação — CDP via Brave (:9222), Chromium (:9226), Playwright, Selenium. Qualquer interação com a página redireciona para `auth_platform/recaptcha`. Abordagem: monitoramento passivo (detectar aba aberta, registrar tempo de uso, zero interação com DOM). |
 | **Neevo** | **Email de confirmação não chega** | Gmail bloqueia silenciosamente o domínio `definedcrowd.com` (nem INBOX, Spam, nem All Mail). Workaround: usar outro provedor de email (ProtonMail, Outlook). |\n| **Neevo** | **Teste de idioma interativo com timer** | O Writing Test tem 5 seções com timer de 5 min cada, elementos interativos (clicar em espaços no texto, selecionar erros com mouse). NÃO PODE ser pausado. CDP é muito arriscado — uma falha no meio perde a tentativa. **Fazer manualmente** (30 min). |
 
 ### Estratégia de fallback para login
@@ -920,13 +1066,20 @@ matches = [p for p in projects if any(k in p['title'].lower() for k in quick_kw)
 3. Se Google OAuth bloqueado: tentar email+senha direto
 4. Se tudo falhar: reportar [FALHA] + extrair dados via email + pedir ação manual ao usuário
 
-## REFERÊNCIAS
+## Referências
 
-- **[csv-enrichment-pipeline.md](references/csv-enrichment-pipeline.md)** — Pipeline de enriquecimento de CSV em larga escala com delegate_task batch processing. Validado com 69 clínicas SP+RJ.
-- **[client-research-workflow.md](references/client-research-workflow.md)** — Fluxo de pesquisa web para preencher planilhas de clientes (CNPJ, endereço, modalidades via DuckDuckGo + scraping)
-- **[99freelas-cdp-messages.md](references/99freelas-cdp-messages.md)** — Extração de conversas do 99Freelas via CDP no Brave real (:9222). Técnica validada 24/05/2026.
+- **[csv-enrichment-pipeline.md](references/csv-enrichment-pipeline.md)** — Pipeline de enriquecimento de CSV em larga escala com delegate_task batch processing.
+- **[cdp-ia-prompt-submission.md](references/cdp-ia-prompt-submission.md)** — Técnica CDP para enviar prompts longos para IAs (ChatGPT, Gemini, DeepSeek, Grok) sem interação manual. Validado 28/05/2026.
+- **[sona-lite-freelancer-memory.md](references/sona-lite-freelancer-memory.md)** — Sistema de memória e aprendizado do agente freelancer (7 categorias, replay buffer, cold start).
+- **[critical-review-framework.md](references/critical-review-framework.md)** — Framework de auto-análise crítica para revisão de arquitetura antes de produção.
+- **[expert-consensus-freelancer.md](references/expert-consensus-freelancer.md)** — Consolidação das respostas de 3 IAs (ChatGPT, Gemini, DeepSeek) sobre estratégia freelancer.
+- **[client-research-workflow.md](references/client-research-workflow.md)** — Fluxo de pesquisa web para preencher planilhas de clientes.
+- **[99freelas-cdp-messages.md](references/99freelas-cdp-messages.md)** — Extração de conversas do 99Freelas via CDP no Brave real (:9222).
+- **[99freelas-email-parsing.md](references/99freelas-email-parsing.md)** — Parsing dos emails de digest "Novos projetos" do 99Freelas.
+- **[freelancer-email-parsing.md](../email-autonomy/references/freelancer-email-parsing.md)** (skill `email-autonomy`) — Parsing dos emails de digest do Freelancer.com.
 
-- Taxa de conversão: propostas enviadas → contratos fechados (>15%)
+- **[agent-email-pitfalls.md](references/agent-email-pitfalls.md)** — 13 bugs corrigidos no classificador de email do agente (remetentes, digest skip, login order, plural match, HTML title, English keywords, CSS truncation, acentos, category headers, stemming, digest proposals). 29/05/2026.
+- **[digest-parser-implementation.md](references/digest-parser-implementation.md)** — Implementação do parser state-machine para extrair projetos individuais de digests 99Freelas. 29/05/2026.
 - Tempo médio de resposta: <2h
 - Reviews: média >4.8
 - Receita mensal recorrente: crescente

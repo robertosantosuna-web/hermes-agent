@@ -10,85 +10,153 @@ version: 1.0.0
 
 | Corretora | Tipo | Status | Execução |
 |-----------|------|--------|----------|
-| **IC Markets** | Demo | ✅ ATIVA | MT5 display:0, ydotool |
+| **IC Markets** | Demo Hedge | ✅ ATIVA | EA Bridge (primário) + ydotool (fallback) |
 
-## Contas Abandonadas
+## Contas Secundárias
 
-| Corretora | Motivo |
-|-----------|--------|
-| OANDA | Abandonada 25/05 — usar apenas IC Markets. Demo #1715539800 desativada. |
-| Exness | Nunca ativada. Depósito $10 nunca feito. |
+| Corretora | Tipo | Status | Credenciais |
+|-----------|------|--------|-------------|
+| OANDA | Demo | ❌ Abandonada 25/05 | Ver `brokers.json` |
+| **Exness** | Demo Standard | ✅ Ativa (26/05) | Conta #198420982, Servidor Exness-MT5Trial11, $10,000 |
 
-## IC Markets — Demo (ATIVA)
+### Exness — Demo #198420982 (ATIVA — 26/05/2026)
 
-### Dados
-- Tipo: Demo **Netting** (Raw Trading Ltd — verificado 25/05 no título da janela)
-- Execução: MT5 no Xvfb **display :99** (Wine prefix ~/.wine_mt5)
-- Orders: `mt5_order_executor.py` / `mt5_direct.py` via **xdotool** (F9 + Alt+B/S) no :99
-- Fonte de dados: TradingView CDP (brain_browser.py :9223 IPv6 headless), NÃO Yahoo Finance
-- Pipeline: `brain_signal_generator.py` → `signals_pending.json` → agente valida → `mt5_order_executor.py`
+**Dados da conta:**
+- **Número:** 198420982
+- **Tipo:** Demo Standard MT5
+- **Servidor:** Exness-MT5Trial11
+- **Saldo:** $10,000 USD
+- **Alavancagem:** 1:200
+- **Senha MT5:** Wc0ZO6#p
+- **Senha Portal:** Wc0ZO6#p2026!@
+- **Email:** robertosantos.una@gmail.com
+- **Arquivo:** `~/.hermes/forex/brokers.json`
 
-### Status atual (25/05)
-- MT5 rodando no Xvfb :99 via Wine, sessão persiste
-- Xvfb NÃO persiste reboot — precisa iniciar manualmente
-- Bot forex_bot_real.py funcional (TradingView CDP, zero Yahoo Finance)
-- Yahoo Finance REMOVIDO de todos os scripts ativos (brain_gateway, forex_bot, forex_bot_real)
-- CRT filter obrigatório (backtest: 87.5% WR vs 61.1% sem)
+**⚠️ MT5 Exness NÃO instalado ainda (26/05).** Só o MT5 IC Markets está rodando no Wine. Para operar na Exness, precisa baixar o instalador exness5setup.exe e instalar em Wine prefix separado.
 
-## MT5 — Operação Técnica
+**WebTerminal:** https://my.exness.com/webtrading/ — funcional, sessão ativa no Brave real.
 
-### Localização (ATUALIZADO 25/05)
-O MT5 ativo está em **dois Wine prefixes**:
-- **IC Markets Global** (principal, conta demo Netting): `~/.wine/drive_c/Program Files/MetaTrader 5 IC Markets Global/terminal64.exe`
-- **MetaTrader 5** (genérico, possivelmente antigo): `~/.wine_mt5/drive_c/Program Files/MetaTrader 5/terminal64.exe`
+### Exness — Técnicas de Acesso e Gerenciamento
 
-### Inicialização
-```bash
-# 1. Xvfb (se não estiver rodando)
-Xvfb :99 -screen 0 1280x900x24 &
+**⚠️ REGRA #1: Cloudflare Turnstile bloqueia browser automatizado.** SEMPRE usar o Brave real (:9222) com sessão autenticada para acessar my.exness.com. O browser interno (browser_navigate) funciona para a página de login SEM Cloudflare, mas `SIGN_IN_REQUEST_ERROR: UNAUTHORIZED` se a senha estiver errada. Google OAuth falha em browser headless (Google bloqueia).
 
-# 2. MT5 IC Markets via Wine
-DISPLAY=:99 WINEPREFIX=~/.wine wine "C:\\Program Files\\MetaTrader 5 IC Markets Global\\terminal64.exe" &
-
-# 3. Verificar
-DISPLAY=:99 xdotool search --name "MetaTrader"
-DISPLAY=:99 xdotool getwindowname <ID>
+**Encontrar dados da conta sem login:**
+Se o WebTerminal já estiver aberto no Brave real (:9222), o número da conta está no localStorage:
+```javascript
+localStorage.getItem('texActiveAccountNumber')  // → "198420982"
 ```
 
-### Execução de Ordens — EA Bridge (MÉTODO PRIMÁRIO)
-**xdotool está OBSOLETO.** Usar o EA `hermes_bridge.ex5` + script Python:
+**Alterar senha MT5 pela Área Pessoal (PA):**
+1. Navegar para `https://my.exness.com/pa/trading/accounts` no Brave real (:9222)
+2. Clicar na aba "Demo" → expande conta #198420982
+3. Clicar no botão "Altere a senha da operação" (MUI Button, texto exato)
+4. Modal React abre com 2 inputs: text (senha atual) + password (nova senha)
+5. Preencher via CDP `Runtime.evaluate` com `nativeInputValueSetter` + dispatch `input`/`change` events
+6. Clicar "Alterar a senha" (querySelector button com texto)
 
+**Cloudflare Turnstile no cadastro (sign-up):**
+- OOPIF iframe em `challenges.cloudflare.com` — inacessível via CDP (body.innerHTML = "")
+- `browser_click` no checkbox → falha silenciosa
+- `ydotool type` corrompe @ e ! no layout ABNT2
+- **Única saída:** usuário clica manualmente no checkbox "Confirme que é humano"
+
+## IC Markets — Demo (ATIVA — 26/05/2026)
+
+### Dados
+- Tipo: Demo **Hedge** (Raw Trading Ltd)
+- Execução: MT5 no **desktop Wayland/GNOME** (Wine prefix `~/.wine`), NÃO em Xvfb
+- Método PRIMÁRIO: EA `hermes_bridge.ex5` no chart → Python escreve JSON → EA OrderSend nativo
+- Método FALLBACK: `mt5_direct.py` v6 via ydotool (kernel-level /dev/uinput) — ATIVO no bot
+- Dados de mercado: `tv_data.py` v2 híbrido (yfinance OHLC + cache local + CDP live quote)
+- **Bot `forex_bot_multi.py`**: Pipeline v9.5 Multi-TF Bias (W/D/H4) → CHoCH → M1. Risco 0.5% fixo, RR 3:1. Anti-correlação por moeda base: USD (USDJPY+USDCAD), EUR (EURUSD+EURJPY), GBP_XAU (GBPUSD+GBPJPY+XAUUSD). Cron `1f3444e587f2` */3 seg-sex. Deliver: `local`.
+- **Trade Notifier:** `~/.hermes/scripts/trade_notifier.py` — envia confirmações de ordem aberta/fechada via Telegram Bot API. Integrado ao `forex_bot_multi.py` — toda ordem executada dispara notificação.
+- **Estratégia ativa (V9.5):** Multi-TF Bias (W→H4, D→H1, H4→M15) com confluência de votos → Entrada M1 FVG. RR 3:1 fixo. 7 pares: USDJPY, GBPJPY, USDCAD, EURJPY, GBPUSD, EURUSD, XAUUSD.
+- Xvfb :99 e xdotool estão **ABANDONADOS**
+
+### ⚠️ EA Bridge — Bugs Conhecidos (26/05)
+
+**1. `close_all` NÃO funciona** — sempre retorna timeout. O EA lê comando, deleta arquivo, mas nunca escreve resposta.
+**Workaround:** fechar posições manualmente no MT5 (botão direito → Close, ou X na janela Trade).
+
+**2. EA crasha com `send_order` (qualquer SL/TP)** — `status` funciona, mas ordens com ou sem SL/TP causam timeout após crash do EA.
+**Solução no bot:** `place_choch_order()` tenta bridge primeiro, se falhar → fallback automático para `mt5_direct.py` (ydotool).
+
+**3. AutoTrading desliga sozinho** — após reconexão do MT5, o AutoTrading pode desligar. Verificar botão verde na toolbar.
+
+**4. Após reiniciar MT5, EA sai do chart** — precisa Ctrl+N → arrastar `hermes_bridge` de volta.
+
+**5. MetaEditor64.exe é case-sensitive** — compilar com `MetaEditor64.exe` (M e E maiúsculos), não `metaeditor64.exe`.
+
+### Health Check Rápido
 ```bash
-# Enviar ordem (SL/TP opcionais)
-python3 ~/.hermes/scripts/hermes_mt5_bridge.py order EURUSD BUY 0.01
-python3 ~/.hermes/scripts/hermes_mt5_bridge.py order EURUSD SELL 0.01 1.16000 1.17000
+# 1. MT5 rodando?
+pgrep -a terminal64  # "MetaTrader 5 IC Markets Global"
 
-# Status da conta
+# 2. EA Bridge respondendo?
 python3 ~/.hermes/scripts/hermes_mt5_bridge.py status
 
-# Fechar todas as posições
-python3 ~/.hermes/scripts/hermes_mt5_bridge.py close_all
+# 3. CDP :9223 online?
+curl -s http://localhost:9223/json/version | python3 -c "import sys,json; print(json.load(sys.stdin).get('Browser','OFFLINE'))"
+
+# 4. ydotoold ativo?
+pgrep ydotoold
+```
+
+### Execução de Ordens
+
+**Método PRIMÁRIO: EA Bridge (status e ordem SEM SL/TP)**
+```bash
+# Status (sempre funciona)
+python3 ~/.hermes/scripts/hermes_mt5_bridge.py status
+
+# Abrir ordem (SEM SL/TP — mais confiável)
+python3 ~/.hermes/scripts/hermes_mt5_bridge.py order EURUSD BUY 0.01
+
+# ⚠️ close_all NÃO funciona — fechar manualmente no MT5
+```
+
+**Método FALLBACK: ydotool (mt5_direct.py)**
+```bash
+python3 ~/.hermes/scripts/mt5_direct.py buy EUR/USD
+python3 ~/.hermes/scripts/mt5_direct.py close_all
 ```
 
 **Pré-requisitos para o EA funcionar:**
-1. **AutoTrading ligado** no MT5 (botão verde na toolbar — erro 10027 se desligado)
-2. EA anexado a um chart (arrastar do Navigator)
-3. Após recompilar o `.ex5`, **remover e recolocar** o EA no chart (MT5 não recarrega automaticamente)
+1. **AutoTrading ligado** (botão verde na toolbar — erro 10027 se desligado)
+2. EA `hermes_bridge` anexado a um chart (Ctrl+N → arrastar)
+3. Após reiniciar MT5 → **recolocar EA** no chart
+4. Limpar arquivos travados: `rm -f ~/.wine/.../Common/Files/hermes_*.json`
 
 ### EA Bridge — Compilação e Deploy
-Ver `references/ea-bridge-compile.md` para o guia completo.
-Caminho MQL5: `~/.wine/drive_c/Program Files/MetaTrader 5 IC Markets Global/MQL5/Experts/`
+Ver `references/ea-bridge-compile.md`.
+Caminho: `~/.wine/drive_c/Program Files/MetaTrader 5 IC Markets Global/MQL5/Experts/`
+Common/Files: `~/.wine/drive_c/users/roberto/AppData/Roaming/MetaQuotes/Terminal/Common/Files/`
 
 ### Dados de Mercado
-⚠️ MetaTrader5 pip package NÃO funciona no Linux (Windows-only).
-Dados OHLCV vêm do TradingView CDP via `brain_browser.py` (9223 IPv6, headless).
-Cotações em tempo real via `forex_quote.py`.
-Drop-in replacement do yfinance: `tv_data.py` (retorna pandas DataFrame compatível).
+- OHLC histórico: `tv_data.py` v2 → yfinance (primário) + cache local
+- Cotação live: TradingView CDP via `brain_browser.py` :9223
+- ⚠️ MetaTrader5 pip package = Windows only — NÃO usar no Linux
 
 ## Referências
-- Estratégia: `skill forex-choch-m15`
-- Bot paper: `~/.hermes/scripts/forex_bot.py`
-- Bot real: `~/.hermes/scripts/forex_bot_real.py`
+- Estratégia: `skill forex-choch-m15` (v9.4: Daily Bias → CHoCH → M1)
+- Bot multi: `~/.hermes/scripts/forex_bot_multi.py`
+- Monitor 2R/3R: `~/.hermes/scripts/forex_realtime_monitor.py`
 - Dados: `~/.hermes/scripts/tv_data.py`, `~/.hermes/scripts/forex_quote.py`
 - EA Bridge: `~/.hermes/scripts/hermes_mt5_bridge.py`
+- Trade Notifier: `~/.hermes/scripts/trade_notifier.py`
 - EA compilação/deploy: `references/ea-bridge-compile.md` (pitfalls, comandos, JSON schema)
+
+## PITFALLS DE AUTOMAÇÃO
+
+### Cron deliver="origin" → flood no Telegram
+Scripts de bot que imprimem scan a cada execução floodam o Telegram com ruído.  
+**Solução:** `deliver=local` + usar `trade_notifier.py` para notificações pontuais (ordem aberta/fechada).  
+**Regra:** NUNCA deixar cron de bot forex com `deliver=origin`.
+
+### MT5 SL/TP — verificação
+O bridge NÃO retorna SL/TP (`get_status` só: symbol, type, volume, profit).  
+Para confirmar SL/TP: olhar colunas S/L e T/P no Terminal MT5 (Ctrl+T → Trade).  
+O código (`mt5_direct.place_order`) seta SL/TP via F9 → Tab → type → Tab → type. Confiável.
+
+### Estado quebrado (KeyError trade_log)
+Se `real_daily_state.json` foi salvo sem `trade_log`, usar `state.setdefault('trade_log', []).append()` em vez de `state['trade_log'].append()`.

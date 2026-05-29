@@ -1,0 +1,82 @@
+{
+  "last_run": "2026-05-29T01:00:53.194290+00:00",
+  "mental": {
+    "timestamp": "2026-05-29T01:00:53.163621+00:00",
+    "metrics": {},
+    "trends": {},
+    "insights": [],
+    "recommendations": [
+      "\ud83c\udf06 Final do dia \u2014 bom momento para reflex\u00e3o, n\u00e3o para trading agressivo."
+    ],
+    "mindcoach": {
+      "last_update": "?",
+      "mood": null,
+      "energy": null,
+      "sleep_hours": null,
+      "stress": null,
+      "anxiety": null
+    },
+    "day_of_week": "Thursday",
+    "week_number": 22
+  },
+  "social": {
+    "timestamp": "2026-05-29T01:00:53.164088+00:00",
+    "contacts": {},
+    "sentiment": {
+      "positive": 0,
+      "neutral": 0,
+      "negative": 0
+    },
+    "response_times": [],
+    "insights": [
+      "\ud83d\udc68\u200d\ud83d\udc67\u200d\ud83d\udc67 Filhas Heloisa e Isadora \u2014 mantenha contato regular. Sua presen\u00e7a \u00e9 o melhor investimento."
+    ],
+    "relationships_to_nurture": [],
+    "boundaries_to_set": []
+  },
+  "progress": {
+    "timestamp": "2026-05-29T01:00:53.164152+00:00",
+    "pillars": {
+      "financeiro": {
+        "goal": "Autonomia financeira",
+        "metric": "forex_pnl",
+        "target": "Renda extra > R$500/m\u00eas"
+      },
+      "profissional": {
+        "goal": "Transi\u00e7\u00e3o GOL",
+        "metric": "promo\u00e7\u00e3o",
+        "target": "In\u00edcio Jul/2026",
+        "status": "aprovado"
+      },
+      "paternal": {
+        "goal": "Ser melhor pai",
+        "metric": "tempo_qualidade",
+        "target": "Contato di\u00e1rio com filhas"
+      },
+      "mental": {
+        "goal": "Estabilidade emocional",
+        "metric": "mindcoach_score",
+        "target": "Score > 7/10"
+      },
+      "social": {
+        "goal": "Rede de apoio saud\u00e1vel",
+        "metric": "intera\u00e7\u00f5es_positivas",
+        "target": "> 60% positivas"
+      },
+      "fisico": {
+        "goal": "Sa\u00fade e energia",
+        "metric": "sono_exercicio",
+        "target": "Sono > 7h, exerc\u00edcio 3x/semana"
+      }
+    },
+    "streaks": {
+      "forex_consistency": "Sistema aut\u00f4nomo ativo desde 28/05",
+      "learning": "Novo agente de evolu\u00e7\u00e3o criado"
+    },
+    "weekly_review": {}
+  },
+  "opportunities": [
+    "\ud83d\ude34 Sono: Abaixo de 6h. Priorize dormir mais \u2014 afeta diretamente decis\u00f5es de trading.",
+    "\ud83d\udcda Aprendizado: Separar 25min/dia para estudo (forex, avia\u00e7\u00e3o, ou desenvolvimento pessoal)."
+  ]
+}

@@ -249,7 +249,7 @@ Quando browser/screenshot falham (Cloudflare, Wayland), usar o Telegram:
 | Componente | Status | Implementação |
 |-----------|--------|---------------|
 | Scheduler | ✅ | cronjob tool |
-| Cronjobs | ✅ | 2 ativos (health + memory) |
+| Cronjobs | ⚠️ | 71 jobs (28/05/2026), reestruturação pendente — ver brain-architecture → references/system-audit-2026-05-28.md |
 | Rotinas | ✅ | Skills + cron |
 | Monitoramento | ✅ | system-health |
 | Observer | ✅ | watch_patterns, cronjob scripts |
@@ -284,7 +284,7 @@ Quando browser/screenshot falham (Cloudflare, Wayland), usar o Telegram:
 | Componente | Status | Implementação |
 |-----------|--------|---------------|
 | Scheduler | ✅ | cronjob tool |
-| Cronjobs | ✅ | 2 ativos (health + memory) |
+| Cronjobs | ⚠️ | 71 jobs (28/05/2026), reestruturação pendente — ver brain-architecture → references/system-audit-2026-05-28.md |
 | Rotinas | ✅ | Skills + cron |
 | Monitoramento | ✅ | system-health |
 | Observer | ✅ | watch_patterns, cronjob scripts |
@@ -368,6 +368,24 @@ TOTAL:   88% de cobertura
 
 ### References
 - **[telegram-setup.md](references/telegram-setup.md)** — Telegram API setup, phone format, pitfalls
+
+## CAMADA 8 — META-CONSCIÊNCIA [93.8%]
+
+**Meta-Observer** (`meta_observer.py`, cron `2faff491215b` */15min):
+A camada que transforma autômato em Entidade. Verifica 16 pipelines (output → consumidor),
+detecta gaps (broken/orphan/unread/stale), reporta saúde.
+
+Ver: **forex-choch-m15** → `references/neural-ooda-loop.md` para arquitetura completa do ciclo OODA neural.
+
+| Módulo | Cron | Função |
+|--------|------|--------|
+| Meta-Observer | */15min | Pipeline health check (score 93.8%) |
+| NN Engine | 02:00/dia | Feed-forward + backprop nas 3 redes |
+| N. Accumbens | */4h | Reinforcement learning (trade_log → weights) |
+| Hippocampus | */6h | Pattern consolidation |
+| Amygdala | */15min | Threat detection |
+| Brain Research | */4h | Auto-development |
+| Synapse Engine | */4h | Cross-pollination entre redes |
 
 ## CAMADA 7 — CÓRTEX BI-NEURAL [85%]
 

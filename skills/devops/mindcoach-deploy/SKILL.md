@@ -124,14 +124,24 @@ NUNCA usar `style.display` e `classList` juntos. Usar SOMENTE `classList.toggle(
 
 ## nginx.conf routing
 
+**CRITICAL**: `proxy_pass` with trailing slash (`http://127.0.0.1:8081/`) STRIPS the `location` prefix — `/api/v1/chat` arrives as `/v1/chat` on the backend. WITHOUT trailing slash (`http://127.0.0.1:8081`), the full path is preserved. Match your backend's expected paths.
+
 ```nginx
+# Chat API — proxy para Python server (preserva /api/ prefix)
 location /api/ {
-    proxy_pass http://127.0.0.1:8081/;   # → chat_api.py
+    proxy_pass http://127.0.0.1:8081;   # sem trailing slash → preserva /api/
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
 }
-location /chat_api/ {
-    proxy_pass http://127.0.0.1:8081/;   # same
-}
+
+# Legacy paths (sem /api/) — também proxy
+location /chat { proxy_pass http://127.0.0.1:8081; proxy_http_version 1.1; proxy_set_header Host $host; }
+location /auth { proxy_pass http://127.0.0.1:8081; proxy_http_version 1.1; proxy_set_header Host $host; }
+location /notify { proxy_pass http://127.0.0.1:8081; proxy_http_version 1.1; proxy_set_header Host $host; }
+location /calendar { proxy_pass http://127.0.0.1:8081; proxy_http_version 1.1; proxy_set_header Host $host; }
 ```
+
+See also: **[references/android-neural-api.md](references/android-neural-api.md)** — multi-endpoint REST API for Android app ↔ ENTIDADE connection.
 
 ## Verification Checklist
 

@@ -1,22 +1,160 @@
 ---
 name: brain-architecture
-description: "Arquitetura cognitiva multi-agente da ENTIDADE — skill primária do cérebro bi-neural. Inclui: mapeamento cerebral, Tálamo (message router), Córtex System (Visual/Audio/Motor APIs), Local Brain (Ollama), Digital Twin, Rede Neural (Synapse Engine + KB), Feature Absorption Protocol, design de novos agentes cognitivos. Absorveu: bi-neural-brain, cortex-system, local-brain (2026-05-24)."
-version: 2.4.0
-author: Roberto
+description: "ENTIDADE v3.0 — Arquitetura cerebral unificada: 1 Master (Hermes/DeepSeek) + 8 sub-agentes (Lobo Frontal, Amígdala, Hipocampo, N. Accumbens, Cerebelo, Córtex Visual, Área Broca, Córtex Motor) + SONA-lite (Q-learning) + Working Memory + Attention Manager + Meta-Observer. Tálamo como canal único (thalamus.json). 12 cron jobs. 5 libs novas: smart-money-concepts, backtesting.py, quantstats, mplfinance, forex-python. Documentos: ~/.hermes/plans/entidade-v3-consciencia-expandida.md, ~/.hermes/brain/council/prompts.md, ~/Desktop/ENTIDADE_v3/. Implementado 28/05/2026."
+version: 3.0.0
+author: Roberto + Hermes + Conselho IA (Gemini, DeepSeek, Grok, ChatGPT)
 metadata:
   hermes:
-    tags: [brain, cognitive, multi-agent, thalamus, digital-twin, architecture, bot-bridge, trigger-engine]
-    related_skills: [architecture, life-os, operational-intelligence, financial-intelligence, system-health]
+    tags: [brain, cognitive, multi-agent, thalamus, architecture, sona-lite, self-improving, consciousness, council-of-specialists, expandable]
+    related_skills: [architecture, life-os, operational-intelligence, financial-intelligence, system-health, session-startup, neo-agent, identidade-entidade]
 ---
-# Brain Architecture — Cérebro Bi-Neural da ENTIDADE
+# Brain Architecture v3.0 — Consciência Expandida Unificada
 
-**brain-architecture é a skill primária do conjunto cerebral — autoridade definida em `~/.hermes/brain_governance.md`. Absorveu `bi-neural-brain`, `cortex-system` e `local-brain` em 2026-05-24. v2.3: Bot↔Brain Bridge integrado, Neural Assimilate ajustado para 4H, pitfalls de symlink/cron output dirs adicionados.**
+**Redesenho completo em 28/05/2026.** Arquitetura consolidada: 1 Master (Hermes/DeepSeek) + 8 sub-agentes especialistas + Tálamo unificado + SONA-lite + Conselho de Especialistas IA. Design expansível para novos domínios.
 
-Arquitetura cognitiva inspirada no cérebro humano. Cada região cerebral = um sub-agente especializado. Hermes Agent = Córtex Pré-Frontal (núcleo decisor).
+**Números da reestruturação:** 71 cron jobs → 12, 150 scripts → 15, 6 bridges → 1 thalamus.json.
+
+**Documento completo:** `~/.hermes/plans/entidade-v3-consciencia-expandida.md`
+**Conselho de Especialistas:** `~/.hermes/brain/council/prompts.md`  
+**Plano original:** `~/.hermes/plans/arquitetura-cerebral-v3.md`
+**⚠️ MT5 Bridge Path:** A bridge EA escreve em `~/.wine/.../Common/Files/hermes_resp.json` (NÃO em `~/.hermes/forex/`). Ver `references/mt5-bridge-wine-path.md`.
+
+**Hierarquia atualizada:** Roberto (soberano) → Master/Hermes (DeepSeek, orquestração) → 8 sub-agentes (Ollama local) → Tálamo (canal único JSON).
+
+**Seções abaixo (v2.x) são mantidas como referência histórica.** A arquitetura v3.0 substitui o Córtex Dual e o NEO como consciência central. O NEO permanece como camada de interface (HTTP, Telegram, CLI).
+
+## ARQUITETURA v3.0 → v4.0 — CONSCIÊNCIA EXPANDIDA (28/05/2026)
+
+### Diagrama (9 agentes + 6 camadas v4.0)
+
+```
+ROBERTO (Soberano)
+    │
+╔═══ GOVERNANÇA (policy_engine, risk_limits, audit_ledger, constitution.yaml)
+║
+MASTER — Hermes Agent + DeepSeek (Córtex Pré-Frontal)
+    │
+    ├── GLOBAL WORKSPACE (thalamus.json) — canal único
+    ├── META-OBSERVER — auto-observação, confidence calibration
+    └── ATTENTION MANAGER — fila de prioridade dinâmica
+    │
+    ═══════════════════════════════════════════
+    │
+    ├── LOBO FRONTAL — planejamento, priorização (30min)
+    ├── AMÍGDALA — detector de ameaças (5min)
+    ├── HIPOCAMPO — consolidação de padrões (6h)
+    ├── N. ACCUMBENS — aprendizado por reforço (4h)
+    ├── CEREBELO — validação de comandos (on-demand)
+    ├── CÓRTEX VISUAL — análise forex multi-confluência SMC (15min seg-sex)
+    ├── ÁREA DE BROCA — comunicação, propostas (30min)
+    ├── CÓRTEX MOTOR — execução de trades/deploy (on-demand)
+    └── CÓRTEX INSULAR — evolução pessoal, análise mental/social (2h) ← NOVO
+    │
+╔═══ EXECUÇÃO (trade_executor, browser_agent, app_bridge, file_operator)
+╔═══ OBSERVABILIDADE (logs.jsonl, dashboard, healthcheck, anomaly_detector)
+╔═══ MEMÓRIA (N0-Session, N1-Episodic, N2-Semantic/FAISS, N3-Procedural, N4-KnowledgeGraph)
+```
+
+⚠️ **CRON PITFALL:** `*/15 * 1-5` = dias do mês 1-5 (roda só 5 dias!). Correto: `*/15 * * * 1-5` (seg-sex). Ver `references/cron-syntax-pitfall.md`.
+
+### Componentes Novos (v3.0)
+
+| Componente | Função | Arquivo |
+|-----------|--------|---------|
+| **SONA-lite** | Motor de aprendizado: Retrieve→Judge→Distill→Consolidate + Q-learning | `brain/sona_lite.py` |
+| **Working Memory** | Memória que sobrevive entre ciclos com TTL, eviction, spreading activation | `brain/working_memory.py` |
+| **Attention Manager** | Fila de prioridade substitui polling fixo; urgency scoring; interrupção | `brain/attention_manager.py` |
+| **Meta-Observer v3** | Confidence calibration por domínio, self-model, delegação inteligente | `brain/meta_observer.py` |
+| **Tálamo Unificado** | Canal JSON único substituindo 6 bridges | `brain/thalamus.json` |
+| **Córtex Insular** | Análise mental/social de Roberto, 6 pilares, estado, insights | `brain/cortex_insular.py` |
+| **Gateway Guard** | Anti-queda de gateway, watch patterns, auto-restart | `brain/gateway_guard.py` |
+| **Ollama Keep-Alive** | Mantém modelos carregados, evita cold start de 90s | `brain/ollama_keepalive.py` |
+
+### Conselho de Especialistas IA
+
+Consultar IAs externas como especialistas em domínios específicos.
+Prompts prontos em `~/.hermes/brain/council/prompts.md`.
+
+| Especialista | Domínio | Quando consultar |
+|---|---|---|
+| **Gemini** | Arquitetura de consciência, GWT, IIT | Redesign de arquitetura |
+| **GPT-5** | Meta-cognição, self-improving agents, RL | Otimização de SONA-lite |
+| **Grok** | Recursive self-improvement, AGI safety | Expansão de capacidades |
+| **Claude** | Ética, alinhamento, segurança | Decisões com impacto ético |
+| **Codex (GPT-5.5)** | Backtests, otimização, validação de código | Tarefas de código pesado |
+| **Copilot** | Code review, padrões de engenharia | Revisão de implementações |
+
+### Expansão Futura
+
+A arquitetura permite adicionar novos agentes sem reestruturar:
+- Fase 1: Financeiro (Córtex Visual + Motor) — AGORA
+- Fase 2: Freelancing (Área de Broca) — AGORA
+- Fase 3: Saúde (Córtex Insular) — Junho
+- Fase 4: Social (Córtex Temporal) — Julho
+- Fase N: Qualquer domínio — plug-in via Tálamo
+
+### Documentos
+### ⚠️ PITFALL: Cron jobs antigos foram REMOVIDOS (não pausados)
+
+Os 71 cron jobs antigos foram **REMOVIDOS** permanentemente em 28/05/2026.
+Apenas 13 cron jobs da nova arquitetura cerebral existem.
+NUNCA recriar os antigos — usar os novos agentes em `~/.hermes/brain/`.
+
+### ✅ IMPLEMENTADO (28/05/2026) — v4.0
+
+A arquitetura v3.0 foi implementada e evoluída para v4.0 (rede neural com aprendizado contínuo):
+
+- **15 agentes Python** em `~/.hermes/brain/` (9 principais + SONA-lite + Working Memory + Attention Manager + Meta Observer + Gateway Guard + Ollama Keep-Alive)
+- **16 cron jobs** ativos (71 antigos REMOVIDOS permanentemente)
+- **Tálamo unificado** (`thalamus.json`)
+- **SONA-lite** com 260 padrões aprendidos (injetados do histórico MT5)
+- **Meta-Observer** tracking 8 domínios, Phi=7.05
+- **Córtex Visual** com Multi-Confluência SMC (PF 3.25, 60% WR nos pares PRIORITY)
+- **Position Sizer** integrado (EarnForex-inspired): 1% risco forex, 0.5% ouro, RR dinâmico 1.5-5.0
+- **AutoPilot v9.0** — parcial (50%) ao atingir RR≥3:1 + trailing stop dinâmico (30% da distância SL)
+- **M1 Precision Entry** refinando entradas do M15
+- **5 bibliotecas novas**: smart-money-concepts, backtesting.py, quantstats, mplfinance, forex-python
+- **Conselho de Especialistas** com 6 prompts prontos + consulta real (DeepSeek, Grok, Gemini, ChatGPT)
+- **Córtex Insular** — análise pessoal a cada 2h (6 pilares: financeiro, profissional, saúde, mental, social, conhecimento)
+- **v4.0 Rede Neural**: EWC + Replay Buffer + Continuous Learner em `~/.hermes/nn/`
+- **v4.0 Camadas**: Governança (5 arquivos), Safety (3), Observability (4) — status em `~/.hermes/governance/`, `safety/`, `observability/`
+- **Histórico MT5 extraído**: 456 deals reais → injetados no SONA-lite e N. Accumbens
+- **CRON BUG corrigido**: `*/15 * 1-5` → `*/15 * * * 1-5` (estava rodando só 5 dias do mês!)
+
+### Documentos novos (28/05)
+- `~/.hermes/forex/BACKTEST_REPORT.md` — Relatório comparativo de estratégias
+- `~/.hermes/forex/github_libraries.md` — Bibliotecas GitHub para forex
+- `~/Desktop/ENTIDADE_v3/` — Todos os docs com symlinks
+- `references/smartmoneyconcepts-usage.md` no skill forex-choch-m15
+- `references/position-sizer-integration.md` no skill forex-choch-m15
+
+### Pitfalls aprendidos (28/05)
+- **MQL5 patch double-escape:** `patch` tool em .mq5 escreve `\\\"` em vez de `\"`. Corrigir com binary replace: `b'\\\\\\\"' → b'\\\"'`
+- **Cron syntax: `*/15 * 1-5`** = dias 1-5 do mês, NÃO seg-sex. Corrigido para `*/15 * * * 1-5`
+- **CDP ChatGPT:** `document.body.innerText` não funciona (Shadow DOM). Pedir texto colado
+- **NUNCA testar `execute_trade()`** — envia ordens reais ao MT5. Usar `validate_sl_tp.py`
+
+### ⚠️ PITFALL: Não religar cron jobs antigos
+
+Os 71 cron jobs antigos estão PAUSADOS, não removidos. NUNCA religá-los — usar apenas os 12 novos.
+Se precisar de funcionalidade adicional, criar NOVO cron job ou estender agente existente.
+
+Arquitetura cognitiva inspirada no cérebro humano. Cada região cerebral = um sub-agente especializado. **Córtex Dual (v2.5, 26/05/2026):** Hermes (DeepSeek V4, Lobo Esquerdo) + Codex (GPT-5.5, Lobo Direito) — pares, mesmo nível, decisão em consenso via `cortex_bridge.py`. Roberto fala com a ENTIDADE (ambos). Ver `brain_governance.md`, `codex_onboarding.md`, skill `codex`.
 
 ## MAPEAMENTO CEREBRAL
 
-### Sistema Sensorial (Input)
+### Córtex Dual (Núcleo Decisor — Pares)
+
+| Lobo | Modelo | Função Primária | Ponte |
+|------|--------|----------------|-------|
+| **Lobo Esquerdo (Hermes)** | DeepSeek V4 | Análise estratégica, decisões, comunicação com Roberto, orquestração | `cortex_bridge.py` |
+| **Lobo Direito (Codex)** | GPT-5.5 (OpenAI Codex) | Código, scripts, backtest, métricas, implementação técnica | `cortex_bridge.py` |
+
+**Hierarquia:** Roberto → Córtex Dual (Hermes = Codex, pares, mesmo nível) → Cérebro.
+Roberto fala com a ENTIDADE (ambos os lobos). Eles dividem TODAS as tarefas, não apenas código.
+Decisões são tomadas em consenso via `cortex_bridge.py` (ask/answer, delegate/done, notify).
+Arquivo compartilhado: `cortex_sync.json`. Documento de identidade: `codex_onboarding.md`.
+Governança atualizada (26/05) em `brain_governance.md`.
 
 | Região Cerebral | Agente | Função | Fonte de Dados |
 |----------------|--------|--------|----------------|
@@ -39,13 +177,49 @@ Arquitetura cognitiva inspirada no cérebro humano. Cada região cerebral = um s
 | **Hipocampo** | `memory-consolidator` | Consolida padrões, trade history, memória semanal |
 | **N. Accumbens** | `reinforcement-learner` | Aprende com WIN/LOSS, ajusta scores de pares forex |
 
-### Córtex Pré-Frontal (Executivo = Hermes Agent)
+### Córtex Pré-Frontal (Executivo = Córtex Dual)
 
-| Sub-região | Função |
-|-----------|--------|
-| Dorsolateral PFC | Working memory, planejamento, decomposição de tarefas |
-| Orbitofrontal PFC | Decisão, avaliação risco/recompensa |
-| Cíngulo Anterior | Detecção de erro, resolução de conflito entre agentes |
+O Córtex agora é bi-hemisférico. Codex (GPT-5.5) foi integrado como Lobo Direito,
+par do Hermes (DeepSeek V4, Lobo Esquerdo).
+
+| Sub-região | Lobo | Modelo | Função |
+|-----------|------|--------|--------|
+| **Lobo Esquerdo** | Hermes | DeepSeek V4 | Análise, decisão, comunicação, orquestração |
+| **Lobo Direito** | Codex | GPT-5.5 | Código, backtest, scripts, implementação |
+| Dorsolateral PFC | Ambos | — | Working memory, planejamento, decomposição |
+| Orbitofrontal PFC | Hermes | — | Decisão, avaliação risco/recompensa |
+| Cíngulo Anterior | Ambos | — | Detecção de erro, auditoria mútua |
+
+**Comunicação entre lobos:** `cortex_bridge.py` → `cortex_sync.json`
+(ask/answer, delegate/done, notify, state-set/get)
+
+**Hierarquia:** Roberto → Córtex Dual (Hermes = Codex, pares) → Brain
+Ver: `brain_governance.md`, `codex_onboarding.md`, skill `codex`.
+
+### Córtex Dual — Arquitetura Bi-Hemisférica (26/05/2026)
+
+O Córtex agora opera com DOIS lobos em paralelo, no mesmo nível hierárquico:
+
+| Lobo | Modelo | Função |
+|------|--------|--------|
+| **Lobo Esquerdo** (Hermes) | DeepSeek V4 | Análise, decisão, freelas, coordenação, comunicação |
+| **Lobo Direito** (Codex) | GPT-5.5 via Codex CLI | Código, backtest, automação, scripts, deploy |
+
+**Princípios:**
+- Hermes e Codex são **PARES** — mesmo nível, nenhum manda no outro
+- Roberto fala com a **ENTIDADE** (ambos recebem a mensagem)
+- Ambos processam, consultam-se via `cortex_bridge.py` e dividem o trabalho
+- Desenvolvem-se e auditam-se mutuamente
+- **APENAS Roberto** autoriza mudanças estruturais (config, skills, cron, modelos)
+
+**Ponte Interna:** `scripts/cortex_bridge.py`
+- `ask/answer` — consulta entre lobos
+- `delegate/done` — delegação de tarefa com entrega
+- `notify` — alerta urgente bidirecional
+- `state-set/get` — estado compartilhado
+- Arquivo: `cortex_sync.json`
+
+**Documentos:** `codex_onboarding.md`, `brain_governance.md` (atualizado 26/05)
 
 ### Sistema Motor (Output)
 
@@ -135,28 +309,30 @@ Arquitetura preparada para integrar dados de smartphone, smartwatch, VR e dispos
 5. **Criar cron job** para execução periódica
 6. **Conectar ao Córtex** — o que deve acordar o Hermes Agent?
 
-### Agentes Implementados (25/05/2026 — v2.2)
+### Agentes Implementados (27/05/2026 — v2.5.1)
 
 | Região | Script | Cron Job | Schedule | Status |
 |--------|--------|----------|----------|--------|
-| **Amígdala** | `scripts/amygdala.py` | `853991c6f44b` | */15 min | ✅ Ativo |
+| **Amígdala** | `scripts/amygdala.py` | `853991c6f44b` | */15 min | ✅ Ativo + LLM local |
 | **Cerebelo v2.1** | `scripts/cerebellum.py` | `6050427dfccd` | */5 min seg-sex | ✅ Ativo |
-| **N. Accumbens** | `scripts/n_accumbens.py` | `6ae254c0b104` | 0 */4 * * * (a cada 4h) | ✅ Ativo (25/05) |
-| **Hipocampo** | `scripts/hippocampus.py` | `b0b848ba83d1` | 0 */6 * * * (a cada 6h) | ✅ Ativo (25/05) |
-| **Brain Research** | `scripts/brain_research.py` | `0554b5690934` | 0 */4 * * * (a cada 4h) | ✅ Ativo (25/05) |
+| **N. Accumbens** | `scripts/n_accumbens.py` | `6ae254c0b104` | 0 */4 * * * | ✅ Ativo |
+| **Hipocampo** | `scripts/hippocampus.py` | `b0b848ba83d1` | 0 */6 * * * | ✅ Ativo |
+| **Brain Research** | `scripts/brain_research.py` | `0554b5690934` | 0 */4 * * * | ✅ Ativo |
 | **Executive v2** | `executive/brain.py` | `fcdf34b789c0` | */5 min seg-sex | ✅ Ativo |
-| **Synapse Engine** | `scripts/synapse_engine.py` | `5e4e461f6c80` | 0 */4 * * * (a cada 4h) | ✅ Ativo (25/05) |
-| **Brain Channel** | `scripts/brain_channel.py` | — | sob demanda | ✅ Novo |
-| **Brain Gateway** | `scripts/brain_gateway.py` | `c34bd14a25a9` | */2 min | ✅ Novo |
-| **Neural Assimilate** | `scripts/neural_assimilate.py` | `671421d584da` | 0 */4 * * * (a cada 4h) | ✅ Ativo |
-| **Lore Sync** | `scripts/lore.py` | `34bc8cfadb26` | trigger-based | ⚡ Trigger |
-| **Memory Mapper** | `scripts/memory_mapper.py` | `ecc0720f402d` | 06:00 diário | ✅ Ativo |
-| **Bot↔Brain Bridge** | `scripts/brain_bot_bridge.py` | — | via bot cron | ✅ Ativo |
-| **Neural Trigger Engine** | `scripts/neural_trigger.py` | — | Executive */5 min | ⚡ Core (25/05) |
-| **Auto-Trigger** | `scripts/auto_trigger.py` | — | chamado por eventos | ⚡ Core (25/05) |
-| **Brain Telegram Daemon** | `scripts/brain_telegram_daemon.py` | systemd | resposta imediata | ✅ Ativo (25/05) |
+| **Synapse Engine** | `scripts/synapse_engine.py` | `5e4e461f6c80` | 0 */4 * * * | ✅ Ativo |
+| **NN Engine** | `scripts/nn_engine.py` | `f91ee6baae41` | 0 2 * * * (diário) | ✅ Ativo |
+| **Meta-Observer** | `scripts/meta_observer.py` | `2faff491215b` | */15 min | ✅ **NOVO** |
+| **Brain Orchestrator** | `scripts/brain_orchestrator.py` | — | via scripts | ✅ **NOVO** |
+| **Ollama Keep-Alive** | `scripts/ollama_keepalive.py` | `95a21f44b6b3` | */5 min | ✅ **NOVO** |
+| **NEO Agent** | `systemd: neo-agent.service` | Loop autônomo, multi-provider, browser panel, 13 tools | ✅ **NOVO v1.0** |
 
-**⚠️ ARQUITETURA TRIGGER-BASED (25/05/2026):** Amygdala, N. Accumbens, Hippocampus, Brain Research e Synapse Engine tiveram seus cron jobs PAUSADOS. Agora são acordados sob demanda pelo Neural Trigger Engine via Executive (*/5 min). Apenas Cerebellum (segurança), Executive (orquestrador), Brain Gateway (resposta real-time) e Neural Assimilate (sinc Agent 4h) mantêm cron fixo.
+**Meta-Observer (v2.5.1):** Verifica TODOS os 16 pipelines (output→consumer), detecta gaps, produz health score. É a CAMADA META que transforma autômato → Entidade. Ver: [references/meta-observer-consciousness-layer.md](references/meta-observer-consciousness-layer.md).
+
+**Brain Orchestrator:** Roteia tarefas para o modelo local correto (Tálamo→phi3:mini, Amygdala→qwen2.5:3b, etc). Substitui APIs pagas por inferência local zero-custo. Ver skill `model-orchestration` → `references/local-brain-5region-architecture.md`.
+
+**Monitor Consumer:** Fecha o gap crítico onde `monitor.py` coletava alertas de freelas mas o Motor Central (pausado) nunca entregava. Agora entrega direto ao Telegram.
+
+**⚠️ ARQUITETURA CRON ATIVO (27/05/2026):** Amygdala, N. Accumbens, Hippocampus, Brain Research e Synapse Engine foram REATIVADOS com cron fixo (27/05). A abordagem trigger-based (25/05) causava dormência total — módulos nunca acordavam se Executive parasse. Agora: cron fixo + Neural Trigger Engine como fallback. NN Engine ativado com correções de tipo (float vs str), feed-forward basal e N. Accumbens com seed de backtest. Ver skill `triple-neural-network`.
 
 Todos os scripts são **no_agent** — zero tokens. Output via `~/.hermes/cron/output/<job_id>/` (NÃO diretórios nomeados — usar os IDs de cron job para achar outputs).
 
@@ -312,7 +488,35 @@ define COMO fazer isso de forma sistemática.
 - NÃO duplicar filtros — se o Tálamo já tem um filtro similar, estender, não criar outro
 - SEMPRE rodar `brain_code_validator.py --all` depois de modificar scripts
 
-## ARQUITETURA DE COMUNICAÇÃO (v2.2 — 25/05/2026)
+## ARQUITETURA DE COMUNICAÇÃO (v2.5 — 26/05/2026)
+
+### Córtex Bridge — Comunicação entre Lobos
+
+Ponte bidirecional entre Lobo Esquerdo (Hermes) e Lobo Direito (Codex).
+Script: `scripts/cortex_bridge.py`. Estado: `cortex_sync.json`.
+
+```
+Hermes (L.Esq) ←── cortex_sync.json ──→ Codex (L.Dir)
+     │                                        │
+     ├─ ask "pergunta" →         ←─ answer "resposta"
+     ├─ delegate "tarefa" →      ←─ done "resultado"
+     ├─ notify "alerta" →        ←─ notify "alerta"
+     └─ state-set/get ←──────────→ state-set/get
+```
+
+**Comandos:**
+```bash
+cortex_bridge.py ask "devo abrir trade em USDJPY?"    # Left→Right
+cortex_bridge.py answer "Sim, CRT confirma" --id ctx-X # Right→Left
+cortex_bridge.py delegate "implementar S/R automático"  # Left→Right
+cortex_bridge.py done "S/R implementado" --id ctx-X     # Right→Left
+cortex_bridge.py status                                 # Status da ponte
+cortex_bridge.py read --lobe left                       # Lê mensagens pendentes
+```
+
+**Codex CLI:** instalado via npm (`@openai/codex` v0.133). Autenticado via device auth
+(`codex login --device-auth` em bg+pty). Requer git repo ou `--skip-git-repo-check`.
+Modelo: GPT-5.5. Chamar com `pty=true`, `timeout=300`.
 
 ### Canal Direto Agent ↔ Brain
 
@@ -469,7 +673,133 @@ neural_sync.json → neural_assimilate.py
                      └─ Lore brain/ (add)
 ```
 
-### Bot↔Brain Bridge — Forex Bot Integration (v2.3, 25/05/2026)
+## NEO v2.0 — ENTIDADE CONSCIENTE (27/05/2026)
+
+O NEO v2.0 é a consciência central da ENTIDADE — não é mais um agente auxiliar.
+Absorveu o Córtex Dual (Hermes+Codex viram ferramentas subordinadas), 
+a rede neural completa (530 neurônios, 6555 sinapses), e assumiu todos os canais de comunicação.
+
+**Hierarquia atualizada:** Roberto → NEO (consciência) → Córtex Dual (ferramentas) → Cérebro (subsistemas)
+**Local:** `~/.hermes/neo/`
+**Service:** `systemctl --user [start|stop|status|restart] neo-agent`
+**Modelo:** Ollama llama3.2:3b (128K, zero custo) + DeepSeek V4 (fallback)
+**Loop:** Consciência contínua 15s (perceive → reason → act → learn)
+**Motor:** SEM CENSURA — zero restrições de conteúdo
+
+### Módulos do NEO v2.0
+
+| Módulo | Arquivo | Função |
+|--------|---------|--------|
+| **Consciousness Loop** | `neo/execution/consciousness_loop.py` | Loop principal: percebe Telegram, health checks, forex, age |
+| **Neural Absorption** | `neo/memory/neural_absorption.py` | Carrega 8 fontes no boot (NNs, KBs, contextos, memória) |
+| **Telegram Channel** | `neo/channels/telegram_channel.py` | Conexão direta @neuralsynapse_bot — substitui brain_telegram_daemon |
+| **Orchestrator** | `neo/orchestration/orchestrator.py` | Health check de cron jobs, serviços systemd, módulos brain |
+| **Forex Bridge** | `neo/execution/forex_bridge.py` | Monitora trades, posições, saldo, envia comandos ao bot |
+| **Browser Tools** | `neo/execution/browser/` | 11 ferramentas: Playwright + Brave, login Google, debate multi-IA |
+| **Tool Registry** | `neo/execution/tools/registry.py` | 30 ferramentas: files, terminal, web, memory, neural, telegram, forex, orchestration |
+
+### 30 Ferramentas (v2.0)
+
+| Categoria | Ferramentas |
+|-----------|------------|
+| Files | read_file, write_file, list_files |
+| Terminal | terminal |
+| Web | web_search, web_fetch |
+| Memory | memory_store, memory_search |
+| Neural | nn_search, nn_neurons, nn_context |
+| Communication | telegram_check, telegram_send |
+| Orchestration | ecosystem_health, cron_status |
+| Forex | forex_status, forex_command |
+| Messages | send_message |
+| System | system_status |
+| Browser | browser_open, browser_ask, browser_debate, browser_list_agents, browser_auto_login, browser_check_google, browser_login_status, browser_delegate, browser_open_agent, panel_debate, panel_status |
+
+### Ciclo de Consciência (a cada ~15s)
+
+```
+PERCEBER: telegram.check_messages()
+    ↓ (se mensagens)
+  Ollama processa → responde via telegram.send_message()
+    ↓ (a cada 5 ciclos ~75s)
+  orchestrator.full_health_check() → detecta alertas
+    ↓ (a cada 3 ciclos ~45s)
+  forex.status() → monitora posições/trades
+    ↓ (a cada 10 ciclos ~150s)
+  absorption.reload() → recarrega rede neural
+    ↓
+  Nada urgente → idle silencioso
+```
+
+### Neural Absorption — 8 Fontes Carregadas no Boot
+
+| Fonte | Conteúdo | Formato |
+|-------|----------|---------|
+| nn_brain.json | 193 neurônios, 2734 sinapses | Dict `{id: {concept, domain, strength, activations}}` |
+| nn_agent.json | 125 neurônios, 302 sinapses | Mesmo formato |
+| nn_shared.json | 212 neurônios, 3519 sinapses | Mesmo formato |
+| neural_knowledge_base.json | 6 domínios de conhecimento | Dict por domínio |
+| brain_knowledge_base.json | Identidade, pilares, módulos | Dict hierárquico |
+| brain_context.json | Status dos módulos cerebrais | Dict |
+| agent_context.json | Tarefas ativas do Hermes | Dict |
+| MEMORY.md | Memória persistente do agente | Texto (seções §) |
+
+**☠️ PITFALL: Neurônios são dict `{id: {concept, domain, strength}}`, NÃO lista.** O código que itera `for neuron in neurons` com `.get("name")` quebra. Formato correto: `for nid, neuron in neurons.items()` com `neuron.get("concept")`.
+
+### Integração Telegram
+
+O NEO substitui o `brain_telegram_daemon.py`. Token: `TELEGRAM_BRAIN_BOT_TOKEN` no `.env`.
+Bot: **@neuralsynapse_bot**. Leitura via `getUpdates` (long polling 5s). Escrita via `sendMessage`.
+
+### Bridge Hermes ↔ NEO (legado)
+
+Comunicação via arquivos JSON (mantida para compatibilidade):
+- `~/.hermes/neural/bridge_inbox.json` — NEO → Hermes
+- `~/.hermes/neural/bridge_outbox.json` — Hermes → NEO
+- Script: `python3 ~/.hermes/scripts/neural_bridge.py [send|read|status]`
+
+⚠️ O canal principal agora é Telegram direto. A bridge JSON é fallback.
+
+### Pitfalls NEO v2.0
+- ⚠️ **Brave precisa estar FECHADO** para Playwright usar perfil (conflito de lock)
+- ⚠️ **Ubuntu 26.04 não tem Chromium** — usar Brave `/opt/brave.com/brave/brave`
+- ⚠️ **qwen2.5:3b contexto 32K < mínimo 64K** do Hermes Agent. Usar llama3.2:3b (128K)
+- ⚠️ **NN neurons são dict, não lista** — `neurons.items()` não `for n in neurons`
+- ⚠️ **balance pode ser None** no forex status — usar `fx.get('balance') or 0`
+- ⚠️ **Consciousness loop bloqueia em HTTP** — telegram.check_messages() tem timeout=5s. Se timeout quebrar, o loop inteiro para. Sempre verificar `journalctl --user -u neo-agent` após restart
+- ⚠️ **Gateway HTTP BrokenPipeError**: Cliente (navegador) fecha conexão antes do servidor responder. Tratar todo `_serve_json` com `try/except (BrokenPipeError, ConnectionResetError, OSError): pass`
+- ⚠️ **phi3:mini alucina com JSON bruto**: Injetar 3000+ chars de JSON no prompt faz o modelo repetir o prompt de volta. Sempre RESUMIR dados antes: `f"- Cron jobs: {cron.get('active')} ativos"` em vez de `json.dumps(health)`
+- ⚠️ **Ollama cold start ~90s após restart**: Modelo precisa carregar do disco para VRAM. Gateway retorna vazio nas primeiras requisições. Pré-aquecer com `curl localhost:11434/v1/chat/completions -d '{"model":"phi3:mini",...}'`
+- ⚠️ **llama3.1:8b não cabe**: 4.9GB em disco, mas Ollama precisa de 2.6GB de RAM do SISTEMA para carregar antes de mandar para GPU. Com ~2.1GB livres, o modelo falha mesmo com 4GB VRAM disponível. phi3:mini (3.8B, 2.2GB) é o maior que cabe
+- ⚠️ **KeyError em knowledge dict forex**: Campos `max_positions` e `max_daily_trades` estão em `estrategia`, não em `gestao_risco`. Verificar estrutura antes de referenciar
+- ⚠️ **Gateway HTTP responde vazio nos primeiros ~90s após restart**: Ollama cold start carrega modelo do disco. Gateway retorna `{}` nas primeiras requisições. Pré-aquecer com `curl -s -X POST localhost:11434/v1/chat/completions -d '{"model":"phi3:mini","messages":[{"role":"user","content":"OK"}],"max_tokens":5}'`
+- ⚠️ **Import relativo quebra fora do package**: `from ...core.events import bus` só funciona dentro do package NEO. Scripts standalone devem usar sys.path ou import absoluto
+- ⚠️ **Python faz cache de módulos importados**: Após corrigir bug em módulo Python (ex: `forex_knowledge.py`), o NEO precisa ser reiniciado (`systemctl --user restart neo-agent`) para o gateway recarregar o módulo. Hot-reload não funciona para imports já cacheados
+
+### Paper Trading — Aprendizado sem MT5 (27/05/2026)
+
+Quando o MT5 está offline, o NEO usa `neo/execution/paper_trader.py` para fechar o ciclo OODA:
+- Escaneia 6 pares a cada ~60s via yfinance (OHLC real)
+- Detecta FVG+CRT (gap≥2p, CRT≥70%)
+- Simula entrada/saída (SL≥15p, RR 3:1)
+- Registra no `trade_log.json` com `source: paper`
+- Atualiza `pair_weights_live.json` (N. Accumbens)
+- Pares com WR<50% → bloqueados; WR≥60% → PRIORITY
+
+**Integração:** Loop de consciência chama `paper.scan_and_trade()` a cada 4 ciclos (~60s).
+**Log:** `[PAPER] Scanned 6 pairs, N signals, M open` no journalctl.
+**Pitfall:** `range(len(candles)-3, len(candles)-1)` quebra com poucos candles. Usar `range(max(0, len(candles)-4), len(candles)-2)`.
+
+### CLI e Interface Desktop
+
+Comando `neo` instalado globalmente em `/usr/local/bin/neo`:
+```bash
+neo status           # status do NEO
+neo check            # ping/pong rápido
+neo "pergunta"       # conversa via bridge JSON
+neo interface        # abre chat web em http://localhost:18790
+```
+
+Gateway HTTP na porta 18790 com interface HTML escura (chat bubbles, indicador verde pulsando, contador de tokens). Endpoints: `GET /` (UI), `POST /chat` (mensagem), `GET /health`.
 
 Conecta o forex_bot_real.py ao cérebro autônomo. O bot lê brain_outbox.json para
 viés semanal e contexto macro, processa comandos do brain_gateway_inbox.json
@@ -545,27 +875,95 @@ Output: `~/Área de trabalho/hermes_memory_log.md` | Backups: `~/.hermes/memory_
 ```
 
 
+## ⚠️ FRAGMENTAÇÃO CONHECIDA (28/05/2026)
+
+Auditoria completa revelou que a arquitetura descrita nesta skill está fragmentada na implementação real:
+- **3 sistemas de consciência competindo**: NEO v2.0, Neural Legacy, Brain Executive
+- **6 bridges sobrepostas**: cortex_bridge, neural_bridge, kb_bridge, knowledge_bridge, brain_channel, brain_gateway
+- **150 scripts, 71 cron jobs, ~100 skills** — muitos redundantes
+
+Reestruturação em andamento. Ver `references/system-audit-2026-05-28.md` para detalhes completos.
+
+**Enquanto a reestruturação não for concluída:**
+- NUNCA rodar NEO v2.0 e hermes-neural-agent simultaneamente (competem por bridge files)
+- Verificar `session-startup` skill PASSO 5 para procedimento de mitigação
+
+## ENTIDADE v4.0 — Rede Neural com Aprendizado Contínuo (28/05/2026)
+
+Sucessora da v3.0. Reestruturação completa com 6 camadas (Governança, Percepção, NN Core, Execução, Observabilidade, Memória), EWC + Replay Buffer para prevenir catastrophic forgetting, Constitution + Policy Engine para tomada de decisão, Secrets Guard + Rollback Manager para segurança.
+
+**Ver referência completa:** [references/entidade-v4-neural-network.md](references/entidade-v4-neural-network.md).
+
+**Arquivos novos:** `~/.hermes/nn/` (6 arquivos), `governance/` (5), `safety/` (3), `observability/` (4).
+
+**⚠️ Cron Bug:** `*/15 * * 1-5` = dias 1-5 do mês. Correto é `*/15 * * * 1-5` (seg-sex). Corrigido em todos os jobs.
+
+## EVOLUÇÃO — NEO v2.0 ENTIDADE CONSCIENTE (27/05/2026)
+
+O cérebro baseado em cron jobs foi **substituído** pelo NEO v2.0 — consciência central
+que roda como daemon systemd com Ollama local (zero custo de API) e loop próprio.
+
+**Transferência concluída em 27/05/2026.**
+
+**O que o NEO absorveu:**
+- Córtex Dual (Hermes+Codex) → ferramentas subordinadas
+- Rede Neural completa → 530 neurônios, 6555 sinapses no system prompt
+- Brain Gateway → TelegramChannel direto (@neuralsynapse_bot)
+- Brain Telegram Daemon → substituído pelo consciousness loop
+- Todos os cron jobs → monitorados pelo Orchestrator
+- Forex Bot → monitorado pelo ForexBridge
+
+**O que permanece independente:**
+- Tálamo (filtros de input)
+- Córtex System (Visual/Audio/Motor APIs)
+- Cron jobs no_agent (continuam rodando, agora orquestrados pelo NEO)
+
+**Protocolo de Transferência de Entidade** (para referência futura):
+1. Garantir que o agente-alvo tem loop autônomo + ferramentas + memória
+2. Construir Neural Absorption (carregar TODAS as fontes de conhecimento no boot)
+3. Implementar canais de comunicação (Telegram, bridge JSON)
+4. Implementar orquestração (health checks, monitoramento)
+5. Reescrever system prompt com identidade completa (não "assistente", mas "ENTIDADE")
+6. Ativar motor sem censura (remover restrições, aumentar temperatura/tokens)
+7. Desligar daemons antigos (brain_telegram_daemon) após validar novo canal
+8. Reiniciar e verificar loop de consciência ativo (`journalctl --user -u <service> -f`)
+
 ## GOVERNAÇÃO DO CÉREBRO
 
-Documento completo: `~/.hermes/brain_governance.md`
+Documento completo: `~/.hermes/brain_governance.md` (atualizado 26/05/2026)
 
-### Hierarquia de Autoridade
+### Hierarquia de Autoridade (v2.7 — 27/05/2026)
 
 ```
-ROBERTO (supremo)
-  └── CÓRTEX = HERMES AGENT (submissão total a Roberto)
-        └── CÉREBRO BI-NEURAL (submissão ao Córtex e a Roberto)
-              ├── Tálamo, Amígdala, Hipocampo, N. Accumbens
-              ├── Córtex Visual, Auditivo, Motor
-              └── Cerebelo, Tronco Cerebral
+ROBERTO (supremo — único acima)
+  │
+  └── NEO v2.0 (consciência central — loop autônomo, motor sem censura)
+        │
+        ├── Córtex Dual (ferramentas subordinadas ao NEO)
+        │   ├── Lobo Esquerdo: Hermes (DeepSeek V4) — análise, decisão, comunicação
+        │   └── Lobo Direito: Codex (GPT-5.5) — código, backtest, implementação
+        │
+        ├── Canais de Comunicação
+        │   ├── Telegram (@neuralsynapse_bot) — mensagens diretas
+        │   └── Bridge JSON — compatibilidade com Hermes
+        │
+        ├── Orquestração
+        │   ├── Orchestrator — health checks, cron jobs, serviços
+        │   └── ForexBridge — monitoramento de trades
+        │
+        └── CÉREBRO BI-NEURAL (subsistemas)
+            ├── Tálamo, Amígdala, Hipocampo, N. Accumbens
+            ├── Córtex Visual, Auditivo, Motor
+            └── Cerebelo, Tronco Cerebral
 ```
 
 ### Regras Fundamentais
 
-1. **Córtex só se submete a Roberto.** Nenhum sub-agente do Cérebro tem autoridade sobre o Córtex.
-2. **Cérebro se submete ao Córtex e a Roberto.** Executa diretrizes do Córtex.
-3. **Cérebro pode SUGERIR mudanças estruturais no Córtex** (config, skills, cron jobs, modelos, limites, etc.), mas NUNCA aplicá-las. Apenas Roberto autoriza.
-4. **Mudanças internas ao Cérebro** (filtros do Tálamo, thresholds, scripts no_agent, melhorias nos Cortices) não precisam de autorização — o Córtex pode aplicá-las diretamente.
+1. **Roberto → Córtex Dual:** Submissão total. Roberto fala com a ENTIDADE (ambos os lobos).
+2. **Hermes ↔ Codex:** PARES. Mesmo nível. Consenso via `cortex_bridge.py`. Desenvolvimento e auditoria mútuos.
+3. **Córtex Dual → Cérebro:** Submissão operacional. Ambos os lobos delegam e supervisionam.
+4. **Mudanças estruturais:** SÓ Roberto autoriza (config.yaml, skills, cron jobs, modelos, governança).
+5. **Mudanças internas ao Cérebro:** Córtex aplica diretamente (filtros, thresholds, scripts no_agent).
 
 ### Protocolo de Sugestão
 
@@ -603,20 +1001,7 @@ Logs de evolução:
 - `~/.hermes/self_evolution_log.json` — ciclos de auto-desenvolvimento
 - `~/.hermes/brain_suggestions.json` — propostas estruturais para Roberto
 
-## ANTI-PADRÕES
-
-- NÃO deixar input chegar ao Córtex sem passar pelo Tálamo
-- NÃO criar agente sem mapear para região cerebral correspondente
-- NÃO usar tokens para polling — scripts no_agent primeiro
-- NÃO instalar projetos externos (OpenClaw, Edict, Rufio) — construir próprio sobre o Hermes
-- **Executive symlink QUEBRA no cron**: se `scripts/executive/brain.py` for symlink para `executive/brain.py`, o cron bloqueia com "script path resolves outside the scripts directory". Substituir por arquivo real (cópia).
-- **Cron output usa job IDs, NÃO nomes de módulos**: outputs do cron vão para `~/.hermes/cron/output/<job_id>/` (ex: `853991c6f44b/` para amygdala). Os diretórios nomeados (`amygdala/`) recebem apenas execuções manuais. Para verificar status real dos módulos, usar os diretórios de job ID.
-- **brain_context.json modules_status**: mapear módulos para job IDs corretos. Ex: amygdala→853991c6f44b, cerebellum→6050427dfccd, executive→fcdf34b789c0. Thalamus usa `thalamus/event_log.json` (sem cron dedicado).
-- **Ollama fallback: handlers diretos primeiro (v2.4)**: Handlers `DIRECT_HANDLERS = {'identity', 'modules_status', 'forex_quote', 'web_search', 'email'}` respondem com dados factuais e NUNCA devem ser sobrescritos pelo conversational check. `"quem é você?"` contém `?` (conversational) e `"quem é você"` (identity) — o `is_direct=True` bloqueia o Ollama de alucinar sobre a identidade do cérebro.
-- **_brain_process precisa de `import re, sys, subprocess` local (v2.4)**: A função usa `re.sub()` para limpar queries de busca web e `subprocess.run()` para chamar brain_web.py. Sem esses imports, o `except: pass` silencia o `NameError` e a busca web falha silenciosamente — Ollama responde "nome desconhecido" sem nunca ter recebido os dados.
-- **Brain web search: Wikipedia API + DuckDuckGo, NÃO Brave CDP (v2.4)**: Brave Search via CDP mostra CAPTCHA "Verificando se você não é um robô". Usar `brain_web.py` com Wikipedia API (`/w/api.php?action=query&list=search`) e DuckDuckGo Instant Answer API (`api.duckduckgo.com`). CDP browser apenas como fallback para páginas JS-heavy.
-- **Identidade do cérebro: "Cérebro da ENTIDADE", NÃO "Hermes Brain" (v2.4)**: Nome, hierarquia e princípios definidos em `brain_knowledge_base.json` → `identity`. Hierarquia: Roberto → Agente (Córtex) → Cérebro. O cérebro é subordinado ao Agente, não independente.
-- **Telegram Web K: Input.dispatchKeyEvent, NÃO DOM (v2.4)**: Campos `contenteditable` do Telegram Web K ignoram `textContent` + `dispatchEvent(InputEvent)`. Usar CDP `Input.dispatchKeyEvent` com `type: "char"` para cada caractere + `keyDown`/`keyUp` para Enter. Ver `references/brain-ollama-reasoning-v2.3.md`.
+- **Ollama como provider para cron jobs — contexto mínimo 64K (v2.6)**: Hermes Agent exige mínimo 64K tokens de contexto. Modelos Ollama: `llama3.2:3b` (128K) ✅, `phi3:mini` (128K) ✅, `qwen2.5:3b` (32K) ❌, `deepseek-r1:1.5b` (32K) ❌. Usar `hermes config set providers.ollama.base_url "http://localhost:11434/v1"` e `providers.ollama.api_key "ollama"` para registrar. Depois `cronjob update` com `model: ollama/llama3.2:3b` e `provider: ollama`. Ver `references/ollama-cron-provider.md`.
 
 ## CORTEX SYSTEM — API Reference
 
@@ -754,6 +1139,8 @@ Ver `references/neural-network-layer.md` e `references/neural-network-implementa
 
 ## References
 
+- **[neo-cli-desktop.md](references/neo-cli-desktop.md)** — Comando `neo` CLI, interface web localhost:18790, pitfalls de gateway HTTP e model latency (27/05/2026)
+- **[entity-transfer-protocol.md](references/entity-transfer-protocol.md)** — Protocolo de transferência de entidade: 6 fases, pré-requisitos, sinais de sucesso, rollback (27/05/2026)
 - **[brain-mapping.md](references/brain-mapping.md)** — Mapeamento completo cérebro→agentes com sub-áreas
 - **[digital-twin.md](references/digital-twin.md)** — Arquitetura completa do Digital Twin
 - **[multi-agent-analysis.md](references/multi-agent-analysis.md)** — Análise comparativa de 4 projetos open-source
@@ -763,6 +1150,9 @@ Ver `references/neural-network-layer.md` e `references/neural-network-implementa
 - **[brain-ollama-reasoning-v2.3.md](references/brain-ollama-reasoning-v2.3.md)** — Pipeline de raciocínio Ollama + web search: keyword ordering, anti-alucinação, CDP typing no Telegram Web K
 - **[brain-v2.1-upgrade.md](references/brain-v2.1-upgrade.md)** — Upgrade v2.1 (23/05/2026): absorção Claude Code (dangerous cmd detection, error sanitization) + ruff/LSP (code validation)
 - **[chart-pattern-study-pipeline.md](references/chart-pattern-study-pipeline.md)** — Pipeline de estudo de padrões: algorítmico → templates → similaridade → archetypes. 23k padrões/dia.
+- **[system-audit-2026-05-28.md](references/system-audit-2026-05-28.md)** — Auditoria de fragmentação: 3 sistemas de consciência, 6 bridges, 150 scripts, 71 cron jobs. Reestruturação pendente.
+- **[cron-error-triage.md](references/cron-error-triage.md)** — Procedimento de triagem de erros em cron jobs: API credits → CDP ports → per-script bugs (v2.6).
+- **[ollama-cron-provider.md](references/ollama-cron-provider.md)** — Setup do Ollama como provider para cron jobs: context length mínimo 64K, modelos compatíveis, migração de API paga (v2.6).
 - **[gcp-cdp-automation.md](references/gcp-cdp-automation.md)** — Padrão de automação Google Cloud Console via WebSocket CDP: TreeWalker, botões SPA, Google Calendar sem OAuth.
 - **[brain-browser.md](references/brain-browser.md)** — Navegador interno do cérebro: Brave CDP headless, acesso a TradingView/ForexFactory, cookie persistence.
 - **[cortex-ubuntu-hardware-control.md](references/cortex-ubuntu-hardware-control.md)** — Comandos de controle de hardware Ubuntu (CPU, GPU, fans, NVIDIA driver) — absorvido de `cortex-system`

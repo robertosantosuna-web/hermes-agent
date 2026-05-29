@@ -234,6 +234,19 @@ browser:
 - **Headless não herda cookies da sessão gráfica** — para sites com Cloudflare, usar Edge CDP com perfil real ou Desktop Daemon
 - **WebSocket CDP é obrigatório para JS eval** — `Page.navigate` + `Runtime.evaluate` via WS, não HTTP
 
+## LIMITAÇÕES CDP POR NAVEGADOR (29/05/2026)
+
+| Navegador | Porta | WebSocket | Attach | Evaluate | Cookies |
+|-----------|-------|-----------|--------|----------|---------|
+| Brave gráfico | 9222 | ✅ | ❌ | ❌ | ❌ |
+| Edge WhatsApp | 9224 | ✅ | ❌ | ❌ | ❌ |
+| Chrome headless | 9226 | ❌ (403) | N/A | N/A | N/A |
+| Edge principal | 9225 | ✅ (caiu) | — | — | — |
+
+**Brave :9222:** WS conecta mas `Target.attachToTarget` nunca retorna sessionId. `Target.sendMessageToTarget` retorna "No session". `Network.getAllCookies` retorna vazio. Usar apenas para `Target.createTarget` + `PUT /json/new?url` (navegação e abertura de abas).
+
+**Para interação real com páginas:** Playwright standalone com `executable_path` (ver seção abaixo).
+
 ## EDGE (MICROSOFT EDGE) VIA CDP
 
 ### Iniciar Edge com CDP no Wayland
@@ -410,6 +423,35 @@ ws = websocket.create_connection(new_page['webSocketDebuggerUrl'])
 - **Timeout em WebSocket CDP:** operações longas (>30s) podem travar. Use timeout no connect e mantenha comandos atômicos.
 - **PerimeterX (ERRCODE PXCR10002539):** Fiverr e outros sites com proteção PerimeterX bloqueiam CDP em páginas sensíveis (inbox, checkout). O dashboard principal pode carregar normalmente. Indetectável via CDP — requer navegação manual no browser real.
 - **TradingView canvas ignora CDP clicks:** O canvas do TradingView (chart + bar replay) usa custom pointer handling que NÃO responde a `Input.dispatchMouseEvent`. Clicks via CDP no canvas são ignorados. Para interagir com o replay/gráfico, usar Desktop Daemon + ydotool (se desktop desbloqueado) ou ação manual do usuário.
+
+## PLAYWRIGHT COM BRAVE/EDGE DO SISTEMA (Ubuntu 26.04)
+
+```python
+from playwright.sync_api import sync_playwright
+
+# ⚠️ NUNCA usar `playwright install` no Ubuntu 26.04 (não suportado)
+# Usar navegador do sistema via executable_path:
+with sync_playwright() as p:
+    browser = p.chromium.launch(
+        headless=True,
+        executable_path='/opt/brave.com/brave/brave',  # ou /opt/microsoft/msedge/msedge
+        args=['--no-sandbox', '--disable-gpu']
+    )
+    page = browser.new_page()
+    # ...
+    browser.close()
+
+# Perfil persistente (mantém cookies/sessão):
+context = p.chromium.launch_persistent_context(
+    user_data_dir=os.path.expanduser('~/.hermes/playwright-profile'),
+    headless=True,
+    executable_path='/opt/brave.com/brave/brave',
+    args=['--no-sandbox', '--disable-gpu'],
+    viewport={'width': 1280, 'height': 800}
+)
+```
+
+**Sessão Google OAuth:** Token renovável via `~/.hermes/google_token.json` (refresh token + client_id/client_secret). Renovar com POST para token_uri. Não depende de navegador.
 
 ## PLAYWRIGHT COM PERFIL PERSISTENTE DO BRAVE
 

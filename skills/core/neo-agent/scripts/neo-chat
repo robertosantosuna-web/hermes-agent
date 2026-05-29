@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+"""Chat interativo com NEO no terminal."""
+import subprocess
+import sys
+import signal
+
+GREEN = "\033[92m"
+CYAN = "\033[96m"
+RESET = "\033[0m"
+BOLD = "\033[1m"
+
+def handle_exit(sig=None, frame=None):
+    print(f"\n{CYAN}NEO chat encerrado.{RESET}")
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, handle_exit)
+
+print(f"{BOLD}{CYAN}🧠 NEO Chat — fale com a ENTIDADE{RESET}")
+print(f"{CYAN}   Digite 'sair' para sair, Ctrl+C também.{RESET}\n")
+
+while True:
+    try:
+        msg = input(f"{GREEN}Você>{RESET} ").strip()
+    except EOFError:
+        handle_exit()
+
+    if not msg:
+        continue
+    if msg.lower() in ("sair", "exit", "quit"):
+        handle_exit()
+
+    print(f"{CYAN}⏳ NEO pensando...{RESET}", end="", flush=True)
+    result = subprocess.run(
+        ["/usr/local/bin/neo", msg],
+        capture_output=True, text=True, timeout=120
+    )
+
+    output = result.stdout
+    lines = output.split("\n")
+    cleaned = []
+    for line in lines:
+        if line.startswith("📤") or line.startswith("⏳"):
+            continue
+        cleaned.append(line)
+
+    response_text = "\n".join(cleaned).strip()
+    if response_text:
+        if response_text.startswith("🧠 NEO:"):
+            response_text = response_text.replace("🧠 NEO:", "", 1).strip()
+        print(f"\n{BOLD}{CYAN}NEO:{RESET} {response_text}\n")
+    else:
+        print(f"\n{CYAN}⚠️  sem resposta (timeout){RESET}\n")
