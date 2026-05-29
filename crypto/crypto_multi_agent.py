@@ -6,7 +6,7 @@ Novo: Market Structure, Order Block, Breaker Block, Liquidity Sweep
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
-from pattern_detector import PatternIntegrator
+from pattern_detector import AdvancedPatternDetector
 import numpy as np
 from datetime import datetime, timezone
 
@@ -92,23 +92,22 @@ class TendenciaAgent:
 
 
 class PadraoAgent:
-    """Padrões ICT integrados: FVG, OB, Breaker, Liquidity Sweep + Market Structure."""
+    """Padrões ICT avançados: OB com Fibonacci, Breaker, Market Structure Gate."""
     
     def __init__(self):
-        self.integrator = PatternIntegrator()
+        self.detector = AdvancedPatternDetector()
     
     def analyze(self, highs, lows, closes, opens, direction, pip_size):
         if len(closes) < 30: return 'NEUTRAL', 0, {}
         
-        best, score = self.integrator.find_best_pattern(highs, lows, closes, opens, direction)
+        best, score = self.detector.find_best_pattern(highs, lows, closes, opens, direction)
         
-        if best and score >= 60:
-            # Bônus por alinhamento com estrutura
-            ctx = self.integrator.get_market_context(highs, lows, closes)
+        if best and score >= 50:
+            # Adicionar contexto de mercado
+            ctx = self.detector.get_market_context(highs, lows, closes)
             best['market_structure'] = ctx['structure']
             best['choch'] = ctx.get('choch')
-            best['liquidity_above'] = ctx.get('liquidity_above', [])
-            best['liquidity_below'] = ctx.get('liquidity_below', [])
+            best['position'] = ctx.get('position', 0.5)
             return direction, score, best
         
         return 'NEUTRAL', 0, {}
@@ -185,9 +184,9 @@ class CryptoConfluencia:
         if t_vote == 'NEUTRAL':
             return 'NEUTRAL', 0, None, v_info
         
-        # Gate 3: Padrão (OB, Breaker, FVG, Liq Sweep — quality mínimo 60)
+        # Gate 3: Padrão (OB/Breaker com Fibonacci + Market Structure gate)
         p_vote, p_conf, p_sig = self.padrao.analyze(highs, lows, closes, opens, t_vote, pip_size)
-        if not p_sig or p_sig.get('quality', 0) < 60:
+        if not p_sig or p_sig.get('quality', 0) < 55:
             return 'NEUTRAL', 0, None, v_info
         
         # Bônus por Market Structure alinhada

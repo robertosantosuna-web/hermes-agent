@@ -99,8 +99,8 @@ def run_backtest():
                 last_entry_idx = sig_idx
                 
                 entry = signal['entry']
-                atr_pct = v_info.get('atr_pct', 0.5)
-                sl_rec = v_info.get('sl_recommend', None)
+                atr_pct = (v_info or {}).get('atr_pct', 0.5)
+                sl_rec = (v_info or {}).get('sl_recommend', None)
                 sl_pct = sl_rec or max(atr_pct * 1.5, 0.15)
                 
                 if decision == 'BUY':
@@ -121,7 +121,9 @@ def run_backtest():
                         'exit': result['exit'], 'conf': conf,
                         'pattern': signal.get('type', '?'),
                         'quality': signal.get('quality', 0),
-                        'regime': v_info.get('regime', '?')
+                        'regime': v_info.get('regime', '?'),
+                        'market_structure': signal.get('market_structure', '?'),
+                        'impulse_ratio': signal.get('impulse_ratio', 0),
                     })
                     pair_trades += 1
             
