@@ -62,9 +62,17 @@ class TendenciaAgent:
     def analyze(self, highs, lows, closes):
         if len(closes) < 200: return 'NEUTRAL', 0, ''
         
-        # M15 principal
-        m15_dir, m15_score, m15_sig = self.analyze_tf(closes, 50, 'M15')
-        if m15_dir == 'NEUTRAL': return 'NEUTRAL', 0, 'M15 neutro'
+        # M15 principal (período reduzido: 30 velas M1 = 30 min)
+        m15_dir, m15_score, m15_sig = self.analyze_tf(closes, 30, 'M15')
+        if m15_dir == 'NEUTRAL':
+            # Fallback: usar H1 se M15 neutro
+            h1_c = self._aggregate(closes, 60)
+            if h1_c is not None and len(h1_c) >= 10:
+                h1_dir, h1_score, h1_sig = self.analyze_tf(h1_c, 24, 'H1')
+                if h1_dir != 'NEUTRAL':
+                    m15_dir, m15_score, m15_sig = h1_dir, h1_score, h1_sig
+                else:
+                    return 'NEUTRAL', 0, 'M15+H1 neutros'
         
         # H1 bônus
         h1_c = self._aggregate(closes, 60)
@@ -72,13 +80,15 @@ class TendenciaAgent:
         if h1_c is not None and len(h1_c) >= 10:
             h1_dir, _, _ = self.analyze_tf(h1_c, 24, 'H1')
         
-        # M5 confirmação
+        # M5 confirmação (bônus, não gate)
         m5_dir, m5_score, m5_sig = self.analyze_tf(closes[-80:], 20, 'M5')
-        if m5_dir != 'NEUTRAL' and m5_dir != m15_dir:
-            return 'NEUTRAL', 0, f'M5 diverge'
         
-        total_score = m15_score + (m5_score if m5_dir == m15_dir else 0)
-        signals = m15_sig + (m5_sig if m5_dir == m15_dir else [])
+        total_score = m15_score
+        signals = m15_sig
+        
+        if m5_dir == m15_dir:
+            total_score += m5_score; signals += m5_sig; signals.append('✅M5')
+        # M5 divergindo não bloqueia, só não dá bônus
         
         if h1_dir == m15_dir: total_score += 20; signals.append('✅H1')
         if m5_dir == m15_dir: total_score += 10; signals.append('✅M5')
@@ -196,10 +206,25 @@ class CryptoConfluencia:
         # Gate 1: Volatilidade
         v_vote, v_conf, v_info = self.volatilidade.analyze(highs, lows, closes, pip_size)
         
-        # Gate 2: Tendência (M15+M5 alinhados)
+        # Gate 2: Tendência — se todos timeframes neutros, modo scalper com IR>=1.0
         t_vote, t_conf, t_msg = self.tendencia.analyze(highs, lows, closes)
+        
+        # Modo scalper: se tendência NEUTRAL mas IR muito forte, permitir
+        scalper_mode = False
         if t_vote == 'NEUTRAL':
-            return 'NEUTRAL', 0, None, v_info
+            # Verificar se há OB com IR>=1.0 antes de desistir
+            p_dir, p_conf_test, p_sig_test = self.padrao.analyze(
+                highs, lows, closes, opens, 'BUY', pip_size, volumes, daily_levels)
+            if not p_sig_test or p_sig_test.get('impulse_ratio', 0) < 1.0:
+                p_dir, p_conf_test, p_sig_test = self.padrao.analyze(
+                    highs, lows, closes, opens, 'SELL', pip_size, volumes, daily_levels)
+            if p_sig_test and p_sig_test.get('impulse_ratio', 0) >= 1.0:
+                scalper_mode = True
+                t_vote = p_dir
+                t_conf = 30  # confiança reduzida
+                self.padrao.last_signal_idx = -50  # reset para não bloquear Gate 3
+            else:
+                return 'NEUTRAL', 0, None, v_info
         
         # Gate 3: Padrão (OB com quality≥50 + impulse ratio≥0.8)
         p_vote, p_conf, p_sig = self.padrao.analyze(highs, lows, closes, opens, t_vote, pip_size, volumes, daily_levels)
@@ -211,9 +236,9 @@ class CryptoConfluencia:
         if impulse_ratio < 0.8:
             return 'NEUTRAL', 0, None, v_info
         
-        # ⚡ GATE: Não operar em RANGE (56.6% WR vs 79.4% BEARISH)
+        # ⚡ GATE: Não operar em RANGE a menos que IR seja muito forte (>=1.0)
         ms_structure = p_sig.get('market_structure', '')
-        if ms_structure == 'RANGE':
+        if ms_structure == 'RANGE' and impulse_ratio < 1.0:
             return 'NEUTRAL', 0, None, v_info
         
         # Bônus por Market Structure alinhada

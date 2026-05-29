@@ -54,12 +54,14 @@ def main():
         sys.exit(1)
     
     balance = trader.get_balance('USDT')
-    print(f"\n💰 Saldo: ${balance:.2f}")
+    margin_balance = trader._get_margin_balance('USDT')
+    total_balance = balance + margin_balance
+    print(f"\n💰 Saldo: Spot=${balance:.2f} | Margin=${margin_balance:.2f} | Total=${total_balance:.2f}")
     
     # ═══ SAFETY CHECK 2: Saldo mínimo ═══
     min_balance = safety.get('min_balance_usdt', 5)
-    if balance < min_balance:
-        print(f"🛑 CIRCUIT BREAKER: Saldo ${balance:.2f} abaixo do mínimo ${min_balance:.2f}")
+    if total_balance < min_balance:
+        print(f"🛑 CIRCUIT BREAKER: Saldo ${total_balance:.2f} abaixo do mínimo ${min_balance:.2f}")
         sys.exit(0)
     
     # ═══ SAFETY CHECK 3: Perda diária ═══
@@ -127,8 +129,8 @@ def main():
         pass
     
     # ═══ EXECUTAR ═══
-    position_size = min(balance, cfg.get('max_position_usdt', 19))
-    position_size = max(position_size, 10)
+    position_size = min(total_balance, cfg.get('max_position_usdt', 19))
+    position_size = max(position_size, 5)  # Mínimo $5 (Binance rule)
     
     print(f"\n🚀 EXECUTANDO: {pair} {direction} ${position_size:.2f}")
     

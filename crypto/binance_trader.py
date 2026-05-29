@@ -111,10 +111,10 @@ class BinanceTrader:
         self.testnet = testnet
         
         if self.testnet:
-            self.base_url = 'https://testnet.binance.vision/api'
+            self.base_url = 'https://testnet.binance.vision'
             self.ws_url = 'wss://testnet.binance.vision/ws'
         else:
-            self.base_url = 'https://api.binance.com/api'
+            self.base_url = 'https://api.binance.com'
             self.ws_url = 'wss://stream.binance.com:9443/ws'
         
         self.api_key = None
@@ -173,7 +173,7 @@ class BinanceTrader:
     
     def get_balance(self, asset='USDT'):
         """Retorna saldo disponível."""
-        data = self._request('GET', '/v3/account', signed=True)
+        data = self._request('GET', '/api/v3/account', signed=True)
         for bal in data.get('balances', []):
             if bal['asset'] == asset:
                 return float(bal['free'])
@@ -181,13 +181,13 @@ class BinanceTrader:
     
     def get_account_info(self):
         """Informações completas da conta."""
-        return self._request('GET', '/v3/account', signed=True)
+        return self._request('GET', '/api/v3/account', signed=True)
     
     # ═══ MERCADO ═══
     
     def get_price(self, symbol):
         """Preço atual do par."""
-        data = self._request('GET', '/v3/ticker/price', symbol=symbol)
+        data = self._request('GET', '/api/v3/ticker/price', symbol=symbol)
         return float(data['price'])
     
     def get_exchange_info(self, symbol=None):
@@ -195,7 +195,7 @@ class BinanceTrader:
         params = {}
         if symbol:
             params['symbol'] = symbol
-        return self._request('GET', '/v3/exchangeInfo', **params)
+        return self._request('GET', '/api/v3/exchangeInfo', **params)
     
     def get_symbol_info(self, symbol):
         """Extrai filtros relevantes do par."""
@@ -226,11 +226,11 @@ class BinanceTrader:
             params['quantity'] = quantity
         else:
             raise ValueError("Precisa de quote_order_qty ou quantity")
-        return self._request('POST', '/v3/order', signed=True, **params)
+        return self._request('POST', '/api/v3/order', signed=True, **params)
     
     def market_sell(self, symbol, quantity):
         """Ordem de venda a mercado."""
-        return self._request('POST', '/v3/order', signed=True,
+        return self._request('POST', '/api/v3/order', signed=True,
                            symbol=symbol, side='SELL', type='MARKET',
                            quantity=quantity)
     
@@ -250,7 +250,7 @@ class BinanceTrader:
             'stopLimitPrice': str(stop_limit_price or stop_price),
             'stopLimitTimeInForce': 'GTC'
         }
-        return self._request('POST', '/v3/order/oco', signed=True, **params)
+        return self._request('POST', '/api/v3/order/oco', signed=True, **params)
     
     # ═══ POSIÇÕES ═══
     
@@ -259,11 +259,11 @@ class BinanceTrader:
         params = {}
         if symbol:
             params['symbol'] = symbol
-        return self._request('GET', '/v3/openOrders', signed=True, **params)
+        return self._request('GET', '/api/v3/openOrders', signed=True, **params)
     
     def cancel_order(self, symbol, order_id):
         """Cancela uma ordem."""
-        return self._request('DELETE', '/v3/order', signed=True,
+        return self._request('DELETE', '/api/v3/order', signed=True,
                            symbol=symbol, orderId=order_id)
     
     # ═══ NOSSO BOT ═══
@@ -274,7 +274,11 @@ class BinanceTrader:
     
     def round_to_step(self, quantity, step_size):
         """Arredonda quantidade para step size correto."""
-        return round(quantity / step_size) * step_size
+        step = float(step_size)
+        # Get decimals from step: 0.00001 → 5, 0.001 → 3, 1e-05 → 5
+        step_str = f'{step:.10f}'.rstrip('0')
+        decimals = len(step_str.split('.')[1]) if '.' in step_str else 0
+        return round(quantity, decimals)
     
     def execute_signal(self, pair, direction, entry, sl_price, tp_price, usdt_amount=None):
         """
@@ -297,10 +301,12 @@ class BinanceTrader:
         if usdt_amount is None:
             usdt_amount = self.max_position
         
-        # Verificar saldo
+        # Verificar saldo (Spot + Margin)
         balance = self.get_balance('USDT')
-        if balance < usdt_amount:
-            raise Exception(f"Saldo insuficiente: {balance:.2f} USDT (precisa {usdt_amount})")
+        margin_bal = self._get_margin_balance('USDT')
+        total_bal = balance + margin_bal
+        if total_bal < usdt_amount:
+            raise Exception(f"Saldo total insuficiente: ${total_bal:.2f} (precisa {usdt_amount})")
         
         # Info do par
         sym_info = self.get_symbol_info(symbol)
@@ -321,44 +327,101 @@ class BinanceTrader:
         
         print(f"  ⚡ Executando {direction} {symbol}")
         print(f"     Entrada: {entry} | SL: {sl_price} | TP: {tp_price}")
-        print(f"     Qtd: {quantity} ({usdt_amount} USDT)")
+        print(f"     Qtd: {quantity} (${usdt_amount})")
         
         if self.testnet:
             print("  🧪 TESTNET — ordem NÃO será executada com dinheiro real")
         
         try:
             if direction == 'BUY':
-                # Comprar a mercado
-                buy = self.market_buy(symbol, quantity=quantity)
-                print(f"  ✅ Compra executada: {buy}")
+                balance = self.get_balance('USDT')
+                balance_label = 'Spot'
+                if balance < usdt_amount:
+                    # Tentar margin
+                    balance = self._get_margin_balance('USDT')
+                    balance_label = 'Margin'
+                if balance < usdt_amount:
+                    raise Exception(f"Saldo insuficiente: {balance:.2f} USDT ({balance_label})")
                 
-                # Criar OCO de venda (SL + TP)
-                oco = self.oco_order(
-                    symbol, 'SELL', quantity,
-                    price=tp_price,
-                    stop_price=sl_price
-                )
-                print(f"  ✅ OCO criada: SL={sl_price} TP={tp_price}")
+                if balance_label == 'Margin':
+                    # Comprar via Margin
+                    buy = self._request('POST', '/sapi/v1/margin/order', signed=True,
+                                      symbol=symbol, side='BUY', type='MARKET',
+                                      quoteOrderQty=str(usdt_amount))
+                    print(f"  ✅ Compra Margin: {buy}")
+                    sl_r = self.round_to_tick(float(sl_price), tick_size)
+                    tp_r = self.round_to_tick(float(tp_price), tick_size)
+                    oco = self._request('POST', '/sapi/v1/margin/order/oco', signed=True,
+                                      symbol=symbol, side='SELL', quantity=str(quantity),
+                                      price=str(tp_r), stopPrice=str(sl_r),
+                                      stopLimitPrice=str(sl_r),
+                                      stopLimitTimeInForce='GTC',
+                                      sideEffectType='AUTO_REPAY')
+                else:
+                    buy = self.market_buy(symbol, quantity=quantity)
+                    print(f"  ✅ Compra Spot: {buy}")
+                    oco = self.oco_order(symbol, 'SELL', quantity, price=tp_price, stop_price=sl_price)
+                print(f"  ✅ OCO: SL={sl_price} TP={tp_price}")
                 return {'buy': buy, 'oco': oco}
-            
-            else:  # SELL (short não disponível em spot — usar margin ou futures)
-                # Spot: não dá pra vender sem ter o ativo
-                # Para short real: precisa de margin trading (cross/isolated)
-                # Por enquanto, spot só permite compra
-                raise Exception("SELL em Spot requer o ativo em carteira. Use Margin ou Futures para short.")
+            else:
+                # SELL = Short via Cross Margin
+                balance = self._get_margin_balance('USDT')
+                if balance < usdt_amount:
+                    raise Exception(f"Saldo Margin insuficiente: {balance:.2f} USDT")
+                return self._margin_sell(symbol, str(quantity), sl_price, tp_price, tick_size)
         
         except Exception as e:
             print(f"  ❌ Erro na execução: {e}")
             raise
     
+    def _get_margin_balance(self, asset='USDT'):
+        """Saldo em Cross Margin."""
+        data = self._request('GET', '/sapi/v1/margin/account', signed=True)
+        for b in data.get('userAssets', []):
+            if b['asset'] == asset:
+                return float(b['free'])
+        return 0.0
+
+    def _margin_sell(self, symbol, quantity, sl_price, tp_price, tick_size=0.01):
+        """Short via Cross Margin: empréstimo + venda + OCO de recompra."""
+        # Extrair asset do symbol (ex: BTCUSDT → BTC)
+        base_asset = symbol.replace('USDT', '')
+        try:
+            # 1. Emprestar asset
+            loan = self._request('POST', '/sapi/v1/margin/loan', signed=True,
+                               asset=base_asset, amount=str(quantity))
+            print(f"  ✅ Empréstimo {base_asset}: {loan}")
+            
+            # 2. Vender a mercado (short)
+            sell = self._request('POST', '/sapi/v1/margin/order', signed=True,
+                               symbol=symbol, side='SELL', type='MARKET',
+                               quantity=str(quantity))
+            print(f"  ✅ Short executado: {sell}")
+            
+            # 3. OCO de recompra (stop + take profit)
+            # Arredondar preços para tick size do par
+            sl_rounded = self.round_to_tick(float(sl_price), tick_size)
+            tp_rounded = self.round_to_tick(float(tp_price), tick_size)
+            oco = self._request('POST', '/sapi/v1/margin/order/oco', signed=True,
+                              symbol=symbol, side='BUY', quantity=str(quantity),
+                              price=str(tp_rounded), stopPrice=str(sl_rounded),
+                              stopLimitPrice=str(sl_rounded),
+                              stopLimitTimeInForce='GTC',
+                              sideEffectType='AUTO_REPAY')
+            print(f"  ✅ OCO: SL={sl_rounded} TP={tp_rounded}")
+            return {'loan': loan, 'sell': sell, 'oco': oco}
+        except Exception as e:
+            print(f"  ❌ Erro margin sell: {e}")
+            raise
+
     def check_connection(self):
         """Testa conexão com a API."""
         try:
             # Ping
-            self._request('GET', '/v3/ping')
+            self._request('GET', '/api/v3/ping')
             
             # Status
-            info = self._request('GET', '/v3/account', signed=True)
+            info = self._request('GET', '/api/v3/account', signed=True)
             balances = {b['asset']: float(b['free']) 
                        for b in info.get('balances', []) 
                        if float(b['free']) > 0}

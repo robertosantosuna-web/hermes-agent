@@ -26,7 +26,8 @@ $EXEC_OUTPUT"
 fi
 
 # Limpar log grande
-if [ $(wc -l < autopilot.log 2>/dev/null) -gt 1000 ]; then
+if [ $(wc -l < autopilot.log 2>/dev/null || echo 0) -gt 1000 ]; then
     tail -500 autopilot.log > /tmp/crypto_log.tmp
     mv /tmp/crypto_log.tmp autopilot.log
 fi
+exit 0
