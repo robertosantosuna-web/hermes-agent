@@ -34,7 +34,7 @@ else:
 # ═══ CONFIG ═══
 RR = 3.0
 SIM_DAYS = 10  # ~10 dias de M15
-FOREX_PAIRS = ['EURUSD', 'GBPUSD', 'USDJPY', 'AUDUSD']
+FOREX_PAIRS = ['GBPUSD', 'USDJPY', 'AUDUSD', 'NZDUSD']
 PIP_SIZES = {'EURUSD': 0.0001, 'GBPUSD': 0.0001, 'USDJPY': 0.01, 'AUDUSD': 0.0001}
 
 class ForexAgentAnalytics:

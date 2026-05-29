@@ -64,14 +64,14 @@ class PadraoAgent:
                 score = 30 if closes[i] < (max(highs[-20:])+min(lows[-20:]))/2 else 0
                 score += 25 if sum(1 for j in range(1,min(10,i)) if closes[i-j]>closes[i-j-1]) > 5 else 0
                 if not any(lows[j] <= highs[i-2] for j in range(i+1, min(i+10, n))): score += 20
-                if score > best_score and gap >= (100 if is_metal else 1.0):
+                if score > best_score and gap >= (100 if is_metal else 2.0):
                     best_score = score; best = {'entry': closes[i], 'direction': 'BUY', 'idx': i, 'gap': gap}
             elif direction == 'SELL' and highs[i] < lows[i-2]:
                 gap = (lows[i-2]-highs[i])/pip_size
                 score = 30 if closes[i] > (max(highs[-20:])+min(lows[-20:]))/2 else 0
                 score += 25 if sum(1 for j in range(1,min(10,i)) if closes[i-j]<closes[i-j-1]) > 5 else 0
                 if not any(highs[j] >= lows[i-2] for j in range(i+1, min(i+10, n))): score += 20
-                if score > best_score and gap >= (100 if is_metal else 1.0):
+                if score > best_score and gap >= (100 if is_metal else 2.0):
                     best_score = score; best = {'entry': closes[i], 'direction': 'SELL', 'idx': i, 'gap': gap}
         if best: return direction, best_score, best
         return 'NEUTRAL', 0, {}
