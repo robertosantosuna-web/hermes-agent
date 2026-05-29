@@ -74,7 +74,7 @@ print()
 try:
     # Carregar trades abertos
     open_trades = load_open_trades()
-    print(f"[0] Trades abertos: {len(open_trades)}/2")
+    print(f"[0] Trades abertos: {len(open_trades)}/1 (máx 1 — 85% correlação USD)")
     for t in open_trades:
         print(f"    {t['pair']:8s} {t['direction']:4s} @{t['entry']:.4f} SL={t['sl_pct']:.2f}%")
     print()
@@ -196,10 +196,10 @@ try:
         with open(SIGNALS_FILE, 'w') as f:
             json.dump(signals_found, f, indent=2, default=str)
         print(f"\n  Sinais salvos: {SIGNALS_FILE}")
-        print(f"  Trades abertos: {len(open_trades)}/2")
+        print(f"  Trades abertos: {len(open_trades)}/1")
     else:
         print("═══ NENHUM SINAL NOVO ═══")
-        print(f"  Trades abertos: {len(open_trades)}/2")
+        print(f"  Trades abertos: {len(open_trades)}/1")
     
     print(f"\nBTC 4h: {btc_change:+.2f}%" if btc_change else "\nBTC: sem dados")
     print("═══ FIM ═══")

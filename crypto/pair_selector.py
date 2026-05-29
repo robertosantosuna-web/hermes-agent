@@ -40,7 +40,7 @@ class CryptoPairSelector:
         },
     }
     
-    MAX_TOTAL_TRADES = 2  # Máximo global de trades simultâneos
+    MAX_TOTAL_TRADES = 1  # Dados: 85% sincronia → 2 trades = risco dobrado
     
     def __init__(self, max_pairs=3):
         self.max_pairs = max_pairs
