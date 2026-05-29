@@ -646,12 +646,34 @@ def main():
         print("⏸️ Bot pausado por comando do usuário.")
         return
     
+    # ═══ CARREGAR VIÉS SEMANAL ═══
+    WEEKLY_BIAS = {}
+    weekly_path = Path.home() / '.hermes' / 'forex' / 'weekly_analysis.json'
+    if weekly_path.exists():
+        try:
+            with open(weekly_path) as f:
+                weekly = json.load(f)
+            for s in weekly.get('selected_pairs', []):
+                WEEKLY_BIAS[s['pair']] = s['direction']
+            if WEEKLY_BIAS:
+                print(f"Viés semanal ({weekly.get('date','?')}):", 
+                      ', '.join(f"{p} {d}" for p,d in WEEKLY_BIAS.items()))
+        except:
+            pass
+    
     # ═══ SCAN: Multi-TF Bias + CRT filter → M1 FVG → RR 3:1 (29/05) ═══
     all_signals = []
     
     for pair_name, pair_cfg in BASE_PAIRS.items():
         sym = pair_cfg['sym']
         pip = pair_cfg['pip']
+        
+        # ═══ GATE 0: Viés semanal ═══
+        if WEEKLY_BIAS:
+            # Só opera pares da análise semanal
+            if pair_name not in WEEKLY_BIAS:
+                continue
+            weekly_direction = WEEKLY_BIAS[pair_name]
         
         kz = pair_cfg.get('killzone')
         if kz is not None:
@@ -698,6 +720,11 @@ def main():
             
             if decision == 'NEUTRAL' or ag_signal is None:
                 continue
+            
+            # ═══ GATE 0: Viés semanal — só opera na direção da semana ═══
+            if WEEKLY_BIAS and pair_name in WEEKLY_BIAS:
+                if decision != WEEKLY_BIAS[pair_name]:
+                    continue  # direção contrária ao viés semanal
             
             # SL baseado no ATR do M1
             atr_pips = 2.0
