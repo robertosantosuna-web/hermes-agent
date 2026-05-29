@@ -118,11 +118,12 @@ class AdvancedPatternDetector:
                 min_impulse = atr_pct * closes[i] * 0.3
                 if impulse < min_impulse: continue
                 
-                # 2. Volume real do impulso > 1.0x média
-                if volumes is not None and avg_vol > 0:
-                    if volumes[i] < avg_vol * 1.0: continue
+                # 2. Volume real (bônus, não gate)
+                vol_bonus = 0
+                if volumes is not None and avg_vol > 0 and volumes[i] > avg_vol * 1.0:
+                    vol_bonus = min(volumes[i] / avg_vol * 10, 15)
                 
-                # 3. Wick rejection: OB (vela bearish) com pavio inferior longo = rejeição de venda
+                # 3. OB = vela antes do impulso (bearish)
                 ob_body = abs(closes[i-1] - opens[i-1])
                 ob_low = lows[i-1]
                 ob_high = highs[i-1]
@@ -147,14 +148,8 @@ class AdvancedPatternDetector:
                 # 5. First-touch: não mitigado depois do pullback
                 if any(lows[k] < ob_low for k in range(touch_idx+1, min(touch_idx+15, n))): continue
                 
-                # 6. Candle fechado: o pullback já fechou? (touch_idx < n-2)
-                if touch_idx >= n - 2: continue
-                
-                # 7. Market Structure gate
+                # 6. Market Structure gate (único gate além do Fibonacci)
                 if ms['structure'] == 'BEARISH' and not ms.get('choch'): continue
-                
-                # 8. S/R diário: não comprar se preço está perto da resistência diária
-                if daily_res and current_price > daily_res * 0.995: continue
                 
                 # ═══ SCORING ═══
                 score = 55
@@ -167,14 +162,15 @@ class AdvancedPatternDetector:
                     wick_ratio = lower_wick / ob_body
                     score += min(wick_ratio * 15, 15)
                 
+                # Volume real bônus
+                score += vol_bonus
+                
                 # Força do impulso
                 impulse_ratio = impulse / (atr_pct * closes[i])
                 score += min(impulse_ratio * 15, 20)
                 
-                # Volume real
-                if volumes is not None and avg_vol > 0:
-                    vol_ratio = volumes[i] / avg_vol
-                    score += min(vol_ratio * 10, 15)
+                # Volume real bônus
+                score += vol_bonus
                 
                 # Estrutura alinhada
                 if ms['structure'] == 'BULLISH': score += 15
@@ -209,8 +205,10 @@ class AdvancedPatternDetector:
                 
                 if impulse < atr_pct * closes[i] * 0.3: continue
                 
-                if volumes is not None and avg_vol > 0:
-                    if volumes[i] < avg_vol * 1.0: continue
+                # Volume real (bônus, não gate)
+                vol_bonus = 0
+                if volumes is not None and avg_vol > 0 and volumes[i] > avg_vol * 1.0:
+                    vol_bonus = min(volumes[i] / avg_vol * 10, 15)
                 
                 ob_body = abs(closes[i-1] - opens[i-1])
                 ob_high = highs[i-1]
@@ -229,27 +227,23 @@ class AdvancedPatternDetector:
                 
                 if not touched or touch_idx is None: continue
                 if any(highs[k] > ob_high for k in range(touch_idx+1, min(touch_idx+15, n))): continue
-                if touch_idx >= n - 2: continue
                 
+                # Market Structure gate (único gate)
                 if ms['structure'] == 'BULLISH' and not ms.get('choch'): continue
-                
-                # Não vender perto do suporte diário
-                if daily_sup and current_price < daily_sup * 1.005: continue
                 
                 score = 55
                 
                 if ob_body > avg_body * 1.5: score += 15
                 
                 if ob_body > 0:
-                    wick_ratio = upper_wick / ob_body
-                    score += min(wick_ratio * 15, 15)
+                    wick_ratio_val = upper_wick / ob_body
+                    score += min(wick_ratio_val * 15, 15)
+                
+                # Volume bônus
+                score += vol_bonus
                 
                 impulse_ratio = impulse / (atr_pct * closes[i])
                 score += min(impulse_ratio * 15, 20)
-                
-                if volumes is not None and avg_vol > 0:
-                    vol_ratio = volumes[i] / avg_vol
-                    score += min(vol_ratio * 10, 15)
                 
                 if ms['structure'] == 'BEARISH': score += 15
                 elif (ms.get('choch') or {}).get('type') == 'BEARISH': score += 20
@@ -260,6 +254,7 @@ class AdvancedPatternDetector:
                     pos = (closes[i] - window_l) / (window_h - window_l)
                     if pos > 0.50: score += 10
                 
+                # Bônus S/R diário (não gate)
                 if daily_res and current_price > daily_res * 0.99:
                     score += 10
                 
@@ -270,7 +265,7 @@ class AdvancedPatternDetector:
                         'direction': 'SELL', 'idx': i-1,
                         'quality': score,
                         'impulse_ratio': round(impulse_ratio, 1),
-                        'wick_ratio': round(wick_ratio if ob_body > 0 else 0, 1),
+                        'wick_ratio': round(wick_ratio_val if ob_body > 0 else 0, 1),
                         'vol_ratio': round(volumes[i]/avg_vol if volumes is not None and avg_vol > 0 else 0, 1),
                         'market_structure': ms['structure']
                     }

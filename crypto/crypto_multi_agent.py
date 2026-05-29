@@ -186,7 +186,7 @@ class CryptoConfluencia:
         
         # Gate 3: Padrão (OB com todos os fatores: volume, wick, candle, S/R diário)
         p_vote, p_conf, p_sig = self.padrao.analyze(highs, lows, closes, opens, t_vote, pip_size, volumes, daily_levels)
-        if not p_sig or p_sig.get('quality', 0) < 55:
+        if not p_sig or p_sig.get('quality', 0) < 50:
             return 'NEUTRAL', 0, None, v_info
         
         # Bônus por Market Structure alinhada
