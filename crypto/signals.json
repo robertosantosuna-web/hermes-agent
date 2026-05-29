@@ -1,0 +1,17 @@
+[
+  {
+    "pair": "AVAXUSD",
+    "sym": "AVAX-USD",
+    "direction": "SELL",
+    "entry": 8.899999618530273,
+    "sl": 8.91067961807251,
+    "tp": 8.867959619903564,
+    "sl_pct": 0.12,
+    "conf": 83.40886592908035,
+    "pattern": "FVG",
+    "quality": 125,
+    "atr_pct": 0.057,
+    "regime": "BAIXA_VOL",
+    "time": "2026-05-29T18:51:14.608331+00:00"
+  }
+]

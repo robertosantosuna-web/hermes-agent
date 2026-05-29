@@ -1,88 +1,82 @@
 ---
 name: crypto-trading
-description: "Estratégia de trading de criptomoedas. Backtest BTC/USDT iniciado. Mesma base ICT (CHoCH+FVG+S/R) adaptada para crypto 24/7."
-version: 1.0.0
+description: "Sistema Multi-Agente Crypto v2 — 5 agentes + Pair Selector dinâmico. Backtest 7 dias: 477 trades, 45.7% WR, +395R, PF 2.53."
+version: 2.0.0
 ---
 
-# Crypto Trading — Bitcoin & Criptomoedas
+# Crypto Trading v2 — Multi-Agente + Pair Selector
 
-## Status
+## Status: ATIVO 24/7
 
-Backtest BTC/USDT iniciado em 19/05/2026. Estratégia baseada na mesma lógica do forex (CHoCH+FVG ICT + CRT + S/R), adaptada para mercado 24/7.
+Backtest 7 dias (5 pares): **477 trades, 45.7% WR, +395R, PF 2.53**.
+Cron job `Crypto AutoPilot 24/7` rodando a cada 3 min.
 
-## Diferenças Forex vs Crypto
+## Arquitetura
 
-| Característica | Forex | Crypto |
-|---------------|-------|--------|
-| Horário | Seg-Sex, sessões | 24/7 contínuo |
-| Sessões de pico | London, NY, Asia | Sobreposição US/EU, Asia |
-| Volatilidade | Moderada | Alta (2-5x forex) |
-| Pares | 4-6 principais | BTC/USDT (foco) |
-
-## Pares Prioritários
-
-1. **BTC/USDT** — Maior liquidez, mais dados
-2. ETH/USDT — Segundo par (testar depois)
-3. SOL/USDT — Alta volatilidade (testar depois)
-
-## Estratégia Base
-
-Mesma do forex: CHoCH + FVG + CRT + S/R @ M15.
-WR≥40%→RR 3:1, WR≥80%→RR livre, WR<40%→NÃO abrir.
-
-## Horários de Pico (Crypto, BRT)
-
-| Sessão | Horário | Característica |
-|--------|---------|---------------|
-| Asia | 20:00-05:00 | Abertura semanal (dom 20h) |
-| London/US | 09:00-13:00 | Maior volume |
-| US | 10:30-17:00 | Notícias macro |
-
-## Dados
-
-```python
-# Yahoo Finance (gratuito)
-import yfinance as yf
-btc = yf.download("BTC-USD", period="30d", interval="15m")
-
-# Binance API (mais preciso, sem auth)
-import requests
-klines = requests.get(
-    "https://api.binance.com/api/v3/klines",
-    params={"symbol": "BTCUSDT", "interval": "15m", "limit": 500}
-).json()
+```
+crypto/
+├── crypto_multi_agent.py   # 5 agentes (Volatilidade, Tendência, Padrão, Sessão, Fluxo)
+├── crypto_bot.py           # Bot principal com pair selector dinâmico
+├── pair_selector.py        # Seleção dinâmica dos melhores pares
+└── validate_crypto.py      # Backtest + validação pré-deploy
 ```
 
-## Corretoras
+## 5 Agentes
 
-| Corretora | Depósito Mínimo | Pix |
-|-----------|----------------|-----|
-| Binance | $10 | ✅ |
-| Bybit | $10 | ✅ |
-| KuCoin | $1 | ❌ |
+| Agente | Função | Peso |
+|--------|--------|------|
+| Volatilidade | ATR, regime, SL recomendado | 1.0 |
+| Tendência | Multi-TF (M15→M5→M1) hierárquico | 2.0 |
+| Padrão | FVG + Order Block, quality scoring | 1.8 |
+| Sessão | Horários de pico (NY/Asia/London) | 0.7 |
+| Fluxo | Correlação BTC/Altcoins | 1.2 |
 
-**Recomendação: Binance** — maior liquidez, Pix, API robusta.
+## Pares
 
-## Integração com Bot
+8 pares disponíveis, seleção dinâmica dos 5 melhores por volatilidade + momentum:
+- S Tier: BTCUSD, ETHUSD
+- A Tier: SOLUSD, DOGEUSD, BNBUSD
+- B Tier: XRPUSD, ADAUSD, AVAXUSD
 
-Quando parâmetros validados:
-1. Criar `~/.hermes/scripts/crypto_bot.py`
-2. Usar Binance API para ordens
-3. Mesmo self-learning do forex
-4. Cronjob 24/7 (sem pausa fim de semana)
+## Parâmetros
 
-## Gestão de Risco (Crypto)
+- RR: 3:1 fixo
+- Risco: 0.5% por trade
+- SL: baseado em ATR (0.12% a 0.6%)
+- Confiança mínima: 40%
+- Anti-correlação: max 2 pares do mesmo grupo
 
-- Máximo 1-2% capital por trade (mais conservador que forex)
-- Stop Loss OBRIGATÓRIO
-- Máximo 2 posições simultâneas (vs 3 forex)
-- Reserva 50% do lucro em USDT
-- Fechar antes de CPI, FOMC
+## Horários de Pico (UTC)
 
-## Plano
+| Sessão | Horário | Bônus |
+|--------|---------|-------|
+| NY Open | 13-20h | 1.0x |
+| Asia Open | 0-7h | 0.85x |
+| London | 8-12h | 0.7x |
+| Off-peak | 21-23h | 0.5x |
 
-1. [ ] Backtest BTC/USDT 30 dias com parâmetros forex
-2. [ ] Ajustar para volatilidade crypto
-3. [ ] Validar em demo Binance Testnet
-4. [ ] Depositar $10-50
-5. [ ] Ativar após 20 trades positivos
+## Backtest Results (7 dias, 5 pares)
+
+| Par | Trades | WR | R |
+|-----|--------|----|---|
+| BNBUSD | 91 | 56% | +113 |
+| BTCUSD | 91 | 46% | +77 |
+| DOGEUSD | 95 | 45% | +77 |
+| ETHUSD | 96 | 44% | +72 |
+| SOLUSD | 104 | 38% | +56 |
+
+## Comandos
+
+```bash
+# Rodar bot manualmente
+cd ~/.hermes/crypto && python3 crypto_bot.py
+
+# Backtest
+cd ~/.hermes/crypto && python3 validate_crypto.py
+
+# Sinais salvos
+cat ~/.hermes/crypto/signals.json
+
+# Cron job
+cronjob action=list  # procurar "Crypto AutoPilot 24/7"
+```
