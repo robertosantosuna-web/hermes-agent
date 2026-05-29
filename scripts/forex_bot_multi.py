@@ -26,6 +26,7 @@ from pathlib import Path
 sys.path.insert(0, '/home/roberto/.hermes/scripts')
 from mt5_direct import close_all as mt5_close_all
 from hermes_mt5_bridge import send_order, get_status as mt5_get_status
+from telegram_notify import notify_open
 from trade_tracker import record_trade
 from brain_bot_bridge import get_weekly_bias, get_macro_context, notify_trade, read_user_commands
 
@@ -823,6 +824,10 @@ def main():
         
         for t in final_trades:
             if t['result']['status'] in ('executed', 'executed_fallback'):
+                entry = t['result'].get('entry', 0)
+                sl = t['signal'].get('sl_price', 0)
+                tp = t['signal'].get('tp_price', 0)
+                notify_open(t['pair'], t['signal']['direction'], entry, sl, tp, t.get('volume', 0))
                 state.setdefault("trade_log", []).append({
                     'pair': t['pair'],
                     'strategy': t['strategy_name'],
