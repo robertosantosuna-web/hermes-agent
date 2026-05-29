@@ -22,7 +22,57 @@ CACHE_DIR = HERMES / "forex" / "ohlcv_cache"
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
 # ═══════════════════════════════════════════
-# CAMADA 1: YFINANCE (OHLC histórico)
+# CAMADA 1: TRADINGVIEW CDP (fonte primária M1 — sem erro de escala)
+# ═══════════════════════════════════════════
+
+def _tv_cdp_fetch(symbol, interval='1m'):
+    """Extrai OHLC diretamente do TradingView via CDP (Brave :9222)."""
+    try:
+        sym_map = {
+            'EURUSD=X': 'FX:EURUSD', 'GBPUSD=X': 'FX:GBPUSD',
+            'USDJPY=X': 'FX:USDJPY', 'GBPJPY=X': 'FX:GBPJPY',
+            'EURJPY=X': 'FX:EURJPY', 'USDCAD=X': 'FX:USDCAD',
+            'GC=F': 'TVC:GOLD',
+        }
+        tv_sym = sym_map.get(symbol, 'FX:' + symbol.replace('=X', ''))
+        tf = interval.replace('m', '')
+        
+        clean_name = symbol.replace('=X', '').replace('/', '_')
+        out = f'/tmp/tv_{clean_name}.json'
+        
+        result = subprocess.run(
+            [sys.executable, '/home/roberto/tv_ohlc_extractor.py',
+             '--symbol', tv_sym, '--interval', tf, '--output', out],
+            capture_output=True, text=True, timeout=25
+        )
+        
+        if Path(out).exists():
+            data = json.loads(Path(out).read_text())
+            candles_raw = data.get('bars', data.get('candles', []))
+            
+            candles = []
+            for c in candles_raw:
+                try:
+                    candles.append({
+                        'Open': c['open'], 'High': c['high'],
+                        'Low': c['low'], 'Close': c['close'],
+                        'Datetime': datetime.fromtimestamp(c['time'])
+                    })
+                except:
+                    pass
+            
+            if candles:
+                df = pd.DataFrame(candles)
+                df.set_index('Datetime', inplace=True)
+                df = df[['Open', 'High', 'Low', 'Close']]
+                return df
+    except Exception:
+        pass
+    return None
+
+
+# ═══════════════════════════════════════════
+# CAMADA 2: YFINANCE (fallback)
 # ═══════════════════════════════════════════
 
 def _yfinance_fetch(symbol_clean, period='5d', interval='15m'):
@@ -124,32 +174,36 @@ def _cache_write(symbol, df):
 def fetch_ohlcv(symbol, period='5d', interval='15m'):
     """
     Drop-in replacement for yf.Ticker(symbol).history(period, interval).
-    Returns pandas DataFrame with columns: Open, High, Low, Close.
-    
     Data sources (in order):
-    1. yfinance (primary — full OHLC history)
-    2. Local cache (fallback — last known data)
-    3. CDP quote (last resort — single price point)
+    1. TradingView CDP (primary for M1 — sem erro de escala)
+    2. yfinance (fallback + timeframes maiores)
+    3. Local cache (last resort)
     """
     clean = symbol.replace('=X', '')
     
-    # 1. Try yfinance
+    # 1. Para M1: TradingView CDP (fonte precisa, sem erro de escala)
+    if interval == '1m':
+        df = _tv_cdp_fetch(symbol, interval)
+        if df is not None and len(df) >= 10:
+            _cache_write(symbol, df)
+            return df
+    
+    # 2. Try yfinance
     df = _yfinance_fetch(symbol, period, interval)
     if df is not None and len(df) >= 10:
         _cache_write(symbol, df)
         return df
     
-    # 2. Try local cache
+    # 3. Try local cache
     df = _cache_read(symbol)
     if df is not None and len(df) >= 10:
         return df
     
-    # 3. Last resort: CDP quote + cached data
+    # 4. Last resort: CDP quote
     quote = _cdp_quote(clean)
     cached = _cache_read(symbol)
     
     if cached is not None and len(cached) > 0:
-        # Add current quote to cached data
         if quote and 'bid' in quote:
             now = datetime.now()
             price = quote['bid']
@@ -160,7 +214,6 @@ def fetch_ohlcv(symbol, period='5d', interval='15m'):
             return pd.concat([cached, new_row])
         return cached
     
-    # Nothing available
     if quote and 'bid' in quote:
         now = datetime.now()
         price = quote['bid']
