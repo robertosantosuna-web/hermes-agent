@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-CRYPTO BOT v8 — Feed Híbrido Hyperliquid (tempo real) + Yahoo Finance (fallback)
-Multi-TF completo: M30 + H1 + M15 + M5 + M1
+CRYPTO BOT v9 — TradingView Feed Direto (tvDatafeed)
+Multi-TF nativo: M1, M5, M15, M30, H1, H4
+Dados Binance via TradingView, sem delay, sem API key
 """
-import sys, json, os, time
+import sys, json, os
 from pathlib import Path
 from datetime import datetime, timezone
 import numpy as np
@@ -12,7 +13,7 @@ import yfinance as yf
 sys.path.insert(0, str(Path.home() / '.hermes' / 'crypto'))
 from crypto_multi_agent import CryptoConfluencia
 from pair_selector import CryptoPairSelector
-from hyperliquid_feed import HyperliquidFeed
+from tradingview_feed import TradingViewFeed
 
 # ═══ CONFIG ═══
 RR = 3.0
@@ -22,44 +23,18 @@ MIN_CONFIDENCE = 55
 TRADES_FILE = Path.home() / '.hermes' / 'crypto' / 'open_trades.json'
 SIGNALS_FILE = Path.home() / '.hermes' / 'crypto' / 'signals.json'
 
-# Feed global (iniciado uma vez)
+# Feed global
 _feed = None
 
 def get_feed():
     global _feed
     if _feed is None:
-        _feed = HyperliquidFeed(symbols=['BTC', 'ETH', 'DOGE', 'SOL'])
-        _feed.start()
-        print("[Feed] Hyperliquid iniciado, aguardando dados...")
-        # Aguardar primeiros candles
-        waited = 0
-        while waited < 10:
-            time.sleep(1)
-            waited += 1
-            if _feed.has_data('ETHUSD', 3):
-                break
+        _feed = TradingViewFeed()
     return _feed
 
-def get_candles_hybrid(pair, sym, feed):
-    """Híbrido: tenta Hyperliquid, fallback para Yahoo Finance."""
-    # Tentar Hyperliquid
-    h, l, c, o, v = feed.get_candles(pair, 200)
-    
-    if c is not None and len(c) >= 100:
-        return h, l, c, o, v, 'hyperliquid'
-    
-    # Fallback Yahoo Finance
-    try:
-        df = yf.Ticker(sym).history(period='5d', interval='1m')
-        if len(df) >= 100:
-            return (df['High'].values, df['Low'].values, df['Close'].values,
-                    df['Open'].values, 
-                    df['Volume'].values if 'Volume' in df.columns else None,
-                    'yfinance')
-    except:
-        pass
-    
-    return None, None, None, None, None, None
+def get_candles_tv(pair, feed):
+    """Dados TradingView multi-TF."""
+    return feed.get_multi_tf(pair, ['1m', '5m', '15m', '1h'])
 
 def load_open_trades():
     if TRADES_FILE.exists():
@@ -106,8 +81,7 @@ print()
 try:
     # Iniciar feed
     feed = get_feed()
-    source = 'hyperliquid' if feed.has_data('BTCUSD', 5) else 'yfinance'
-    print(f"[Feed] Fonte: {source}")
+    print(f"[Feed] TradingView direto (Binance)")
     
     open_trades = load_open_trades()
     print(f"[0] Trades abertos: {len(open_trades)}/1")
@@ -152,10 +126,10 @@ try:
             continue
         
         try:
-            # Dados híbridos
-            h, l, c, o, v, src = get_candles_hybrid(pair, sym, feed)
-            if c is None or len(c) < 100:
-                print(f"  {pair:8s} dados insuficientes ({len(c) if c is not None else 0} candles)")
+            # Dados TradingView M1
+            h, l, c, o, v = feed.get_candles(pair, '1m', 200)
+            if c is None or len(c) < 30:
+                print(f"  {pair:8s} sem dados TV")
                 continue
             
             # Daily bias (yfinance diário)
@@ -167,7 +141,7 @@ try:
             bias = get_daily_bias(dh, dl, dc)
             
             if bias == 'NEUTRAL':
-                print(f"  {pair:8s} BIAS NEUTRAL [{src}]")
+                print(f"  {pair:8s} BIAS NEUTRAL [tv]")
                 continue
             
             # Níveis diários
@@ -193,7 +167,7 @@ try:
                 print(f"  ✅ {pair:8s} {decision:4s} @{entry:.4f} | "
                       f"{signal.get('type','?')} Q={signal.get('quality',0)} | "
                       f"SL={sl_pct:.2f}% TP={sl_pct*RR:.2f}% | "
-                      f"Conf={conf:.0f}% [{src}]")
+                      f"Conf={conf:.0f}% [tv]")
                 
                 signals_found.append({
                     'pair': pair, 'sym': sym, 'direction': decision,
@@ -204,7 +178,7 @@ try:
                     'atr_pct': atr_pct, 'regime': (v_info or {}).get('regime'),
                     'group': pair_info.get('group', '?'),
                     'time': datetime.now(timezone.utc).isoformat(),
-                    'source': src
+                    'source': 'tv'
                 })
                 
                 open_trades.append(signals_found[-1])
@@ -212,7 +186,7 @@ try:
                 with open(TRADES_FILE, 'w') as f:
                     json.dump(open_trades, f, indent=2, default=str)
             else:
-                print(f"  {pair:8s} {decision:7s} conf={conf:.0f}% [{src}]")
+                print(f"  {pair:8s} {decision:7s} conf={conf:.0f}% [tv]")
         
         except Exception as e:
             print(f"  {pair:8s} ❌ {e}")
