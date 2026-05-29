@@ -1,0 +1,8 @@
+{
+    "api_key": "OrJ5WxwKDI0r7IH5cMsEUdC7KWU75bsWuPPKToe7IbbU2HlqFREoN9MD4uJnMVRg",
+    "api_secret": "SAh9V4O9Odu8PMnJXyysVAyGa5CCuSBHyAE1UuUYI8XWbvcxo6cP2TBvT8kBVKWX",
+    "testnet": false,
+    "max_risk_pct": 0.5,
+    "max_position_usdt": 19,
+    "auto_execute": true
+}
