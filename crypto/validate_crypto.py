@@ -17,13 +17,12 @@ DATA_DAYS = 7  # yfinance limita M1 a ~8 dias
 MIN_TRADES = 5   # mínimo para 7 dias
 MIN_WR = 35       # ajustado para período curto
 MIN_PF = 1.8
-MIN_CONFIDENCE = 40
+MIN_CONFIDENCE = 55  # data-driven: filtra sinais sem confiança real
 
-# Pares testados
+# Pares testados (removido SOLUSD - pior performance)
 TEST_PAIRS = {
     'BTCUSD': ('BTC-USD', 1.0),
     'ETHUSD': ('ETH-USD', 0.1),
-    'SOLUSD': ('SOL-USD', 0.01),
     'DOGEUSD': ('DOGE-USD', 0.001),
     'BNBUSD': ('BNB-USD', 0.1),
 }

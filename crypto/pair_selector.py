@@ -13,12 +13,10 @@ class CryptoPairSelector:
     ALL_PAIRS = {
         'BTCUSD':  {'sym': 'BTC-USD',  'pip': 1.0,   'tier': 'S', 'correl': 'base'},
         'ETHUSD':  {'sym': 'ETH-USD',  'pip': 0.1,   'tier': 'S', 'correl': 'btc_high'},
-        'SOLUSD':  {'sym': 'SOL-USD',  'pip': 0.01,  'tier': 'A', 'correl': 'btc_med'},
         'DOGEUSD': {'sym': 'DOGE-USD', 'pip': 0.001, 'tier': 'A', 'correl': 'meme'},
         'BNBUSD':  {'sym': 'BNB-USD',  'pip': 0.1,   'tier': 'A', 'correl': 'exchange'},
         'XRPUSD':  {'sym': 'XRP-USD',  'pip': 0.001, 'tier': 'B', 'correl': 'btc_med'},
         'ADAUSD':  {'sym': 'ADA-USD',  'pip': 0.001, 'tier': 'B', 'correl': 'btc_high'},
-        'AVAXUSD': {'sym': 'AVAX-USD', 'pip': 0.01,  'tier': 'B', 'correl': 'btc_med'},
     }
     
     def __init__(self, max_pairs=5):

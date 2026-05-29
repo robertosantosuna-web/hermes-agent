@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CRYPTO BOT v2 — Multi-Agente + Pair Selector dinâmico
+CRYPTO BOT v4 — Data-Driven Multi-Agent + Pair Selector
 Opera 24/7 com seleção adaptativa dos melhores pares
 """
 import sys, json, os
@@ -17,7 +17,7 @@ from pair_selector import CryptoPairSelector
 RR = 3.0                    # RR fixo
 RISK_PCT = 0.5              # 0.5% risco por trade
 MAX_PAIRS = 5               # Máximo de pares simultâneos
-MIN_CONFIDENCE = 40         # Confiança mínima para entrada
+MIN_CONFIDENCE = 55         # data-driven v4
 DATA_PERIOD = '5d'          # Período de dados
 
 # Horários de scan (UTC)
