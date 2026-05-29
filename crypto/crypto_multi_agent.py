@@ -201,21 +201,30 @@ class CryptoConfluencia:
         if t_vote == 'NEUTRAL':
             return 'NEUTRAL', 0, None, v_info
         
-        # Gate 3: Padrão (OB com todos os fatores: volume, wick, candle, S/R diário)
+        # Gate 3: Padrão (OB com quality≥50 + impulse ratio≥0.8)
         p_vote, p_conf, p_sig = self.padrao.analyze(highs, lows, closes, opens, t_vote, pip_size, volumes, daily_levels)
         if not p_sig or p_sig.get('quality', 0) < 50:
             return 'NEUTRAL', 0, None, v_info
         
-        # Bônus por Market Structure alinhada
+        # ⚡ GATE: Impulse Ratio mínimo (fator mais discriminativo: +7.9pp WR)
+        impulse_ratio = p_sig.get('impulse_ratio', 0)
+        if impulse_ratio < 0.8:
+            return 'NEUTRAL', 0, None, v_info
+        
+        # ⚡ GATE: Não operar em RANGE (56.6% WR vs 79.4% BEARISH)
         ms_structure = p_sig.get('market_structure', '')
+        if ms_structure == 'RANGE':
+            return 'NEUTRAL', 0, None, v_info
+        
+        # Bônus por Market Structure alinhada
         if ms_structure == 'BULLISH' and t_vote == 'BUY':
             p_conf += 25
         elif ms_structure == 'BEARISH' and t_vote == 'SELL':
-            p_conf += 25
+            p_conf += 30  # BEARISH é mais confiável (79.4% vs 64.4%)
         elif ms_structure == 'CHoCH':
             choch = p_sig.get('choch', {})
             if isinstance(choch, dict) and choch.get('type') == t_vote:
-                p_conf += 35  # CHoCH alinhado = bônus máximo
+                p_conf += 35
         
         # Sessão e Fluxo
         s_vote, s_conf, s_msg = self.sessao.analyze()
