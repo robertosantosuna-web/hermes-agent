@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-05-29T20:30:52.456944+00:00",
+  "parameters": {
+    "rr": 3.0,
+    "days": 30,
+    "feed": "tradingview",
+    "timeframe": "M1"
+  },
+  "results": {
+    "passed": false,
+    "reason": "Nenhum trade"
+  },
+  "trades": []
+}
