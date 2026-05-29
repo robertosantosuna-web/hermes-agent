@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-CRYPTO BOT v4 — Data-Driven Multi-Agent + Pair Selector
-Opera 24/7 com seleção adaptativa dos melhores pares
+CRYPTO BOT v4 — Data-Driven Multi-Agent + Anti-Correlação USD
+Regras: max 2 trades simultâneos, 1 por grupo de correlação
 """
 import sys, json, os
 from pathlib import Path
@@ -14,17 +14,29 @@ from crypto_multi_agent import CryptoConfluencia
 from pair_selector import CryptoPairSelector
 
 # ═══ CONFIG ═══
-RR = 3.0                    # RR fixo
-RISK_PCT = 0.5              # 0.5% risco por trade
-MAX_PAIRS = 5               # Máximo de pares simultâneos
-MIN_CONFIDENCE = 55         # data-driven v4
-DATA_PERIOD = '5d'          # Período de dados
+RR = 3.0
+RISK_PCT = 0.5
+MIN_CONFIDENCE = 55
+DATA_PERIOD = '5d'
 
-# Horários de scan (UTC)
-SCAN_HOURS = list(range(24))  # 24/7, mas com peso menor fora de pico
+TRADES_FILE = Path.home() / '.hermes' / 'crypto' / 'open_trades.json'
+SIGNALS_FILE = Path.home() / '.hermes' / 'crypto' / 'signals.json'
+
+def load_open_trades():
+    if TRADES_FILE.exists():
+        try:
+            with open(TRADES_FILE) as f:
+                return json.load(f)
+        except:
+            pass
+    return []
+
+def save_open_trades(trades):
+    TRADES_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(TRADES_FILE, 'w') as f:
+        json.dump(trades, f, indent=2, default=str)
 
 def get_btc_change():
-    """Variação % do BTC nas últimas 4 horas."""
     try:
         df = yf.Ticker('BTC-USD').history(period='1d', interval='1h')
         if len(df) < 4: return None
@@ -33,63 +45,60 @@ def get_btc_change():
         return None
 
 def get_daily_bias(highs, lows, closes):
-    """Viés diário baseado em estrutura de preço."""
     if len(highs) < 3: return 'NEUTRAL'
-    ph, pl = highs[-3], lows[-3]    # dia anterior
-    ch, cl, cc = highs[-2], lows[-2], closes[-2]  # ontem
-    
+    ph, pl = highs[-3], lows[-3]
+    ch, cl, cc = highs[-2], lows[-2], closes[-2]
     if ch > ph and cc > ph: return 'BUY'
     if cl < pl and cc < pl: return 'SELL'
-    if ch > ph and cc < ph: return 'SELL'  # manipulação
-    if cl < pl and cc > pl: return 'BUY'   # manipulação
+    if ch > ph and cc < ph: return 'SELL'
+    if cl < pl and cc > pl: return 'BUY'
     if cc > closes[-3]: return 'BUY'
     if cc < closes[-3]: return 'SELL'
     return 'NEUTRAL'
 
 def calculate_sl_tp(entry, atr_pct, direction, sl_recommend=None):
-    """Calcula SL e TP baseados em ATR."""
     if sl_recommend is None:
-        sl_recommend = max(atr_pct * 1.5, 0.15)  # mínimo 0.15%
-    
-    sl_pct = min(sl_recommend, 1.5)  # cap em 1.5%
+        sl_recommend = max(atr_pct * 1.5, 0.15)
+    sl_pct = min(sl_recommend, 1.5)
     sl_price = entry * sl_pct / 100
-    
     if direction == 'BUY':
-        sl = entry - sl_price
-        tp = entry + sl_price * RR
+        return entry - sl_price, entry + sl_price * RR, sl_pct
     else:
-        sl = entry + sl_price
-        tp = entry - sl_price * RR
-    
-    return sl, tp, sl_pct
+        return entry + sl_price, entry - sl_price * RR, sl_pct
 
 
 # ═══ MAIN ═══
-print(f"═══ CRYPTO BOT v2 — {datetime.now(timezone.utc).strftime('%d/%m %H:%M')} UTC ═══")
+print(f"═══ CRYPTO BOT v4 — {datetime.now(timezone.utc).strftime('%d/%m %H:%M')} UTC ═══")
 print()
 
 try:
-    # 1. Selecionar melhores pares
-    print("[1/3] Selecionando pares...")
-    selector = CryptoPairSelector(max_pairs=MAX_PAIRS)
+    # Carregar trades abertos
+    open_trades = load_open_trades()
+    print(f"[0] Trades abertos: {len(open_trades)}/2")
+    for t in open_trades:
+        print(f"    {t['pair']:8s} {t['direction']:4s} @{t['entry']:.4f} SL={t['sl_pct']:.2f}%")
+    print()
+    
+    # 1. Selecionar pares (respeita anti-correlação)
+    print("[1/3] Selecionando pares (anti-corr USD)...")
+    selector = CryptoPairSelector(max_pairs=3)
     selected = selector.select_best_pairs()
     
     if not selected:
-        print("⚠️ Nenhum par com volatilidade suficiente. Abortando.")
+        print("  ⚠️ Nenhum par disponível (limite de trades ou baixo volume)")
+        print("═══ FIM ═══")
         sys.exit(0)
     
-    print(f"       {len(selected)} pares selecionados:")
-    for s in selected:
-        print(f"       {s['pair']:8s} vol={s['vol']:.1f}% mom={s['mom']:+.1f}% score={s['score']:.0f}")
+    selector.print_summary()
     print()
     
-    # 2. Dados BTC (referência)
+    # 2. BTC referência
     print("[2/3] Obtendo dados BTC...")
     btc_change = get_btc_change()
     print(f"       BTC 4h: {btc_change:+.2f}%" if btc_change else "       BTC: sem dados")
     print()
     
-    # 3. Analisar cada par
+    # 3. Analisar pares
     print("[3/3] Analisando pares...")
     agent = CryptoConfluencia()
     signals_found = []
@@ -98,6 +107,12 @@ try:
         pair = pair_info['pair']
         sym = pair_info['sym']
         pip = pair_info['pip']
+        
+        # ⚡ Anti-correlação USD: verificar se pode abrir
+        can_open, reason = selector.can_open_trade(pair, pair_info['direction'])
+        if not can_open:
+            print(f"  {pair:8s} 🚫 {reason}")
+            continue
         
         try:
             # Daily bias
@@ -123,14 +138,13 @@ try:
             c = df_m1['Close'].values
             o = df_m1['Open'].values
             
-            # Análise completa (retorna info de volatilidade também)
+            # Análise multi-agente
             decision, conf, signal, v_info = agent.analyze(
                 pair, h, l, c, o, bias, pip,
                 btc_change if pair != 'BTCUSD' else None,
                 MIN_CONFIDENCE
             )
             
-            # Calcular SL/TP
             atr_pct = v_info.get('atr_pct', 0.5)
             sl_rec = v_info.get('sl_recommend', None)
             
@@ -140,19 +154,29 @@ try:
                 
                 pattern_type = signal.get('type', '?')
                 quality = signal.get('quality', 0)
+                group = pair_info.get('group', '?')
                 
                 print(f"  ✅ {pair:8s} {decision:4s} @{entry:.4f} | {pattern_type} Q={quality} | "
                       f"SL={sl_pct:.2f}% | TP={sl_pct*RR:.2f}% | Conf={conf:.0f}% | "
-                      f"Regime={v_info.get('regime','?')}")
+                      f"[{group}]")
                 
-                signals_found.append({
+                trade = {
                     'pair': pair, 'sym': sym, 'direction': decision,
-                    'entry': entry, 'sl': sl, 'tp': tp,
+                    'entry': float(entry), 'sl': float(sl), 'tp': float(tp),
                     'sl_pct': sl_pct, 'conf': conf,
                     'pattern': pattern_type, 'quality': quality,
                     'atr_pct': atr_pct, 'regime': v_info.get('regime'),
-                    'time': datetime.now(timezone.utc).isoformat()
-                })
+                    'group': group,
+                    'time': datetime.now(timezone.utc).isoformat(),
+                    'status': 'open'
+                }
+                
+                signals_found.append(trade)
+                
+                # ⚡ Adicionar aos trades abertos
+                open_trades.append(trade)
+                save_open_trades(open_trades)
+                
             else:
                 print(f"  {pair:8s} {decision:7s} conf={conf:.0f}% — {v_info.get('regime','?')}")
         
@@ -163,19 +187,19 @@ try:
     
     # 4. Resumo
     if signals_found:
-        print(f"═══ {len(signals_found)} SINAL(is) ENCONTRADO(s) ═══")
+        print(f"═══ {len(signals_found)} NOVO(s) SINAL(is) ═══")
         for sig in signals_found:
             print(f"  {sig['pair']} {sig['direction']} @{sig['entry']:.4f} "
                   f"SL={sig['sl_pct']:.2f}% TP={sig['sl_pct']*RR:.2f}% "
-                  f"Conf={sig['conf']:.0f}% [{sig['pattern']}]")
+                  f"Conf={sig['conf']:.0f}% [{sig.get('group','?')}]")
         
-        # Salvar sinais para possível execução
-        signals_file = Path.home() / '.hermes' / 'crypto' / 'signals.json'
-        with open(signals_file, 'w') as f:
+        with open(SIGNALS_FILE, 'w') as f:
             json.dump(signals_found, f, indent=2, default=str)
-        print(f"\n  Sinais salvos: {signals_file}")
+        print(f"\n  Sinais salvos: {SIGNALS_FILE}")
+        print(f"  Trades abertos: {len(open_trades)}/2")
     else:
-        print("═══ NENHUM SINAL ENCONTRADO ═══")
+        print("═══ NENHUM SINAL NOVO ═══")
+        print(f"  Trades abertos: {len(open_trades)}/2")
     
     print(f"\nBTC 4h: {btc_change:+.2f}%" if btc_change else "\nBTC: sem dados")
     print("═══ FIM ═══")
