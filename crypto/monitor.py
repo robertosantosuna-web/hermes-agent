@@ -7,6 +7,7 @@ import sys, json
 from pathlib import Path
 from datetime import datetime, timezone
 import yfinance as yf
+from telegram_notify import notify_close
 
 TRADES_FILE = Path.home() / '.hermes' / 'crypto' / 'open_trades.json'
 LOG_FILE = Path.home() / '.hermes' / 'crypto' / 'trade_log.json'
@@ -108,8 +109,11 @@ def main():
         print(f"  🔒 Fechados: {len(closed)}")
         for t in closed:
             emoji = '✅' if t['result'] == 'WIN' else '❌'
+            pnl = t['entry'] * t.get('sl_pct', 0.003) * t['rr_result']
             print(f"     {emoji} {t['pair']} {t['direction']} {t['result']} "
                   f"({t['rr_result']:+.0f}R) @{t['exit_price']:.4f}")
+            # Notificar Telegram
+            notify_close(t['pair'], t['result'], abs(pnl), 0)  # balance via Binance
     
     if still_open:
         print(f"  📊 Abertos: {len(still_open)}")

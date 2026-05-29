@@ -12,6 +12,7 @@ from datetime import datetime, timezone
 
 sys.path.insert(0, str(Path.home() / '.hermes' / 'crypto'))
 from binance_trader import BinanceTrader
+from telegram_notify import notify_open, notify_close
 
 CONFIG_PATH = Path.home() / '.hermes' / 'crypto' / 'binance_config.json'
 SIGNALS_PATH = Path.home() / '.hermes' / 'crypto' / 'signals.json'
@@ -158,6 +159,9 @@ def main():
         
         print(f"✅ TRADE EXECUTADO!")
         print(f"   Ordem: {result}")
+        
+        # Notificar Telegram
+        notify_open(pair, direction, entry, sl, tp, position_size)
         
     except Exception as e:
         print(f"❌ Erro: {e}")
