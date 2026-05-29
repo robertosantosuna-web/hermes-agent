@@ -90,3 +90,4 @@ auth/
 *.swo
 *~
 .DS_Store
+crypto/binance_config.json
