@@ -137,12 +137,19 @@ try:
             l = df_m1['Low'].values
             c = df_m1['Close'].values
             o = df_m1['Open'].values
+            v = df_m1['Volume'].values if 'Volume' in df_m1.columns else None
             
-            # Análise multi-agente
+            # Níveis diários (S/R longo prazo)
+            daily_levels = {
+                'resistance': max(dh[-10:]) if len(dh) >= 10 else max(dh),
+                'support': min(dl[-10:]) if len(dl) >= 10 else min(dl)
+            }
+            
+            # Análise completa (retorna info de volatilidade também)
             decision, conf, signal, v_info = agent.analyze(
                 pair, h, l, c, o, bias, pip,
                 btc_change if pair != 'BTCUSD' else None,
-                MIN_CONFIDENCE
+                MIN_CONFIDENCE, v, daily_levels
             )
             
             atr_pct = v_info.get('atr_pct', 0.5)

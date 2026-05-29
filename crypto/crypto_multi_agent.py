@@ -97,10 +97,10 @@ class PadraoAgent:
     def __init__(self):
         self.detector = AdvancedPatternDetector()
     
-    def analyze(self, highs, lows, closes, opens, direction, pip_size):
+    def analyze(self, highs, lows, closes, opens, direction, pip_size, volumes=None, daily_levels=None):
         if len(closes) < 30: return 'NEUTRAL', 0, {}
         
-        best, score = self.detector.find_best_pattern(highs, lows, closes, opens, direction)
+        best, score = self.detector.find_best_pattern(highs, lows, closes, opens, direction, volumes, daily_levels)
         
         if best and score >= 50:
             # Adicionar contexto de mercado
@@ -174,7 +174,7 @@ class CryptoConfluencia:
         }
     
     def analyze(self, pair, highs, lows, closes, opens, daily_bias, pip_size,
-                btc_change_pct=None, min_confidence=55):
+                btc_change_pct=None, min_confidence=55, volumes=None, daily_levels=None):
         
         # Gate 1: Volatilidade
         v_vote, v_conf, v_info = self.volatilidade.analyze(highs, lows, closes, pip_size)
@@ -184,8 +184,8 @@ class CryptoConfluencia:
         if t_vote == 'NEUTRAL':
             return 'NEUTRAL', 0, None, v_info
         
-        # Gate 3: Padrão (OB/Breaker com Fibonacci + Market Structure gate)
-        p_vote, p_conf, p_sig = self.padrao.analyze(highs, lows, closes, opens, t_vote, pip_size)
+        # Gate 3: Padrão (OB com todos os fatores: volume, wick, candle, S/R diário)
+        p_vote, p_conf, p_sig = self.padrao.analyze(highs, lows, closes, opens, t_vote, pip_size, volumes, daily_levels)
         if not p_sig or p_sig.get('quality', 0) < 55:
             return 'NEUTRAL', 0, None, v_info
         
