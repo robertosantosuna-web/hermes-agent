@@ -1,0 +1,27 @@
+{
+  "date": "2026-05-29T21:21:27.587856+00:00",
+  "fear_greed": {
+    "date": "1780012800",
+    "value": 23,
+    "classification": "Extreme Fear"
+  },
+  "btc_dominance": {
+    "btc_dominance": 57.619162440616,
+    "eth_dominance": 9.506635784660588,
+    "total_mcap": 2560417165508.659,
+    "total_volume": 88638936686.77927
+  },
+  "sp500": null,
+  "impacts": [
+    {
+      "factor": "Fear & Greed",
+      "bias": "BUY +15",
+      "reason": "Medo extremo favorece compras"
+    },
+    {
+      "factor": "Correla\u00e7\u00e3o interna",
+      "bias": "MAX 1 trade",
+      "reason": "85% dos dias mesma dire\u00e7\u00e3o"
+    }
+  ]
+}
