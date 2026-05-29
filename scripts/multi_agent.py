@@ -86,22 +86,32 @@ class ConfluenciaAgent:
     
     def analyze(self, pair, highs, lows, closes, daily_bias, pip_size, is_metal=False):
         hour = datetime.now(timezone.utc).hour
-        p_vote, p_conf, p_msg = self.perfil.analyze(pair, hour)
-        s_vote, s_conf, s_msg = self.sessao.analyze(highs, lows, closes, pip_size)
+        
+        # Perfil e Sessao = modificadores de peso (não votam)
+        _, p_bonus, _ = self.perfil.analyze(pair, hour)
+        _, s_bonus, _ = self.sessao.analyze(highs, lows, closes, pip_size)
+        p_mult = 0.5 + p_bonus / 100  # 0.5 a 1.5
+        s_mult = 0.5 + s_bonus / 100
+        
+        # Estrutura e Padrao = votam direção
         e_vote, e_conf, e_msg = self.estrutura.analyze(highs, lows, closes, daily_bias)
         d_vote, d_conf, d_sig = self.padrao.analyze(highs, lows, closes, daily_bias, pip_size, is_metal)
         
-        votes = {
-            'perfil': {'vote': p_vote, 'conf': p_conf * self.weights['perfil']},
-            'sessao': {'vote': s_vote, 'conf': s_conf * self.weights['sessao']},
-            'estrutura': {'vote': e_vote, 'conf': e_conf * self.weights['estrutura']},
-            'padrao': {'vote': d_vote, 'conf': d_conf * self.weights['padrao']},
-        }
+        buy_score = 0
+        sell_score = 0
         
-        buy_score = sum(v['conf'] for v in votes.values() if v['vote'] == 'BUY')
-        sell_score = sum(v['conf'] for v in votes.values() if v['vote'] == 'SELL')
-        total = sum(v['conf'] for v in votes.values())
-        conf = max(buy_score, sell_score) / max(total, 1) * 100
+        if e_vote == 'BUY': buy_score += e_conf * self.weights['estrutura']
+        elif e_vote == 'SELL': sell_score += e_conf * self.weights['estrutura']
+        
+        if d_vote == 'BUY': buy_score += d_conf * self.weights['padrao']
+        elif d_vote == 'SELL': sell_score += d_conf * self.weights['padrao']
+        
+        # Aplicar modificadores de Perfil e Sessao
+        buy_score *= p_mult * s_mult
+        sell_score *= p_mult * s_mult
+        
+        total = buy_score + sell_score
+        conf = max(buy_score, sell_score) / max(total, 1) * 100 if total > 0 else 0
         
         if buy_score > sell_score and conf >= 20:
             return 'BUY', conf, d_sig or {'entry': closes[-1], 'direction': 'BUY', 'idx': len(closes)-1}
