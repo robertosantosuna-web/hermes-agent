@@ -96,12 +96,23 @@ def build_dashboard(trader):
         except:
             current = entry
         
+        # Quantidade REAL da posição (Binance)
+        try:
+            acct = trader._request('GET', '/sapi/v1/margin/account', signed=True)
+            base_asset = symbol.replace('USDT', '')
+            pos_qty = 0
+            for a in acct.get('userAssets', []):
+                if a['asset'] == base_asset:
+                    pos_qty = float(a['free']) + float(a.get('locked', 0))
+        except:
+            pos_qty = 0
+        
         if direction == 'BUY':
-            pnl = current - entry
-            pnl_pct = (current / entry - 1) * 100
+            pnl = (current - entry) * pos_qty if pos_qty > 0 else 0
+            pnl_pct = (current / entry - 1) * 100 if entry > 0 else 0
         else:
-            pnl = entry - current
-            pnl_pct = (1 - current / entry) * 100
+            pnl = (entry - current) * pos_qty if pos_qty > 0 else 0
+            pnl_pct = (1 - current / entry) * 100 if entry > 0 else 0
         
         sl_dist = abs(current - sl) / current * 100
         tp_dist = abs(tp - current) / current * 100
@@ -201,24 +212,22 @@ def build_dashboard(trader):
         margin_level = 999
         ml_color = "green"
     
-    # Daily P&L
-    cfg_path = Path.home() / '.hermes' / 'crypto' / 'binance_config.json'
-    daily = {}
-    if cfg_path.exists():
+    # Realized P&L (soma do trade_log)
+    realized_pnl = 0
+    log = load_json(TRADE_LOG)
+    for entry in log:
+        pnl_val = entry.get('pnl', entry.get('pnl_usdt', 0))
         try:
-            with open(cfg_path) as f:
-                daily = json.load(f).get('daily_pnl', {})
-        except: pass
-    
-    daily_trades = daily.get('trades', 0)
-    daily_pnl = daily.get('pnl_usdt', 0)
-    dpnl_color = "green" if daily_pnl >= 0 else "red"
+            realized_pnl += float(pnl_val)
+        except:
+            pass
+    rpnl_color = "green" if realized_pnl >= 0 else "red"
     
     footer_text = (
-        f"📊 Margin Level: [{ml_color}]{margin_level:.1f}x[/{ml_color}]  |  "
-        f"Hoje: {daily_trades} trades  |  "
-        f"PnL Dia: [{dpnl_color}]${daily_pnl:.2f}[/{dpnl_color}]  |  "
-        f"Ctrl+C para sair"
+        f"📊 ML: [{ml_color}]{margin_level:.1f}x[/{ml_color}]  |  "
+        f"P&L Realizado: [{rpnl_color}]${realized_pnl:+.2f}[/{rpnl_color}]  |  "
+        f"Saldo: ${spot_bal + margin_bal:.2f}  |  "
+        f"Ctrl+C sair"
     )
     layout["bottom"].update(Panel(footer_text, border_style="dim"))
 
