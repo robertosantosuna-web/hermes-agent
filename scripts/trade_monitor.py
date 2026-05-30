@@ -63,18 +63,30 @@ def monitor():
             json.dump(trades, f, indent=2, default=str)
 
 def _handle_close(trader, t, symbol, direction, entry, trades):
-    """Trade fechou — registra e notifica."""
+    """Trade fechou — registra e notifica. Soma P&L de TODOS os fills (parcial)."""
     try:
         my_trades = trader._request('GET', '/sapi/v1/margin/myTrades', 
-                                   signed=True, symbol=symbol, limit=10)
+                                   signed=True, symbol=symbol, limit=50)
         close_is_buyer = (direction == 'SELL')
         close_trades = [tr for tr in my_trades if tr.get('isBuyer') == close_is_buyer]
         
         if close_trades:
-            latest = close_trades[-1]
-            exit_price = float(latest['price'])
-            qty = float(latest['qty'])
-            pnl = (exit_price - entry) * qty if direction == 'BUY' else (entry - exit_price) * qty
+            # SOMAR P&L de todos os fills de fechamento (TP1 + OCO)
+            total_pnl = 0.0
+            total_qty = 0.0
+            weighted_exit = 0.0
+            for tr in close_trades:
+                q = float(tr['qty'])
+                p = float(tr['price'])
+                if direction == 'BUY':
+                    total_pnl += (p - entry) * q
+                else:
+                    total_pnl += (entry - p) * q
+                total_qty += q
+                weighted_exit += p * q
+            
+            exit_price = weighted_exit / total_qty if total_qty > 0 else float(close_trades[-1]['price'])
+            pnl = round(total_pnl, 2)
         else:
             # Não achou trade de fechamento, usa preço atual
             exit_price = trader.get_price(symbol)
