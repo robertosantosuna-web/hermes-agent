@@ -417,6 +417,21 @@ def execute_trade(pair, signal, strategy_name, pip_size, rr, balance=None):
     
     print(f"   Vol: {volume:.2f} lot ({half_vol:.2f}×{'2' if use_partial else '1'}) | Risco: {risk_pct:.0f}% = ${balance*risk_pct/100:.2f}")
     
+    # SPREAD CHECK (crypto slippage blocker adaptado)
+    try:
+        from mt5_direct import get_symbol_info
+        info = get_symbol_info(mt5_symbol)
+        if info:
+            spread_pips = (info['ask'] - info['bid']) / pip_size
+            sl_pips_signal = signal.get('sl_pips', 15)
+            if spread_pips > sl_pips_signal * 0.3:
+                print(f"   ❌ SPREAD BLOQUEANTE: {spread_pips:.1f}p > {sl_pips_signal*0.3:.1f}p (30% SL)")
+                return
+            if spread_pips > sl_pips_signal * 0.15:
+                print(f"   ⚠️ Spread alto: {spread_pips:.1f}p ({spread_pips/sl_pips_signal*100:.0f}% SL)")
+    except Exception:
+        pass  # MT5 offline
+    
     def _send_one(vol, sl_price, tp_price, tag):
         """Envia 1 ordem para MT5."""
         try:
