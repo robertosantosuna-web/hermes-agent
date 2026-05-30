@@ -156,14 +156,30 @@ def already_sent(text):
     return 'você já enviou' in text.lower() or 'proposta enviada' in text.lower()
 
 
-def get_price(tipos, text):
-    """Preço inteligente baseado em nicho e complexidade."""
+def get_competitive_price(tipos, proposals, text, valor_minimo=0):
+    """Preço de mercado competitivo: base por nicho → complexidade → desconto por competição (10-20%).
+
+    Estratégia:
+      1. Preço base pela tabela PRICING (faixa por nicho)
+      2. Ajuste por complexidade (páginas, palavras, tradução, múltiplas skills)
+      3. Desconto por competição:
+         - 1-5 propostas:  -10% (pouca disputa, desconto leve)
+         - 6-15 propostas: -15% (média)
+         - 16-30 propostas: -20% (alta)
+         - 31-50 propostas: -20% (muito alta)
+      4. Garante acima do valor_minimo do cliente
+      5. Arredonda múltiplo de 10
+
+    A plataforma cobra 25% sobre a oferta (Oferta Final = Oferta × 1.25).
+    Ex: ofertar R$80 → cliente vê R$100. Precificar pensando no valor final.
+    """
     if not tipos:
-        return 100
+        return max(80, valor_minimo + 10)
+
     primary = tipos[0]
     lo, hi = PRICING.get(primary, (80, 150))
 
-    # Ajuste por páginas
+    # --- FASE 1: Complexidade ---
     pages_m = re.search(r'(\d+)\s*(?:p[aá]ginas?|paginas?|pgs?)', text, re.IGNORECASE)
     words_m = re.search(r'(\d+)\s*(?:palavras|words)', text, re.IGNORECASE)
 
@@ -184,7 +200,8 @@ def get_price(tipos, text):
             hi = int(hi * 1.5)
 
     # Tradução = premium
-    if any(kw in text.lower() for kw in ['tradução', 'traducao', 'inglês', 'ingles']):
+    if any(kw in text.lower() for kw in ['tradução', 'traducao', 'inglês', 'ingles',
+                                            'english', 'translate', 'translation']):
         lo = int(lo * 1.5)
         hi = int(hi * 2)
 
@@ -193,9 +210,44 @@ def get_price(tipos, text):
         lo = int(lo * 1.2)
         hi = int(hi * 1.3)
 
-    price = (lo + hi) // 2
-    price = ((price + 5) // 10) * 10  # Arredondar múltiplo de 10
-    return max(price, 60)
+    # Preço base (média da faixa)
+    market_price = (lo + hi) // 2
+
+    # --- FASE 2: Desconto por competição ---
+    if proposals <= 5:
+        discount = 0.90      # -10%
+    elif proposals <= 15:
+        discount = 0.85      # -15%
+    elif proposals <= 30:
+        discount = 0.80      # -20%
+    else:  # 31-50
+        discount = 0.80      # -20%
+
+    competitive = int(market_price * discount)
+
+    # --- FASE 3: Piso (valor_minimo + margem) ---
+    floor = max(valor_minimo + 20, 60)  # Pelo menos R$20 acima do mínimo
+    competitive = max(competitive, floor)
+
+    # --- FASE 4: Arredondar ---
+    competitive = ((competitive + 5) // 10) * 10
+
+    # Log para debug
+    print(f'      💰 Base=R${market_price} | Desc={int((1-discount)*100)}% | '
+          f'Min=R${valor_minimo} | Final=R${competitive}')
+
+    return competitive
+
+
+def extract_valor_minimo(text):
+    """Extrai o valor mínimo definido pelo cliente no projeto."""
+    m = re.search(r'Valor\s*(?:M[íi]nimo|Min[ií]mo)[:\s]*R?\$?\s*([\d.,]+)', text, re.IGNORECASE)
+    if m:
+        try:
+            return int(float(m.group(1).replace('.', '').replace(',', '.')))
+        except:
+            pass
+    return 0
 
 
 def find_submit_button(page):
@@ -296,8 +348,9 @@ def _run_submission_pipeline(page):
             if not tipos:
                 continue
 
+            valor_minimo = extract_valor_minimo(text)
             has_button = find_submit_button(page) is not None
-            price = get_price(tipos, text)
+            price = get_competitive_price(tipos, proposals, text, valor_minimo)
 
             candidates.append({
                 'url': url, 'title': proj['title'],
