@@ -279,19 +279,51 @@ def execute_signal(signal_data):
     print(f"\n🚀 EXECUTANDO: {pair} {direction} ${position_size:.2f}")
     print(f"   Entry={entry:.4f} SL={sl_orig:.4f}→{sl:.4f} TP={tp_orig:.4f}→{tp:.4f} IR={signal_data['ir']:.1f} Conf={signal_data['conf']:.0f}%")
     
+    # ═══ Verificar slippage ANTES de executar ═══
+    try:
+        current_price = t.get_price(pair.replace('USD', 'USDT') if 'USD' in pair else pair + 'USDT')
+        if current_price and entry > 0:
+            slippage_pct = abs(current_price - entry) / entry * 100
+            sl_dist_pct = abs(entry - sl_orig) / entry * 100
+            
+            if slippage_pct > sl_dist_pct * 2:
+                print(f"   ❌ SLIPPAGE BLOQUEANTE: {slippage_pct:.2f}% > SL_dist={sl_dist_pct:.2f}% × 2")
+                print(f"   Preço sinal={entry:.4f} Preço atual={current_price:.4f}")
+                return False
+            
+            if slippage_pct > sl_dist_pct:
+                print(f"   ⚠️ Slippage alto: {slippage_pct:.2f}% (SL={sl_dist_pct:.2f}%) — ajustando entry")
+                # Usar preço atual como referência
+                entry = current_price
+                if direction == 'BUY':
+                    sl = entry - sl_dist_pct * entry / 100 * 1.3  # +30% buffer extra
+                    tp = entry + sl_dist_pct * entry / 100 * RR * 0.9
+                else:
+                    sl = entry + sl_dist_pct * entry / 100 * 1.3
+                    tp = entry - sl_dist_pct * entry / 100 * RR * 0.9
+                print(f"   Novo entry={entry:.4f} SL={sl:.4f} TP={tp:.4f}")
+    except Exception as e:
+        print(f"   ⚠️ Não conseguiu verificar slippage: {e}")
+    
     try:
         result = t.execute_signal(pair, direction, entry, sl, tp, usdt_amount=position_size)
         
-        # Registrar em open_trades.json
+        # Registrar em open_trades.json com preço REAL do fill
         trade_record = {
             'pair': pair,
             'direction': direction,
-            'entry': entry,
+            'entry': entry,  # Preço do sinal (referência)
             'sl': sl,
             'tp': tp,
             'oco_id': result.get('oco', {}).get('orderListId') if result.get('oco') else None,
             'time': datetime.now(timezone.utc).isoformat(),
         }
+        
+        # Extrair preço REAL do fill
+        buy_fills = result.get('buy', {}).get('fills', [])
+        if buy_fills:
+            real_entry = float(buy_fills[0]['price'])
+            trade_record['entry_real'] = real_entry
         
         if result.get('partial'):
             trade_record['partial'] = True

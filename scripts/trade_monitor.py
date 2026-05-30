@@ -32,7 +32,7 @@ def monitor():
         pair = t['pair']
         symbol = pair.replace('USD', 'USDT')
         direction = t['direction']
-        entry = t['entry']
+        entry = t.get('entry_real', t['entry'])  # Preço real do fill, ou sinal como fallback
         is_partial = t.get('partial', False)
         
         try:
