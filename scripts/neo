@@ -1,0 +1,173 @@
+#!/usr/bin/env python3
+"""
+neo — CLI para falar com a ENTIDADE diretamente do terminal.
+Uso: neo "sua mensagem"
+     neo status
+     echo "pergunta" | neo
+"""
+import sys
+import json
+import time
+from pathlib import Path
+from datetime import datetime, timezone
+
+HERMES = Path.home() / ".hermes"
+BRIDGE_INBOX = HERMES / "neural" / "bridge_outbox.json"  # Hermes → NEO
+BRIDGE_OUTBOX = HERMES / "neural" / "bridge_inbox.json"  # NEO → Hermes
+RESPONSE_FILE = Path.home() / ".hermes" / "neo" / "data" / "last_response.json"
+
+
+def send_message(text: str) -> dict:
+    """Envia mensagem para o NEO via bridge."""
+    msg = {
+        "direction": "hermes->neural",
+        "type": "task",
+        "content": text,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "source": "cli"
+    }
+    
+    # Lê inbox atual
+    if BRIDGE_INBOX.exists():
+        try:
+            inbox = json.loads(BRIDGE_INBOX.read_text())
+            if not isinstance(inbox, list):
+                inbox = []
+        except:
+            inbox = []
+    else:
+        inbox = []
+    
+    inbox.append(msg)
+    BRIDGE_INBOX.parent.mkdir(parents=True, exist_ok=True)
+    BRIDGE_INBOX.write_text(json.dumps(inbox, indent=2))
+    
+    return {"sent": True, "message": text[:50] + "..." if len(text) > 50 else text}
+
+
+def wait_response(timeout: int = 30) -> str:
+    """Aguarda resposta do NEO (polling a cada 2s)."""
+    start = time.time()
+    
+    # Marca timestamp atual para só pegar respostas novas
+    sent_time = datetime.now(timezone.utc).isoformat()
+    
+    while time.time() - start < timeout:
+        time.sleep(2)
+        
+        # Verifica arquivo de resposta
+        if RESPONSE_FILE.exists():
+            try:
+                data = json.loads(RESPONSE_FILE.read_text())
+                resp_time = data.get("timestamp", "")
+                if resp_time > sent_time:
+                    return data.get("response", "")
+            except:
+                pass
+        
+        # Verifica bridge outbox (NEO → Hermes)
+        if BRIDGE_OUTBOX.exists():
+            try:
+                outbox = json.loads(BRIDGE_OUTBOX.read_text())
+                if isinstance(outbox, list):
+                    for msg in reversed(outbox):
+                        if msg.get("direction") == "neural->hermes" and \
+                           msg.get("timestamp", "") > sent_time:
+                            return msg.get("content", "")
+            except:
+                pass
+        
+        sys.stdout.write(".")
+        sys.stdout.flush()
+    
+    return None
+
+
+def check_status():
+    """Verifica status do NEO."""
+    import subprocess
+    result = subprocess.run(
+        ["systemctl", "--user", "is-active", "neo-agent"],
+        capture_output=True, text=True, timeout=5
+    )
+    active = result.stdout.strip() == "active"
+    
+    if active:
+        # Pega info extra
+        import subprocess
+        r = subprocess.run(
+            ["journalctl", "--user", "-u", "neo-agent", "--no-pager", "-n", "3"],
+            capture_output=True, text=True, timeout=5
+        )
+        last_logs = r.stdout.strip().split("\n")[-3:]
+        return {
+            "status": "active",
+            "logs": last_logs
+        }
+    else:
+        return {"status": result.stdout.strip()}
+
+
+def main():
+    if len(sys.argv) < 2:
+        print("Uso: neo <mensagem>")
+        print("     neo status")
+        print("     neo check")
+        sys.exit(1)
+    
+    command = sys.argv[1]
+    
+    if command == "status":
+        status = check_status()
+        print(f"NEO: {status['status']}")
+        if status.get("logs"):
+            for log in status["logs"]:
+                print(f"  {log}")
+        return
+    
+    if command == "check":
+        # Verifica se NEO está vivo e responde
+        send_message("ping — responda apenas 'pong'")
+        response = wait_response(timeout=20)
+        if response:
+            print(f"✅ NEO vivo: {response}")
+        else:
+            print("❌ NEO não respondeu em 20s")
+        return
+    
+    if command == "interface" or command == "ui" or command == "chat":
+        # Abre interface web da ENTIDADE
+        import subprocess
+        import webbrowser
+        url = "http://localhost:18790"
+        
+        # Verifica se gateway está respondendo
+        try:
+            import urllib.request
+            urllib.request.urlopen(url + "/health", timeout=3)
+        except:
+            print("⚠️ Gateway não está respondendo. Reiniciando NEO...")
+            subprocess.run(["systemctl", "--user", "restart", "neo-agent"], timeout=10)
+            import time
+            time.sleep(4)
+        
+        print(f"🌐 Abrindo ENTIDADE em {url}")
+        webbrowser.open(url)
+        return
+    
+    # Modo mensagem
+    text = " ".join(sys.argv[1:])
+    send_message(text)
+    print(f"📤 Enviado: {text[:80]}...")
+    print("⏳ Aguardando resposta", end="", flush=True)
+    
+    response = wait_response(timeout=90)
+    if response:
+        print(f"\n\n🧠 NEO:\n{response}")
+    else:
+        print("\n⚠️ Timeout — NEO não respondeu em 60s")
+        print("   Verifique: systemctl --user status neo-agent")
+
+
+if __name__ == "__main__":
+    main()

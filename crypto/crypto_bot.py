@@ -4,7 +4,6 @@ import sys, json
 from pathlib import Path
 from datetime import datetime, timezone
 import numpy as np
-import yfinance as yf
 
 sys.path.insert(0, str(Path.home() / '.hermes' / 'crypto'))
 from crypto_multi_agent import CryptoConfluencia
@@ -74,9 +73,10 @@ try:
     btc_price = feed.get_price('BTCUSD')
     btc_change = None
     try:
-        df = yf.Ticker('BTC-USD').history(period='1d', interval='1h')
-        if len(df) >= 5:
-            btc_change = (df['Close'].values[-1] / df['Close'].values[-5] - 1) * 100
+        # BTC 4h change via TradingView M15 (16 candles = 4h)
+        bh, bl, bc, bo, bv = feed.get_candles('BTCUSD', '15m', 20)
+        if bc is not None and len(bc) >= 16:
+            btc_change = (bc[-1] / bc[-16] - 1) * 100
     except: pass
     print(f"  BTC: ${btc_price:,.2f}" + (f" 4h: {btc_change:+.2f}%" if btc_change else ""))
     print()
@@ -98,16 +98,20 @@ try:
             if c is None or len(c) < 30:
                 print(f"  {pair:8s} sem dados"); continue
             
-            df_d = yf.Ticker(sym).history(period='30d', interval='1d')
-            cm = {k.lower(): k for k in df_d.columns}
-            dh = df_d[cm.get('high','High')].values
-            dl = df_d[cm.get('low','Low')].values
-            dc = df_d[cm.get('close','Close')].values
+            # Daily bias via TradingView M15 (resample pra diário)
+            if len(c) >= 384:  # ~4 dias de M15
+                daily_h = [max(h[i:i+96]) for i in range(0, len(h), 96)]
+                daily_l = [min(l[i:i+96]) for i in range(0, len(l), 96)]
+                daily_c = [c[i+95] for i in range(0, len(c), 96) if i+95 < len(c)]
+            else:
+                daily_h = [max(h[-96:])] if len(h) >= 96 else [max(h)]
+                daily_l = [min(l[-96:])] if len(l) >= 96 else [min(l)]
+                daily_c = [c[-1]]
             
-            bias = get_daily_bias(dh, dl, dc)
+            bias = get_daily_bias(daily_h, daily_l, daily_c)
             daily_levels = {
-                'resistance': max(dh[-10:]) if len(dh) >= 10 else max(dh),
-                'support': min(dl[-10:]) if len(dl) >= 10 else min(dl)
+                'resistance': max(daily_h[-10:]) if len(daily_h) >= 10 else max(daily_h),
+                'support': min(daily_l[-10:]) if len(daily_l) >= 10 else min(daily_l)
             }
             
             # Testar direções

@@ -126,25 +126,27 @@ def scan_all_pairs():
                 continue  # Bloqueado por IR gate
             
             try:
-                h, l, c, o, v = f.get_candles(pair, '1m', 200)
+                h, l, c, o, v = f.get_candles(pair, '1m', 1500)  # ~25h de dados
                 if c is None or len(c) < 30:
                     continue
                 
-                # Daily bias rápido
-                import yfinance as yf
-                try:
-                    df_d = yf.Ticker(p['sym']).history(period='5d', interval='1d')
-                    cm = {k.lower(): k for k in df_d.columns}
-                    dh = df_d[cm.get('high', 'High')].values
-                    dl = df_d[cm.get('low', 'Low')].values
-                    dc = df_d[cm.get('close', 'Close')].values
-                except:
-                    dh, dl, dc = h[-10:], l[-10:], c[-10:]
+                # Daily bias via M1 candles (resample pra diário)
+                import numpy as np
+                if len(c) >= 1440:  # 24h de M1
+                    # Resample: pegar high/low/close diário
+                    daily_h = [max(h[i:i+1440]) for i in range(0, len(h), 1440)]
+                    daily_l = [min(l[i:i+1440]) for i in range(0, len(l), 1440)]
+                    daily_c = [c[i+1439] for i in range(0, len(c), 1440) if i+1439 < len(c)]
+                else:
+                    # Dados insuficientes, usar últimas velas
+                    daily_h = [max(h[-200:])]
+                    daily_l = [min(l[-200:])]
+                    daily_c = [c[-1]]
                 
-                bias = get_daily_bias(dh, dl, dc)
+                bias = get_daily_bias(daily_h, daily_l, daily_c)
                 daily_levels = {
-                    'resistance': max(dh[-10:]) if len(dh) >= 10 else max(dh),
-                    'support': min(dl[-10:]) if len(dl) >= 10 else min(dl)
+                    'resistance': max(daily_h[-3:]) if len(daily_h) >= 3 else max(daily_h),
+                    'support': min(daily_l[-3:]) if len(daily_l) >= 3 else min(daily_l)
                 }
                 
                 # Só testa a direção alinhada com o bias (ou ambas se NEUTRAL)

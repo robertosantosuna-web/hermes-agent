@@ -396,79 +396,84 @@ def execute_trade(pair, signal, strategy_name, pip_size, rr, balance=None):
         mt5_symbol = symbol  # EURUSD, GBPUSD, USDCAD
     
     entry_fmt = 2 if is_metal else 5
+    decimals = 2 if is_metal else 5
     print(f"\n📊 [{strategy_name}] {pair} {signal['direction']}")
-    print(f"   Entry: {signal['entry']:.{entry_fmt}f} | SL: {sl:.{entry_fmt}f} | TP: {tp:.{entry_fmt}f}")
+    tp1_pips = sl_pips  # 1:1
+    if signal['direction'] == 'BUY':
+        tp1 = round(signal['entry'] + tp1_pips * pip_size, decimals)
+    else:
+        tp1 = round(signal['entry'] - tp1_pips * pip_size, decimals)
+    
+    print(f"   Entry: {signal['entry']:.{entry_fmt}f} | SL: {sl:.{entry_fmt}f} | TP1: {tp1:.{entry_fmt}f} (1:1) | TP2: {tp:.{entry_fmt}f} (3:1)")
     print(f"   Gap: {signal['gap']:.1f}p | SL pips: {signal['sl_pips']:.1f} | RR: 1:{rr}")
-    print(f"   Vol: {volume:.2f} lot | Risco: {risk_pct:.0f}% = ${balance*risk_pct/100:.2f}")
     
-    order = {
-        'symbol': mt5_symbol,
-        'direction': signal['direction'],
-        'volume': volume,
-        'entry': signal['entry'],
-        'sl': sl,
-        'tp': tp,
-        'comment': f'Hermes_{strategy_name}',
-    }
+    # ═══ PARCIAL: 2 ordens (50% @1:1 + 50% @3:1) ═══
+    half_vol = max(0.01, round(volume / 2, 2))
+    if volume < 0.02:
+        half_vol = volume  # Sem split se lote < 0.02
+        use_partial = False
+    else:
+        use_partial = True
     
-    try:
-        result = send_order(mt5_symbol, signal['direction'], volume, sl, tp)
-        
-        # ═══ AUDITORIA SL/TP: logar o que enviamos vs MT5 ═══
-        audit_file = Path.home() / '.hermes' / 'forex' / 'sl_tp_audit.jsonl'
-        audit_entry = {
-            'ts': datetime.now().isoformat(),
-            'pair': mt5_symbol,
-            'sent': {'entry': signal['entry'], 'sl': sl, 'tp': tp, 'sl_pips': sl_pips, 'rr': rr},
-            'mt5_response': str(result)[:200],
-        }
-        with open(audit_file, 'a') as f:
-            f.write(json.dumps(audit_entry) + '\n')
-        
-        # EA bridge retorna status='ok' + ticket; mt5_direct retorna retcode=10009
-        is_ok = (result and (
-            result.get('status') == 'ok' or 
-            result.get('retcode') == 10009 or
-            result.get('ticket')
-        ))
-        if is_ok:
-            print(f"   ✅ ORDEM EXECUTADA: ticket={result.get('ticket') or result.get('order')}")
-            mode = signal.get('mode', '24h')
-            os.system(f"python3 {Path.home()}/.hermes/scripts/trade_notifier.py open "
-                     f"'{pair}' '{signal['direction']}' {signal['entry']:.5f} {sl:.5f} {tp:.5f} "
-                     f"'{strategy_name}' '{mode}' &")
-            
-            # ═══ SALVAR open_trades.json para o monitor 2R/3R ═══
-            ticket = str(result.get('ticket') or result.get('order', ''))
-            if ticket:
-                _save_open_trade(ticket, mt5_symbol, signal['direction'], 
-                               signal['entry'], sl, tp, sl_pips, volume)
-            
-            return {'status': 'executed', 'order': ticket, 'sl': sl, 'tp': tp}
-        else:
-            print(f"   ⚠️ MT5 respondeu: {result}")
-            # NÃO chama fallback se EA bridge respondeu (evita duplicar ordem)
-            if result and result.get('status') == 'error':
-                return {'status': 'failed', 'reason': result.get('msg', 'EA error')}
-            # Fallback só se EA nem respondeu
+    print(f"   Vol: {volume:.2f} lot ({half_vol:.2f}×{'2' if use_partial else '1'}) | Risco: {risk_pct:.0f}% = ${balance*risk_pct/100:.2f}")
+    
+    def _send_one(vol, sl_price, tp_price, tag):
+        """Envia 1 ordem para MT5."""
+        try:
+            r = send_order(mt5_symbol, signal['direction'], vol, sl_price, tp_price, comment=f'Hermes_{tag}')
+            is_ok = r and (r.get('status') == 'ok' or r.get('retcode') == 10009 or r.get('ticket'))
+            if is_ok:
+                ticket = str(r.get('ticket') or r.get('order', ''))
+                print(f"   ✅ {tag}: ticket={ticket} vol={vol}")
+                return ticket, sl_price, tp_price
+            return None, sl_price, tp_price
+        except:
             try:
                 from mt5_direct import place_order
-                result = place_order(mt5_symbol, signal['direction'], volume, sl, tp)
-                print(f"   🔄 Fallback direto: {result}")
-                return {'status': 'executed_fallback', 'result': result, 'sl': sl, 'tp': tp}
-            except Exception as e2:
-                print(f"   ❌ Fallback também falhou: {e2}")
-                return {'status': 'failed', 'reason': str(e2)}
-    except Exception as e:
-        print(f"   ❌ Erro ao enviar: {e}")
-        try:
-            from mt5_direct import place_order
-            result = place_order(mt5_symbol, signal['direction'], volume, sl, tp)
-            print(f"   🔄 Fallback direto: {result}")
-            return {'status': 'executed_fallback', 'result': result, 'sl': sl, 'tp': tp}
-        except Exception as e2:
-            print(f"   ❌ Fallback também falhou: {e2}")
-            return {'status': 'failed', 'reason': str(e2)}
+                r = place_order(mt5_symbol, signal['direction'], vol, sl_price, tp_price)
+                ticket = str(r.get('ticket', ''))
+                print(f"   🔄 {tag} fallback: ticket={ticket}")
+                return ticket, sl_price, tp_price
+            except Exception as e:
+                print(f"   ❌ {tag} falhou: {e}")
+                return None, sl_price, tp_price
+    
+    tickets = []
+    if use_partial:
+        # Ordem 1: 50% @ TP1 (1:1) — mesmo SL
+        t1, sl1, tp1_out = _send_one(half_vol, sl, tp1, f'{strategy_name}_TP1')
+        if t1: tickets.append({'ticket': t1, 'sl': sl1, 'tp': tp1_out, 'tag': 'TP1', 'vol': half_vol})
+        
+        # Ordem 2: 50% @ TP2 (3:1) — mesmo SL
+        t2, sl2, tp2_out = _send_one(half_vol, sl, tp, f'{strategy_name}_TP2')
+        if t2: tickets.append({'ticket': t2, 'sl': sl2, 'tp': tp2_out, 'tag': 'TP2', 'vol': half_vol})
+    else:
+        # Lote pequeno — 1 ordem @ 3:1
+        t1, sl1, tp1_out = _send_one(volume, sl, tp, strategy_name)
+        if t1: tickets.append({'ticket': t1, 'sl': sl1, 'tp': tp1_out, 'tag': 'FULL', 'vol': volume})
+    
+    if not tickets:
+        return {'status': 'failed', 'reason': 'Nenhuma ordem enviada'}
+    
+    # Salvar no open_trades.json para monitor
+    for tk in tickets:
+        _save_open_trade(tk['ticket'], mt5_symbol, signal['direction'],
+                        signal['entry'], tk['sl'], tk['tp'], sl_pips, tk['vol'])
+    
+    # Notificar abertura
+    mode = signal.get('mode', '24h')
+    os.system(f"python3 {Path.home()}/.hermes/scripts/trade_notifier.py open "
+             f"'{pair}' '{signal['direction']}' {signal['entry']:.5f} {sl:.5f} {tp:.5f} "
+             f"'{strategy_name}' '{mode}' &")
+    
+    return {
+        'status': 'executed',
+        'tickets': tickets,
+        'partial': use_partial,
+        'tp1': tp1 if use_partial else None,
+        'entry': signal['entry'],
+        'sl': sl
+    }
 
 # ══════════════════════════════════════════
 # OPEN TRADES TRACKING (2R/3R monitor)

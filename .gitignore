@@ -92,3 +92,4 @@ auth/
 .DS_Store
 crypto/binance_config.json
 .env
+hermes-agent/

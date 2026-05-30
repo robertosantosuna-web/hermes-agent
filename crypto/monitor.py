@@ -6,7 +6,7 @@ Atualiza open_trades.json, registra resultados em trade_log.json
 import sys, json
 from pathlib import Path
 from datetime import datetime, timezone
-import yfinance as yf
+from tradingview_feed import TradingViewFeed
 from telegram_notify import notify_close
 
 TRADES_FILE = Path.home() / '.hermes' / 'crypto' / 'open_trades.json'
@@ -34,14 +34,15 @@ def check_trade(trade):
     tp = trade['tp']
     
     try:
-        # Últimos 30 candles M1 para verificar
-        df = yf.Ticker(sym).history(period='1d', interval='1m')
-        if len(df) < 10:
+        # Últimos 30 candles M1 via TradingView
+        feed = TradingViewFeed()
+        h, l, c, o, v = feed.get_candles(trade['pair'], '1m', 50)
+        if c is None or len(c) < 10:
             return None
         
-        current_price = float(df['Close'].values[-1])
-        recent_low = float(df['Low'].values[-30:].min()) if len(df) >= 30 else float(df['Low'].min())
-        recent_high = float(df['High'].values[-30:].max()) if len(df) >= 30 else float(df['High'].max())
+        current_price = float(c[-1])
+        recent_low = float(min(l[-30:])) if len(l) >= 30 else float(min(l))
+        recent_high = float(max(h[-30:])) if len(h) >= 30 else float(max(h))
         
         if direction == 'BUY':
             if recent_low <= sl:

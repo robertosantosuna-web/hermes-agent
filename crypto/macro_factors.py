@@ -8,7 +8,7 @@ import json, requests, sys
 from pathlib import Path
 from datetime import datetime, timedelta, timezone
 import numpy as np
-import yfinance as yf
+from tradingview_feed import TradingViewFeed
 
 def get_fear_greed():
     """Fear & Greed Index (0-100). <25 = medo extremo, >75 = ganância."""

@@ -7,7 +7,7 @@ import sys, json
 from pathlib import Path
 from datetime import datetime, timedelta, timezone
 import numpy as np
-import yfinance as yf
+from tradingview_feed import TradingViewFeed
 
 sys.path.insert(0, str(Path.home() / '.hermes' / 'crypto'))
 

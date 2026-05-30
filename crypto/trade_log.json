@@ -9,5 +9,41 @@
     "pnl": -0.22,
     "result": "LOSS",
     "exit_reason": "SL parcial + TP parcial"
+  },
+  {
+    "time": "2026-05-30T16:02:51.990003+00:00",
+    "pair": "BNBUSD",
+    "direction": "BUY",
+    "entry": 693.55,
+    "exit": 697.02,
+    "pnl": 0.09,
+    "result": "WIN"
+  },
+  {
+    "time": "2026-05-30T16:17:06.262520+00:00",
+    "pair": "BNBUSD",
+    "direction": "BUY",
+    "entry": 696.34,
+    "exit": 699.82,
+    "pnl": 0.09,
+    "result": "WIN"
+  },
+  {
+    "time": "2026-05-30T19:21:34.666830+00:00",
+    "pair": "BNBUSD",
+    "direction": "BUY",
+    "entry": 708.68,
+    "exit": 705.14,
+    "pnl": -0.09,
+    "result": "LOSS"
+  },
+  {
+    "time": "2026-05-30T19:30:25.000000+00:00",
+    "pair": "BNBUSD",
+    "direction": "BUY",
+    "entry": 717.2,
+    "exit": 716.34,
+    "pnl": -0.02,
+    "result": "LOSS"
   }
 ]

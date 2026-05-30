@@ -5,10 +5,10 @@ Regra: todos os pares são USD-based → correlação natural.
 Máximo 1 trade por grupo de correlação, máximo 2 trades simultâneos total.
 """
 import numpy as np
-import yfinance as yf
 import json
 from pathlib import Path
 from datetime import datetime, timezone
+from tradingview_feed import TradingViewFeed
 
 class CryptoPairSelector:
     """Seleciona os melhores pares com anti-correlação e volume mínimo."""
@@ -46,6 +46,23 @@ class CryptoPairSelector:
         self.max_pairs = max_pairs
         self.selected = []
         self.open_trades = self._load_open_trades()
+        self._feed = None
+    
+    def _get_feed(self):
+        if self._feed is None:
+            self._feed = TradingViewFeed()
+        return self._feed
+    
+    def _get_cached_candles(self, pair):
+        """Obtém velas M15 de 5 dias (~480 candles) para volatilidade/momentum."""
+        try:
+            f = self._get_feed()
+            h, l, c, o, v = f.get_candles(pair, '15m', 500)
+            if c is None or len(c) < 20:
+                return None
+            return {'h': h, 'l': l, 'c': c, 'o': o, 'v': v}
+        except:
+            return None
     
     def _load_open_trades(self):
         """Carrega trades abertos para verificar anti-correlação."""
@@ -78,35 +95,38 @@ class CryptoPairSelector:
             return directions[0]
         return 'MIXED'
     
-    def analyze_volatility(self, sym, period='5d'):
-        """Calcula volatilidade recente como % do preço."""
-        try:
-            df = yf.Ticker(sym).history(period=period, interval='1h')
-            if len(df) < 20: return 0
-            returns = df['Close'].pct_change().dropna()
-            return returns.std() * 100
-        except:
+    def analyze_volatility(self, pair):
+        """Calcula volatilidade recente como % do preço via TradingView."""
+        data = self._get_cached_candles(pair)
+        if data is None:
             return 0
+        c = np.array(data['c'], dtype=float)
+        if len(c) < 20:
+            return 0
+        returns = np.diff(c) / c[:-1]
+        return float(np.std(returns) * 100)
     
-    def analyze_volume(self, sym):
-        """Verifica volume médio diário (em USD)."""
-        try:
-            df = yf.Ticker(sym).history(period='5d', interval='1h')
-            if len(df) < 10: return 0
-            return df['Volume'].mean()
-        except:
+    def analyze_volume(self, pair):
+        """Volume médio via TradingView (valores normalizados)."""
+        data = self._get_cached_candles(pair)
+        if data is None:
             return 0
+        v = np.array(data['v'], dtype=float)
+        if len(v) < 10:
+            return 0
+        return float(np.mean(v))
     
-    def analyze_momentum(self, sym, period='5d'):
-        """Momentum de curto prazo."""
-        try:
-            df = yf.Ticker(sym).history(period=period, interval='1h')
-            if len(df) < 10: return 0
-            if len(df) >= 50:
-                return (df['Close'].values[-1] / df['Close'].values[-50] - 1) * 100
-            return (df['Close'].values[-1] / df['Close'].values[0] - 1) * 100
-        except:
+    def analyze_momentum(self, pair):
+        """Momentum de curto prazo via TradingView."""
+        data = self._get_cached_candles(pair)
+        if data is None:
             return 0
+        c = np.array(data['c'], dtype=float)
+        if len(c) < 20:
+            return 0
+        if len(c) >= 48:  # ~12h em M15
+            return float((c[-1] / c[-48] - 1) * 100)
+        return float((c[-1] / c[0] - 1) * 100)
     
     def _get_wr_bonus(self, pair, direction):
         """Calcula bônus baseado na WR histórica do par+direção.
@@ -154,22 +174,21 @@ class CryptoPairSelector:
             best_score = 0
             
             for pname, pcfg in gcfg['pairs'].items():
-                sym = pcfg['sym']
                 
                 # Volume mínimo (evitar pares ilíquidos)
-                vol_usd = self.analyze_volume(sym)
+                vol_usd = self.analyze_volume(pname)
                 if pcfg['tier'] in ('A', 'S') and vol_usd < 100_000:
                     continue  # Tier S/A precisa de volume mínimo
                 elif pcfg['tier'] == 'B' and vol_usd < 500_000:
                     continue  # Tier B precisa de volume maior para compensar
                 
                 # Volatilidade
-                vol = self.analyze_volatility(sym)
+                vol = self.analyze_volatility(pname)
                 if vol < 0.08:  # parado demais
                     continue
                 
                 # Momentum
-                mom = self.analyze_momentum(sym)
+                mom = self.analyze_momentum(pname)
                 
                 # Score base
                 vol_score = min(vol * 10, 40)
@@ -189,7 +208,7 @@ class CryptoPairSelector:
                 if total > best_score:
                     best_score = total
                     best_pair = {
-                        'pair': pname, 'sym': sym, 'pip': pcfg['pip'],
+                        'pair': pname, 'sym': pcfg['sym'], 'pip': pcfg['pip'],
                         'vol': round(vol, 2), 'mom': round(mom, 1),
                         'score': round(total, 1), 'direction': direction,
                         'group': gname, 'tier': pcfg['tier']
