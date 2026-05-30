@@ -15,11 +15,22 @@ class TradingViewFeed:
     
     # Mapeamento: nosso par → (symbol, exchange)
     SYMBOLS = {
+        # Crypto (Binance)
         'BTCUSD': ('BTCUSDT', 'BINANCE'),
         'ETHUSD': ('ETHUSDT', 'BINANCE'),
         'DOGEUSD': ('DOGEUSDT', 'BINANCE'),
         'BNBUSD': ('BNBUSDT', 'BINANCE'),
         'SOLUSD': ('SOLUSDT', 'BINANCE'),
+        # Forex (OANDA)
+        'EURUSD': ('EURUSD', 'OANDA'),
+        'GBPUSD': ('GBPUSD', 'OANDA'),
+        'USDJPY': ('USDJPY', 'OANDA'),
+        'EURJPY': ('EURJPY', 'OANDA'),
+        'GBPJPY': ('GBPJPY', 'OANDA'),
+        'AUDUSD': ('AUDUSD', 'OANDA'),
+        'USDCAD': ('USDCAD', 'OANDA'),
+        'NZDUSD': ('NZDUSD', 'OANDA'),
+        'EURGBP': ('EURGBP', 'OANDA'),
     }
     
     # Timeframes disponíveis

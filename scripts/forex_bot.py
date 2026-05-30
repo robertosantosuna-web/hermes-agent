@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
-"""FOREX BOT — Multi-Agente v1.0"""
+"""FOREX BOT v2 — TradingView (zero yfinance)."""
 import sys, json, os, numpy as np
 from pathlib import Path
 from datetime import datetime
-import yfinance as yf
+
+sys.path.insert(0, str(Path.home() / '.hermes' / 'crypto'))
+from tradingview_feed import TradingViewFeed
 
 sys.path.insert(0, str(Path.home() / '.hermes' / 'scripts'))
 from multi_agent import ConfluenciaAgent
 
 RR = 3.0; MIN_SL = 10; MAX_SL = 30; RISK_PCT = 0.5
 PAIRS = {
-    'EURUSD': ('EURUSD=X', 0.0001), 'GBPUSD': ('GBPUSD=X', 0.0001),
-    'USDJPY': ('USDJPY=X', 0.01), 'XAUUSD': ('GC=F', 0.01, True),
+    'EURUSD': 0.0001, 'GBPUSD': 0.0001,
+    'USDJPY': 0.01, 'EURJPY': 0.01, 'GBPJPY': 0.01,
 }
 
 def get_bias(highs, lows, closes):
@@ -23,38 +25,46 @@ def get_bias(highs, lows, closes):
     if cl < pl and cc < pl: return 'SELL'
     return 'NEUTRAL'
 
+def resample_daily(h, l, c, bars_per_day=288):
+    """M5 → diário."""
+    dh, dl, dc = [], [], []
+    for i in range(0, len(c), bars_per_day):
+        e = min(i+bars_per_day, len(c))
+        if e-i < 10: continue
+        dh.append(max(h[i:e])); dl.append(min(l[i:e])); dc.append(c[e-1])
+    return np.array(dh), np.array(dl), np.array(dc)
+
+feed = TradingViewFeed()
 agent = ConfluenciaAgent()
 
-print(f"Forex Bot Multi-Agente — {datetime.now().strftime('%H:%M')}")
+print(f"Forex Bot v2 (TV) — {datetime.now().strftime('%H:%M')}")
 
-for name, cfg in PAIRS.items():
-    sym, pip = cfg[0], cfg[1]
-    is_metal = len(cfg) > 2
-    
+for name, pip in PAIRS.items():
     try:
-        # Daily bias
-        df_d = yf.Ticker(sym).history(period='30d', interval='1d')
-        cm = {c.lower(): c for c in df_d.columns}
-        dh = df_d[cm.get('high','High')].values
-        dl = df_d[cm.get('low','Low')].values
-        dc = df_d[cm.get('close','Close')].values
+        # M5 para daily bias (288 velas/dia × 5 dias)
+        h5, l5, c5, o5, v5 = feed.get_candles(name, '5m', 1440)
+        if c5 is None or len(c5) < 200:
+            continue
+        dh, dl, dc = resample_daily(h5, l5, c5)
+        if len(dc) < 3:
+            continue
         bias = get_bias(dh, dl, dc)
-        if bias == 'NEUTRAL': continue
+        if bias == 'NEUTRAL':
+            continue
         
-        # M1 data
-        df_m1 = yf.Ticker(sym).history(period='5d', interval='1m')
-        if df_m1 is None or len(df_m1) < 100: continue
-        h = df_m1['High'].values; l = df_m1['Low'].values
-        c = df_m1['Close'].values
+        # M1 para sinais
+        h, l, c, o, v = feed.get_candles(name, '1m', 500)
+        if c is None or len(c) < 100:
+            continue
         
         # Multi-Agent analysis
-        decision, conf, signal = agent.analyze(name, h, l, c, bias, pip, is_metal)
+        decision, conf, signal = agent.analyze(name, h, l, c, bias, pip, is_metal=False)
         
         if decision != 'NEUTRAL' and signal:
-            slp = max(MIN_SL, min(abs(signal['entry'] - l[-1]) / pip * 2, MAX_SL if not is_metal else 300))
+            slp = max(MIN_SL, min(abs(signal['entry'] - l[-1]) / pip * 2, MAX_SL))
             print(f"  {name}: {decision} @{signal['entry']:.5f} SL={slp:.0f}p Conf={conf:.0f}%")
     
     except Exception as e:
-        pass
+        print(f"  {name}: {e}")
 
 print("FIM")

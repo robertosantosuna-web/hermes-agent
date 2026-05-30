@@ -31,17 +31,21 @@ def mt5_health():
         return {'status': 'error', 'error': str(e)}
 
 def fetch_current_price(pair):
-    """Preço atual via Yahoo Finance (fallback: arquivo de estado)."""
-    import yfinance as yf
-    syms = {'GBP/USD': 'GBPUSD=X', 'AUD/USD': 'AUDUSD=X',
-            'NZD/USD': 'NZDUSD=X', 'EUR/USD': 'EURUSD=X'}
-    sym = syms.get(pair)
-    if not sym:
+    """Preço atual via TradingView (OANDA)."""
+    import sys
+    sys.path.insert(0, '/home/roberto/.hermes/crypto')
+    from tradingview_feed import TradingViewFeed
+    
+    # Mapear formato MT5 → nosso
+    tv_map = {'GBP/USD': 'GBPUSD', 'AUD/USD': 'AUDUSD',
+              'NZD/USD': 'NZDUSD', 'EUR/USD': 'EURUSD',
+              'USD/JPY': 'USDJPY', 'EUR/JPY': 'EURJPY'}
+    tv_pair = tv_map.get(pair)
+    if not tv_pair:
         return None
     try:
-        df = yf.Ticker(sym).history(period='1d', interval='5m')
-        if len(df) > 0:
-            return float(df.iloc[-1]['Close'])
+        feed = TradingViewFeed()
+        return feed.get_price(tv_pair)
     except:
         pass
     return None
