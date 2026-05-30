@@ -70,7 +70,7 @@ def load_open_trades():
     return []
 
 def has_open_trade():
-    """Verifica se há trade ativo (arquivo OU Binance)."""
+    """Verifica se há trade ativo: arquivo, ordens Binance, OU empréstimos margin."""
     trades = load_open_trades()
     if trades:
         return True
@@ -80,6 +80,11 @@ def has_open_trade():
         orders = t._request('GET', '/sapi/v1/margin/openOrders', signed=True)
         if orders:
             return True
+        # Verificar empréstimos ativos (short não fechado)
+        acct = t._request('GET', '/sapi/v1/margin/account', signed=True)
+        for a in acct.get('userAssets', []):
+            if float(a.get('borrowed', 0)) > 0.0001:
+                return True  # Tem empréstimo = posição aberta
     except:
         pass
     return False
