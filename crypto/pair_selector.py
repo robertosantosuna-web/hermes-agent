@@ -108,6 +108,28 @@ class CryptoPairSelector:
         except:
             return 0
     
+    def _get_wr_bonus(self, pair, direction):
+        """Calcula bônus baseado na WR histórica do par+direção.
+        Backtest v10: DOGE SELL=96%, ETH SELL=92%, DOGE BUY=40%, BNB BUY=50%."""
+        # Dados do último backtest realista (v10 com gates)
+        wr_data = {
+            ('DOGEUSD', 'SELL'): 96,
+            ('ETHUSD', 'SELL'): 92,
+            ('BTCUSD', 'SELL'): 67,
+            ('ETHUSD', 'BUY'): 70,
+            ('BNBUSD', 'SELL'): 65,
+            ('BNBUSD', 'BUY'): 50,
+            ('DOGEUSD', 'BUY'): 40,
+        }
+        wr = wr_data.get((pair, direction), 50)
+        
+        if wr >= 90: return 25   # Elite
+        elif wr >= 80: return 20  # Excelente
+        elif wr >= 70: return 15  # Muito bom
+        elif wr >= 60: return 5   # OK
+        elif wr >= 50: return 0   # Neutro
+        else: return -15          # Penalidade (abaixo de 50%)
+    
     def select_best_pairs(self):
         """Seleciona os melhores pares respeitando anti-correlação USD."""
         active_groups = self._get_active_groups()
@@ -149,13 +171,16 @@ class CryptoPairSelector:
                 # Momentum
                 mom = self.analyze_momentum(sym)
                 
-                # Score
+                # Score base
                 vol_score = min(vol * 10, 40)
                 mom_score = min(abs(mom) * 2, 30)
                 tier_bonus = {'S': 30, 'A': 20, 'B': 10}.get(pcfg['tier'], 0)
                 
-                total = vol_score + mom_score + tier_bonus
+                # Bônus por performance histórica (WR do par+direção)
                 direction = 'BUY' if mom > 1 else ('SELL' if mom < -1 else 'NEUTRAL')
+                wr_bonus = self._get_wr_bonus(pname, direction)
+                
+                total = vol_score + mom_score + tier_bonus + wr_bonus
                 
                 # Anti-correlação USD: se já tem trade SELL, evitar mais SELL
                 if active_direction and direction == active_direction and total_open > 0:
