@@ -97,6 +97,143 @@ def do_google_login(page):
         save_state('error', error=str(e)[:200])
         return False
 
+def _run_submission_pipeline(page):
+    """Busca projetos e submete propostas usando a sessao ativa."""
+    import subprocess, re
+    
+    # 1. Rodar IMAP agent
+    print('  [1/2] Coletando via IMAP...')
+    result = subprocess.run(
+        ['python3', str(Path.home() / '.hermes' / 'brain' / 'freelancer_agent.py')],
+        capture_output=True, text=True, timeout=60,
+        cwd=str(Path.home() / '.hermes')
+    )
+    
+    # 2. Extrair projetos
+    projects = []
+    for line in result.stdout.split('\n'):
+        if '•' in line and len(line) > 20:
+            title = line.split('•')[-1].strip()
+            projects.append(title)
+    
+    print(f'  [1/2] {len(projects)} projetos IMAP')
+    
+    # 3. Buscar na plataforma e submeter
+    submitted = 0
+    state_file = Path('/tmp/freelancer_submitter_state.json')
+    state = {}
+    if state_file.exists():
+        state = json.loads(state_file.read_text())
+    if 'submitted' not in state:
+        state['submitted'] = []
+    
+    try:
+        page.goto('https://www.99freelas.com.br/projects', 
+                  wait_until='domcontentloaded', timeout=20000)
+        time.sleep(3)
+        
+        # Filtrar <24h
+        filtro = page.locator('text=Menos de 24 horas').first
+        if filtro.count():
+            filtro.click()
+            time.sleep(2)
+        
+        # Extrair links
+        links = page.locator('a[href*=\"/project/\"]').all()
+        seen = set()
+        for link in links:
+            try:
+                txt = link.inner_text().strip()
+                href = link.get_attribute('href') or ''
+                if len(txt) < 15 or '/project/' not in href or href in seen:
+                    continue
+                seen.add(href)
+                
+                full_url = f"https://www.99freelas.com.br{href}" if href.startswith('/') else href
+                if full_url in state['submitted']:
+                    continue
+                
+                # Classificar via keywords
+                text_lower = txt.lower()
+                if any(kw in text_lower for kw in ['word', 'abnt', 'format', 'excel', 'planilha', 'digit', 'cadastr']):
+                    print(f'  📋 {txt[:80]}')
+                    result = _try_submit(page, full_url, txt)
+                    print(f'     → {result}')
+                    state['submitted'].append(full_url)
+                    if result == 'submitted':
+                        submitted += 1
+                    if submitted >= 3:
+                        break
+            except:
+                pass
+    
+    except Exception as e:
+        print(f'  Erro busca: {e}')
+    
+    state['last_run'] = datetime.now(timezone.utc).isoformat()
+    state_file.write_text(json.dumps(state, indent=2))
+    print(f'  [2/2] {submitted} propostas enviadas')
+
+
+def _try_submit(page, project_url, title):
+    """Tenta submeter proposta para um projeto."""
+    import re
+    try:
+        page.goto(project_url, wait_until='domcontentloaded', timeout=20000)
+        time.sleep(3)
+        
+        text = page.inner_text('body')
+        
+        if 'exclusivo' in text.lower() or 'premium' in text.lower():
+            return 'exclusive'
+        
+        m = re.search(r'Propostas:\s*(\d+)', text)
+        if m and int(m.group(1)) > 50:
+            return 'high_competition'
+        
+        if 'você já enviou' in text.lower():
+            return 'already_submitted'
+        
+        btn = page.locator('button').filter(has_text='Enviar proposta').first
+        if not btn.count():
+            btn = page.locator('a').filter(has_text='Enviar proposta').first
+        if not btn.count():
+            return 'no_button'
+        
+        btn.click()
+        time.sleep(4)
+        
+        # Valor e prazo
+        inputs = page.locator('input').all()
+        for inp in inputs:
+            try:
+                if inp.get_attribute('type') == 'number':
+                    inp.click()
+                    time.sleep(0.3)
+                    page.keyboard.type('100', delay=30)
+            except:
+                pass
+        
+        # Proposta
+        proposta = f"Ola, entendi o projeto. Tenho experiencia com automacao e entrego com qualidade.\\n\\nPrazo: 5 dias. Valor: R$100.\\n\\nabs,\\nRoberto"
+        ta = page.locator('textarea').first
+        if ta.count():
+            ta.click()
+            time.sleep(0.5)
+            page.keyboard.type(proposta, delay=10)
+        
+        enviar = page.locator('button').filter(has_text='Enviar').last
+        if enviar.count():
+            enviar.click()
+            time.sleep(3)
+            return 'submitted'
+        
+        return 'filled_not_sent'
+        
+    except Exception as e:
+        return f'error: {str(e)[:80]}'
+
+
 def main():
     from playwright.sync_api import sync_playwright
     
@@ -132,7 +269,8 @@ def main():
             else:
                 save_state('running', url)
             
-            # Loop keep-alive
+            # Loop keep-alive + submissao
+            submission_counter = 0
             while True:
                 time.sleep(KEEPALIVE_INTERVAL)
                 
@@ -143,6 +281,13 @@ def main():
                         save_state('running', url)
                         ts = datetime.now().strftime("%H:%M")
                         print(f'[{ts}] ✅ Sessao ativa')
+                        
+                        # A cada 2h (12 ciclos de 10min), rodar submissao
+                        submission_counter += 1
+                        if submission_counter >= 12:
+                            submission_counter = 0
+                            print(f'[{ts}] 🔍 Rodando pipeline de submissao...')
+                            _run_submission_pipeline(page)
                     else:
                         ts = datetime.now().strftime("%H:%M")
                         print(f'[{ts}] ⚠️ Sessao expirada, relogando...')
