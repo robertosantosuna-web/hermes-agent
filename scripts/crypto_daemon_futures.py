@@ -22,10 +22,10 @@ CONFIG_PATH = Path.home() / '.hermes' / 'crypto' / 'binance_config.json'
 STATE_FILE = Path.home() / '.hermes' / 'crypto' / 'daemon_state.json'
 
 SCAN_INTERVAL = 45
-MIN_CONFIDENCE = 55
+MIN_CONFIDENCE = 50  # Reduzido: mais sinais
 RR = 3.0
 LEVERAGE = 5
-RISK_PCT = 2.0  # % do equity arriscado por trade
+RISK_PCT = 8.0  # Agressivo: Quarter-Kelly (8.3%)
 
 ALL_PAIRS = [
     {'pair': 'BTCUSD', 'sym': 'BTC-USD', 'pip': 1.0},
