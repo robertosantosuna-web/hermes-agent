@@ -17,6 +17,7 @@ from telegram_notify import notify_open, notify_close
 CONFIG_PATH = Path.home() / '.hermes' / 'crypto' / 'binance_config.json'
 SIGNALS_PATH = Path.home() / '.hermes' / 'crypto' / 'signals.json'
 TRADE_LOG_PATH = Path.home() / '.hermes' / 'crypto' / 'trade_log.json'
+TRADES_FILE = Path.home() / '.hermes' / 'crypto' / 'open_trades.json'
 
 def load_config():
     with open(CONFIG_PATH) as f:
@@ -150,6 +151,24 @@ def main():
             'result': result
         }
         log_trade(trade_log)
+        
+        # Atualizar open_trades.json com order IDs (parcial)
+        if TRADES_FILE.exists():
+            with open(TRADES_FILE) as f:
+                open_trades = json.load(f)
+            for t in open_trades:
+                if t['pair'] == pair and t['direction'] == direction and abs(t['entry'] - entry) < 1:
+                    if result.get('partial'):
+                        t['partial'] = True
+                        t['tp1_order_id'] = result['tp1'].get('orderId') if result.get('tp1') else None
+                        t['oco_id'] = result['oco'].get('orderListId') if result.get('oco') else None
+                        t['quantity'] = float(position_size / entry) if entry else 0
+                        t['sl_moved'] = False
+                    else:
+                        t['oco_id'] = result.get('oco', {}).get('orderListId')
+                    break
+            with open(TRADES_FILE, 'w') as f:
+                json.dump(open_trades, f, indent=2, default=str)
         
         # Atualizar daily PnL (começa zerado, atualiza quando fechar)
         daily['trades'] += 1

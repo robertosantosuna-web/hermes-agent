@@ -236,6 +236,26 @@ class CryptoConfluencia:
         if impulse_ratio < 0.8:
             return 'NEUTRAL', 0, None, v_info
         
+        # ⚡ GATE v10: Backtest realista — filtros por par+direção
+        # SELL = 60-83% WR → mantém IR≥0.8
+        # BUY varia muito por par:
+        #   BTCUSD BUY = 39% WR (TÓXICO) → BLOQUEADO totalmente
+        #   DOGEUSD BUY = 49% WR → IR≥1.5
+        #   BNBUSD BUY = 56% WR → IR≥1.3
+        #   ETHUSD BUY = 70% WR → IR≥1.2
+        if t_vote == 'BUY':
+            if pair == 'BTCUSD':
+                return 'NEUTRAL', 0, None, v_info  # Bloqueado — 39% WR
+            elif pair == 'DOGEUSD':
+                if impulse_ratio < 1.5:
+                    return 'NEUTRAL', 0, None, v_info
+            elif pair == 'BNBUSD':
+                if impulse_ratio < 1.3:
+                    return 'NEUTRAL', 0, None, v_info
+            else:  # ETHUSD e outros
+                if impulse_ratio < 1.2:
+                    return 'NEUTRAL', 0, None, v_info
+        
         # ⚡ GATE: Não operar em RANGE a menos que IR seja muito forte (>=1.0)
         ms_structure = p_sig.get('market_structure', '')
         if ms_structure == 'RANGE' and impulse_ratio < 1.0:

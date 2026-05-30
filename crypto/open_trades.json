@@ -1,19 +1,9 @@
 [{
-    "pair": "ETHUSD",
-    "sym": "ETH-USD",
-    "direction": "SELL",
-    "entry": 2010.49,
-    "sl": 2012.9,
-    "tp": 2003.25,
-    "sl_pct": 0.12,
-    "conf": 74,
-    "pattern": "OB",
-    "quality": 120,
-    "atr_pct": 0.033,
-    "regime": "MARGIN",
-    "group": "BTC_LARGE_CAP",
-    "time": "2026-05-29T23:18:00+00:00",
-    "source": "margin",
-    "orderId": 46967055352,
-    "ocoId": 22448534927
+    "pair": "BNBUSD",
+    "direction": "BUY",
+    "entry": 693.55,
+    "sl": 690.08,
+    "tp": 697.02,
+    "oco_id": 22456627630,
+    "time": "2026-05-30T15:57:00+00:00"
 }]

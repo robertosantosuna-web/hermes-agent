@@ -272,12 +272,14 @@ class BinanceTrader:
         """Arredonda preço para o tick size correto."""
         return round(price / tick_size) * tick_size
     
-    def round_to_step(self, quantity, step_size):
-        """Arredonda quantidade para step size correto."""
+    def round_to_step(self, quantity, step_size, use_floor=False):
+        """Arredonda quantidade para step size correto. use_floor=True para venda (evitar saldo insuficiente)."""
         step = float(step_size)
-        # Get decimals from step: 0.00001 → 5, 0.001 → 3, 1e-05 → 5
         step_str = f'{step:.10f}'.rstrip('0')
         decimals = len(step_str.split('.')[1]) if '.' in step_str else 0
+        if use_floor:
+            import math
+            return math.floor(quantity / step) * step
         return round(quantity, decimals)
     
     def execute_signal(self, pair, direction, entry, sl_price, tp_price, usdt_amount=None):
@@ -344,25 +346,73 @@ class BinanceTrader:
                     raise Exception(f"Saldo insuficiente: {balance:.2f} USDT ({balance_label})")
                 
                 if balance_label == 'Margin':
-                    # Comprar via Margin
+                    # Comprar via Margin com parcial
                     buy = self._request('POST', '/sapi/v1/margin/order', signed=True,
                                       symbol=symbol, side='BUY', type='MARKET',
                                       quoteOrderQty=str(usdt_amount))
                     print(f"  ✅ Compra Margin: {buy}")
-                    sl_r = self.round_to_tick(float(sl_price), tick_size)
-                    tp_r = self.round_to_tick(float(tp_price), tick_size)
+                    
+                    # Quantidade real executada
+                    qty = float(quantity)
+                    
+                    # Preço real de execução
+                    entry_price = float(buy.get('fills', [{}])[0].get('price', 0)) if buy.get('fills') else 0
+                    if entry_price == 0:
+                        entry_price = float(buy.get('cummulativeQuoteQty', 0)) / qty if buy.get('cummulativeQuoteQty') else float(sl_price)
+                    
+                    # Recalcular SL/TP com preço REAL
+                    sl_pct = abs(float(sl_price) - float(tp_price)) / float(sl_price) * 100 / (RR + 1)  # extrai % do sinal
+                    sl_r = self.round_to_tick(entry_price * (1 - sl_pct/100), tick_size)
+                    tp_r = self.round_to_tick(entry_price * (1 + sl_pct*3/100), tick_size)  # RR=3
+                    
+                    # TP1 @ 1:1 (distância do SL)
+                    sl_dist = abs(entry_price - sl_r)
+                    tp1_r = self.round_to_tick(entry_price + sl_dist, tick_size)
+                    
+                    # Pegar saldo real após compra
+                    base = symbol.replace('USDT', '')
+                    acct = self._request('GET', '/sapi/v1/margin/account', signed=True)
+                    eth_free = 0.0
+                    for a in acct.get('userAssets', []):
+                        if a['asset'] == base:
+                            eth_free = float(a['free'])
+                    half_qty = self.round_to_step(eth_free * 0.49, step_size, use_floor=True)
+                    half_qty_str = f'{half_qty:.6f}'.rstrip('0').rstrip('.')
+                    rem_qty = self.round_to_step(eth_free * 0.48, step_size, use_floor=True)
+                    rem_qty_str = f'{rem_qty:.6f}'.rstrip('0').rstrip('.')
+                    
+                    if half_qty < 0.0001:
+                        # Lote muito pequeno, OCO full
+                        oco = self._request('POST', '/sapi/v1/margin/order/oco', signed=True,
+                                          symbol=symbol, side='SELL', quantity=str(qty),
+                                          price=str(tp_r), stopPrice=str(sl_r),
+                                          stopLimitPrice=str(sl_r),
+                                          stopLimitTimeInForce='GTC',
+                                          sideEffectType='AUTO_REPAY')
+                        print(f"  ✅ OCO full: SL={sl_r} TP={tp_r}")
+                        return {'buy': buy, 'oco': oco}
+                    
+                    tp1 = self._request('POST', '/sapi/v1/margin/order', signed=True,
+                                      symbol=symbol, side='SELL', type='LIMIT',
+                                      timeInForce='GTC', quantity=half_qty_str,
+                                      price=str(tp1_r))
+                    print(f"  ✅ TP1 50% @{tp1_r} (1:1): {tp1}")
+                    
                     oco = self._request('POST', '/sapi/v1/margin/order/oco', signed=True,
-                                      symbol=symbol, side='SELL', quantity=str(quantity),
+                                      symbol=symbol, side='SELL', quantity=rem_qty_str,
                                       price=str(tp_r), stopPrice=str(sl_r),
                                       stopLimitPrice=str(sl_r),
                                       stopLimitTimeInForce='GTC',
                                       sideEffectType='AUTO_REPAY')
+                    print(f"  ✅ OCO {rem_qty_str}: SL={sl_r} TP={tp_r}")
+                    return {'buy': buy, 'tp1': tp1, 'oco': oco, 'partial': True}
                 else:
+                    # Spot: sem parcial
                     buy = self.market_buy(symbol, quantity=quantity)
                     print(f"  ✅ Compra Spot: {buy}")
                     oco = self.oco_order(symbol, 'SELL', quantity, price=tp_price, stop_price=sl_price)
-                print(f"  ✅ OCO: SL={sl_price} TP={tp_price}")
-                return {'buy': buy, 'oco': oco}
+                    print(f"  ✅ OCO: SL={sl_price} TP={tp_price}")
+                    return {'buy': buy, 'oco': oco}
             else:
                 # SELL = Short via Cross Margin
                 balance = self._get_margin_balance('USDT')
@@ -383,33 +433,53 @@ class BinanceTrader:
         return 0.0
 
     def _margin_sell(self, symbol, quantity, sl_price, tp_price, tick_size=0.01):
-        """Short via Cross Margin: empréstimo + venda + OCO de recompra."""
-        # Extrair asset do symbol (ex: BTCUSDT → BTC)
+        """Short via Cross Margin: empréstimo + venda + parcial (50% @1:1, 50% @3:1)."""
         base_asset = symbol.replace('USDT', '')
+        qty = float(quantity)
+        half_qty = self.round_to_step(qty / 2, self.get_symbol_info(symbol).get('step_size', 0.00001))
+        half_qty_str = f'{half_qty:.6f}'.rstrip('0').rstrip('.')
+        
         try:
-            # 1. Emprestar asset
+            # 1. Emprestar e vender full quantity
             loan = self._request('POST', '/sapi/v1/margin/loan', signed=True,
                                asset=base_asset, amount=str(quantity))
             print(f"  ✅ Empréstimo {base_asset}: {loan}")
             
-            # 2. Vender a mercado (short)
             sell = self._request('POST', '/sapi/v1/margin/order', signed=True,
                                symbol=symbol, side='SELL', type='MARKET',
                                quantity=str(quantity))
             print(f"  ✅ Short executado: {sell}")
             
-            # 3. OCO de recompra (stop + take profit)
-            # Arredondar preços para tick size do par
-            sl_rounded = self.round_to_tick(float(sl_price), tick_size)
-            tp_rounded = self.round_to_tick(float(tp_price), tick_size)
+            # Preços baseados no preço REAL de execução
+            entry = float(sell.get('fills', [{}])[0].get('price', 0)) if sell.get('fills') else 0
+            if entry == 0:
+                entry = float(sell.get('cummulativeQuoteQty', 0)) / qty if sell.get('cummulativeQuoteQty') else float(sl_price)
+            
+            sl_pct = abs(float(sl_price) - float(tp_price)) / float(sl_price) * 100 / 4  # extrai % (RR=3 → div por 4)
+            sl_r = self.round_to_tick(entry * (1 + sl_pct/100), tick_size)  # SELL: SL acima
+            tp_r = self.round_to_tick(entry * (1 - sl_pct*3/100), tick_size)  # SELL: TP abaixo
+            
+            # TP1: 50% @ 1:1
+            sl_dist = abs(sl_r - entry)
+            tp1_r = self.round_to_tick(entry - sl_dist, tick_size)
+            
+            # 2. TP1 limit (50% @ 1:1)
+            tp1 = self._request('POST', '/sapi/v1/margin/order', signed=True,
+                              symbol=symbol, side='BUY', type='LIMIT',
+                              timeInForce='GTC', quantity=half_qty_str,
+                              price=str(tp1_r))
+            print(f"  ✅ TP1 50% @{tp1_r} (1:1): {tp1}")
+            
+            # 3. OCO: SL + TP2 (50% restante @ 3:1)
             oco = self._request('POST', '/sapi/v1/margin/order/oco', signed=True,
-                              symbol=symbol, side='BUY', quantity=str(quantity),
-                              price=str(tp_rounded), stopPrice=str(sl_rounded),
-                              stopLimitPrice=str(sl_rounded),
+                              symbol=symbol, side='BUY', quantity=half_qty_str,
+                              price=str(tp_r), stopPrice=str(sl_r),
+                              stopLimitPrice=str(sl_r),
                               stopLimitTimeInForce='GTC',
                               sideEffectType='AUTO_REPAY')
-            print(f"  ✅ OCO: SL={sl_rounded} TP={tp_rounded}")
-            return {'loan': loan, 'sell': sell, 'oco': oco}
+            print(f"  ✅ OCO 50%: SL={sl_r} TP={tp_r}")
+            
+            return {'loan': loan, 'sell': sell, 'tp1': tp1, 'oco': oco, 'partial': True}
         except Exception as e:
             print(f"  ❌ Erro margin sell: {e}")
             raise

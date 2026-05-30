@@ -1,33 +1,50 @@
 #!/bin/bash
-# Crypto AutoPilot 24/7 v4 — Silencioso, só notifica Telegram quando há ação
+# Crypto AutoPilot 24/7 v5 — Robusto, com retry em erro
+CRYPTO_DIR="/home/roberto/.hermes/crypto"
+cd "$CRYPTO_DIR" || exit 1
 
-cd /home/roberto/.hermes/crypto
+# Scanner com retry
+OUTPUT=""
+SCANNER_OK=false
+for attempt in 1 2; do
+    OUTPUT=$(/usr/bin/python3 crypto_bot.py 2>&1)
+    if [ $? -eq 0 ]; then SCANNER_OK=true; break; fi
+    echo "[$(date '+%d/%m %H:%M')] Scanner falhou (tentativa $attempt)" >> autopilot_errors.log
+    sleep 10
+done
 
-# Scanner
-OUTPUT=$(/usr/bin/python3 crypto_bot.py 2>&1)
+if ! $SCANNER_OK; then
+    echo "{"error": "scanner_failed", \"time\": "$(date -Iseconds)", \"output\": "$(echo "$OUTPUT" | tail -5 | sed "s/"/\\"/g" | tr "\n" " ")"}" > autopilot_alert.json
+    exit 0
+fi
 
-# Só continuar se houve sinal ou trade
-HAS_SIGNAL=$(echo "$OUTPUT" | grep -c "SINAL(is)")
-HAS_TRADE=$(echo "$OUTPUT" | grep -c "EXECUTANDO\|TRADE EXECUTADO")
-
-if [ "$HAS_SIGNAL" -gt 0 ] || [ "$HAS_TRADE" -gt 0 ]; then
-    # Executor
-    if [ -f signals.json ]; then
+# Verificar se tem sinal
+if echo "$OUTPUT" | grep -q "SINAL(is)"; then
+    # Executor com retry
+    for attempt in 1 2; do
         EXEC_OUTPUT=$(/usr/bin/python3 binance_executor.py 2>&1)
-        OUTPUT="$OUTPUT
-$EXEC_OUTPUT"
-    fi
+        if [ $? -eq 0 ]; then break; fi
+        echo "[$(date '+%d/%m %H:%M')] Executor falhou (tentativa $attempt)" >> autopilot_errors.log
+        sleep 10
+    done
     
-    # Enviar para log
-    echo "[$(date '+%d/%m %H:%M')] $OUTPUT" >> autopilot.log
-    
-    # Mostrar output (vai pro Telegram)
-    echo "$OUTPUT"
+    {
+        echo "[$(date '+%d/%m %H:%M')]"
+        echo "$OUTPUT"
+        [ -n "$EXEC_OUTPUT" ] && echo "$EXEC_OUTPUT"
+        echo "---"
+    } >> autopilot.log
 fi
 
-# Limpar log grande
-if [ $(wc -l < autopilot.log 2>/dev/null || echo 0) -gt 1000 ]; then
-    tail -500 autopilot.log > /tmp/crypto_log.tmp
-    mv /tmp/crypto_log.tmp autopilot.log
-fi
+# Limpar logs grandes (>1000 linhas)
+for logfile in autopilot.log autopilot_errors.log; do
+    if [ -f "$logfile" ]; then
+        lines=$(wc -l < "$logfile" 2>/dev/null || echo 0)
+        if [ "$lines" -gt 1000 ]; then
+            tail -500 "$logfile" > /tmp/crypto_log.tmp
+            mv /tmp/crypto_log.tmp "$logfile"
+        fi
+    fi
+done
+
 exit 0

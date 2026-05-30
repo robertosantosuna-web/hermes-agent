@@ -1,0 +1,13 @@
+[
+  {
+    "time": "2026-05-30T12:52:41.781201",
+    "pair": "ETHUSD",
+    "direction": "BUY",
+    "entry": 2015.37,
+    "exit_oco1": 2002.55,
+    "exit_oco2": 2026.48,
+    "pnl": -0.22,
+    "result": "LOSS",
+    "exit_reason": "SL parcial + TP parcial"
+  }
+]

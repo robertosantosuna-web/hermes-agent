@@ -145,10 +145,7 @@ try:
                 'time': now.isoformat(), 'source': 'tv'
             }
             signals_found.append(trade)
-            open_trades.append(trade)
-            TRADES_FILE.parent.mkdir(parents=True, exist_ok=True)
-            with open(TRADES_FILE, 'w') as f:
-                json.dump(open_trades, f, indent=2, default=str)
+            # NÃO salvar em open_trades.json — executor que faz isso após confirmar
         
         except Exception as e:
             print(f"  {pair:8s} ❌ {e}")

@@ -163,26 +163,33 @@ def build_dashboard(trader):
     
     layout["orders"].update(orders_table)
 
-    # ═══ ÚLTIMOS SINAIS ═══
-    signals_table = Table(title="📡 ÚLTIMOS SINAIS", box=box.ROUNDED, border_style="green")
-    signals_table.add_column("Hora")
-    signals_table.add_column("Par")
-    signals_table.add_column("Dir")
-    signals_table.add_column("Entry")
-    signals_table.add_column("Conf")
+    # ═══ ÚLTIMAS 4 ORDENS FINALIZADAS ═══
+    history_table = Table(title="📋 ÚLTIMAS 4 FINALIZADAS", box=box.ROUNDED, border_style="green")
+    history_table.add_column("Par")
+    history_table.add_column("Dir")
+    history_table.add_column("P&L")
+    history_table.add_column("Result")
     
     log = load_json(TRADE_LOG)
-    for t in log[-5:]:
-        ts = t.get('time', '')[:16].replace('T', ' ')
-        signals_table.add_row(
-            ts, t.get('pair', '?'), t.get('direction', '?'),
-            f"${t.get('entry', 0):,.2f}", f"{t.get('conf', 0):.0f}%"
+    # Filtrar só trades com resultado (fechados)
+    closed = [t for t in log if t.get('result') or t.get('status') in ('WIN', 'LOSS', 'closed')]
+    for t in closed[-4:]:
+        pair = t.get('pair', '?')
+        direction = t.get('direction', '?')
+        pnl = t.get('pnl', t.get('pnl_usdt', 0))
+        result = t.get('result', t.get('status', '?'))
+        pnl_color = "green" if float(pnl or 0) >= 0 else "red"
+        res_emoji = "✅" if result == 'WIN' else "❌" if result == 'LOSS' else ""
+        history_table.add_row(
+            pair, direction,
+            f"[{pnl_color}]{float(pnl or 0):+.2f}[/{pnl_color}]",
+            f"{res_emoji} {result}"
         )
     
-    if not log:
-        signals_table.add_row("—", "—", "—", "—", "—")
+    if not closed:
+        history_table.add_row("—", "—", "—", "—")
     
-    layout["right"].update(signals_table)
+    layout["right"].update(history_table)
 
     # ═══ FOOTER ═══
     # Margin level
