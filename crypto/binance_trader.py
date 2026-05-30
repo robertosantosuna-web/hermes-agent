@@ -361,7 +361,7 @@ class BinanceTrader:
                         entry_price = float(buy.get('cummulativeQuoteQty', 0)) / qty if buy.get('cummulativeQuoteQty') else float(sl_price)
                     
                     # Recalcular SL/TP com preço REAL
-                    sl_pct = abs(float(sl_price) - float(tp_price)) / float(sl_price) * 100 / (RR + 1)  # extrai % do sinal
+                    sl_pct = abs(float(sl_price) - float(tp_price)) / float(sl_price) * 100 / 4  # RR=3 → div por 4
                     sl_r = self.round_to_tick(entry_price * (1 - sl_pct/100), tick_size)
                     tp_r = self.round_to_tick(entry_price * (1 + sl_pct*3/100), tick_size)  # RR=3
                     
