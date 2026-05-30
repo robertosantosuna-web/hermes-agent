@@ -48,6 +48,22 @@ def build_dashboard(trader):
 
     now = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
     
+    # ═══ SELF-HEAL: se JSON tem trade mas Binance nao tem ordens ═══
+    trades_check = load_json(TRADES_FILE)
+    if trades_check:
+        try:
+            orders = trader._request('GET', '/sapi/v1/margin/openOrders', signed=True)
+            order_symbols = {o.get('symbol') for o in orders}
+            for t in trades_check:
+                symbol = t['pair'].replace('USD', 'USDT')
+                if symbol not in order_symbols and (t.get('oco_id') or t.get('tp1_order_id')):
+                    import subprocess
+                    subprocess.run(['python3', str(Path.home() / '.hermes' / 'scripts' / 'trade_monitor.py')],
+                                 capture_output=True, timeout=10)
+                    break
+        except:
+            pass
+    
     # ═══ HEADER ═══
     header = Table.grid(padding=(0, 2))
     header.add_column(justify="left")
@@ -236,9 +252,9 @@ def build_dashboard(trader):
 def main():
     trader = BinanceTrader(testnet=False)
     
-    with Live(build_dashboard(trader), refresh_per_second=2, screen=True) as live:
+    with Live(build_dashboard(trader), refresh_per_second=1, screen=True) as live:
         while True:
-            time.sleep(2)
+            time.sleep(1)
             try:
                 live.update(build_dashboard(trader))
             except Exception as e:
