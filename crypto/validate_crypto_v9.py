@@ -78,13 +78,18 @@ def run_backtest():
             
             print(f"  {pair}: {len(c)} velas {TIMEFRAME} (~{len(c)//(24*4)} dias)")
             
-            # Daily bias (yfinance para níveis diários)
-            ysym = pair.replace('USD', '-USD')
-            df_d = yf.Ticker(ysym).history(period=f'{DATA_DAYS+5}d', interval='1d')
-            cm = {c.lower(): c for c in df_d.columns}
-            db_h = df_d[cm.get('high','High')].values
-            db_l = df_d[cm.get('low','Low')].values
-            db_c = df_d[cm.get('close','Close')].values
+            # Daily bias via resample das velas M15 (96 M15 = 1 dia)
+            n_daily = len(c) // 96
+            db_h, db_l, db_c = [], [], []
+            for d in range(n_daily):
+                s, e = d * 96, min((d+1) * 96, len(c))
+                if e - s < 10: continue
+                db_h.append(max(h[s:e]))
+                db_l.append(min(l[s:e]))
+                db_c.append(c[e-1])
+            
+            if len(db_c) < 3:
+                print(f"  {pair}: poucos dias de dados"); continue
             
             daily_levels = {
                 'resistance': max(db_h[-10:]) if len(db_h) >= 10 else max(db_h),
