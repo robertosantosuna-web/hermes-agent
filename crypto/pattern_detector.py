@@ -272,9 +272,113 @@ class AdvancedPatternDetector:
         
         return best, best_score
     
+    def find_fvg(self, highs, lows, closes, direction, volumes=None, daily_levels=None):
+        """Fair Value Gap: gap entre candles onde preço não negociou.
+        Bullish FVG: low[i-1] > high[i] (gap pra cima)
+        Bearish FVG: high[i-1] < low[i] (gap pra baixo)
+        Retorna entrada no meio do gap."""
+        n = len(highs)
+        if n < 20:
+            return None, 0
+        
+        atr_pct = self.get_atr(highs, lows, closes)
+        avg_vol = self.get_avg_volume(volumes)
+        current = closes[-1]
+        ms = self.structure.analyze(highs, lows, closes)
+        
+        best, best_score = None, 0
+        search_start = max(5, n - 100)
+        
+        for i in range(n-3, search_start, -1):
+            if direction == 'BUY':
+                # Bullish FVG: low da vela anterior > high da vela atual
+                if i < 1: continue
+                if lows[i-1] <= highs[i]: continue
+                
+                gap_top = lows[i-1]
+                gap_bottom = highs[i]
+                
+                # Gap precisa ser significativo (> 0.05% do preço)
+                gap_pct = (gap_top - gap_bottom) / gap_bottom * 100
+                if gap_pct < 0.03: continue
+                
+                # Preço atual deve estar próximo do gap (pullback)
+                if current > gap_top * 1.002: continue  # Já passou do gap
+                if current < gap_bottom * 0.997: continue  # Muito abaixo
+                
+                # Volume
+                vol_score = 30
+                if volumes and i < len(volumes):
+                    vol_ratio = volumes[i] / avg_vol if avg_vol > 0 else 1
+                    if vol_ratio < 0.7: continue
+                    vol_score = min(50, vol_ratio * 40)
+                
+                # Market structure
+                ms_score = 20 if ms['structure'] == 'BULLISH' else (10 if ms['structure'] == 'RANGE' else 0)
+                
+                entry = (gap_top + gap_bottom) / 2
+                score = vol_score + ms_score + 40  # Base FVG
+                
+                if score > best_score:
+                    best_score = score
+                    best = {
+                        'type': 'FVG',
+                        'entry': entry,
+                        'idx': i,
+                        'quality': score,
+                        'impulse_ratio': gap_pct * 20,
+                        'gap_pct': gap_pct,
+                    }
+            
+            else:  # SELL
+                if i < 1: continue
+                if highs[i-1] >= lows[i]: continue
+                
+                gap_top = highs[i-1]
+                gap_bottom = lows[i]
+                
+                gap_pct = (gap_bottom - gap_top) / gap_top * 100
+                if gap_pct < 0.03: continue
+                
+                if current < gap_bottom * 0.998: continue
+                if current > gap_top * 1.003: continue
+                
+                vol_score = 30
+                if volumes and i < len(volumes):
+                    vol_ratio = volumes[i] / avg_vol if avg_vol > 0 else 1
+                    if vol_ratio < 0.7: continue
+                    vol_score = min(50, vol_ratio * 40)
+                
+                ms_score = 20 if ms['structure'] == 'BEARISH' else (10 if ms['structure'] == 'RANGE' else 0)
+                
+                entry = (gap_top + gap_bottom) / 2
+                score = vol_score + ms_score + 40
+                
+                if score > best_score:
+                    best_score = score
+                    best = {
+                        'type': 'FVG',
+                        'entry': entry,
+                        'idx': i,
+                        'quality': score,
+                        'impulse_ratio': gap_pct * 20,
+                        'gap_pct': gap_pct,
+                    }
+        
+        return best, best_score
+    
     def find_best_pattern(self, highs, lows, closes, opens, direction, volumes=None, daily_levels=None):
-        """Encontra melhor padrão na direção especificada."""
-        return self.find_order_block(highs, lows, closes, opens, direction, volumes, daily_levels)
+        """Encontra melhor padrão testando OB e FVG."""
+        # Tentar Order Block primeiro (mais preciso)
+        ob, ob_score = self.find_order_block(highs, lows, closes, opens, direction, volumes, daily_levels)
+        
+        # Tentar FVG
+        fvg, fvg_score = self.find_fvg(highs, lows, closes, direction, volumes, daily_levels)
+        
+        # Retornar o melhor
+        if ob and fvg:
+            return (ob, ob_score) if ob_score >= fvg_score else (fvg, fvg_score)
+        return (ob, ob_score) if ob else (fvg, fvg_score) if fvg else (None, 0)
     
     def get_market_context(self, highs, lows, closes):
         ms = self.structure.analyze(highs, lows, closes)
