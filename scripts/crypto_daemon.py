@@ -22,7 +22,7 @@ SIGNALS_FILE = Path.home() / '.hermes' / 'crypto' / 'signals.json'
 CONFIG_PATH = Path.home() / '.hermes' / 'crypto' / 'binance_config.json'
 STATE_FILE = Path.home() / '.hermes' / 'crypto' / 'daemon_state.json'
 
-SCAN_INTERVAL = 30  # segundos entre scans
+SCAN_INTERVAL = 45  # segundos entre scans (evita rate limit TV)
 MIN_CONFIDENCE = 55
 RR = 3.0
 
@@ -128,6 +128,15 @@ def scan_all_pairs():
     best_signal = None
     best_score = -999
     
+    # ═══ PASSO 0: Carregar BTC para correlação ═══
+    btc_change = None
+    try:
+        bh, bl, bc, bo, bv = f.get_candles('BTCUSD', '15m', 20)
+        if bc is not None and len(bc) >= 16:
+            btc_change = (bc[-1] / bc[-16] - 1) * 100
+    except:
+        pass
+    
     # ═══ PASSO 2: Scannear na ORDEM do ranking (melhor primeiro) ═══
     for r in ranked:
         pair = r['pair']
@@ -176,7 +185,8 @@ def scan_all_pairs():
                 
                 decision, conf, sig, info = ag.analyze(
                     pair, h, l, c, o, direction, pip,
-                    None, MIN_CONFIDENCE, v, daily_levels
+                    btc_change if pair != 'BTCUSD' else None,
+                    MIN_CONFIDENCE, v, daily_levels
                 )
                 
                 if decision == 'NEUTRAL' or not sig:
@@ -226,10 +236,20 @@ def execute_signal(signal_data):
     sl = signal_data['sl']
     tp = signal_data['tp']
     
-    # Calcular tamanho
-    spot = t.get_balance('USDT')
-    margin = t._get_margin_balance('USDT')
-    total_balance = spot + margin
+    # ═══ Posição baseada em EQUITY (free) — ignora dinheiro emprestado ═══
+    try:
+        acct = t._request('GET', '/sapi/v1/margin/account', signed=True)
+        free_usdt = 0.0
+        for a in acct.get('userAssets', []):
+            if a['asset'] == 'USDT':
+                free_usdt = float(a['free'])
+        # Se margin não tem, usa spot
+        if free_usdt < 1:
+            free_usdt = float(t.get_balance('USDT'))
+    except:
+        free_usdt = float(t.get_balance('USDT')) + float(t._get_margin_balance('USDT'))
+    
+    total_balance = free_usdt
     
     # Carregar config para max_position
     cfg = {}
@@ -237,11 +257,27 @@ def execute_signal(signal_data):
         cfg = json.loads(CONFIG_PATH.read_text())
     
     max_pos = cfg.get('max_position_usdt', 19)
-    position_size = min(total_balance, max_pos)
+    position_size = min(total_balance * 0.95, max_pos)  # 95% do equity
     position_size = max(position_size, 5)
     
+    # ═══ Ajustar SL para slippage realista ═══
+    # Backtest usa fill perfeito, live tem 0.1-0.5% slippage
+    # Adicionar 15% ao SL distance pra compensar
+    sl_orig = sl
+    tp_orig = tp
+    if direction == 'BUY':
+        sl_dist = abs(entry - sl)
+        sl = entry - sl_dist * 1.15  # +15% buffer
+        tp_dist = abs(tp - entry)
+        tp = entry + tp_dist * 0.95  # -5% no TP (conservador)
+    else:
+        sl_dist = abs(sl - entry)
+        sl = entry + sl_dist * 1.15
+        tp_dist = abs(entry - tp)
+        tp = entry - tp_dist * 0.95
+    
     print(f"\n🚀 EXECUTANDO: {pair} {direction} ${position_size:.2f}")
-    print(f"   Entry={entry:.4f} SL={sl:.4f} TP={tp:.4f} IR={signal_data['ir']:.1f} Conf={signal_data['conf']:.0f}%")
+    print(f"   Entry={entry:.4f} SL={sl_orig:.4f}→{sl:.4f} TP={tp_orig:.4f}→{tp:.4f} IR={signal_data['ir']:.1f} Conf={signal_data['conf']:.0f}%")
     
     try:
         result = t.execute_signal(pair, direction, entry, sl, tp, usdt_amount=position_size)
