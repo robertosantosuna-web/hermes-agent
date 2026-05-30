@@ -130,25 +130,26 @@ class CryptoPairSelector:
     
     def _get_wr_bonus(self, pair, direction):
         """Calcula bônus baseado na WR histórica do par+direção.
-        Backtest v10: DOGE SELL=96%, ETH SELL=92%, DOGE BUY=40%, BNB BUY=50%."""
-        # Dados do último backtest realista (v10 com gates)
+        Backtest v10: DOGE SELL=96%, ETH SELL=92%, BNB BUY=59%.
+        WR é o fator MAIS IMPORTANTE — domina sobre tier/volatilidade."""
         wr_data = {
             ('DOGEUSD', 'SELL'): 96,
             ('ETHUSD', 'SELL'): 92,
             ('BTCUSD', 'SELL'): 67,
             ('ETHUSD', 'BUY'): 70,
             ('BNBUSD', 'SELL'): 65,
-            ('BNBUSD', 'BUY'): 50,
+            ('BNBUSD', 'BUY'): 59,   # Atualizado v10 (era 50)
             ('DOGEUSD', 'BUY'): 40,
+            ('BTCUSD', 'BUY'): 39,   # Tóxico
         }
         wr = wr_data.get((pair, direction), 50)
         
-        if wr >= 90: return 25   # Elite
-        elif wr >= 80: return 20  # Excelente
-        elif wr >= 70: return 15  # Muito bom
-        elif wr >= 60: return 5   # OK
+        if wr >= 90: return 50    # Elite (era 25)
+        elif wr >= 80: return 40  # Excelente (era 20)
+        elif wr >= 70: return 30  # Muito bom (era 15)
+        elif wr >= 60: return 15  # OK (era 5)
         elif wr >= 50: return 0   # Neutro
-        else: return -15          # Penalidade (abaixo de 50%)
+        else: return -30           # Penalidade forte (era -15)
     
     def select_best_pairs(self):
         """Seleciona os melhores pares respeitando anti-correlação USD."""
@@ -193,7 +194,8 @@ class CryptoPairSelector:
                 # Score base
                 vol_score = min(vol * 10, 40)
                 mom_score = min(abs(mom) * 2, 30)
-                tier_bonus = {'S': 30, 'A': 20, 'B': 10}.get(pcfg['tier'], 0)
+                # Tier bonus reduzido — WR domina a seleção
+                tier_bonus = {'S': 15, 'A': 10, 'B': 5}.get(pcfg['tier'], 0)
                 
                 # Bônus por performance histórica (WR do par+direção)
                 direction = 'BUY' if mom > 1 else ('SELL' if mom < -1 else 'NEUTRAL')
