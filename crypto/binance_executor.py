@@ -141,18 +141,8 @@ def main():
             usdt_amount=position_size
         )
         
-        # Log
-        trade_log = {
-            'time': datetime.now(timezone.utc).isoformat(),
-            'pair': pair, 'direction': direction,
-            'entry': entry, 'sl': sl, 'tp': tp,
-            'amount': position_size,
-            'conf': conf,
-            'result': result
-        }
-        log_trade(trade_log)
-        
-        # Atualizar open_trades.json com order IDs (parcial)
+        # Executor NÃO escreve em trade_log — trade_monitor faz isso no fechamento
+        # O executor só registra em open_trades.json
         if TRADES_FILE.exists():
             with open(TRADES_FILE) as f:
                 open_trades = json.load(f)
