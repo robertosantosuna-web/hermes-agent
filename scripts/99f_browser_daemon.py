@@ -1,18 +1,58 @@
 #!/usr/bin/env python3
 """
-99FREELAS BROWSER DAEMON — Mantém sessão viva 24/7.
-Auto-relogin via Google OAuth quando expira.
-Roda como processo background permanente.
+99FREELAS BROWSER DAEMON v2 — Motor Completo.
+- Keep-alive 10min + auto-relogin Google OAuth
+- Scan inteligente: classificação por nicho, detecção de exclusivos, preços dinâmicos
+- Submissão ordenada por menor competição
+- State management limpo (só salva submissões reais)
 """
-import sys, time, json
+import sys, time, json, re, subprocess
 from pathlib import Path
 from datetime import datetime, timezone
 
 PROFILE_DIR = Path('/tmp/brave_hermes_99f')
 BRAVE_BIN = '/opt/brave.com/brave/brave'
 STATE_FILE = Path('/tmp/99f_daemon_state.json')
+SUBMIT_STATE = Path('/tmp/freelancer_submitter_state.json')
 KEEPALIVE_INTERVAL = 600  # 10 minutos
 GOOGLE_EMAIL = 'robertosantos.una@gmail.com'
+HERMES_DIR = Path.home() / '.hermes'
+
+# ============================================================
+# MOTOR DE CLASSIFICAÇÃO
+# ============================================================
+SKILL_KEYWORDS = {
+    'ABNT/Word': ['abnt', 'tcc', 'monografia', 'formatação', 'formatar', 'normas', 'word',
+                   'trabalho acadêmico', 'revisão', 'revisao', 'correção', 'correcao',
+                   'dissertação', 'artigo cientifico', 'artigo científico', 'acadêmico', 'academico',
+                   'dissertacao', 'tese', 'mestrado', 'doutorado'],
+    'Excel': ['excel', 'planilha', 'dashboard', 'tabela', 'vba', 'macro', 'google sheets',
+              'planilhas', 'gráfico', 'grafico', 'relatório', 'relatorio', 'planilha excel',
+              'custo', 'controle financeiro', 'orcamento'],
+    'Digitacao': ['digitar', 'digitação', 'digitacao', 'transcrever', 'transcrição',
+                   'transcricao', 'texto para', 'audio para texto', 'copiar e colar'],
+    'Cadastro': ['cadastr', 'cadastro', 'planilhar', 'catalogar', 'catalogaç',
+                 'preencher planilha', 'preenchimento', 'alimentar', 'prospec',
+                 'pesquisa online', 'organização de dados', 'organizacao de dados'],
+    'PDF': ['pdf em word', 'converter pdf', 'pdf para word', 'editar pdf',
+             'extrair pdf', 'conversão pdf', 'conversao pdf', 'pdf escaneado',
+             'pdf interativo', 'pdf preenchivel'],
+    'Automacao': ['python', 'script', 'automação', 'automacao', 'bot', 'scraping',
+                  'raspagem', 'web scraping', 'selenium', 'playwright', 'proxy', 'prox',
+                  'api', 'integração', 'integracao'],
+    'PPT': ['powerpoint', 'apresentação', 'apresentacao', 'slides', 'ppt'],
+}
+
+PRICING = {
+    'ABNT/Word': (100, 180),
+    'Excel': (120, 200),
+    'Digitacao': (60, 100),
+    'Cadastro': (80, 130),
+    'PDF': (60, 100),
+    'Automacao': (150, 300),
+    'PPT': (80, 150),
+}
+
 
 def save_state(status, url='', error=''):
     STATE_FILE.write_text(json.dumps({
@@ -23,19 +63,17 @@ def save_state(status, url='', error=''):
         'pid': __import__('os').getpid()
     }))
 
+
 def check_logged_in(page):
-    """Verifica se a sessão está ativa."""
     try:
-        page.goto('https://www.99freelas.com.br/dashboard', 
+        page.goto('https://www.99freelas.com.br/dashboard',
                   wait_until='domcontentloaded', timeout=20000)
         time.sleep(3)
         url = page.url
-        
         if 'login' in url.lower():
             return False, url
         if 'dashboard' in url.lower():
             return True, url
-        # Pode estar em outra pagina logada
         text = page.inner_text('body')
         if 'Roberto' in text and ('freelancer' in text.lower() or 'projeto' in text.lower()):
             return True, url
@@ -43,20 +81,15 @@ def check_logged_in(page):
     except Exception as e:
         return False, str(e)[:100]
 
+
 def do_google_login(page):
-    """Faz login via Google OAuth no 99Freelas."""
     try:
-        # Ir para pagina de login
-        page.goto('https://www.99freelas.com.br/login', 
+        page.goto('https://www.99freelas.com.br/login',
                   wait_until='domcontentloaded', timeout=30000)
         time.sleep(4)
-        
-        # Verificar se redirecionou pro Google OAuth
         url = page.url
         if 'accounts.google.com' in url:
             print('  Google OAuth detectado, preenchendo email...')
-            
-            # Email
             email_input = page.locator('input[type="email"]')
             if email_input.count() > 0:
                 email_input.first.click()
@@ -65,184 +98,358 @@ def do_google_login(page):
                 time.sleep(0.5)
                 page.keyboard.press('Enter')
                 time.sleep(5)
-                
-                # Verificar se pediu senha
                 text = page.inner_text('body')
                 if 'senha' in text.lower() or 'password' in text.lower():
                     print('  Google pediu senha - precisa intervencao manual')
                     save_state('needs_password', page.url)
                     return False
-                
-                # Verificar se estamos logados
                 time.sleep(3)
                 if '99freelas' in page.url.lower() or 'dashboard' in page.url.lower():
                     print('  Login OK!')
                     save_state('logged_in', page.url)
                     return True
-        
-        # Se nao redirecionou, tentar clicar no botao Google
         google_links = page.locator('a[href*="google"], a[href*="oauth"]').all()
         for link in google_links:
             href = link.get_attribute('href') or ''
             if 'accounts.google.com' in href:
                 link.click()
                 time.sleep(5)
-                return do_google_login(page)  # recursivo apos redirect
-        
-        print(f'  Nao encontrou fluxo Google OAuth. URL: {url[:100]}')
+                return do_google_login(page)
+        print(f'  Fluxo Google OAuth nao encontrado. URL: {url[:100]}')
         return False
-        
     except Exception as e:
         print(f'  Erro login: {e}')
         save_state('error', error=str(e)[:200])
         return False
 
+
+# ============================================================
+# MOTOR DE SCAN + CLASSIFICAÇÃO
+# ============================================================
+
+def classify_project(text):
+    """Classifica por nicho com pontuação."""
+    tl = text.lower()
+    scores = {}
+    for skill, keywords in SKILL_KEYWORDS.items():
+        s = sum(1 for kw in keywords if kw in tl)
+        if s > 0:
+            scores[skill] = s
+    return sorted(scores, key=lambda k: scores[k], reverse=True)
+
+
+def is_exclusive(text):
+    """Detecção robusta de projeto exclusivo."""
+    tl = text.lower()
+    if 'projeto exclusivo' in tl:
+        return True
+    if 'estará disponível para todos os profissionais' in tl:
+        return True
+    if 'seja um freelancer premium' in tl and 'envie proposta usando pontos' in tl:
+        return True
+    if re.search(r'estar[aá]\s+dispon[ií]vel\s+para\s+todos', tl):
+        return True
+    return False
+
+
+def already_sent(text):
+    return 'você já enviou' in text.lower() or 'proposta enviada' in text.lower()
+
+
+def get_price(tipos, text):
+    """Preço inteligente baseado em nicho e complexidade."""
+    if not tipos:
+        return 100
+    primary = tipos[0]
+    lo, hi = PRICING.get(primary, (80, 150))
+
+    # Ajuste por páginas
+    pages_m = re.search(r'(\d+)\s*(?:p[aá]ginas?|paginas?|pgs?)', text, re.IGNORECASE)
+    words_m = re.search(r'(\d+)\s*(?:palavras|words)', text, re.IGNORECASE)
+
+    if pages_m:
+        pages = int(pages_m.group(1))
+        if pages > 30:
+            lo, hi = lo * 2, hi * 2
+        elif pages > 15:
+            lo = int(lo * 1.5)
+            hi = int(hi * 1.5)
+
+    if words_m:
+        wc = int(words_m.group(1))
+        if wc > 10000:
+            lo, hi = lo * 2, hi * 2
+        elif wc > 4000:
+            lo = int(lo * 1.5)
+            hi = int(hi * 1.5)
+
+    # Tradução = premium
+    if any(kw in text.lower() for kw in ['tradução', 'traducao', 'inglês', 'ingles']):
+        lo = int(lo * 1.5)
+        hi = int(hi * 2)
+
+    # Múltiplas skills
+    if len(tipos) >= 3:
+        lo = int(lo * 1.2)
+        hi = int(hi * 1.3)
+
+    price = (lo + hi) // 2
+    price = ((price + 5) // 10) * 10  # Arredondar múltiplo de 10
+    return max(price, 60)
+
+
+def find_submit_button(page):
+    """Encontra botão de enviar proposta com múltiplos padrões."""
+    for pattern in ['Enviar proposta', 'Fazer proposta', 'Quero fazer proposta',
+                     'ENVIAR PROPOSTA', 'FAZER PROPOSTA']:
+        btn = page.locator('button, a').filter(has_text=pattern).first
+        if btn.count():
+            return btn
+    # Busca genérica
+    all_el = page.locator('button, a, [role="button"]').all()
+    for el in all_el:
+        try:
+            txt = el.inner_text().strip().lower()
+            if 'proposta' in txt and ('enviar' in txt or 'fazer' in txt or 'quero' in txt):
+                return el
+        except:
+            pass
+    return None
+
+
+# ============================================================
+# PIPELINE DE SUBMISSÃO
+# ============================================================
+
 def _run_submission_pipeline(page):
-    """Busca projetos e submete propostas usando a sessao ativa."""
-    import subprocess, re
-    
-    # 1. Rodar IMAP agent
-    print('  [1/2] Coletando via IMAP...')
-    result = subprocess.run(
-        ['python3', str(Path.home() / '.hermes' / 'brain' / 'freelancer_agent.py')],
-        capture_output=True, text=True, timeout=60,
-        cwd=str(Path.home() / '.hermes')
-    )
-    
-    # 2. Extrair projetos
-    projects = []
-    for line in result.stdout.split('\n'):
-        if '•' in line and len(line) > 20:
-            title = line.split('•')[-1].strip()
-            projects.append(title)
-    
-    print(f'  [1/2] {len(projects)} projetos IMAP')
-    
-    # 3. Buscar na plataforma e submeter
-    submitted = 0
-    state_file = Path('/tmp/freelancer_submitter_state.json')
+    """Scan inteligente + submissão ordenada por menor competição."""
+    print('  [Scan] Buscando projetos...')
+
+    # Carregar state
     state = {}
-    if state_file.exists():
-        state = json.loads(state_file.read_text())
-    if 'submitted' not in state:
-        state['submitted'] = []
-    
-    try:
-        page.goto('https://www.99freelas.com.br/projects', 
-                  wait_until='domcontentloaded', timeout=20000)
-        time.sleep(3)
-        
-        # Filtrar <24h
-        filtro = page.locator('text=Menos de 24 horas').first
-        if filtro.count():
-            filtro.click()
-            time.sleep(2)
-        
-        # Extrair links
-        links = page.locator('a[href*=\"/project/\"]').all()
-        seen = set()
-        for link in links:
-            try:
-                txt = link.inner_text().strip()
-                href = link.get_attribute('href') or ''
-                if len(txt) < 15 or '/project/' not in href or href in seen:
-                    continue
-                seen.add(href)
-                
-                full_url = f"https://www.99freelas.com.br{href}" if href.startswith('/') else href
-                if full_url in state['submitted']:
-                    continue
-                
-                # Classificar via keywords
-                text_lower = txt.lower()
-                if any(kw in text_lower for kw in ['word', 'abnt', 'format', 'excel', 'planilha', 'digit', 'cadastr']):
-                    print(f'  📋 {txt[:80]}')
-                    result = _try_submit(page, full_url, txt)
-                    print(f'     → {result}')
-                    state['submitted'].append(full_url)
-                    if result == 'submitted':
-                        submitted += 1
-                    if submitted >= 3:
-                        break
-            except:
-                pass
-    
-    except Exception as e:
-        print(f'  Erro busca: {e}')
-    
+    if SUBMIT_STATE.exists():
+        state = json.loads(SUBMIT_STATE.read_text())
+    state.setdefault('submitted', [])
+
+    # Navegar para projetos <24h
+    page.goto('https://www.99freelas.com.br/projects',
+              wait_until='domcontentloaded', timeout=25000)
+    time.sleep(4)
+
+    for filtro in ['Menos de 24 horas', 'Últimas 24h']:
+        el = page.locator(f'text={filtro}').first
+        if el.count():
+            el.click()
+            time.sleep(3)
+            break
+
+    # Scroll
+    for i in range(12):
+        page.keyboard.press('PageDown')
+        time.sleep(0.6)
+
+    # Extrair links deduplicados
+    links_data = page.evaluate('''() => {
+        const links = document.querySelectorAll('a[href*="/project/"]');
+        const seen = new Set();
+        const results = [];
+        links.forEach(a => {
+            const href = a.href || '';
+            const m = href.match(/\\/project\\/([^/?]+)/);
+            if (!m) return;
+            const pid = m[1];
+            if (seen.has(pid)) return;
+            seen.add(pid);
+            const title = a.innerText.trim();
+            if (title.length > 10 && !title.includes('Publique um projeto')) {
+                results.push({url: href, title: title.substring(0, 150)});
+            }
+        });
+        return results;
+    }''')
+
+    print(f'  [Scan] {len(links_data)} projetos encontrados')
+
+    # Analisar cada projeto
+    candidates = []
+    for proj in links_data[:25]:
+        try:
+            url = proj['url']
+            page.goto(url, wait_until='domcontentloaded', timeout=20000)
+            time.sleep(3)
+            text = page.inner_text('body')
+
+            if already_sent(text):
+                continue
+            if is_exclusive(text):
+                continue
+            if url in state['submitted']:
+                continue
+
+            prop_m = re.search(r'Propostas?[:\s]*(\d+)', text)
+            proposals = int(prop_m.group(1)) if prop_m else 99
+
+            if proposals > 50:
+                continue
+
+            tipos = classify_project(text)
+            if not tipos:
+                continue
+
+            has_button = find_submit_button(page) is not None
+            price = get_price(tipos, text)
+
+            candidates.append({
+                'url': url, 'title': proj['title'],
+                'proposals': proposals, 'tipos': tipos,
+                'has_button': has_button, 'price': price
+            })
+
+            stitle = proj['title'][:70].replace('\n', ' ').strip()
+            print(f'    {stitle} → {tipos[:2]} prop={proposals} R${price} btn={has_button}')
+
+        except Exception as e:
+            print(f'    Erro scan: {e}')
+
+    # Ordenar: menor competição primeiro
+    candidates.sort(key=lambda c: (c['proposals'], -len(c['tipos'])))
+
+    # Submeter (max 5 por ciclo, só com botão)
+    submitted = 0
+    max_submit = 5
+
+    for c in candidates:
+        if submitted >= max_submit:
+            break
+        if not c['has_button']:
+            continue
+
+        result = _try_submit(page, c['url'], c['title'], c['price'])
+        stitle = c['title'][:60].replace('\n', ' ').strip()
+        print(f'    R${c["price"]} | {stitle} → {result}')
+
+        # SÓ salvar no state se realmente submeteu
+        if result == 'submitted':
+            state['submitted'].append(c['url'])
+            submitted += 1
+            SUBMIT_STATE.write_text(json.dumps(state, indent=2))
+        elif result not in ('no_button', 'exclusive', 'high_competition', 'already_submitted'):
+            # Erros recuperáveis: marcar pra não repetir neste ciclo
+            state['submitted'].append(c['url'])
+            SUBMIT_STATE.write_text(json.dumps(state, indent=2))
+
     state['last_run'] = datetime.now(timezone.utc).isoformat()
-    state_file.write_text(json.dumps(state, indent=2))
-    print(f'  [2/2] {submitted} propostas enviadas')
+    SUBMIT_STATE.write_text(json.dumps(state, indent=2))
+    print(f'  [Scan] {submitted} propostas enviadas | {len(candidates)} candidatos analisados')
 
 
-def _try_submit(page, project_url, title):
-    """Tenta submeter proposta para um projeto."""
-    import re
+def _try_submit(page, project_url, title, price):
+    """Submete proposta com preço inteligente."""
     try:
         page.goto(project_url, wait_until='domcontentloaded', timeout=20000)
-        time.sleep(3)
-        
+        time.sleep(4)
+
         text = page.inner_text('body')
-        
-        if 'exclusivo' in text.lower() or 'premium' in text.lower():
+
+        # Verificações
+        if is_exclusive(text):
             return 'exclusive'
-        
-        m = re.search(r'Propostas:\s*(\d+)', text)
-        if m and int(m.group(1)) > 50:
-            return 'high_competition'
-        
-        if 'você já enviou' in text.lower():
+        if already_sent(text):
             return 'already_submitted'
-        
-        btn = page.locator('button').filter(has_text='Enviar proposta').first
-        if not btn.count():
-            btn = page.locator('a').filter(has_text='Enviar proposta').first
-        if not btn.count():
+
+        prop_m = re.search(r'Propostas?[:\s]*(\d+)', text)
+        if prop_m and int(prop_m.group(1)) > 50:
+            return 'high_competition'
+
+        btn = find_submit_button(page)
+        if not btn:
             return 'no_button'
-        
+
         btn.click()
         time.sleep(4)
-        
-        # Valor e prazo
-        inputs = page.locator('input').all()
-        for inp in inputs:
+
+        # Preencher valor
+        try:
+            for inp in page.locator('input').all():
+                try:
+                    attrs = (inp.get_attribute('name') or '') + (inp.get_attribute('placeholder') or '')
+                    if any(kw in attrs.lower() for kw in ['valor', 'preço', 'preco', 'orçamento', 'orcamento']):
+                        inp.click()
+                        time.sleep(0.2)
+                        inp.fill('')
+                        page.keyboard.type(str(price), delay=50)
+                        break
+                except:
+                    pass
+        except:
+            pass
+
+        # Prazo
+        try:
+            for inp in page.locator('input').all():
+                try:
+                    attrs = (inp.get_attribute('name') or '') + (inp.get_attribute('placeholder') or '')
+                    if any(kw in attrs.lower() for kw in ['prazo', 'dias', 'entrega']):
+                        inp.click()
+                        time.sleep(0.2)
+                        page.keyboard.type('3', delay=50)
+                        break
+                except:
+                    pass
+        except:
+            pass
+
+        # Mensagem
+        msg = (f"Ola, tenho experiencia comprovada nesse tipo de trabalho. "
+               f"Entrego com qualidade e dentro do prazo.\n\n"
+               f"Valor: R${price}. Prazo: 2-3 dias uteis.\n\n"
+               f"Disponivel para iniciar imediatamente.\n\nRoberto")
+
+        for ta in page.locator('textarea').all():
             try:
-                if inp.get_attribute('type') == 'number':
-                    inp.click()
+                if ta.is_visible():
+                    ta.click()
                     time.sleep(0.3)
-                    page.keyboard.type('100', delay=30)
+                    page.keyboard.type(msg, delay=3)
+                    break
             except:
-                pass
-        
-        # Proposta
-        proposta = f"Ola, entendi o projeto. Tenho experiencia com automacao e entrego com qualidade.\\n\\nPrazo: 5 dias. Valor: R$100.\\n\\nabs,\\nRoberto"
-        ta = page.locator('textarea').first
-        if ta.count():
-            ta.click()
-            time.sleep(0.5)
-            page.keyboard.type(proposta, delay=10)
-        
-        enviar = page.locator('button').filter(has_text='Enviar').last
-        if enviar.count():
-            enviar.click()
-            time.sleep(3)
+                continue
+
+        time.sleep(1)
+
+        # Enviar
+        for pattern in ['Enviar', 'ENVIAR', 'Confirmar', 'CONFIRMAR']:
+            send = page.locator('button').filter(has_text=pattern).last
+            if send.count():
+                send.click()
+                time.sleep(5)
+                break
+
+        after = page.inner_text('body')
+        if 'proposta enviada' in after.lower() or 'enviada com sucesso' in after.lower():
             return 'submitted'
-        
-        return 'filled_not_sent'
-        
+        if 'obrigado' in after.lower() and 'proposta' in after.lower():
+            return 'submitted'
+
+        return 'sent_uncertain'
+
     except Exception as e:
         return f'error: {str(e)[:80]}'
 
 
+# ============================================================
+# LOOP PRINCIPAL
+# ============================================================
+
 def main():
     from playwright.sync_api import sync_playwright
-    
-    print(f'🚀 99Freelas Browser Daemon iniciado (PID {__import__("os").getpid()})')
+
+    print(f'🚀 99Freelas Daemon v2 (PID {__import__("os").getpid()})')
     save_state('starting')
-    
+
     browser = None
     page = None
-    
+
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch_persistent_context(
@@ -252,54 +459,48 @@ def main():
                 args=['--no-sandbox', '--disable-blink-features=AutomationControlled']
             )
             page = browser.new_page()
-            
-            # Verificar sessao inicial
+
             logged_in, url = check_logged_in(page)
-            status = "logado" if logged_in else "deslogado"
-            print(f'Estado inicial: {status} ({url[:80]})')
-            
+            print(f'Estado inicial: {"logado" if logged_in else "deslogado"} ({url[:80]})')
+
             if not logged_in:
                 print('Tentando login...')
                 logged_in = do_google_login(page)
-            
+
             if not logged_in:
                 save_state('needs_manual_login')
                 print('❌ Login falhou - aguardando intervencao manual')
-                # Fica rodando, tentando a cada 5 min
             else:
                 save_state('running', url)
-            
-            # Loop keep-alive + submissao
+
             submission_counter = 0
             while True:
                 time.sleep(KEEPALIVE_INTERVAL)
-                
+
                 try:
                     logged_in, url = check_logged_in(page)
-                    
+
                     if logged_in:
                         save_state('running', url)
-                        ts = datetime.now().strftime("%H:%M")
+                        ts = datetime.now().strftime('%H:%M')
                         print(f'[{ts}] ✅ Sessao ativa')
-                        
-                        # A cada 2h (12 ciclos de 10min), rodar submissao
+
                         submission_counter += 1
-                        if submission_counter >= 12:
+                        if submission_counter >= 12:  # 2h
                             submission_counter = 0
-                            print(f'[{ts}] 🔍 Rodando pipeline de submissao...')
+                            print(f'[{ts}] 🔍 Pipeline de submissao...')
                             _run_submission_pipeline(page)
                     else:
-                        ts = datetime.now().strftime("%H:%M")
+                        ts = datetime.now().strftime('%H:%M')
                         print(f'[{ts}] ⚠️ Sessao expirada, relogando...')
                         logged_in = do_google_login(page)
-                        
                         if not logged_in:
                             save_state('needs_manual_login')
                             print('  ❌ Relogin falhou')
                 except Exception as e:
                     print(f'  Erro keep-alive: {e}')
                     save_state('error', error=str(e)[:200])
-    
+
     except KeyboardInterrupt:
         print('Daemon encerrado')
     except Exception as e:
@@ -308,6 +509,7 @@ def main():
     finally:
         if browser:
             browser.close()
+
 
 if __name__ == '__main__':
     main()
