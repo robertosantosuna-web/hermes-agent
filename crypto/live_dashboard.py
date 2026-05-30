@@ -73,14 +73,31 @@ def build_dashboard(trader):
     # Saldo
     spot_bal = trader.get_balance('USDT')
     margin_bal = trader._get_margin_balance('USDT')
-    total = spot_bal + margin_bal
+    futures_bal = 0.0
+    # Tentar ler futures via CDP se disponível
+    try:
+        state = load_json(Path.home() / '.hermes' / 'crypto' / 'daemon_state.json', {})
+        if state.get('mode') == 'futures_cdp':
+            from cdp_futures import CDPFuturesExecutor
+            ex = CDPFuturesExecutor()
+            ex._connect('BNBUSDT')
+            futures_bal = ex.get_balance()
+            ex.close()
+    except:
+        pass
+    total = spot_bal + margin_bal + futures_bal
     
     # Preço BTC
     btc_price = trader.get_price('BTCUSDT')
     eth_price = trader.get_price('ETHUSDT')
     
+    balance_text = f"💰 Spot: ${spot_bal:.2f}  Margin: ${margin_bal:.2f}"
+    if futures_bal > 0:
+        balance_text += f"  Futures: ${futures_bal:.2f}"
+    balance_text += f"  Total: ${total:.2f}"
+    
     header.add_row(
-        f"💰 Spot: ${spot_bal:.2f}  Margin: ${margin_bal:.2f}  Total: ${total:.2f}",
+        balance_text,
         f"₿ ${btc_price:,.0f}  Ξ ${eth_price:,.2f}",
         f"🕐 {now}"
     )
