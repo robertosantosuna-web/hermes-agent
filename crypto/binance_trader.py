@@ -398,6 +398,15 @@ class BinanceTrader:
                                       price=str(tp1_r))
                     print(f"  ✅ TP1 50% @{tp1_r} (1:1): {tp1}")
                     
+                    # Recalcular OCO com saldo RESTANTE após TP1
+                    acct2 = self._request('GET', '/sapi/v1/margin/account', signed=True)
+                    free2 = 0.0
+                    for a in acct2.get('userAssets', []):
+                        if a['asset'] == base:
+                            free2 = float(a['free'])
+                    rem_qty = self.round_to_step(free2 * 0.97, step_size, use_floor=True)
+                    rem_qty_str = f'{rem_qty:.6f}'.rstrip('0').rstrip('.')
+                    
                     oco = self._request('POST', '/sapi/v1/margin/order/oco', signed=True,
                                       symbol=symbol, side='SELL', quantity=rem_qty_str,
                                       price=str(tp_r), stopPrice=str(sl_r),
@@ -436,7 +445,7 @@ class BinanceTrader:
         """Short via Cross Margin: empréstimo + venda + parcial (50% @1:1, 50% @3:1)."""
         base_asset = symbol.replace('USDT', '')
         qty = float(quantity)
-        half_qty = self.round_to_step(qty / 2, self.get_symbol_info(symbol).get('step_size', 0.00001))
+        half_qty = self.round_to_step(qty / 2, self.get_symbol_info(symbol).get('step_size', 0.00001), use_floor=True)
         half_qty_str = f'{half_qty:.6f}'.rstrip('0').rstrip('.')
         
         try:
@@ -470,14 +479,20 @@ class BinanceTrader:
                               price=str(tp1_r))
             print(f"  ✅ TP1 50% @{tp1_r} (1:1): {tp1}")
             
-            # 3. OCO: SL + TP2 (50% restante @ 3:1)
+            # Recalcular OCO com saldo RESTANTE
+            # Para short: verificar USDT disponível após TP1 reservar
+            # Usar metade do quantity original (a posição foi split 50/50)
+            oco_qty = self.round_to_step(qty * 0.48, self.get_symbol_info(symbol).get('step_size', 0.00001), use_floor=True)
+            oco_qty_str = f'{oco_qty:.6f}'.rstrip('0').rstrip('.')
+            
+            # 3. OCO: SL + TP2 (restante @ 3:1)
             oco = self._request('POST', '/sapi/v1/margin/order/oco', signed=True,
-                              symbol=symbol, side='BUY', quantity=half_qty_str,
+                              symbol=symbol, side='BUY', quantity=oco_qty_str,
                               price=str(tp_r), stopPrice=str(sl_r),
                               stopLimitPrice=str(sl_r),
                               stopLimitTimeInForce='GTC',
                               sideEffectType='AUTO_REPAY')
-            print(f"  ✅ OCO 50%: SL={sl_r} TP={tp_r}")
+            print(f"  ✅ OCO {oco_qty_str}: SL={sl_r} TP={tp_r}")
             
             return {'loan': loan, 'sell': sell, 'tp1': tp1, 'oco': oco, 'partial': True}
         except Exception as e:
