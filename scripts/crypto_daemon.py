@@ -107,20 +107,35 @@ def calculate_sl_tp(entry, atr_pct, direction, sl_recommend=None):
     return entry + sp, entry - sp * RR, sl_pct
 
 def scan_all_pairs():
-    """Scanner completo: analisa TODOS os 4 pares, retorna o melhor sinal."""
+    """Scanner completo: analisa TODOS os pares na ordem de favorabilidade, retorna o melhor sinal."""
     f = get_feed()
     ag = get_agent()
     selector = CryptoPairSelector(max_pairs=4)
     
+    # ═══ PASSO 1: Pair selector ranqueia pares por favorabilidade ═══
+    ranked = selector.select_best_pairs()
+    
+    if not ranked:
+        # Seletor não encontrou pares viáveis, testar todos como fallback
+        ranked = [{'pair': p['pair'], 'sym': p['sym'], 'pip': p['pip'], 
+                    'direction': 'NEUTRAL', 'score': 0} for p in ALL_PAIRS]
+    
     best_signal = None
     best_score = -999
     
-    for p in ALL_PAIRS:
-        pair = p['pair']
+    # ═══ PASSO 2: Scannear na ORDEM do ranking (melhor primeiro) ═══
+    for r in ranked:
+        pair = r['pair']
+        pip = r.get('pip', 0.1)
+        preferred_dir = r.get('direction', 'NEUTRAL')
         
-        # Verificar se pode abrir trade neste par+direção
-        # Tentamos BUY primeiro, depois SELL
-        for direction in ['BUY', 'SELL']:
+        # Direções a testar: preferida do seletor primeiro, depois a outra
+        if preferred_dir != 'NEUTRAL':
+            test_dirs = [preferred_dir, 'SELL' if preferred_dir == 'BUY' else 'BUY']
+        else:
+            test_dirs = ['BUY', 'SELL']
+        
+        for direction in test_dirs:
             can, reason = selector.can_open_trade(pair, direction)
             if not can:
                 continue  # Bloqueado por IR gate
@@ -155,7 +170,7 @@ def scan_all_pairs():
                     continue  # Direção contra bias, pula
                 
                 decision, conf, sig, info = ag.analyze(
-                    pair, h, l, c, o, direction, p['pip'],
+                    pair, h, l, c, o, direction, pip,
                     None, MIN_CONFIDENCE, v, daily_levels
                 )
                 
@@ -176,7 +191,7 @@ def scan_all_pairs():
                     best_score = score
                     best_signal = {
                         'pair': pair,
-                        'sym': p['sym'],
+                        'sym': r['sym'],
                         'direction': decision,
                         'entry': float(entry),
                         'sl': float(sl),
