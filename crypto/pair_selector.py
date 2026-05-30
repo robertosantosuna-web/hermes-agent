@@ -133,14 +133,15 @@ class CryptoPairSelector:
         Backtest v10: DOGE SELL=96%, ETH SELL=92%, BNB BUY=59%.
         WR é o fator MAIS IMPORTANTE — domina sobre tier/volatilidade."""
         wr_data = {
+            # Atualizado 30/05 — backtest v2 30d (92 trades, OB+FVG+Breaker)
             ('DOGEUSD', 'SELL'): 96,
             ('ETHUSD', 'SELL'): 92,
             ('BTCUSD', 'SELL'): 67,
             ('ETHUSD', 'BUY'): 70,
             ('BNBUSD', 'SELL'): 65,
-            ('BNBUSD', 'BUY'): 59,   # Atualizado v10 (era 50)
-            ('DOGEUSD', 'BUY'): 40,
-            ('BTCUSD', 'BUY'): 39,   # Tóxico
+            ('BNBUSD', 'BUY'): 61,   # 30/05: subiu de 59
+            ('DOGEUSD', 'BUY'): 61,   # 30/05: subiu de 40!
+            ('BTCUSD', 'BUY'): 39,    # Ainda tóxico
         }
         wr = wr_data.get((pair, direction), 50)
         

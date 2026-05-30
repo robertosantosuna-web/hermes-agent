@@ -367,18 +367,85 @@ class AdvancedPatternDetector:
         
         return best, best_score
     
+    def find_breaker(self, highs, lows, closes, direction):
+        """Breaker: quebra de estrutura + reteste.
+        BUY: rompe resistencia anterior, volta testar como suporte.
+        SELL: rompe suporte anterior, volta testar como resistencia."""
+        n = len(highs)
+        if n < 40:
+            return None, 0
+        
+        current = closes[-1]
+        ms = self.structure.analyze(highs, lows, closes)
+        
+        best, best_score = None, 0
+        
+        # Encontrar swing highs/lows recentes (últimos 200 candles)
+        lookback = min(200, n - 5)
+        swings_high = []
+        swings_low = []
+        for i in range(n-lookback, n-3):
+            if highs[i] > highs[i-1] and highs[i] > highs[i+1]:
+                swings_high.append((i, highs[i]))
+            if lows[i] < lows[i-1] and lows[i] < lows[i+1]:
+                swings_low.append((i, lows[i]))
+        
+        for i in range(n-3, n-40, -1):
+            if direction == 'BUY':
+                # Preço rompeu resistência (swing high) e voltou pra testar
+                for si, sh in swings_high[-5:]:
+                    if si >= i: continue
+                    if closes[i] <= sh * 1.002: continue  # Não rompeu
+                    if current > sh * 1.01: continue  # Muito longe
+                    if current < sh * 0.995: continue  # Já caiu abaixo
+                    
+                    score = 55 + (sh - current) / sh * 1000
+                    if score > best_score:
+                        best_score = score
+                        best = {
+                            'type': 'BREAKER',
+                            'entry': sh,
+                            'idx': i,
+                            'quality': score,
+                            'impulse_ratio': 1.5,
+                        }
+            else:  # SELL
+                for si, sl_val in swings_low[-5:]:
+                    if si >= i: continue
+                    if closes[i] >= sl_val * 0.998: continue  # Não rompeu
+                    if current < sl_val * 0.99: continue
+                    if current > sl_val * 1.005: continue
+                    
+                    score = 55 + (current - sl_val) / sl_val * 1000
+                    if score > best_score:
+                        best_score = score
+                        best = {
+                            'type': 'BREAKER',
+                            'entry': sl_val,
+                            'idx': i,
+                            'quality': score,
+                            'impulse_ratio': 1.5,
+                        }
+        
+        return best, best_score
+    
     def find_best_pattern(self, highs, lows, closes, opens, direction, volumes=None, daily_levels=None):
-        """Encontra melhor padrão testando OB e FVG."""
-        # Tentar Order Block primeiro (mais preciso)
+        """Encontra melhor padrão testando OB, FVG e Breaker."""
+        # Tentar Order Block (mais preciso)
         ob, ob_score = self.find_order_block(highs, lows, closes, opens, direction, volumes, daily_levels)
         
         # Tentar FVG
         fvg, fvg_score = self.find_fvg(highs, lows, closes, direction, volumes, daily_levels)
         
+        # Tentar Breaker
+        brk, brk_score = self.find_breaker(highs, lows, closes, direction)
+        
         # Retornar o melhor
-        if ob and fvg:
-            return (ob, ob_score) if ob_score >= fvg_score else (fvg, fvg_score)
-        return (ob, ob_score) if ob else (fvg, fvg_score) if fvg else (None, 0)
+        patterns = [(ob, ob_score), (fvg, fvg_score), (brk, brk_score)]
+        patterns = [(p, s) for p, s in patterns if p is not None]
+        if not patterns:
+            return None, 0
+        return max(patterns, key=lambda x: x[1])
     
     def get_market_context(self, highs, lows, closes):
         ms = self.structure.analyze(highs, lows, closes)

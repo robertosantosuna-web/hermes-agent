@@ -194,10 +194,10 @@ class CryptoConfluencia:
         
         self.weights = {
             'volatilidade': 0.8,
-            'tendencia': 2.5,
-            'padrao': 2.0,
+            'tendencia': 1.5,  # Reduzido (era 2.5) — filtro, não motor
+            'padrao': 3.0,     # Aumentado (era 2.0) — 62.5% WR comprovado
             'sessao': 0.5,
-            'fluxo': 1.0
+            'fluxo': 1.0,
         }
     
     def analyze(self, pair, highs, lows, closes, opens, daily_bias, pip_size,
